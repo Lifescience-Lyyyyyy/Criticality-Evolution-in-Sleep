@@ -106,17 +106,24 @@
       "input": "data/fixtures/mouse_population_40ms.mat"
     },
     {
-      "experiment_id": "zebra-44560423598",
+      "experiment_id": "zebra-reanalysis-44582662548",
       "stage": "zebra",
-      "status": "PASS",
-      "run": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44560423598",
-      "project_commit": "d4d452960c93549259a4d33a7e20d8441dfe7a98",
+      "status": "DIAGNOSTIC_ONLY_STRICT_BLOCKED",
+      "gates": {
+        "A_state_labels": "PASS",
+        "B_strict_selection": "BLOCKED_INSUFFICIENT_GOOD_UNITS",
+        "C_historical_d2": "PASS",
+        "D_bursts": "PASS",
+        "E_reporting": "PASS_DIAGNOSTIC_SCOPE"
+      },
+      "run": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44582662548",
+      "project_commit": "514b6e54d12afb3d89be41805dc0857deec186e1",
       "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
       "matlab": "24.2.0.3361896 (R2024b) Update 10",
-      "timestamp_utc": "2026-11-19T15:59:18Z",
-      "elapsed_seconds": 8.41333,
-      "seed": 2026,
+      "timestamp_utc": "2026-11-19T18:02:48Z",
+      "elapsed_seconds": 199.634192,
       "source_version": "514c6f43effed69a9857332af1f1e10990523661",
+      "source_supplement_manifest": "manifests/zebra-reanalysis-sources.json",
       "settings": {
         "minimum_state_seconds": 120,
         "primary_bin_seconds": 0.04,
@@ -125,6 +132,17 @@
         "wake_sound_code": 1,
         "sws_code": 3,
         "seed": 2026,
+        "reanalysis": {
+          "schema_version": 2,
+          "repetitions": 100,
+          "window_seconds": 60,
+          "minimum_good_units": 2,
+          "maximum_contamination_percent": 10,
+          "refractory_seconds": 0.0015,
+          "maximum_refractory_fraction": 0.01,
+          "rate_matching_caliper_fraction": 0.1,
+          "time_matching_caliper_seconds": 600
+        },
         "recordings": [
           {
             "bird": "ZF1",
@@ -161,23 +179,47 @@
         ]
       },
       "results": "results/zebra_finch/lman.json",
-      "results_sha256": "50021b46b0a90c3856978c2b601a896092a9bc08093e1ace2df9193fae121bdc",
-      "github_artifact_id": 14550030291,
-      "github_artifact_sha256": "eab8654eaacd9b6c8017aec97fd520789133e3faf6dc3ee6b056a3cc0a904f0f",
+      "schema_version": 2,
+      "results_sha256": "538d8bfee659681b0feef9d5878cd7bc35727a7cac3da00ba8d584344b42522c",
+      "github_artifact_id": 14560137323,
+      "github_artifact_sha256": "c02ef2d3b772cc9daab921c4539acd14da45d2298bf1fa34088001f599ef0d09",
       "input_manifest": "manifests/zebra-finch-preparation.json",
       "input": "data/fixtures/zebra_lman_population.mat",
-      "paired_sws_minus_wake": {
-        "ZF1": 0.164225790920296,
-        "ZF2": -0.10246367894350672,
-        "mean": 0.030881055988394635,
-        "observed_range": [
-          -0.10246367894350672,
-          0.164225790920296
-        ],
-        "nominal_paired_normal_t_95_percent_interval": [
-          -1.6634244465239947,
-          1.7251865585007842
-        ]
+      "input_sha256": "537ea61e67b793d2a368f39d38a323c9a39bc811961dd69b93d2e5e726f37e9f",
+      "control_fits": 1200,
+      "window_fits": 70,
+      "figure_environment": {
+        "platform": "Colab CPU",
+        "python": "3.13.18",
+        "matplotlib": "3.10.0",
+        "numpy": "2.4.6",
+        "scipy": "1.16.3"
+      },
+      "figures": {
+        "figures/zebra_finch/lman_burst_d2.pdf": "033c728498afbb739c1289cd944d3f508cb674b367590a7771b59153a9ce5169",
+        "figures/zebra_finch/lman_burst_d2.png": "1b10787ba21a26d1fe98ddb91d511793fff095fac50ea06713f3d86419b32779",
+        "figures/zebra_finch/lman_burst_d2.svg": "8ef08c1c102b201e58d85c2ae08759133c15af9d0db45cfe3e659d6f900da7d8",
+        "figures/zebra_finch/lman_burst_statistics.pdf": "b8058c4abe28d2e32b90cd24951c92b5c6fb290c65e24a51672f7d2f3bc631a6",
+        "figures/zebra_finch/lman_burst_statistics.png": "3560def62296e3007d87f6ae3a904d408e448090218626e08e866bc70a3d3291",
+        "figures/zebra_finch/lman_burst_statistics.svg": "cabb7be461c3303744e737117e5dce73f04e7c31d056036918427d2ee3d47388",
+        "figures/zebra_finch/lman_firing_statistics.pdf": "33bc5517f958e62e475e36a4eaa878d827546070f421658b54e87fbf04d7faa6",
+        "figures/zebra_finch/lman_firing_statistics.png": "7cb0fc669fc00374bcb9f791c486cf5ca49109feca983d6de19906ce3e67aa6c",
+        "figures/zebra_finch/lman_firing_statistics.svg": "edc54655fa8a0d89e4934ed70b7ce91703972eeb84761c0f52fbe33d3ab5878b",
+        "figures/zebra_finch/lman_sensitivity.pdf": "ea67476c3eafa79828e725ac517ab400dc157a9c63792a25fca49c17ebe7433a",
+        "figures/zebra_finch/lman_sensitivity.png": "156435fb0c8cbaf22ec9d11e059650fcb5a83a86c352888ae47830340eba24ad",
+        "figures/zebra_finch/lman_sensitivity.svg": "477f46cc018ed0b373e4c9065a0f285f61fe119b8e3cd5f5023dbb0eea5ac2fc",
+        "figures/zebra_finch/lman_state_comparison.pdf": "48c55508692dfebfb46675025979a7495f1bf68bd8cc9b4e8c8ffdf9b3a4978a",
+        "figures/zebra_finch/lman_state_comparison.png": "99f4880ff2bb85a45cdc5cc9a7cf5db08c300f5ff7599a592a2c7df08ccb5921",
+        "figures/zebra_finch/lman_state_comparison.svg": "0578b13fb26b41ceab93b0bcfb3ea90452c95f4cb90d67c221e77b50aeb72ccb"
+      },
+      "historical": {
+        "status": "SUPERSEDED_NOT_VALIDATED",
+        "tag": "pre-zebra-reanalysis-20261120",
+        "archive_commit": "ae1ec2cf473cff6efa3a5296c74a766bba0eb37c",
+        "original_run": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44560423598",
+        "exact_repeat_run": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44578774922",
+        "exact_primary": 4,
+        "exact_diagnostics": 24
       }
     }
   ]

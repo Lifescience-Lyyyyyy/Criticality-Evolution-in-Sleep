@@ -2,7 +2,7 @@
 
 ## 历史基线
 
-重分析前的主分支为 `ae1ec2cf473cff6efa3a5296c74a766bba0eb37c`，已保存为 `pre-zebra-reanalysis-20261120`。旧版的斑胸草雀准备清单、结果、三份正文报告和 `lman_wake_sws` 图可通过该标签取回。旧版原始计数文件的 SHA-256 为 `9671a3a9fdf52d46635a7015552d7e8c340f432a32c455d8b30af66e7d0ad110`。旧版 MATLAB 使用全部非噪声分群，主体为 MUA，包括两类状态与各一次随机匹配。原配置的云端复算已触发，闸门 C 以结果文件逐项对照为准。[历史标签](https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/tree/pre-zebra-reanalysis-20261120) · [历史复算](https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44578774922)
+重分析前的主分支为 `ae1ec2cf473cff6efa3a5296c74a766bba0eb37c`，已保存为 `pre-zebra-reanalysis-20261120`。旧版的斑胸草雀准备清单、结果、三份正文报告和 `lman_wake_sws` 图可通过该标签取回。旧版原始计数文件的 SHA-256 为 `9671a3a9fdf52d46635a7015552d7e8c340f432a32c455d8b30af66e7d0ad110`。旧版 MATLAB 使用全部非噪声分群，主体为 MUA，包括两类状态与各一次随机匹配。旧版标记为 SUPERSEDED / NOT VALIDATED，历史数值可复算。[历史标签](https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/tree/pre-zebra-reanalysis-20261120) · [历史复算](https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44578774922)
 
 **闸门 C PASS。** 从历史标签启动的 GitHub Actions 复算文件已独立下载并校验。按鸟、状态和变体对齐后，4 个历史主估计和 24 个优化诊断估计全部逐数相等，最大绝对差为 0。[复算记录](https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44578774922)
 
@@ -28,7 +28,7 @@ ZF1 的会话 TSV 所示条件与程序路径、AP 时刻和评分长度交叉�
 | ZF2 睡眠 | 0 | 32 | 6 | 0 |
 | ZF2 亮灯 | 0 | 31 | 1 | 0 |
 
-各表还提供发放率、幅度与 Kilosort 污染值，完整记录级生理隔离和跨录制单元稳定性证据缺失。严格群体要求人工标记 `good`、正发放率、估计污染不超过 10%，并核查 1.5 ms 内的不应期违例比例。睡眠和亮灯每种状态至少需要两个有活动的合格单元。仅凭原始标签已可确定严格群体的三种配对均 **BLOCKED**。宽口径敏感性支路明确复用作者公开代码的 `group != noise` 且发放率大于零，允许 MUA。共享探针表支持脑区映射核验，无法据此跟踪单元身份。[作者加载源码](https://gin.g-node.org/E4-Leblois/npx_sleep_2024/src/master/code/UtilsMatlab/inputOutput/loadSpikes.m)
+各表还提供发放率、幅度与 Kilosort 污染值，完整记录级生理隔离和跨录制单元稳定性证据缺失。严格群体要求人工标记 `good`、正发放率、估计污染不超过 10%，且 1.5 ms 内的不应期违例比例不超过 1%。睡眠和亮灯每种状态至少需要两个有活动的合格单元。仅凭原始标签已可确定严格群体的三种配对均 **BLOCKED**。宽口径敏感性支路明确复用作者公开代码的 `group != noise` 且发放率大于零，允许 MUA。共享探针表支持脑区映射核验，无法据此跟踪单元身份。[作者加载源码](https://gin.g-node.org/E4-Leblois/npx_sleep_2024/src/master/code/UtilsMatlab/inputOutput/loadSpikes.m)
 
 ## 分析和验证要求
 
@@ -36,3 +36,10 @@ ZF1 的会话 TSV 所示条件与程序路径、AP 时刻和评分长度交叉�
 - 原始估计器仍以 40 ms、AR(5)、β=2、Yule–Walker 为参照，0.40 s AR(10) 作为单独敏感性。严格筛选和作者宽口径均记录；后者不代替受阻的严格主分析。以鸟为独立单位。
 - 作者方法使用连续两脉冲的瞬时发放率、同步窗内的爆发单元比例和 Gaussian 平滑。核对源码后，复用 2,500 Hz 栅格、50 ms 窗、10 ms 步长、15 ms Gaussian σ，以及窗内超过一个高 IFR 栅格点的判据。论文写第 99 百分位，但发布的 `plotExampleTraceIFR.m` 在传入非零阈值参数时实际选局部峰高度的第 97.5 百分位。主爆发分析按可执行源码，另做第 99 百分位。使用独立密集计算和作者已归档的 LFP 对齐事件核验。[爆发检测源码](https://gin.g-node.org/E4-Leblois/npx_sleep_2024/src/master/code/fig6/burstAnalysis.m) · [峰阈值源码](https://gin.g-node.org/E4-Leblois/npx_sleep_2024/src/master/code/UtilsMatlab/visualization/plotExampleTraceIFR.m)
 - 审计发现旧脚本在探针映射断言失败分支对错误文字误用了单目加号。旧结果的配对探针表一致，因此未进入该分支。修订入口需保留清晰的原始诊断。
+
+## 闸门结果
+
+- **A PASS。** 录制和 AP 时钟经交叉核对，状态及连续时长见[数据资格](03_zebra_dataset.md)。保守伪迹掩码及两种敏感性均已计算。
+- **B BLOCKED（严格跨态）。** 只有 ZF1 SWS 的两个严格单元达到群体门槛。宽口径的三态值及控制仅用于诊断。逐分群污染、违例和排除理由见[准备清单](../manifests/zebra-finch-preparation.json)。
+- **D PASS。** 每个录制的三个高峰通过独立密集 2,500 Hz 栅格复核。第 97.5 百分位算法与归档 SWS 事件在 20 ms 内的命中率为 145/181、159/169。移植使用 AP 元数据采样率、SciPy 局部峰和半突出度宽度，边界只计完整落在状态内的事件。这些实现差异及伪迹遮罩决定 v2 的事件数。第 99 百分位和派生 LFP 检查见[结果](04_zebra_analysis.md)。
+- **E PASS（诊断交付）。** 最终云端运行核验 6 个宽口径估计、1,200 个控制拟合与 70 个有效整窗。图表和报告以已校验的 v2 结果为准。严格跨态估计维持受阻。成功的小鼠和合成产物由发布前 Git 树逐项核对。[最终运行](https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44582662548)

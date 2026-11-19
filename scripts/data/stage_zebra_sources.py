@@ -1,5 +1,6 @@
 """Transfer selected public GIN files from WSL to the mounted Colab Drive."""
 
+from argparse import ArgumentParser
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from hashlib import file_digest
@@ -16,7 +17,12 @@ paths = json.loads(Path("config/paths.json").read_text())
 source = json.loads(Path(paths["source_manifest"]).read_text())["zebra_finch"]
 settings = json.loads(Path("config/zebra_finch.json").read_text())
 root = Path(paths["drive_root"])
-gpu = ["/root/.local/bin/codex-gpu", "-s", "criticality-evolution"]
+parser = ArgumentParser(description=__doc__)
+parser.add_argument("--session", default="criticality-evolution")
+parser.add_argument("--supplement-only", action="store_true", help="stage only the four version-2 QC files")
+args = parser.parse_args()
+gpu = ["/root/.local/bin/codex-gpu", "-s", args.session]
+supplement = json.loads(Path("manifests/zebra-reanalysis-sources.json").read_text())
 
 required = ["code/UtilsMatlab/birdParams.mat"]
 for row in settings["recordings"]:
@@ -34,9 +40,10 @@ def verify_release():
 
 
 def download(scratch, relpath):
+    pinned = supplement["files"][relpath] if args.supplement_only else None
     local = scratch / relpath
     local.parent.mkdir(parents=True, exist_ok=True)
-    url = f"{source['repository']}/raw/master/{relpath}"
+    url = pinned["source"] if pinned else f"{source['repository']}/raw/master/{relpath}"
     with urlopen(url, timeout=75) as response, local.open("wb") as output:
         expected = response.headers.get("Content-Length")
         shutil.copyfileobj(response, output)
@@ -48,13 +55,18 @@ def download(scratch, relpath):
             raise ValueError(f"Invalid NumPy data for {relpath}")
         reader.seek(0)
         digest = file_digest(reader, "sha256").hexdigest()
+    if pinned and (size != pinned["bytes"] or digest != pinned["sha256"]):
+        raise ValueError(f"Supplement checksum mismatch for {relpath}")
     print(f"Verified public GIN file, {size} bytes: {relpath}", flush=True)
     return relpath, {"source": url, "version": source["commit"], "bytes": size,
                      "sha256": digest, "scratch_path": str(local),
-                     "drive_path": "datasets/zebra_finch/" + relpath}
+                     "drive_path": pinned["drive_path"] if pinned else "datasets/zebra_finch/" + relpath}
 
 
 verify_release()
+if args.supplement_only:
+    assert source["commit"] == supplement["commit"]
+    required = list(supplement["files"])
 with TemporaryDirectory(prefix="gin-stage-") as directory:
     scratch = Path(directory)
     with ThreadPoolExecutor(max_workers=4) as pool:
@@ -71,6 +83,8 @@ with TemporaryDirectory(prefix="gin-stage-") as directory:
         destination = root / item["drive_path"]
         subprocess.run([*gpu, "upload", str(scratch / name), str(destination) + ".part"], check=True)
 
+    if args.supplement_only:
+        raise SystemExit(0)
     record = {"version": source["commit"], "verified_in_wsl_at_utc": datetime.now(timezone.utc).isoformat(),
               "files": assets}
     transfer = scratch / "zebra-finch-transfer.json"
