@@ -2,9 +2,18 @@ name: MATLAB PNAS Replication
 
 on:
   workflow_dispatch:
+    inputs:
+      stage:
+        description: MATLAB stage
+        type: choice
+        default: smoke
+        options:
+          - smoke
+          - synthetic
   push:
     tags:
       - 'matlab-smoke-*'
+      - 'matlab-synthetic-*'
 
 jobs:
   replicate:
@@ -48,6 +57,12 @@ jobs:
         uses: matlab-actions/run-command@v3
         with:
           command: addpath('scripts/ci'); run_smoke
+
+      - name: Validate the synthetic d2 estimator
+        if: inputs.stage == 'synthetic' || startsWith(github.ref, 'refs/tags/matlab-synthetic-')
+        uses: matlab-actions/run-command@v3
+        with:
+          command: addpath('scripts/ci'); run_synthetic
 
       - name: Save results
         if: always()
