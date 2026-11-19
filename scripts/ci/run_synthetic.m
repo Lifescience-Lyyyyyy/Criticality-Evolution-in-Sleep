@@ -43,9 +43,14 @@ for i = 1:numel(rho)
         'innovation_sd', sigma, 'exit_status', status);
 end
 
+% Match the scale-dependent tolerance of the upstream quadrature.
+% Its absolute tolerance is specified in nats.
+analytic_atol = 1e-10 / log(2);
+analytic_rtol = 1e-6;
 result = struct('experiment', 'pnas-d2-synthetic', 'official', first, ...
     'official_repeated', repeated, 'diagnostic_replay', replay, 'optimizer', solver, ...
     'ar1', ar1, 'ar1_samples', 10000, 'ar1_burnin', 2000, 'seed', seed, ...
+    'analytic_atol_bits', analytic_atol, 'analytic_rtol', analytic_rtol, ...
     'elapsed_seconds', toc(timer), 'matlab', version, ...
     'project_commit', getenv('GITHUB_SHA'), 'run_id', getenv('GITHUB_RUN_ID'), ...
     'timestamp_utc', char(datetime('now', 'TimeZone', 'UTC', ...
@@ -60,7 +65,8 @@ assert(abs(first.d2_bits_per_second - repeated.d2_bits_per_second) < 1e-12);
 assert(abs(first.d2_bits_per_second - replay.d2_bits_per_second) < 1e-12 && solver.flag > 0);
 assert(all([ar1.exit_status] == 0) && all(isfinite(estimates)) && all(estimates >= -1e-10));
 assert(estimates(2) < estimates(1), 'Near-critical AR(1) should have lower d2.');
-assert(max(abs(estimates - [ar1.fitted_analytic_d2])) < 1e-8);
+reference = [ar1.fitted_analytic_d2];
+assert(all(abs(estimates - reference) <= max(analytic_atol, analytic_rtol * abs(reference))));
 assert(max(abs(estimates - [ar1.true_analytic_d2])) < 0.015);
 end
 
