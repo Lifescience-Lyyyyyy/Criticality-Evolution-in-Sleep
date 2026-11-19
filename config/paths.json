@@ -1,0 +1,7 @@
+{
+  "drive_root": "/content/drive/MyDrive/Research/Criticality_Evolution",
+  "source_manifest": "manifests/sources.json",
+  "fixture_dir": "data/fixtures",
+  "results_dir": "results",
+  "figures_dir": "figures"
+}

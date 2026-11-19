@@ -11,22 +11,11 @@ repeated = official_example(demo, seed);
 
 % A temporary diagnostic replay only requests two extra outputs from the
 % same fmincon call. The primary values come from the original source.
-original = fileread(fullfile(src, 'calc_db.m'));
-call = '[x, db] = fmincon(objective, kernc0, [], [], [], [], [], [], nonlcon, options);';
-logged = strrep(call, '[x, db]', '[x, db, solver_flag, solver_output]');
-instrumented = strrep(original, call, sprintf('%s\n    %s', logged, ...
-    'setappdata(0, ''synthetic_solver'', struct(''flag'', solver_flag, ''output'', solver_output));'));
-assert(~strcmp(original, instrumented), 'Pinned optimizer call was not found.');
-diagnostic_dir = tempname;
-mkdir(diagnostic_dir);
-writelines(string(instrumented), fullfile(diagnostic_dir, 'calc_db.m'));
-addpath(diagnostic_dir, '-begin');
-clear calc_db
+cleanup = trace_solver(src);
 replay = official_example(demo, seed);
-solver = getappdata(0, 'synthetic_solver');
-rmappdata(0, 'synthetic_solver');
-rmpath(diagnostic_dir);
-clear calc_db
+solver = getappdata(0, 'estimator_solver');
+rmappdata(0, 'estimator_solver');
+clear cleanup
 
 % For stationary Gaussian AR(1), the distance to a unit root with optimal
 % innovation variance is 0.5*log2(2/(1+phi)) bits per sample.

@@ -1,0 +1,116 @@
+{
+  "experiment": "pnas-d2-synthetic",
+  "official": {
+    "d2_bits_per_second": 0.03465842415362974,
+    "exit_status": 0,
+    "ar_kernel": [
+      0.795211279938407,
+      0.19722175387860724,
+      -0.09642180234774038
+    ],
+    "innovation_sd": 0.4465525698417845,
+    "critical_kernel": [
+      0.8396851578109186,
+      0.21226275002669107,
+      -0.05194790783760972
+    ],
+    "ar_order": 3,
+    "beta": 2,
+    "samples": 10000,
+    "bin_seconds": 1,
+    "fit_method": "YuleWalker"
+  },
+  "official_repeated": {
+    "d2_bits_per_second": 0.03465842415362974,
+    "exit_status": 0,
+    "ar_kernel": [
+      0.795211279938407,
+      0.19722175387860724,
+      -0.09642180234774038
+    ],
+    "innovation_sd": 0.4465525698417845,
+    "critical_kernel": [
+      0.8396851578109186,
+      0.21226275002669107,
+      -0.05194790783760972
+    ],
+    "ar_order": 3,
+    "beta": 2,
+    "samples": 10000,
+    "bin_seconds": 1,
+    "fit_method": "YuleWalker"
+  },
+  "diagnostic_replay": {
+    "d2_bits_per_second": 0.03465842415362974,
+    "exit_status": 0,
+    "ar_kernel": [
+      0.795211279938407,
+      0.19722175387860724,
+      -0.09642180234774038
+    ],
+    "innovation_sd": 0.4465525698417845,
+    "critical_kernel": [
+      0.8396851578109186,
+      0.21226275002669107,
+      -0.05194790783760972
+    ],
+    "ar_order": 3,
+    "beta": 2,
+    "samples": 10000,
+    "bin_seconds": 1,
+    "fit_method": "YuleWalker"
+  },
+  "optimizer": {
+    "flag": 1,
+    "output": {
+      "iterations": 3,
+      "funcCount": 12,
+      "algorithm": "sqp",
+      "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 1.629815e-09,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 0.000000e+00, is less than options.ConstraintTolerance = 1.000000e-02.",
+      "constrviolation": 0,
+      "stepsize": 3.3869815315247726e-05,
+      "lssteplength": 1,
+      "firstorderopt": 1.6298145055770874e-09,
+      "bestfeasible": {
+        "x": [
+          0.8396851578109186,
+          0.21226275002669107
+        ],
+        "fval": 0.024023388984739165,
+        "constrviolation": 0,
+        "firstorderopt": 1.6298145055770874e-09
+      }
+    }
+  },
+  "ar1": [
+    {
+      "generating_phi": 0.5,
+      "fitted_phi": 0.49342742987713534,
+      "d2_bits_per_sample": 0.21068641040862432,
+      "fitted_analytic_d2": 0.21068643276590354,
+      "true_analytic_d2": 0.20751874963942185,
+      "innovation_sd": 0.8697869690015163,
+      "exit_status": 0
+    },
+    {
+      "generating_phi": 0.95,
+      "fitted_phi": 0.9482107682970304,
+      "d2_bits_per_sample": 0.018925114879175847,
+      "fitted_analytic_d2": 0.01892511767383569,
+      "true_analytic_d2": 0.018262938012557094,
+      "innovation_sd": 0.31764184057764694,
+      "exit_status": 0
+    }
+  ],
+  "ar1_samples": 10000,
+  "ar1_burnin": 2000,
+  "seed": 2026,
+  "analytic_atol_bits": 1.4426950408889636e-10,
+  "analytic_rtol": 1e-06,
+  "elapsed_seconds": 4.598478,
+  "matlab": "24.2.0.3361896 (R2024b) Update 10",
+  "project_commit": "eccaec9d3183e1c21148e6f53e3b4a332486ba18",
+  "run_id": "44554797385",
+  "timestamp_utc": "2026-11-19T15:28:17Z",
+  "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507"
+}

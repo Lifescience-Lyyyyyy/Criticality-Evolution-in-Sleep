@@ -1,0 +1,465 @@
+{
+  "source_version": "10.6084/m9.figshare.32012181.v1",
+  "parameters": {
+    "bin_seconds": 0.04,
+    "sample_rate_hz": 20000,
+    "ar_order": 5,
+    "beta": 2,
+    "fit_method": "YuleWalker",
+    "minimum_state_seconds": 1800,
+    "states": [
+      "WAKE",
+      "NREM"
+    ]
+  },
+  "preparation_code_sha256": "630de20ce7db1fe9be0458dfaf1177bd054ec6fde7ff801b37ca5fea9dc22206",
+  "created_at_utc": "2026-11-19T15:35:38.792711+00:00",
+  "fixture_bytes": 3061865,
+  "fixture_sha256": "04b56e582138805105ec3d77c78632b8c0e5811c819cb83b074b13a2c87681ad",
+  "sessions": [
+    {
+      "session": "YMV02",
+      "file": "YMV02.mat",
+      "url": "https://ndownloader.figshare.com/files/63726048",
+      "bytes": 38300312,
+      "md5": "afb9eb7f11ecf5b8d74ef78ef3a7530b",
+      "drive_path": "datasets/mouse/YMV02.mat",
+      "status": "prepared",
+      "spikes": 3191586,
+      "source_session_label": "YMV02",
+      "units": 85,
+      "first_spike_s": 0.0027,
+      "last_spike_s": 7117.91945,
+      "states": {
+        "WAKE": {
+          "seconds": 2117.0,
+          "segments": 8,
+          "bins": 52933,
+          "spikes": 1115021,
+          "mean_count": 21.064761113105245,
+          "variance": 84.07039085077881,
+          "zero_duration_start_s": []
+        },
+        "NREM": {
+          "seconds": 3277.0,
+          "segments": 36,
+          "bins": 81961,
+          "spikes": 1316273,
+          "mean_count": 16.05974792889301,
+          "variance": 111.02988512087713,
+          "zero_duration_start_s": []
+        }
+      }
+    },
+    {
+      "session": "YMV07",
+      "file": "YMV07.mat",
+      "url": "https://ndownloader.figshare.com/files/63726069",
+      "bytes": 112094856,
+      "md5": "11920b83cd5e3f43cc5ab711d38bf217",
+      "drive_path": "datasets/mouse/YMV07.mat",
+      "status": "prepared",
+      "spikes": 9341074,
+      "source_session_label": "YMV07",
+      "units": 68,
+      "first_spike_s": 0.0069,
+      "last_spike_s": 32488.0186,
+      "states": {
+        "WAKE": {
+          "seconds": 3615.0,
+          "segments": 9,
+          "bins": 90384,
+          "spikes": 1000253,
+          "mean_count": 11.06670428394406,
+          "variance": 38.45517834873541,
+          "zero_duration_start_s": []
+        },
+        "NREM": {
+          "seconds": 3347.0,
+          "segments": 77,
+          "bins": 83752,
+          "spikes": 863217,
+          "mean_count": 10.306822523641227,
+          "variance": 40.21748234800353,
+          "zero_duration_start_s": []
+        }
+      }
+    },
+    {
+      "session": "YMV08",
+      "file": "YMV08.mat",
+      "url": "https://ndownloader.figshare.com/files/63726057",
+      "bytes": 54189200,
+      "md5": "3d0773eef1e682a1d014196267d7310f",
+      "drive_path": "datasets/mouse/YMV08.mat",
+      "status": "prepared",
+      "spikes": 4515636,
+      "source_session_label": "YMV08",
+      "units": 86,
+      "first_spike_s": 0.0333,
+      "last_spike_s": 15047.52575,
+      "states": {
+        "WAKE": {
+          "seconds": 2732.0,
+          "segments": 11,
+          "bins": 68311,
+          "spikes": 982220,
+          "mean_count": 14.378650583361392,
+          "variance": 45.464563891771085,
+          "zero_duration_start_s": []
+        },
+        "NREM": {
+          "seconds": 5181.0,
+          "segments": 46,
+          "bins": 129571,
+          "spikes": 1303584,
+          "mean_count": 10.060769771013575,
+          "variance": 54.465918290535996,
+          "zero_duration_start_s": []
+        }
+      }
+    },
+    {
+      "session": "YMV09",
+      "file": "YMV09.mat",
+      "url": "https://ndownloader.figshare.com/files/63726060",
+      "bytes": 62063824,
+      "md5": "3d4c9fd3a93ed13460e8780c88a93361",
+      "drive_path": "datasets/mouse/YMV09.mat",
+      "status": "prepared",
+      "spikes": 5171844,
+      "source_session_label": "YMV09",
+      "units": 62,
+      "first_spike_s": 0.0069,
+      "last_spike_s": 24178.71525,
+      "states": {
+        "WAKE": {
+          "seconds": 4362.0,
+          "segments": 9,
+          "bins": 109059,
+          "spikes": 1169156,
+          "mean_count": 10.720399050055475,
+          "variance": 24.87441777600511,
+          "zero_duration_start_s": []
+        },
+        "NREM": {
+          "seconds": 11114.0,
+          "segments": 54,
+          "bins": 277904,
+          "spikes": 1988826,
+          "mean_count": 7.156521676550176,
+          "variance": 34.788753023034644,
+          "zero_duration_start_s": []
+        }
+      }
+    },
+    {
+      "session": "YMV10",
+      "file": "YMV10.mat",
+      "url": "https://ndownloader.figshare.com/files/63726051",
+      "bytes": 42245312,
+      "md5": "561c9d51c60d51e502bf70a48f7c96af",
+      "drive_path": "datasets/mouse/YMV10.mat",
+      "status": "prepared",
+      "spikes": 3520361,
+      "source_session_label": "YMV10",
+      "units": 34,
+      "first_spike_s": 0.0092,
+      "last_spike_s": 18988.66565,
+      "states": {
+        "WAKE": {
+          "seconds": 2742.0,
+          "segments": 12,
+          "bins": 68562,
+          "spikes": 642056,
+          "mean_count": 9.364604299757884,
+          "variance": 22.375012714253554,
+          "zero_duration_start_s": []
+        },
+        "NREM": {
+          "seconds": 8811.0,
+          "segments": 15,
+          "bins": 220290,
+          "spikes": 1403426,
+          "mean_count": 6.370811203413682,
+          "variance": 23.86562220726293,
+          "zero_duration_start_s": [
+            14164.0
+          ]
+        }
+      }
+    },
+    {
+      "session": "YMV11",
+      "file": "YMV11.mat",
+      "url": "https://ndownloader.figshare.com/files/63726063",
+      "bytes": 64648128,
+      "md5": "976d752c9f93a216e578f04331423f7f",
+      "drive_path": "datasets/mouse/YMV11.mat",
+      "status": "prepared",
+      "spikes": 5387140,
+      "source_session_label": "YMV11",
+      "units": 54,
+      "first_spike_s": 0.0201,
+      "last_spike_s": 21463.6312,
+      "states": {
+        "WAKE": {
+          "seconds": 7715.0,
+          "segments": 16,
+          "bins": 192891,
+          "spikes": 2285989,
+          "mean_count": 11.851195753041873,
+          "variance": 30.61674143272398,
+          "zero_duration_start_s": []
+        },
+        "NREM": {
+          "seconds": 6288.0,
+          "segments": 100,
+          "bins": 157300,
+          "spikes": 1386173,
+          "mean_count": 8.812288620470438,
+          "variance": 56.03799393577006,
+          "zero_duration_start_s": []
+        }
+      }
+    },
+    {
+      "session": "YMV12",
+      "file": "YMV12.mat",
+      "url": "https://ndownloader.figshare.com/files/63726054",
+      "bytes": 41155872,
+      "md5": "7c69141a0b8971fda73097db45170a14",
+      "drive_path": "datasets/mouse/YMV12.mat",
+      "status": "prepared",
+      "spikes": 3429516,
+      "source_session_label": "YMV12",
+      "units": 48,
+      "first_spike_s": 0.01535,
+      "last_spike_s": 21717.50085,
+      "states": {
+        "WAKE": {
+          "seconds": 9198.0,
+          "segments": 17,
+          "bins": 229967,
+          "spikes": 1531374,
+          "mean_count": 6.659103262642032,
+          "variance": 18.028753691941986,
+          "zero_duration_start_s": []
+        },
+        "NREM": {
+          "seconds": 5041.0,
+          "segments": 52,
+          "bins": 126077,
+          "spikes": 749135,
+          "mean_count": 5.941884721241781,
+          "variance": 35.64733606726475,
+          "zero_duration_start_s": []
+        }
+      }
+    },
+    {
+      "session": "YMV13",
+      "file": "YMV13.mat",
+      "url": "https://ndownloader.figshare.com/files/63726066",
+      "bytes": 61753568,
+      "md5": "9d5984eb08b322b08797f2455d471665",
+      "drive_path": "datasets/mouse/YMV13.mat",
+      "status": "prepared",
+      "spikes": 5145945,
+      "source_session_label": "YMV13",
+      "units": 69,
+      "first_spike_s": 0.0024,
+      "last_spike_s": 22109.3202,
+      "states": {
+        "WAKE": {
+          "seconds": 4075.0,
+          "segments": 12,
+          "bins": 101887,
+          "spikes": 1195161,
+          "mean_count": 11.730259993914828,
+          "variance": 44.68677785598518,
+          "zero_duration_start_s": []
+        },
+        "NREM": {
+          "seconds": 10205.0,
+          "segments": 85,
+          "bins": 255210,
+          "spikes": 1844722,
+          "mean_count": 7.228251244073508,
+          "variance": 37.97287687994291,
+          "zero_duration_start_s": []
+        }
+      }
+    },
+    {
+      "session": "YMV14",
+      "file": "YMV14.mat",
+      "url": "https://ndownloader.figshare.com/files/63726075",
+      "bytes": 73257464,
+      "md5": "297b2868960aef335afbd38dd202f3f6",
+      "drive_path": "datasets/mouse/YMV14.mat",
+      "status": "prepared",
+      "spikes": 6104663,
+      "source_session_label": "YMV14",
+      "units": 68,
+      "first_spike_s": 0.0047,
+      "last_spike_s": 19880.3043,
+      "states": {
+        "WAKE": {
+          "seconds": 4985.0,
+          "segments": 9,
+          "bins": 124634,
+          "spikes": 2000217,
+          "mean_count": 16.048726671694723,
+          "variance": 49.15405975033135,
+          "zero_duration_start_s": []
+        },
+        "NREM": {
+          "seconds": 8030.0,
+          "segments": 43,
+          "bins": 200793,
+          "spikes": 1854648,
+          "mean_count": 9.236616814331176,
+          "variance": 50.035873255214625,
+          "zero_duration_start_s": []
+        }
+      }
+    },
+    {
+      "session": "YMV15",
+      "file": "YMV15.mat",
+      "url": "https://ndownloader.figshare.com/files/63726078",
+      "bytes": 94205680,
+      "md5": "5184fc8dca11b8b8aed4db0aa7ea1cc3",
+      "drive_path": "datasets/mouse/YMV15.mat",
+      "status": "prepared",
+      "spikes": 7850337,
+      "source_session_label": "YMV15",
+      "units": 72,
+      "first_spike_s": 0.00445,
+      "last_spike_s": 22441.96475,
+      "states": {
+        "WAKE": {
+          "seconds": 3258.0,
+          "segments": 5,
+          "bins": 81455,
+          "spikes": 1354087,
+          "mean_count": 16.623743171076054,
+          "variance": 70.62717427668208,
+          "zero_duration_start_s": []
+        },
+        "NREM": {
+          "seconds": 10859.0,
+          "segments": 52,
+          "bins": 271527,
+          "spikes": 3214237,
+          "mean_count": 11.837633089895295,
+          "variance": 100.97268680475318,
+          "zero_duration_start_s": []
+        }
+      }
+    },
+    {
+      "session": "YMV16",
+      "file": "YMV16.mat",
+      "url": "https://ndownloader.figshare.com/files/63726072",
+      "bytes": 63309960,
+      "md5": "94e7c3b54461cf760f7175b735396acd",
+      "drive_path": "datasets/mouse/YMV16.mat",
+      "status": "prepared",
+      "spikes": 5275698,
+      "source_session_label": "YMV16",
+      "units": 45,
+      "first_spike_s": 0.0038,
+      "last_spike_s": 27082.58175,
+      "states": {
+        "WAKE": {
+          "seconds": 3175.0,
+          "segments": 11,
+          "bins": 79386,
+          "spikes": 811016,
+          "mean_count": 10.21610863376414,
+          "variance": 37.13101101301417,
+          "zero_duration_start_s": []
+        },
+        "NREM": {
+          "seconds": 11743.0,
+          "segments": 42,
+          "bins": 293617,
+          "spikes": 2018159,
+          "mean_count": 6.873440570539172,
+          "variance": 36.25503649857207,
+          "zero_duration_start_s": []
+        }
+      }
+    },
+    {
+      "session": "YMV17",
+      "file": "YMV17.mat",
+      "url": "https://ndownloader.figshare.com/files/63726084",
+      "bytes": 104585048,
+      "md5": "8c23ce09cc68d7100c460d2f9d17e18b",
+      "drive_path": "datasets/mouse/YMV17.mat",
+      "status": "prepared",
+      "spikes": 8715279,
+      "source_session_label": "YMV17",
+      "units": 73,
+      "first_spike_s": 0.008,
+      "last_spike_s": 28333.078,
+      "states": {
+        "WAKE": {
+          "seconds": 3804.0,
+          "segments": 14,
+          "bins": 95114,
+          "spikes": 1486842,
+          "mean_count": 15.632209769329437,
+          "variance": 46.35527853050742,
+          "zero_duration_start_s": []
+        },
+        "NREM": {
+          "seconds": 12299.0,
+          "segments": 43,
+          "bins": 307518,
+          "spikes": 3438171,
+          "mean_count": 11.18038944061811,
+          "variance": 63.089146835504245,
+          "zero_duration_start_s": []
+        }
+      }
+    },
+    {
+      "session": "YMV18",
+      "file": "YMV18.mat",
+      "url": "https://ndownloader.figshare.com/files/63726087",
+      "bytes": 118411360,
+      "md5": "ec23afe35de3eb4d9f19c1323dfc52f6",
+      "drive_path": "datasets/mouse/YMV18.mat",
+      "status": "prepared",
+      "spikes": 9867461,
+      "source_session_label": "YMV18",
+      "units": 102,
+      "first_spike_s": 0.00855,
+      "last_spike_s": 28600.2238,
+      "states": {
+        "WAKE": {
+          "seconds": 11439.0,
+          "segments": 10,
+          "bins": 285985,
+          "spikes": 4689402,
+          "mean_count": 16.39737049145934,
+          "variance": 58.92551715163235,
+          "zero_duration_start_s": []
+        },
+        "NREM": {
+          "seconds": 9064.0,
+          "segments": 63,
+          "bins": 226663,
+          "spikes": 2408828,
+          "mean_count": 10.627354266024891,
+          "variance": 68.88417376492762,
+          "zero_duration_start_s": []
+        }
+      }
+    }
+  ]
+}

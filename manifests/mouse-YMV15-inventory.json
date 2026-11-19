@@ -1,0 +1,89 @@
+{
+  "session": "YMV15",
+  "file": "YMV15.mat",
+  "url": "https://ndownloader.figshare.com/files/63726078",
+  "bytes": 94205680,
+  "md5": "5184fc8dca11b8b8aed4db0aa7ea1cc3",
+  "drive_path": "datasets/mouse/YMV15.mat",
+  "status": "downloaded_and_verified",
+  "source_version": "10.6084/m9.figshare.32012181.v1",
+  "verified_at_utc": "2026-11-19T15:28:38.331172+00:00",
+  "scratch_path": "/content/figshare-*/YMV15.mat",
+  "mat_fields": [
+    [
+      "Session",
+      [
+        1
+      ],
+      "char"
+    ],
+    [
+      "NREM",
+      [
+        52,
+        2
+      ],
+      "int64"
+    ],
+    [
+      "REM",
+      [
+        15,
+        2
+      ],
+      "int64"
+    ],
+    [
+      "WAKE",
+      [
+        5,
+        2
+      ],
+      "int64"
+    ],
+    [
+      "st",
+      [
+        1,
+        7850337
+      ],
+      "double"
+    ],
+    [
+      "clu",
+      [
+        1,
+        7850337
+      ],
+      "int32"
+    ]
+  ],
+  "spikes": 7850337,
+  "units": 72,
+  "spike_time_unit": "seconds",
+  "spike_time_range_s": [
+    0.00445,
+    22441.96475
+  ],
+  "spike_times_nondecreasing": true,
+  "states": {
+    "WAKE": {
+      "intervals": 5,
+      "seconds": 3258.0,
+      "min_seconds": 265.0,
+      "max_seconds": 1042.0
+    },
+    "NREM": {
+      "intervals": 52,
+      "seconds": 10859.0,
+      "min_seconds": 10.0,
+      "max_seconds": 533.0
+    },
+    "REM": {
+      "intervals": 15,
+      "seconds": 1224.0,
+      "min_seconds": 1.0,
+      "max_seconds": 206.0
+    }
+  }
+}

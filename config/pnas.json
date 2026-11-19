@@ -1,0 +1,9 @@
+{
+  "bin_seconds": 0.04,
+  "sample_rate_hz": 20000,
+  "ar_order": 5,
+  "beta": 2,
+  "fit_method": "YuleWalker",
+  "minimum_state_seconds": 1800,
+  "states": ["WAKE", "NREM"]
+}
