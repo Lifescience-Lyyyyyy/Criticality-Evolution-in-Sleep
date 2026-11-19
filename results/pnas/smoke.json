@@ -1,0 +1,47 @@
+{
+  "experiment": "pnas-d2-smoke",
+  "d2_bits_per_second": 0.034658424153677009,
+  "exit_status": 0,
+  "ar_order": 3,
+  "beta": 2,
+  "samples": 10000,
+  "bin_seconds": 1,
+  "seed": 2026,
+  "fit_method": "YuleWalker",
+  "ar_kernel": [
+    0.795211279938407,
+    0.19722175387860724,
+    -0.096421802347740379
+  ],
+  "innovation_sd": 0.44655256984178449,
+  "critical_kernel": [
+    0.83968511604222884,
+    0.21226254412491447,
+    -0.051947660167143361
+  ],
+  "elapsed_seconds": 2.453261,
+  "matlab": "24.2.0.3361896 (R2024b) Update 10",
+  "toolboxes": [
+    {
+      "Name": "MATLAB",
+      "Version": "24.2",
+      "Release": "(R2024b)",
+      "Date": "21-Jun-2024"
+    },
+    {
+      "Name": "Optimization Toolbox",
+      "Version": "24.2",
+      "Release": "(R2024b)",
+      "Date": "21-Jun-2024"
+    },
+    {
+      "Name": "Parallel Computing Toolbox",
+      "Version": "24.2",
+      "Release": "(R2024b)",
+      "Date": "21-Jun-2024"
+    }
+  ],
+  "project_commit": "dcc803f6aa0236435439e7d0d26efd495c124f2e",
+  "run_id": "44552272750",
+  "timestamp_utc": "2026-11-19T15:15:42Z"
+}

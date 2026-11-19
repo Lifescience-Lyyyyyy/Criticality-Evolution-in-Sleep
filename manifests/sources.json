@@ -1,0 +1,146 @@
+{
+  "sourced_at": "2026-11-19",
+  "estimator": {
+    "repository": "https://github.com/sam-sooter/prox_crit_toolkit",
+    "commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+    "license": "CC-BY-NC-4.0",
+    "paper_doi": "10.1073/pnas.2526984123"
+  },
+  "mouse": {
+    "doi": "10.6084/m9.figshare.32012181.v1",
+    "version": 1,
+    "metadata_url": "https://api.figshare.com/v2/articles/32012181/versions/1",
+    "license": "CC-BY-4.0",
+    "files": [
+      {
+        "session": "YMV02",
+        "file": "YMV02.mat",
+        "url": "https://ndownloader.figshare.com/files/63726048",
+        "bytes": 38300312,
+        "md5": "afb9eb7f11ecf5b8d74ef78ef3a7530b",
+        "drive_path": "datasets/mouse/YMV02.mat",
+        "status": "metadata_verified"
+      },
+      {
+        "session": "YMV07",
+        "file": "YMV07.mat",
+        "url": "https://ndownloader.figshare.com/files/63726069",
+        "bytes": 112094856,
+        "md5": "11920b83cd5e3f43cc5ab711d38bf217",
+        "drive_path": "datasets/mouse/YMV07.mat",
+        "status": "metadata_verified"
+      },
+      {
+        "session": "YMV08",
+        "file": "YMV08.mat",
+        "url": "https://ndownloader.figshare.com/files/63726057",
+        "bytes": 54189200,
+        "md5": "3d0773eef1e682a1d014196267d7310f",
+        "drive_path": "datasets/mouse/YMV08.mat",
+        "status": "metadata_verified"
+      },
+      {
+        "session": "YMV09",
+        "file": "YMV09.mat",
+        "url": "https://ndownloader.figshare.com/files/63726060",
+        "bytes": 62063824,
+        "md5": "3d4c9fd3a93ed13460e8780c88a93361",
+        "drive_path": "datasets/mouse/YMV09.mat",
+        "status": "metadata_verified"
+      },
+      {
+        "session": "YMV10",
+        "file": "YMV10.mat",
+        "url": "https://ndownloader.figshare.com/files/63726051",
+        "bytes": 42245312,
+        "md5": "561c9d51c60d51e502bf70a48f7c96af",
+        "drive_path": "datasets/mouse/YMV10.mat",
+        "status": "metadata_verified"
+      },
+      {
+        "session": "YMV11",
+        "file": "YMV11.mat",
+        "url": "https://ndownloader.figshare.com/files/63726063",
+        "bytes": 64648128,
+        "md5": "976d752c9f93a216e578f04331423f7f",
+        "drive_path": "datasets/mouse/YMV11.mat",
+        "status": "metadata_verified"
+      },
+      {
+        "session": "YMV12",
+        "file": "YMV12.mat",
+        "url": "https://ndownloader.figshare.com/files/63726054",
+        "bytes": 41155872,
+        "md5": "7c69141a0b8971fda73097db45170a14",
+        "drive_path": "datasets/mouse/YMV12.mat",
+        "status": "metadata_verified"
+      },
+      {
+        "session": "YMV13",
+        "file": "YMV13.mat",
+        "url": "https://ndownloader.figshare.com/files/63726066",
+        "bytes": 61753568,
+        "md5": "9d5984eb08b322b08797f2455d471665",
+        "drive_path": "datasets/mouse/YMV13.mat",
+        "status": "metadata_verified"
+      },
+      {
+        "session": "YMV14",
+        "file": "YMV14.mat",
+        "url": "https://ndownloader.figshare.com/files/63726075",
+        "bytes": 73257464,
+        "md5": "297b2868960aef335afbd38dd202f3f6",
+        "drive_path": "datasets/mouse/YMV14.mat",
+        "status": "metadata_verified"
+      },
+      {
+        "session": "YMV15",
+        "file": "YMV15.mat",
+        "url": "https://ndownloader.figshare.com/files/63726078",
+        "bytes": 94205680,
+        "md5": "5184fc8dca11b8b8aed4db0aa7ea1cc3",
+        "drive_path": "datasets/mouse/YMV15.mat",
+        "status": "metadata_verified"
+      },
+      {
+        "session": "YMV16",
+        "file": "YMV16.mat",
+        "url": "https://ndownloader.figshare.com/files/63726072",
+        "bytes": 63309960,
+        "md5": "94e7c3b54461cf760f7175b735396acd",
+        "drive_path": "datasets/mouse/YMV16.mat",
+        "status": "metadata_verified"
+      },
+      {
+        "session": "YMV17",
+        "file": "YMV17.mat",
+        "url": "https://ndownloader.figshare.com/files/63726084",
+        "bytes": 104585048,
+        "md5": "8c23ce09cc68d7100c460d2f9d17e18b",
+        "drive_path": "datasets/mouse/YMV17.mat",
+        "status": "metadata_verified"
+      },
+      {
+        "session": "YMV18",
+        "file": "YMV18.mat",
+        "url": "https://ndownloader.figshare.com/files/63726087",
+        "bytes": 118411360,
+        "md5": "ec23afe35de3eb4d9f19c1323dfc52f6",
+        "drive_path": "datasets/mouse/YMV18.mat",
+        "status": "metadata_verified"
+      }
+    ],
+    "dandi_reference": {
+      "dandiset": "000166",
+      "version": "0.250624.0434"
+    }
+  },
+  "zebra_finch": {
+    "doi": "10.12751/g-node.vsxyi8",
+    "paper_doi": "10.1523/JNEUROSCI.1903-24.2025",
+    "repository": "https://gin.g-node.org/E4-Leblois/npx_sleep_2024",
+    "commit": "514c6f43effed69a9857332af1f1e10990523661",
+    "license": "CC-BY-4.0",
+    "status": "metadata_verified"
+  }
+}

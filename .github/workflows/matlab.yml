@@ -23,6 +23,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Verify Colab to runner transfer
+        run: sha256sum -c data/fixtures/drive-probe.sha256
+
       - name: Fetch pinned Sooter toolkit
         uses: actions/checkout@v4
         with:
