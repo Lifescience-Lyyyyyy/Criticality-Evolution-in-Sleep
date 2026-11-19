@@ -11,11 +11,13 @@ on:
           - smoke
           - synthetic
           - mouse
+          - zebra
   push:
     tags:
       - 'matlab-smoke-*'
       - 'matlab-synthetic-*'
       - 'matlab-mouse-*'
+      - 'matlab-zebra-*'
 
 jobs:
   replicate:
@@ -78,6 +80,16 @@ jobs:
         uses: matlab-actions/run-command@v3
         with:
           command: addpath('scripts/ci'); run_pnas_mouse
+
+      - name: Verify prepared zebra finch counts
+        if: inputs.stage == 'zebra' || startsWith(github.ref, 'refs/tags/matlab-zebra-')
+        run: sha256sum -c data/fixtures/zebra_lman_population.sha256
+
+      - name: Estimate zebra finch LMAN d2
+        if: inputs.stage == 'zebra' || startsWith(github.ref, 'refs/tags/matlab-zebra-')
+        uses: matlab-actions/run-command@v3
+        with:
+          command: addpath('scripts/ci'); run_zebra_finch
 
       - name: Save results
         if: always()

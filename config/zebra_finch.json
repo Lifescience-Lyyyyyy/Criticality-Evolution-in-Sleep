@@ -1,0 +1,15 @@
+{
+  "minimum_state_seconds": 120,
+  "primary_bin_seconds": 0.04,
+  "primary_ar_order": 5,
+  "primary_region": "LMAN",
+  "wake_sound_code": 1,
+  "sws_code": 3,
+  "seed": 2026,
+  "recordings": [
+    {"bird": "ZF1", "session": "23072019", "state": "SWS", "prefix": "sub-ZF1_ses-23072019_", "score": "ZF1_bird_sleep_states_mic_corrected.csv", "ap_meta": "sub-ZF1_ses-23072019_g0_t0.imec0.ap.meta"},
+    {"bird": "ZF1", "session": "23072019b", "state": "WAKE", "prefix": "", "score": "ZF1_awake_sdResults.csv", "ap_meta": "sub-ZF1_ses-23072019b_g0_t0.imec0.ap.meta"},
+    {"bird": "ZF2", "session": "11112020", "state": "SWS", "prefix": "sub-ZF2_ses-11112020_", "score": "ZF2_bird_sleep_states_mic_corrected.csv", "ap_meta": "sub-ZF2_ses-11112020_g0_t0.imec0.ap.meta"},
+    {"bird": "ZF2", "session": "11112020b", "state": "WAKE", "prefix": "", "score": "ZF2_awake_sdResults.csv", "ap_meta": "raw_g0_t0.imec0.ap.meta"}
+  ]
+}

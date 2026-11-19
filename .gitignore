@@ -8,6 +8,7 @@ __pycache__/
 *.asv
 *.mat
 !data/fixtures/mouse_population_40ms.mat
+!data/fixtures/zebra_lman_population.mat
 *.nwb
 *.h5
 *.hdf5
