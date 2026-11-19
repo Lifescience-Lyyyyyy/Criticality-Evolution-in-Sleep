@@ -1,0 +1,184 @@
+{
+  "created_on_asia_shanghai": "2026-11-20",
+  "preprocessing_environment": {
+    "platform": "Colab CPU",
+    "python": "3.13.18",
+    "numpy": "2.4.6",
+    "scipy": "1.16.3"
+  },
+  "figure_environment": {
+    "platform": "WSL",
+    "python": "3.12.3",
+    "matplotlib": "3.11.2",
+    "numpy": "2.5.5"
+  },
+  "drive_project_path": "MyDrive/Research/Criticality_Evolution",
+  "transfer_verification": {
+    "status": "PASS",
+    "run": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44554499462",
+    "digest_file": "data/fixtures/drive-probe.sha256"
+  },
+  "experiments": [
+    {
+      "experiment_id": "smoke-44552272750",
+      "stage": "smoke",
+      "status": "PASS",
+      "run": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44552272750",
+      "project_commit": "dcc803f6aa0236435439e7d0d26efd495c124f2e",
+      "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+      "matlab": "24.2.0.3361896 (R2024b) Update 10",
+      "timestamp_utc": "2026-11-19T15:15:42Z",
+      "elapsed_seconds": 2.453261,
+      "seed": 2026,
+      "source_version": null,
+      "settings": {
+        "ar_order": 3,
+        "beta": 2,
+        "samples": 10000,
+        "bin_seconds": 1,
+        "fit_method": "YuleWalker"
+      },
+      "results": "results/pnas/smoke.json",
+      "results_sha256": "0dbef6f65aa59d598a3a20fea416975d410a00ec4e34db2c124a94d67ba6fa55",
+      "github_artifact_id": 14542793368,
+      "github_artifact_sha256": "037ee03dd303684b0e0c775eae316f0ccb61f79cc3dded95c3caf24dc64588e1"
+    },
+    {
+      "experiment_id": "synthetic-44554797385",
+      "stage": "synthetic",
+      "status": "PASS",
+      "run": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44554797385",
+      "project_commit": "eccaec9d3183e1c21148e6f53e3b4a332486ba18",
+      "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+      "matlab": "24.2.0.3361896 (R2024b) Update 10",
+      "timestamp_utc": "2026-11-19T15:28:17Z",
+      "elapsed_seconds": 4.598478,
+      "seed": 2026,
+      "source_version": null,
+      "settings": {
+        "analytic_rtol": 1e-06,
+        "analytic_atol_bits": 1.4426950408889636e-10
+      },
+      "results": "results/pnas/synthetic.json",
+      "results_sha256": "988941f8b8101bd72dc852ce7335dff739eebfc3aeea145c33de9c95618c288a",
+      "github_artifact_id": 14543579730,
+      "github_artifact_sha256": "1ecad40f5ecaf3ca25baa6b6bce11ff1f17a6281aa239de4e38b5c0c88a1e9c1",
+      "earlier_attempt": {
+        "experiment_id": "synthetic-44553697477",
+        "status": "FAIL",
+        "run": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44553697477",
+        "project_commit": "7453d864a15c689760460d83d7d45f50a5a3e6d7",
+        "timestamp_utc": "2026-11-19T15:23:07Z",
+        "seed": 2026,
+        "failure": "Absolute analytic comparator tighter than MATLAB quadrature",
+        "receipt": "reports/01_synthetic.md"
+      }
+    },
+    {
+      "experiment_id": "mouse-44557104540",
+      "stage": "mouse",
+      "status": "PASS",
+      "run": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44557104540",
+      "project_commit": "2e82f5119ba5c6bd41bdef8f02f6bfbc3a078d3e",
+      "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+      "matlab": "24.2.0.3361896 (R2024b) Update 10",
+      "timestamp_utc": "2026-11-19T15:41:57Z",
+      "elapsed_seconds": 25.503713,
+      "seed": null,
+      "source_version": "10.6084/m9.figshare.32012181.v1",
+      "settings": {
+        "bin_seconds": 0.04,
+        "sample_rate_hz": 20000,
+        "ar_order": 5,
+        "beta": 2,
+        "fit_method": "YuleWalker",
+        "minimum_state_seconds": 1800,
+        "states": [
+          "WAKE",
+          "NREM"
+        ]
+      },
+      "results": "results/pnas/mouse.json",
+      "results_sha256": "fdf42d9151f21cd4f2c178fe48b6fa087dbc281d5a8233d8a2c41c8d39ef404c",
+      "github_artifact_id": 14545088917,
+      "github_artifact_sha256": "8dbc5e3fcabb83bbe4cb3c1643dafab1c91a5aaf3d1dfda05ddd88533d6da7f9",
+      "input_manifest": "manifests/mouse-preparation.json",
+      "input": "data/fixtures/mouse_population_40ms.mat"
+    },
+    {
+      "experiment_id": "zebra-44560423598",
+      "stage": "zebra",
+      "status": "PASS",
+      "run": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44560423598",
+      "project_commit": "d4d452960c93549259a4d33a7e20d8441dfe7a98",
+      "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+      "matlab": "24.2.0.3361896 (R2024b) Update 10",
+      "timestamp_utc": "2026-11-19T15:59:18Z",
+      "elapsed_seconds": 8.41333,
+      "seed": 2026,
+      "source_version": "514c6f43effed69a9857332af1f1e10990523661",
+      "settings": {
+        "minimum_state_seconds": 120,
+        "primary_bin_seconds": 0.04,
+        "primary_ar_order": 5,
+        "primary_region": "LMAN",
+        "wake_sound_code": 1,
+        "sws_code": 3,
+        "seed": 2026,
+        "recordings": [
+          {
+            "bird": "ZF1",
+            "session": "23072019",
+            "state": "SWS",
+            "prefix": "sub-ZF1_ses-23072019_",
+            "score": "ZF1_bird_sleep_states_mic_corrected.csv",
+            "ap_meta": "sub-ZF1_ses-23072019_g0_t0.imec0.ap.meta"
+          },
+          {
+            "bird": "ZF1",
+            "session": "23072019b",
+            "state": "WAKE",
+            "prefix": "",
+            "score": "ZF1_awake_sdResults.csv",
+            "ap_meta": "sub-ZF1_ses-23072019b_g0_t0.imec0.ap.meta"
+          },
+          {
+            "bird": "ZF2",
+            "session": "11112020",
+            "state": "SWS",
+            "prefix": "sub-ZF2_ses-11112020_",
+            "score": "ZF2_bird_sleep_states_mic_corrected.csv",
+            "ap_meta": "sub-ZF2_ses-11112020_g0_t0.imec0.ap.meta"
+          },
+          {
+            "bird": "ZF2",
+            "session": "11112020b",
+            "state": "WAKE",
+            "prefix": "",
+            "score": "ZF2_awake_sdResults.csv",
+            "ap_meta": "raw_g0_t0.imec0.ap.meta"
+          }
+        ]
+      },
+      "results": "results/zebra_finch/lman.json",
+      "results_sha256": "50021b46b0a90c3856978c2b601a896092a9bc08093e1ace2df9193fae121bdc",
+      "github_artifact_id": 14550030291,
+      "github_artifact_sha256": "eab8654eaacd9b6c8017aec97fd520789133e3faf6dc3ee6b056a3cc0a904f0f",
+      "input_manifest": "manifests/zebra-finch-preparation.json",
+      "input": "data/fixtures/zebra_lman_population.mat",
+      "paired_sws_minus_wake": {
+        "ZF1": 0.164225790920296,
+        "ZF2": -0.10246367894350672,
+        "mean": 0.030881055988394635,
+        "observed_range": [
+          -0.10246367894350672,
+          0.164225790920296
+        ],
+        "nominal_paired_normal_t_95_percent_interval": [
+          -1.6634244465239947,
+          1.7251865585007842
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,1345 @@
+{
+  "experiment": "zebra-finch-lman-wake-sws",
+  "primary": [
+    {
+      "bird": "ZF1",
+      "state": "WAKE",
+      "variant": "primary",
+      "d2_bits_per_second": 1.27412887400269,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.29831755138385208,
+        0.12567398222528164,
+        0.078061511118098614,
+        0.070426092348604669,
+        0.084195772175002542
+      ],
+      "innovation_sd": 0.87789576763006794,
+      "exit_status": 0,
+      "solver_flag": null,
+      "solver_output": {},
+      "fitted_min_root": 1.1870278491559854,
+      "residual_lag1_correlation": -0.0044214826210018932,
+      "count_mean": 16.7743567251462,
+      "count_variance": 38.994582030115509,
+      "zero_bin_fraction": 0,
+      "segments": 159,
+      "samples": 34200
+    },
+    {
+      "bird": "ZF1",
+      "state": "SWS",
+      "variant": "primary",
+      "d2_bits_per_second": 1.4383546649229859,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.26479119345235724,
+        0.021486073379081348,
+        0.17390612401207217,
+        0.089214975500214441,
+        0.047025454562966182
+      ],
+      "innovation_sd": 0.90916073443638579,
+      "exit_status": 0,
+      "solver_flag": null,
+      "solver_output": {},
+      "fitted_min_root": 1.2219631032177907,
+      "residual_lag1_correlation": -0.0027605312119222689,
+      "count_mean": 10.882787136294027,
+      "count_variance": 78.4829582651357,
+      "zero_bin_fraction": 0.10039816232771823,
+      "segments": 162,
+      "samples": 97950
+    },
+    {
+      "bird": "ZF2",
+      "state": "WAKE",
+      "variant": "primary",
+      "d2_bits_per_second": 1.1550037993984854,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.38526259007631936,
+        0.099208059470591733,
+        0.106731530952284,
+        0.046731636045760083,
+        0.073667153836977375
+      ],
+      "innovation_sd": 0.82661642537372759,
+      "exit_status": 0,
+      "solver_flag": null,
+      "solver_output": {},
+      "fitted_min_root": 1.16676912564594,
+      "residual_lag1_correlation": -0.0033867201230374879,
+      "count_mean": 15.956817359855334,
+      "count_variance": 77.843265214931876,
+      "zero_bin_fraction": 0.0014466546112115732,
+      "segments": 442,
+      "samples": 27650
+    },
+    {
+      "bird": "ZF2",
+      "state": "SWS",
+      "variant": "primary",
+      "d2_bits_per_second": 1.0525401204549787,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.46713106297107726,
+        0.063796848598850986,
+        0.082913085375266621,
+        0.052662084436458569,
+        0.081943864971808583
+      ],
+      "innovation_sd": 0.78380849118374973,
+      "exit_status": 0,
+      "solver_flag": null,
+      "solver_output": {},
+      "fitted_min_root": 1.1476724419005362,
+      "residual_lag1_correlation": -0.011983112350259468,
+      "count_mean": 3.665719052385719,
+      "count_variance": 41.612375198674634,
+      "zero_bin_fraction": 0.42390390390390392,
+      "segments": 70,
+      "samples": 74925
+    }
+  ],
+  "diagnostics": [
+    {
+      "bird": "ZF1",
+      "state": "WAKE",
+      "variant": "primary",
+      "d2_bits_per_second": 1.27412887400269,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.29831755138385208,
+        0.12567398222528164,
+        0.078061511118098614,
+        0.070426092348604669,
+        0.084195772175002542
+      ],
+      "innovation_sd": 0.87789576763006794,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 27,
+        "funcCount": 163,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 9.443611e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 1.110223e-16, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 1.1102230246251565E-16,
+        "stepsize": 2.8188250804552826E-7,
+        "lssteplength": 1,
+        "firstorderopt": 9.4436109066009521E-7,
+        "bestfeasible": {
+          "x": [
+            0.37769028799912685,
+            0.18836239792125845,
+            0.13726432492078475,
+            0.13311420790242856
+          ],
+          "fval": 0.0353263534673993,
+          "constrviolation": 1.1102230246251565E-16,
+          "firstorderopt": 9.4436109066009521E-7
+        }
+      },
+      "fitted_min_root": 1.1870278491559854,
+      "residual_lag1_correlation": -0.0044214826210018932,
+      "count_mean": 16.7743567251462,
+      "count_variance": 38.994582030115509,
+      "zero_bin_fraction": 0,
+      "segments": 159,
+      "samples": 34200
+    },
+    {
+      "bird": "ZF1",
+      "state": "WAKE",
+      "variant": "short_windows",
+      "d2_bits_per_second": 1.2693169012232752,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.29721654731820063,
+        0.12557375431602336,
+        0.07856004615845856,
+        0.072042743118129082,
+        0.084042354517574649
+      ],
+      "innovation_sd": 0.87781019871707722,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 7,
+        "funcCount": 42,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 8.568168e-08,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 0.000000e+00, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 0,
+        "stepsize": 2.1213187269186041E-6,
+        "lssteplength": 1,
+        "firstorderopt": 8.5681676864624023E-8,
+        "bestfeasible": {
+          "x": [
+            0.37626729932656588,
+            0.18820423782473161,
+            0.1377621653663883,
+            0.13467328260245226
+          ],
+          "fval": 0.0351929372528,
+          "constrviolation": 0,
+          "firstorderopt": 8.5681676864624023E-8
+        }
+      },
+      "fitted_min_root": 1.1860311866408222,
+      "residual_lag1_correlation": -0.0042565905339398075,
+      "count_mean": 16.7743567251462,
+      "count_variance": 38.994582030115509,
+      "zero_bin_fraction": 0,
+      "segments": 241,
+      "samples": 34200
+    },
+    {
+      "bird": "ZF1",
+      "state": "WAKE",
+      "variant": "bin20",
+      "d2_bits_per_second": 1.3403988543658316,
+      "ar_order": 10,
+      "bin_seconds": 0.02,
+      "ar_kernel": [
+        0.17184751204319898,
+        0.14019364528494702,
+        0.0849994179632933,
+        0.057080164436673186,
+        0.035490362373821492,
+        0.0414088435694422,
+        0.031250661004631947,
+        0.03420753418327082,
+        0.039184393003727731,
+        0.043011398795911628
+      ],
+      "innovation_sd": 0.91643398142970767,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 8,
+        "funcCount": 94,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 6.433111e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 0.000000e+00, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 0,
+        "stepsize": 1.3422672170526469E-6,
+        "lssteplength": 1,
+        "firstorderopt": 6.4331106841564178E-7,
+        "bestfeasible": {
+          "x": [
+            0.21133898669918638,
+            0.17466188687757817,
+            0.1154541433167981,
+            0.085501325714801638,
+            0.063317942802088925,
+            0.0692362825171339,
+            0.05967087296246873,
+            0.064663283203447469,
+            0.073652325642354771
+          ],
+          "fval": 0.018581873734589142,
+          "constrviolation": 0,
+          "firstorderopt": 6.4331106841564178E-7
+        }
+      },
+      "fitted_min_root": 1.0945037221284042,
+      "residual_lag1_correlation": 5.9742841348462238E-5,
+      "count_mean": 8.3871783625731,
+      "count_variance": 15.12942229307531,
+      "zero_bin_fraction": 0.0007894736842105263,
+      "segments": 159,
+      "samples": 68400
+    },
+    {
+      "bird": "ZF1",
+      "state": "WAKE",
+      "variant": "long_reach",
+      "d2_bits_per_second": 0.57159071924540061,
+      "ar_order": 10,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.28046421317708931,
+        0.1108567257213854,
+        0.061857514416086418,
+        0.048549799713514537,
+        0.046274974383705571,
+        0.053073051668893166,
+        0.023668281019330297,
+        0.023139224631254739,
+        0.035718335123768714,
+        0.059751860841870487
+      ],
+      "innovation_sd": 0.87058964085007617,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 7,
+        "funcCount": 85,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 1.899898e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 0.000000e+00, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 0,
+        "stepsize": 1.9279083438958878E-6,
+        "lssteplength": 1,
+        "firstorderopt": 1.8998980522155762E-7,
+        "bestfeasible": {
+          "x": [
+            0.31459189488968153,
+            0.1371026699615874,
+            0.085278423858522356,
+            0.070741263959855166,
+            0.068611974799793571,
+            0.075409964322943487,
+            0.045859606846975175,
+            0.046560309265939466,
+            0.061964491727986154
+          ],
+          "fval": 0.015847859819167229,
+          "constrviolation": 0,
+          "firstorderopt": 1.8998980522155762E-7
+        }
+      },
+      "fitted_min_root": 1.0770279729794727,
+      "residual_lag1_correlation": 0.0020244109422821945,
+      "count_mean": 16.7743567251462,
+      "count_variance": 38.994582030115509,
+      "zero_bin_fraction": 0,
+      "segments": 159,
+      "samples": 34200
+    },
+    {
+      "bird": "ZF1",
+      "state": "WAKE",
+      "variant": "matched_units",
+      "d2_bits_per_second": 1.308058646652166,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.28660611549250614,
+        0.12359966860568171,
+        0.081113260494749276,
+        0.06973480767944526,
+        0.083522999360681263
+      ],
+      "innovation_sd": 0.88595933892060719,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 6,
+        "funcCount": 37,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 9.681098e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 0.000000e+00, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 0,
+        "stepsize": 5.53545085026873E-6,
+        "lssteplength": 1,
+        "firstorderopt": 9.6810981631279E-7,
+        "bestfeasible": {
+          "x": [
+            0.36811923333233887,
+            0.18879754112763419,
+            0.14311346913831116,
+            0.134933948011083
+          ],
+          "fval": 0.03626708651736027,
+          "constrviolation": 0,
+          "firstorderopt": 9.6810981631279E-7
+        }
+      },
+      "fitted_min_root": 1.1935970678361318,
+      "residual_lag1_correlation": -0.0040318836917292954,
+      "count_mean": 13.766491228070175,
+      "count_variance": 28.490107867112584,
+      "zero_bin_fraction": 2.9239766081871346E-5,
+      "segments": 159,
+      "samples": 34200
+    },
+    {
+      "bird": "ZF1",
+      "state": "WAKE",
+      "variant": "matched_rate",
+      "d2_bits_per_second": 1.4362870703246828,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.24813866374567128,
+        0.11679593663363057,
+        0.082165834148159672,
+        0.07173129226616981,
+        0.08017030830669232
+      ],
+      "innovation_sd": 0.91179449300393556,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 11,
+        "funcCount": 69,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 9.522773e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 0.000000e+00, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 0,
+        "stepsize": 5.5403248954132618E-7,
+        "lssteplength": 1,
+        "firstorderopt": 9.5227733254432678E-7,
+        "bestfeasible": {
+          "x": [
+            0.3376878826848802,
+            0.19171951906149887,
+            0.15421779561078361,
+            0.14665632100528786
+          ],
+          "fval": 0.039822333330810318,
+          "constrviolation": 0,
+          "firstorderopt": 9.5227733254432678E-7
+        }
+      },
+      "fitted_min_root": 1.2194129461765115,
+      "residual_lag1_correlation": -0.0034763591615593224,
+      "count_mean": 10.899152046783625,
+      "count_variance": 20.274720764038378,
+      "zero_bin_fraction": 0.00017543859649122806,
+      "segments": 159,
+      "samples": 34200
+    },
+    {
+      "bird": "ZF1",
+      "state": "SWS",
+      "variant": "primary",
+      "d2_bits_per_second": 1.4383546649229859,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.26479119345235724,
+        0.021486073379081348,
+        0.17390612401207217,
+        0.089214975500214441,
+        0.047025454562966182
+      ],
+      "innovation_sd": 0.90916073443638579,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 8,
+        "funcCount": 48,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 5.764887e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 4.440892e-16, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 4.4408920985006262E-16,
+        "stepsize": 1.3105928658401579E-5,
+        "lssteplength": 1,
+        "firstorderopt": 5.764886736869812E-7,
+        "bestfeasible": {
+          "x": [
+            0.35172156101446111,
+            0.093839335489857859,
+            0.25891433516105755,
+            0.16156825175254433
+          ],
+          "fval": 0.039879659225464506,
+          "constrviolation": 4.4408920985006262E-16,
+          "firstorderopt": 5.764886736869812E-7
+        }
+      },
+      "fitted_min_root": 1.2219631032177907,
+      "residual_lag1_correlation": -0.0027605312119222689,
+      "count_mean": 10.882787136294027,
+      "count_variance": 78.4829582651357,
+      "zero_bin_fraction": 0.10039816232771823,
+      "segments": 162,
+      "samples": 97950
+    },
+    {
+      "bird": "ZF1",
+      "state": "SWS",
+      "variant": "short_windows",
+      "d2_bits_per_second": 1.4383534375741369,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.26503655978083057,
+        0.020946293174706573,
+        0.17424687003524317,
+        0.089113731499549015,
+        0.047073857576311849
+      ],
+      "innovation_sd": 0.90911962559444259,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 18,
+        "funcCount": 103,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 6.090435e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 4.440892e-16, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 4.4408920985006262E-16,
+        "stepsize": 2.7169153233629274E-7,
+        "lssteplength": 1,
+        "firstorderopt": 6.0904350962430868E-7,
+        "bestfeasible": {
+          "x": [
+            0.35197174090953781,
+            0.0932747694217225,
+            0.25930363101091891,
+            0.16144213422696863
+          ],
+          "fval": 0.039879625196128733,
+          "constrviolation": 4.4408920985006262E-16,
+          "firstorderopt": 6.0904350962430868E-7
+        }
+      },
+      "fitted_min_root": 1.2219535495126868,
+      "residual_lag1_correlation": -0.0034913431527613765,
+      "count_mean": 10.882787136294027,
+      "count_variance": 78.4829582651357,
+      "zero_bin_fraction": 0.10039816232771823,
+      "segments": 478,
+      "samples": 97950
+    },
+    {
+      "bird": "ZF1",
+      "state": "SWS",
+      "variant": "bin20",
+      "d2_bits_per_second": 1.4938008302878303,
+      "ar_order": 10,
+      "bin_seconds": 0.02,
+      "ar_kernel": [
+        0.35350143557759678,
+        0.016763559238605043,
+        0.0057735751289776354,
+        0.017265491105365981,
+        0.059204224456493086,
+        0.072260859191650068,
+        0.062472727817068141,
+        0.033723318130623958,
+        0.011878646469436005,
+        0.029035795790080643
+      ],
+      "innovation_sd": 0.894553379667293,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 8,
+        "funcCount": 94,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 7.778872e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 0.000000e+00, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 0,
+        "stepsize": 5.6636717457496936E-6,
+        "lssteplength": 1,
+        "firstorderopt": 7.7788718044757843E-7,
+        "bestfeasible": {
+          "x": [
+            0.39701593608426339,
+            0.045831392714527255,
+            0.035559499854189214,
+            0.049448957459229129,
+            0.093711810211341326,
+            0.10677032555651496,
+            0.094656082871424435,
+            0.063508755539717965,
+            0.040946941696955126
+          ],
+          "fval": 0.0207084766766423,
+          "constrviolation": 0,
+          "firstorderopt": 7.7788718044757843E-7
+        }
+      },
+      "fitted_min_root": 1.1094271837587275,
+      "residual_lag1_correlation": -8.7536202757501825E-5,
+      "count_mean": 5.4413935681470136,
+      "count_variance": 27.82980076241267,
+      "zero_bin_fraction": 0.16566105155691679,
+      "segments": 162,
+      "samples": 195900
+    },
+    {
+      "bird": "ZF1",
+      "state": "SWS",
+      "variant": "long_reach",
+      "d2_bits_per_second": 0.62093712579258165,
+      "ar_order": 10,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.24824854206187622,
+        0.0062406175596665756,
+        0.14996571104546083,
+        0.070227436214846631,
+        0.015010598224463578,
+        0.037563905457068364,
+        0.041420647992162288,
+        0.038735428146891876,
+        0.043793285072264217,
+        0.049206605890153535
+      ],
+      "innovation_sd": 0.901482024363475,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 7,
+        "funcCount": 84,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 4.351605e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 3.330669e-16, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 3.3306690738754696E-16,
+        "stepsize": 3.6650031140697292E-6,
+        "lssteplength": 1,
+        "firstorderopt": 4.3516047298908234E-7,
+        "bestfeasible": {
+          "x": [
+            0.28500444497565469,
+            0.035833653150416929,
+            0.1806972263213876,
+            0.0971563355468939,
+            0.040795364875602751,
+            0.063348265603285825,
+            0.068349712299710721,
+            0.069466598133102728,
+            0.07338630685694765
+          ],
+          "fval": 0.017216032721924963,
+          "constrviolation": 3.3306690738754696E-16,
+          "firstorderopt": 4.3516047298908234E-7
+        }
+      },
+      "fitted_min_root": 1.085078146141595,
+      "residual_lag1_correlation": -0.0011274851214475334,
+      "count_mean": 10.882787136294027,
+      "count_variance": 78.4829582651357,
+      "zero_bin_fraction": 0.10039816232771823,
+      "segments": 162,
+      "samples": 97950
+    },
+    {
+      "bird": "ZF1",
+      "state": "SWS",
+      "variant": "matched_units",
+      "d2_bits_per_second": 1.4383546649229859,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.26479119345235724,
+        0.021486073379081348,
+        0.17390612401207217,
+        0.089214975500214441,
+        0.047025454562966182
+      ],
+      "innovation_sd": 0.90916073443638579,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 8,
+        "funcCount": 48,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 5.764887e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 4.440892e-16, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 4.4408920985006262E-16,
+        "stepsize": 1.3105928658401579E-5,
+        "lssteplength": 1,
+        "firstorderopt": 5.764886736869812E-7,
+        "bestfeasible": {
+          "x": [
+            0.35172156101446111,
+            0.093839335489857859,
+            0.25891433516105755,
+            0.16156825175254433
+          ],
+          "fval": 0.039879659225464506,
+          "constrviolation": 4.4408920985006262E-16,
+          "firstorderopt": 5.764886736869812E-7
+        }
+      },
+      "fitted_min_root": 1.2219631032177907,
+      "residual_lag1_correlation": -0.0027605312119222689,
+      "count_mean": 10.882787136294027,
+      "count_variance": 78.4829582651357,
+      "zero_bin_fraction": 0.10039816232771823,
+      "segments": 162,
+      "samples": 97950
+    },
+    {
+      "bird": "ZF1",
+      "state": "SWS",
+      "variant": "matched_rate",
+      "d2_bits_per_second": 1.4383546649229859,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.26479119345235724,
+        0.021486073379081348,
+        0.17390612401207217,
+        0.089214975500214441,
+        0.047025454562966182
+      ],
+      "innovation_sd": 0.90916073443638579,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 8,
+        "funcCount": 48,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 5.764887e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 4.440892e-16, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 4.4408920985006262E-16,
+        "stepsize": 1.3105928658401579E-5,
+        "lssteplength": 1,
+        "firstorderopt": 5.764886736869812E-7,
+        "bestfeasible": {
+          "x": [
+            0.35172156101446111,
+            0.093839335489857859,
+            0.25891433516105755,
+            0.16156825175254433
+          ],
+          "fval": 0.039879659225464506,
+          "constrviolation": 4.4408920985006262E-16,
+          "firstorderopt": 5.764886736869812E-7
+        }
+      },
+      "fitted_min_root": 1.2219631032177907,
+      "residual_lag1_correlation": -0.0027605312119222689,
+      "count_mean": 10.882787136294027,
+      "count_variance": 78.4829582651357,
+      "zero_bin_fraction": 0.10039816232771823,
+      "segments": 162,
+      "samples": 97950
+    },
+    {
+      "bird": "ZF2",
+      "state": "WAKE",
+      "variant": "primary",
+      "d2_bits_per_second": 1.1550037993984854,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.38526259007631936,
+        0.099208059470591733,
+        0.106731530952284,
+        0.046731636045760083,
+        0.073667153836977375
+      ],
+      "innovation_sd": 0.82661642537372759,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 8,
+        "funcCount": 47,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 1.955777e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 3.330669e-16, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 3.3306690738754696E-16,
+        "stepsize": 1.4577181153733806E-6,
+        "lssteplength": 1,
+        "firstorderopt": 1.9557774066925049E-7,
+        "bestfeasible": {
+          "x": [
+            0.456277690890044,
+            0.14783196719530983,
+            0.15585301249579256,
+            0.095355085020104938
+          ],
+          "fval": 0.032023505083563393,
+          "constrviolation": 3.3306690738754696E-16,
+          "firstorderopt": 1.9557774066925049E-7
+        }
+      },
+      "fitted_min_root": 1.16676912564594,
+      "residual_lag1_correlation": -0.0033867201230374879,
+      "count_mean": 15.956817359855334,
+      "count_variance": 77.843265214931876,
+      "zero_bin_fraction": 0.0014466546112115732,
+      "segments": 442,
+      "samples": 27650
+    },
+    {
+      "bird": "ZF2",
+      "state": "WAKE",
+      "variant": "short_windows",
+      "d2_bits_per_second": 1.1512834578956941,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.38471193107366386,
+        0.098946814154909371,
+        0.1062568168490486,
+        0.046531757480868463,
+        0.075464755774812944
+      ],
+      "innovation_sd": 0.826814858288001,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 11,
+        "funcCount": 64,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 3.632158e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 0.000000e+00, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 0,
+        "stepsize": 1.9357462053898433E-6,
+        "lssteplength": 1,
+        "firstorderopt": 3.6321580410003662E-7,
+        "bestfeasible": {
+          "x": [
+            0.45560953530289672,
+            0.14755055851463569,
+            0.15534252648563474,
+            0.095135488450558969
+          ],
+          "fval": 0.031920355314628196,
+          "constrviolation": 0,
+          "firstorderopt": 3.6321580410003662E-7
+        }
+      },
+      "fitted_min_root": 1.1659053579649878,
+      "residual_lag1_correlation": -0.0038181381819570653,
+      "count_mean": 15.956817359855334,
+      "count_variance": 77.843265214931876,
+      "zero_bin_fraction": 0.0014466546112115732,
+      "segments": 448,
+      "samples": 27650
+    },
+    {
+      "bird": "ZF2",
+      "state": "WAKE",
+      "variant": "bin20",
+      "d2_bits_per_second": 1.207194010574228,
+      "ar_order": 10,
+      "bin_seconds": 0.02,
+      "ar_kernel": [
+        0.34617429726187143,
+        0.097820489966246829,
+        0.056517713050631573,
+        0.046034507963515214,
+        0.055501071653110814,
+        0.0387739743055272,
+        0.032191536538621356,
+        0.022208485735539463,
+        0.019285059592561812,
+        0.039825994214962017
+      ],
+      "innovation_sd": 0.84368455856232927,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 7,
+        "funcCount": 85,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 6.344635e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 0.000000e+00, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 0,
+        "stepsize": 1.0188257027612101E-5,
+        "lssteplength": 1,
+        "firstorderopt": 6.3446350395679474E-7,
+        "bestfeasible": {
+          "x": [
+            0.38156693421347709,
+            0.12208708947849169,
+            0.078209578949881425,
+            0.066899816726381844,
+            0.076118052927429347,
+            0.059391370333445444,
+            0.053055761098725521,
+            0.0439013728016487,
+            0.0435518160444933
+          ],
+          "fval": 0.01673526249636758,
+          "constrviolation": 0,
+          "firstorderopt": 6.3446350395679474E-7
+        }
+      },
+      "fitted_min_root": 1.0840669481643135,
+      "residual_lag1_correlation": 0.0023906065544761091,
+      "count_mean": 7.978408679927667,
+      "count_variance": 26.297007540169652,
+      "zero_bin_fraction": 0.010307414104882459,
+      "segments": 442,
+      "samples": 55300
+    },
+    {
+      "bird": "ZF2",
+      "state": "WAKE",
+      "variant": "long_reach",
+      "d2_bits_per_second": 0.63071647074809367,
+      "ar_order": 10,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.3766728507828902,
+        0.093462033706935746,
+        0.0969281547964395,
+        0.034752837164561158,
+        0.047191358037172053,
+        0.024796345928582483,
+        0.0047830108484625154,
+        0.010895058545485453,
+        0.054130879896047444,
+        0.017522191239195992
+      ],
+      "innovation_sd": 0.82334253045129291,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 21,
+        "funcCount": 228,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 5.695038e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 0.000000e+00, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 0,
+        "stepsize": 6.7228386487206089E-7,
+        "lssteplength": 1,
+        "firstorderopt": 5.6950375437736511E-7,
+        "bestfeasible": {
+          "x": [
+            0.41288984372097937,
+            0.11819860429924951,
+            0.11872557647107163,
+            0.053270847259610288,
+            0.065354920475912653,
+            0.042959813142292712,
+            0.0233013135889096,
+            0.032692988612866625,
+            0.078867397753735621
+          ],
+          "fval": 0.017487173737270417,
+          "constrviolation": 0,
+          "firstorderopt": 5.6950375437736511E-7
+        }
+      },
+      "fitted_min_root": 1.0900330435247378,
+      "residual_lag1_correlation": -0.0025097254912156957,
+      "count_mean": 15.956817359855334,
+      "count_variance": 77.843265214931876,
+      "zero_bin_fraction": 0.0014466546112115732,
+      "segments": 442,
+      "samples": 27650
+    },
+    {
+      "bird": "ZF2",
+      "state": "WAKE",
+      "variant": "matched_units",
+      "d2_bits_per_second": 1.1550037993984854,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.38526259007631936,
+        0.099208059470591733,
+        0.106731530952284,
+        0.046731636045760083,
+        0.073667153836977375
+      ],
+      "innovation_sd": 0.82661642537372759,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 8,
+        "funcCount": 47,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 1.955777e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 3.330669e-16, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 3.3306690738754696E-16,
+        "stepsize": 1.4577181153733806E-6,
+        "lssteplength": 1,
+        "firstorderopt": 1.9557774066925049E-7,
+        "bestfeasible": {
+          "x": [
+            0.456277690890044,
+            0.14783196719530983,
+            0.15585301249579256,
+            0.095355085020104938
+          ],
+          "fval": 0.032023505083563393,
+          "constrviolation": 3.3306690738754696E-16,
+          "firstorderopt": 1.9557774066925049E-7
+        }
+      },
+      "fitted_min_root": 1.16676912564594,
+      "residual_lag1_correlation": -0.0033867201230374879,
+      "count_mean": 15.956817359855334,
+      "count_variance": 77.843265214931876,
+      "zero_bin_fraction": 0.0014466546112115732,
+      "segments": 442,
+      "samples": 27650
+    },
+    {
+      "bird": "ZF2",
+      "state": "WAKE",
+      "variant": "matched_rate",
+      "d2_bits_per_second": 1.568876113338769,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.21904235127647281,
+        0.12337565596307662,
+        0.093202548026491944,
+        0.06912883319152209,
+        0.058031367154632335
+      ],
+      "innovation_sd": 0.9262710914128,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 29,
+        "funcCount": 171,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 6.454065e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 0.000000e+00, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 0,
+        "stepsize": 2.9499749914187453E-6,
+        "lssteplength": 1,
+        "firstorderopt": 6.4540654420852661E-7,
+        "bestfeasible": {
+          "x": [
+            0.31521095555947293,
+            0.20591725438945852,
+            0.17300157395862137,
+            0.15167104395204117
+          ],
+          "fval": 0.043498482184344524,
+          "constrviolation": 0,
+          "firstorderopt": 6.4540654420852661E-7
+        }
+      },
+      "fitted_min_root": 1.2524869371472023,
+      "residual_lag1_correlation": -0.00050812414399895153,
+      "count_mean": 3.6507775768535264,
+      "count_variance": 7.0138489016635415,
+      "zero_bin_fraction": 0.062314647377938515,
+      "segments": 442,
+      "samples": 27650
+    },
+    {
+      "bird": "ZF2",
+      "state": "SWS",
+      "variant": "primary",
+      "d2_bits_per_second": 1.0525401204549787,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.46713106297107726,
+        0.063796848598850986,
+        0.082913085375266621,
+        0.052662084436458569,
+        0.081943864971808583
+      ],
+      "innovation_sd": 0.78380849118374973,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 17,
+        "funcCount": 103,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 7.017516e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 0.000000e+00, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 0,
+        "stepsize": 1.9374668230545088E-6,
+        "lssteplength": 1,
+        "firstorderopt": 7.0175155997276306E-7,
+        "bestfeasible": {
+          "x": [
+            0.53215821652501216,
+            0.10391386693697072,
+            0.12417828794482853,
+            0.092779220715111285
+          ],
+          "fval": 0.029182608676783753,
+          "constrviolation": 0,
+          "firstorderopt": 7.0175155997276306E-7
+        }
+      },
+      "fitted_min_root": 1.1476724419005362,
+      "residual_lag1_correlation": -0.011983112350259468,
+      "count_mean": 3.665719052385719,
+      "count_variance": 41.612375198674634,
+      "zero_bin_fraction": 0.42390390390390392,
+      "segments": 70,
+      "samples": 74925
+    },
+    {
+      "bird": "ZF2",
+      "state": "SWS",
+      "variant": "short_windows",
+      "d2_bits_per_second": 1.0438219595175493,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.46738412224888448,
+        0.063128390794718034,
+        0.083607360743152226,
+        0.052862386274584033,
+        0.083171596676956921
+      ],
+      "innovation_sd": 0.7826675661534499,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 15,
+        "funcCount": 86,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 3.515743e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 4.440892e-16, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 4.4408920985006262E-16,
+        "stepsize": 1.019985233828385E-6,
+        "lssteplength": 1,
+        "firstorderopt": 3.5157427191734314E-7,
+        "bestfeasible": {
+          "x": [
+            0.531930117184343,
+            0.10297319538414119,
+            0.12467207555475786,
+            0.09270739444638014
+          ],
+          "fval": 0.028940889929845868,
+          "constrviolation": 4.4408920985006262E-16,
+          "firstorderopt": 3.5157427191734314E-7
+        }
+      },
+      "fitted_min_root": 1.1460306380722836,
+      "residual_lag1_correlation": -0.013220429206641036,
+      "count_mean": 3.665719052385719,
+      "count_variance": 41.612375198674634,
+      "zero_bin_fraction": 0.42390390390390392,
+      "segments": 334,
+      "samples": 74925
+    },
+    {
+      "bird": "ZF2",
+      "state": "SWS",
+      "variant": "bin20",
+      "d2_bits_per_second": 1.0951427311075985,
+      "ar_order": 10,
+      "bin_seconds": 0.02,
+      "ar_kernel": [
+        0.49618775622390809,
+        0.037210342790378409,
+        0.051218248810165956,
+        0.042565005971079421,
+        0.032171459554761868,
+        0.032627108108887616,
+        0.026337762006478208,
+        0.02073999756109033,
+        0.022990100766229104,
+        0.040581421078365723
+      ],
+      "innovation_sd": 0.76856525768372463,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 9,
+        "funcCount": 105,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 6.147893e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 7.771561e-16, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 7.7715611723760958E-16,
+        "stepsize": 8.2247869703106641E-6,
+        "lssteplength": 1,
+        "firstorderopt": 6.1478931456804276E-7,
+        "bestfeasible": {
+          "x": [
+            0.52826823026644154,
+            0.054702141312818538,
+            0.068202939790566575,
+            0.058783007418790272,
+            0.0480812843569105,
+            0.048539165794632293,
+            0.042554629209897138,
+            0.037724040967244826,
+            0.040482441688997652
+          ],
+          "fval": 0.015181901927559005,
+          "constrviolation": 7.7715611723760958E-16,
+          "firstorderopt": 6.1478931456804276E-7
+        }
+      },
+      "fitted_min_root": 1.0744255103677738,
+      "residual_lag1_correlation": -0.0040026102490218832,
+      "count_mean": 1.8328595261928595,
+      "count_variance": 12.933912136170461,
+      "zero_bin_fraction": 0.54561227894561226,
+      "segments": 70,
+      "samples": 149850
+    },
+    {
+      "bird": "ZF2",
+      "state": "SWS",
+      "variant": "long_reach",
+      "d2_bits_per_second": 0.45082608817756,
+      "ar_order": 10,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.44453529363046473,
+        0.049579666376855874,
+        0.0666794689108031,
+        0.035859771367059784,
+        0.036039877730988774,
+        0.026771390305182958,
+        0.03034982262523403,
+        0.03516181843833803,
+        0.0314820475639516,
+        0.06413981398176187
+      ],
+      "innovation_sd": 0.77544469821642548,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 10,
+        "funcCount": 115,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 5.642651e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 0.000000e+00, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 0,
+        "stepsize": 1.6567266127552333E-6,
+        "lssteplength": 1,
+        "firstorderopt": 5.64265064895153E-7,
+        "bestfeasible": {
+          "x": [
+            0.47147326441623438,
+            0.0660609241001029,
+            0.082796196994181545,
+            0.0510575418500805,
+            0.051006070176363758,
+            0.041738892441343309,
+            0.045547242949081405,
+            0.051278034093048867,
+            0.047964161019818236
+          ],
+          "fval": 0.0124995532777258,
+          "constrviolation": 0,
+          "firstorderopt": 5.64265064895153E-7
+        }
+      },
+      "fitted_min_root": 1.0579211209464416,
+      "residual_lag1_correlation": -0.012901895382667467,
+      "count_mean": 3.665719052385719,
+      "count_variance": 41.612375198674634,
+      "zero_bin_fraction": 0.42390390390390392,
+      "segments": 70,
+      "samples": 74925
+    },
+    {
+      "bird": "ZF2",
+      "state": "SWS",
+      "variant": "matched_units",
+      "d2_bits_per_second": 1.0568567537960274,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.46529335052675369,
+        0.063880262229044929,
+        0.082867519269766779,
+        0.052970097259532521,
+        0.0819814521478002
+      ],
+      "innovation_sd": 0.78547190747686613,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 20,
+        "funcCount": 112,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 7.427298e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 2.220446e-16, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 2.2204460492503131E-16,
+        "stepsize": 1.032183905295065E-6,
+        "lssteplength": 1,
+        "firstorderopt": 7.4272975325584412E-7,
+        "bestfeasible": {
+          "x": [
+            0.53059802031979786,
+            0.1042977648011779,
+            0.12443108662530435,
+            0.093387821027223678
+          ],
+          "fval": 0.029302291165978107,
+          "constrviolation": 2.2204460492503131E-16,
+          "firstorderopt": 7.4272975325584412E-7
+        }
+      },
+      "fitted_min_root": 1.1484121393476685,
+      "residual_lag1_correlation": -0.011981979205062122,
+      "count_mean": 3.5858525191858526,
+      "count_variance": 39.625367087583761,
+      "zero_bin_fraction": 0.42507841174507843,
+      "segments": 70,
+      "samples": 74925
+    },
+    {
+      "bird": "ZF2",
+      "state": "SWS",
+      "variant": "matched_rate",
+      "d2_bits_per_second": 1.0525401204549787,
+      "ar_order": 5,
+      "bin_seconds": 0.04,
+      "ar_kernel": [
+        0.46713106297107726,
+        0.063796848598850986,
+        0.082913085375266621,
+        0.052662084436458569,
+        0.081943864971808583
+      ],
+      "innovation_sd": 0.78380849118374973,
+      "exit_status": 0,
+      "solver_flag": 1,
+      "solver_output": {
+        "iterations": 17,
+        "funcCount": 103,
+        "algorithm": "sqp",
+        "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 7.017516e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 0.000000e+00, is less than options.ConstraintTolerance = 1.000000e-02.",
+        "constrviolation": 0,
+        "stepsize": 1.9374668230545088E-6,
+        "lssteplength": 1,
+        "firstorderopt": 7.0175155997276306E-7,
+        "bestfeasible": {
+          "x": [
+            0.53215821652501216,
+            0.10391386693697072,
+            0.12417828794482853,
+            0.092779220715111285
+          ],
+          "fval": 0.029182608676783753,
+          "constrviolation": 0,
+          "firstorderopt": 7.0175155997276306E-7
+        }
+      },
+      "fitted_min_root": 1.1476724419005362,
+      "residual_lag1_correlation": -0.011983112350259468,
+      "count_mean": 3.665719052385719,
+      "count_variance": 41.612375198674634,
+      "zero_bin_fraction": 0.42390390390390392,
+      "segments": 70,
+      "samples": 74925
+    }
+  ],
+  "settings": {
+    "minimum_state_seconds": 120,
+    "primary_bin_seconds": 0.04,
+    "primary_ar_order": 5,
+    "primary_region": "LMAN",
+    "wake_sound_code": 1,
+    "sws_code": 3,
+    "seed": 2026,
+    "recordings": [
+      {
+        "bird": "ZF1",
+        "session": "23072019",
+        "state": "SWS",
+        "prefix": "sub-ZF1_ses-23072019_",
+        "score": "ZF1_bird_sleep_states_mic_corrected.csv",
+        "ap_meta": "sub-ZF1_ses-23072019_g0_t0.imec0.ap.meta"
+      },
+      {
+        "bird": "ZF1",
+        "session": "23072019b",
+        "state": "WAKE",
+        "prefix": "",
+        "score": "ZF1_awake_sdResults.csv",
+        "ap_meta": "sub-ZF1_ses-23072019b_g0_t0.imec0.ap.meta"
+      },
+      {
+        "bird": "ZF2",
+        "session": "11112020",
+        "state": "SWS",
+        "prefix": "sub-ZF2_ses-11112020_",
+        "score": "ZF2_bird_sleep_states_mic_corrected.csv",
+        "ap_meta": "sub-ZF2_ses-11112020_g0_t0.imec0.ap.meta"
+      },
+      {
+        "bird": "ZF2",
+        "session": "11112020b",
+        "state": "WAKE",
+        "prefix": "",
+        "score": "ZF2_awake_sdResults.csv",
+        "ap_meta": "raw_g0_t0.imec0.ap.meta"
+      }
+    ]
+  },
+  "data_version": "514c6f43effed69a9857332af1f1e10990523661",
+  "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+  "project_commit": "d4d452960c93549259a4d33a7e20d8441dfe7a98",
+  "run_id": "44560423598",
+  "matlab": "24.2.0.3361896 (R2024b) Update 10",
+  "elapsed_seconds": 8.41333,
+  "timestamp_utc": "2026-11-19T15:59:18Z"
+}
