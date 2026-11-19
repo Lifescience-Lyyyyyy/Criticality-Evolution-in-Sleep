@@ -2,6 +2,9 @@ name: MATLAB PNAS Replication
 
 on:
   workflow_dispatch:
+  push:
+    tags:
+      - 'matlab-smoke-*'
 
 jobs:
   replicate:
@@ -10,6 +13,23 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+
+      - name: Fetch pinned Sooter toolkit
+        uses: actions/checkout@v4
+        with:
+          repository: sam-sooter/prox_crit_toolkit
+          ref: f26c782dca3b1c9ab18cc92c6449591c44e0d507
+          path: external/prox_crit_toolkit
+          persist-credentials: false
+          sparse-checkout: |
+            /src/
+            /demo/demo.mlx
+          sparse-checkout-cone-mode: false
+
+      - name: Prepare the official synthetic demo section
+        run: |
+          df -h "$RUNNER_TEMP"
+          python3 scripts/ci/prepare_demo.py
 
       - name: Install MATLAB
         uses: matlab-actions/setup-matlab@v3
@@ -24,7 +44,10 @@ jobs:
         with:
           command: ver
 
-      # 后续让 Codex 在这里运行官方 Demo
+      - name: Run the official d2 smoke test
+        uses: matlab-actions/run-command@v3
+        with:
+          command: addpath('scripts/ci'); run_smoke
 
       - name: Save results
         if: always()

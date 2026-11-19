@@ -1,0 +1,10 @@
+external/
+__pycache__/
+.ipynb_checkpoints/
+*.asv
+*.mat
+*.nwb
+*.h5
+*.hdf5
+*.npy
+*.npz
