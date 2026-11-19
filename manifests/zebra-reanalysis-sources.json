@@ -1,0 +1,29 @@
+{
+  "commit": "514c6f43effed69a9857332af1f1e10990523661",
+  "files": {
+    "ZF1_adResults.csv": {
+      "source": "https://gin.g-node.org/E4-Leblois/npx_sleep_2024/raw/master/code/fig3/SoundAndArtefactDetection/ZF1_adResults.csv",
+      "sha256": "260fcc2fb0aece8ea8203c1a060616b4ee7eb0c1cc9d9513e3d7f9ced1fd9e16",
+      "bytes": 12237,
+      "drive_path": "datasets/zebra_finch/supplemental/ZF1_adResults.csv"
+    },
+    "ZF2_adResults.csv": {
+      "source": "https://gin.g-node.org/E4-Leblois/npx_sleep_2024/raw/master/code/fig3/SoundAndArtefactDetection/ZF2_adResults.csv",
+      "sha256": "ffd1d8c708358bb13cff657f42291d736d93dd3eabfe399a6fd12bfcc1191579",
+      "bytes": 52074,
+      "drive_path": "datasets/zebra_finch/supplemental/ZF2_adResults.csv"
+    },
+    "LF_ZF1.mat": {
+      "source": "https://gin.g-node.org/E4-Leblois/npx_sleep_2024/raw/master/code/fig6/Data/LF_ZF1.mat",
+      "sha256": "b7f9789d08e64afde55fedd8e4d18a0d3f681e78f5e597d5ec6f1c167d82eb39",
+      "bytes": 10514719,
+      "drive_path": "datasets/zebra_finch/supplemental/LF_ZF1.mat"
+    },
+    "LF_ZF2.mat": {
+      "source": "https://gin.g-node.org/E4-Leblois/npx_sleep_2024/raw/master/code/fig6/Data/LF_ZF2.mat",
+      "sha256": "50d9ac6f71ec8c9164b786cb559bd649c5f68ba30f91ecae026ec437ed7fcf9b",
+      "bytes": 13889788,
+      "drive_path": "datasets/zebra_finch/supplemental/LF_ZF2.mat"
+    }
+  }
+}

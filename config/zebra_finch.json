@@ -6,6 +6,17 @@
   "wake_sound_code": 1,
   "sws_code": 3,
   "seed": 2026,
+  "reanalysis": {
+    "schema_version": 2,
+    "repetitions": 100,
+    "window_seconds": 60,
+    "minimum_good_units": 2,
+    "maximum_contamination_percent": 10,
+    "refractory_seconds": 0.0015,
+    "maximum_refractory_fraction": 0.01,
+    "rate_matching_caliper_fraction": 0.10,
+    "time_matching_caliper_seconds": 600
+  },
   "recordings": [
     {"bird": "ZF1", "session": "23072019", "state": "SWS", "prefix": "sub-ZF1_ses-23072019_", "score": "ZF1_bird_sleep_states_mic_corrected.csv", "ap_meta": "sub-ZF1_ses-23072019_g0_t0.imec0.ap.meta"},
     {"bird": "ZF1", "session": "23072019b", "state": "WAKE", "prefix": "", "score": "ZF1_awake_sdResults.csv", "ap_meta": "sub-ZF1_ses-23072019b_g0_t0.imec0.ap.meta"},
