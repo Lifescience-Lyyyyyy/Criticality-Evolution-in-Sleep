@@ -1,0 +1,38 @@
+name: MATLAB PNAS Replication
+
+on:
+  workflow_dispatch:
+
+jobs:
+  replicate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install MATLAB
+        uses: matlab-actions/setup-matlab@v3
+        with:
+          release: R2024b
+          products: >
+            Optimization_Toolbox
+            Parallel_Computing_Toolbox
+
+      - name: Check MATLAB environment
+        uses: matlab-actions/run-command@v3
+        with:
+          command: ver
+
+      # 后续让 Codex 在这里运行官方 Demo
+
+      - name: Save results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: matlab-results
+          path: |
+            results/
+            figures/
+            reports/
+          if-no-files-found: ignore
