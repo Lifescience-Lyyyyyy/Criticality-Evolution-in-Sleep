@@ -34,5 +34,5 @@ ZF1 的会话 TSV 所示条件与程序路径、AP 时刻和评分长度交叉�
 
 - 云端历史复算通过前不启动新 MATLAB 估计。优先复用 Drive 内已校验的 21 个文件，追加小型公开掩码与派生事件资料。
 - 原始估计器仍以 40 ms、AR(5)、β=2、Yule–Walker 为参照，0.40 s AR(10) 作为单独敏感性。严格筛选和作者宽口径均记录；后者不代替受阻的严格主分析。以鸟为独立单位。
-- 作者的群体爆发值使用连续两脉冲的瞬时发放率、同步窗内的爆发单元比例、Gaussian 平滑和逐录制第 99 百分位峰高。需核对公开代码中的 2,500 Hz 栅格、50 ms 窗、10 ms 步长及窗内超过一个 IFR 栅格点的判据。爆发检测在正式估计前用独立计算和原作者派生资料交叉核验。[爆发检测源码](https://gin.g-node.org/E4-Leblois/npx_sleep_2024/src/master/code/fig6/burstAnalysis.m) · [同步窗源码](https://gin.g-node.org/E4-Leblois/npx_sleep_2024/src/master/code/UtilsMatlab/computation/get_nActiveUnitsInSlidingWindow.m)
+- 作者方法使用连续两脉冲的瞬时发放率、同步窗内的爆发单元比例和 Gaussian 平滑。核对源码后，复用 2,500 Hz 栅格、50 ms 窗、10 ms 步长、15 ms Gaussian σ，以及窗内超过一个高 IFR 栅格点的判据。论文写第 99 百分位，但发布的 `plotExampleTraceIFR.m` 在传入非零阈值参数时实际选局部峰高度的第 97.5 百分位。主爆发分析按可执行源码，另做第 99 百分位。使用独立密集计算和作者已归档的 LFP 对齐事件核验。[爆发检测源码](https://gin.g-node.org/E4-Leblois/npx_sleep_2024/src/master/code/fig6/burstAnalysis.m) · [峰阈值源码](https://gin.g-node.org/E4-Leblois/npx_sleep_2024/src/master/code/UtilsMatlab/visualization/plotExampleTraceIFR.m)
 - 审计发现旧脚本在探针映射断言失败分支对错误文字误用了单目加号。旧结果的配对探针表一致，因此未进入该分支。修订入口需保留清晰的原始诊断。

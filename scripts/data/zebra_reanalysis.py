@@ -104,10 +104,13 @@ def prepare_record(item, root, params, config, assets, supplemental):
     counts = np.bincount(indices, minlength=len(trains) * width).reshape(len(trains), width)
     assert counts.max() <= np.iinfo(np.uint16).max
     counts = counts.astype(np.uint16)
-    events, time, participation, threshold, checks = detect(trains, metrics["ap_duration_s"])
+    detectors, time, participation, checks = detect(trains, metrics["ap_duration_s"])
+    events = detectors["released"]["events"]
+    paper_events = detectors["paper99"]["events"]
     context = {"recording_checks": metrics, "trimmed_at_s": complete, "unit_qc": catalog,
                "unit_label_counts": dict(Counter(row["label"] for row in catalog)),
-               "burst_threshold": threshold, "checked_centers_s": checks}
+               "burst_threshold": detectors["released"]["threshold"],
+               "paper99_threshold": detectors["paper99"]["threshold"], "checked_centers_s": checks}
     if item["state"] == "WAKE":
         artifact = read_table(fetch(root, f"{bird}_adResults.csv", supplemental))
         assert [int(r["sec"]) for r in artifact] == list(range(len(artifact)))
@@ -124,8 +127,9 @@ def prepare_record(item, root, params, config, assets, supplemental):
         mic = np.asarray([int(float(r["new_mic"])) for r in rows])
         masks = {"SWS": (scores == config["sws_code"]) & (mic == 0)}
         mask = shifted = np.zeros(complete, dtype=bool)
-        context["archived_event_validation"] = trace_summary(
-            events, fetch(root, f"LF_{bird}.mat", supplemental))
+        reference = fetch(root, f"LF_{bird}.mat", supplemental)
+        context["archived_event_validation"] = trace_summary(events, reference)
+        context["archived_event_validation_paper99"] = trace_summary(paper_events, reference)
 
     state_data, state_info, event_tracks = {}, {}, {}
     for state, original in masks.items():
@@ -140,7 +144,8 @@ def prepare_record(item, root, params, config, assets, supplemental):
         w = rules["window_seconds"]
         windows = np.array([(t, t + w) for start, end in bounds
                             for t in range(start, end - w + 1, w)], dtype=np.int64).reshape(-1, 2)
-        window_features = [{"start_s": int(t), **summarize(events, time, participation, [(t, t + w)])}
+        window_features = [{"start_s": int(t), **summarize(events, time, participation, [(t, t + w)]),
+                            "paper99_event_rate_per_min": summarize(paper_events, time, participation, [(t, t + w)])["event_rate_per_min"]}
                            for t, _ in windows]
         lag_guard = min(x.shape[1] for x in segments[:, 0])
         assert lag_guard > 10
@@ -156,9 +161,11 @@ def prepare_record(item, root, params, config, assets, supplemental):
                              "units": int(len(all_units)), "unmasked_seconds": int(original.sum()),
                              "literal_mask_seconds": int((original & ~mask).sum()),
                              "window_seconds": w, "window_features": window_features,
-                             "burst_summary": summarize(events, time, participation, bounds)}
-        event_tracks[state] = [e for e in events if any(
+                             "burst_summary": summarize(events, time, participation, bounds),
+                             "paper99_burst_summary": summarize(paper_events, time, participation, bounds)}
+        event_tracks[state] = {key: [e for e in method["events"] if any(
             start <= e["onset_s"] and e["offset_s"] <= stop for start, stop in bounds)]
+            for key, method in detectors.items()}
     return state_data, state_info, context, event_tracks
 
 
@@ -198,14 +205,18 @@ def prepare():
             key = "night" if state == "SWS" else "light"
             ids = row["broad_unit_ids"]
             if key not in ids_by_record:
-                rng = np.random.default_rng(np.random.SeedSequence([seed, int(bird[-1]), int(key == "night")]))
-                picks = np.stack([rng.choice(len(ids), minimum, replace=False) for _ in range(repetitions)])
+                stream = np.random.SeedSequence([seed, int(bird[-1]), int(key == "night")])
+                seeds = np.array([child.generate_state(1)[0] for child in stream.spawn(repetitions)])
+                assert len(np.unique(seeds)) == repetitions
+                picks = np.stack([np.random.default_rng(s).choice(len(ids), minimum, replace=False)
+                                  for s in seeds])
                 schedules = np.zeros((repetitions, len(ids)), dtype=bool)
                 schedules[np.arange(repetitions)[:, None], picks] = True
-                ids_by_record[key] = ids, schedules
-            previous, schedules = ids_by_record[key]
+                ids_by_record[key] = ids, schedules, seeds
+            previous, schedules, seeds = ids_by_record[key]
             assert np.array_equal(ids, previous)
             row["unit_masks"] = schedules.astype(np.uint8)
+            row["unit_seeds"] = seeds
     target = root / "matlab_inputs/zebra_lman_reanalysis_v2.mat"
     with TemporaryDirectory(prefix="zebra-v2-", dir="/content") as scratch:
         path = Path(scratch) / target.name
@@ -213,13 +224,17 @@ def prepare():
         size = path.stat().st_size
         if size >= 25 * 2**20:
             raise ValueError(f"Derived fixture exceeds validated Git transfer budget: {size}")
+        # The first 116 MAT bytes are the descriptive header with a timestamp.
+        if target.exists() and target.read_bytes()[116:] == path.read_bytes()[116:]:
+            path = target
         with path.open("rb") as handle:
             sha = file_digest(handle, "sha256").hexdigest()
-        stage = target.with_suffix(".part")
-        stage.write_bytes(path.read_bytes())
-        with stage.open("rb") as handle:
-            assert file_digest(handle, "sha256").hexdigest() == sha
-        stage.replace(target)
+        if path != target:
+            stage = target.with_suffix(".part")
+            stage.write_bytes(path.read_bytes())
+            with stage.open("rb") as handle:
+                assert file_digest(handle, "sha256").hexdigest() == sha
+            stage.replace(target)
 
     for bird in fixture:
         maps = [row["recording_checks"]["probe_map"] for name, row in recording_qc.items()

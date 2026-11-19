@@ -61,7 +61,7 @@ for b = 1:numel(birds)
             counts = pool(row.segments, selected);
             fit = estimate(counts, order, bin, true);
             controls = [controls, control_row(fit, counts, bird, state, 'unit_subsampling', ...
-                k, NaN, nnz(selected), NaN)];
+                k, double(row.unit_seeds(k)), nnz(selected), NaN)];
             stream = RandStream('mt19937ar', 'Seed', seed + j*1000);
             counts = thin_counts(series, target / state_means(j), stream);
             fit = estimate(counts, order, bin, true);

@@ -53,26 +53,30 @@ def detect(spike_times, duration):
     sigma = SIGMA_SECONDS * GRID_HZ / STEP_TICKS
     kernel = np.exp(-0.5 * (np.arange(-80, 81) / sigma) ** 2)
     smooth = convolve(fraction, kernel / kernel.sum(), mode="same", method="direct")
-    threshold = np.percentile(smooth, 99)
-    peaks, _ = find_peaks(smooth, height=threshold)
-    widths, _, left, right = peak_widths(smooth, peaks)
-    checks = peaks[np.argsort(smooth[peaks])[-3:]] if len(peaks) else np.array([np.argmax(smooth)])
+    candidates, _ = find_peaks(smooth)
+    checks = candidates[np.argsort(smooth[candidates])[-3:]]
     check_centers(spike_times, centers[checks], fraction[checks])
     step = STEP_TICKS / GRID_HZ
     time = centers / GRID_HZ
-    onsets, offsets = time[0] + left * step, time[0] + right * step
-    sizes = np.zeros(len(peaks), dtype=np.int64)
-    recruited = np.zeros(len(peaks), dtype=np.int64)
-    for spikes in spike_times:
-        count = np.searchsorted(spikes, offsets) - np.searchsorted(spikes, onsets)
-        sizes += count
-        recruited += count > 0
-    events = [{"peak_s": float(time[peak]), "onset_s": float(onsets[i]),
-               "offset_s": float(offsets[i]), "duration_s": float(widths[i] * step),
-               "event_spikes": int(sizes[i]), "participating_fraction": float(fraction[peak]),
-               "spiking_unit_fraction": float(recruited[i] / len(spike_times))}
-              for i, peak in enumerate(peaks)]
-    return events, time, fraction, float(threshold), [float(time[i]) for i in checks]
+    methods = {}
+    for key, percentile in (("released", 97.5), ("paper99", 99)):
+        threshold = float(np.percentile(smooth[candidates], percentile, method="hazen"))
+        peaks = candidates[smooth[candidates] >= threshold]
+        widths, _, left, right = peak_widths(smooth, peaks)
+        onsets, offsets = time[0] + left * step, time[0] + right * step
+        sizes = np.zeros(len(peaks), dtype=np.int64)
+        recruited = np.zeros(len(peaks), dtype=np.int64)
+        for spikes in spike_times:
+            count = np.searchsorted(spikes, offsets) - np.searchsorted(spikes, onsets)
+            sizes += count
+            recruited += count > 0
+        events = [{"peak_s": float(time[peak]), "onset_s": float(onsets[i]),
+                   "offset_s": float(offsets[i]), "duration_s": float(widths[i] * step),
+                   "event_spikes": int(sizes[i]), "participating_fraction": float(fraction[peak]),
+                   "spiking_unit_fraction": float(recruited[i] / len(spike_times))}
+                  for i, peak in enumerate(peaks)]
+        methods[key] = {"events": events, "threshold": threshold, "peak_height_percentile": percentile}
+    return methods, time, fraction, [float(time[i]) for i in checks]
 
 
 def summarize(events, time, fraction, bounds):
