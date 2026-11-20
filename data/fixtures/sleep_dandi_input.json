@@ -1,30 +1,20 @@
 {
-  "records": 56,
+  "records": 1875,
   "asset_ids": [
-    "d90132bb-f4cb-49b4-8824-e4f504446991",
-    "8f434f2c-c586-408c-80f3-9e0548f24125",
-    "3f82e999-8b0a-4c46-91aa-b27ea3aefd4f",
-    "93de9552-9f1e-46b8-acb2-926164697d79",
-    "0cc966a4-d56a-444e-83bd-b7619d4d0626",
-    "130f1cf4-2484-4bf3-b555-2a1a42813d8a",
-    "7bfa9a69-f77e-4f32-97e4-acbd7c5d098e",
-    "67d6bc20-47d8-4bec-bd99-3accd591eda2",
-    "472ffae6-6f89-4c15-8a36-5b986c6fac29",
-    "0113b24c-6497-4bb7-8deb-699fdd5be53b",
-    "ec300b56-e590-4420-9ad3-ff00f7dc73ea",
-    "61c87d1a-c1a9-4818-8977-3ac211983235",
-    "a47310b1-96c3-40f6-bcca-f8dea4fcfdc0",
-    "fd03e13e-ed16-42df-8d7e-b63cb7dca2ff",
+    "bf4b6c69-8df1-466c-b43a-1d25348f8220",
+    "980fa56f-3bd1-4c48-90c2-18c75a8f288d",
+    "e987b8bc-7de8-4c32-8598-2b40bc3e25d5",
+    "6420e68b-9b79-4f51-95d3-f53ad7ce023d",
     "4ceac11e-8f09-40de-8660-b00550dd41c4",
     "cc7d4555-38a7-4634-ba3c-43c41904c30e",
-    "c0c8352f-3ae8-4161-bbc8-cc36fa363702",
-    "4983f0a4-459f-42e7-a9df-c2a40041cb98",
-    "dbe4183d-09e8-452d-9a12-13ed3d75f7b1"
+    "3dd65e10-04fe-4536-91a6-38be9c0aa2ba",
+    "a6ce4233-9c4f-4fbb-ab6f-8bf37f923e1f",
+    "6cdee910-eb88-4908-833a-980f620ddcfb"
   ],
-  "mode": "controls",
+  "mode": "events",
   "reference_fits": 0,
-  "swr_windows": 0,
+  "swr_windows": 1250,
   "fixture": "sleep_dandi_input.mat",
-  "sha256": "7a5a468b6beafc41578d629443fe814a2560a0dcae08acb0de97f0bb39e1a3d9",
-  "bytes": 1588762
+  "sha256": "6a32a7dac394236d3176c6ce8e99447b8c3cb073f23397f65cec5bb9b5ca9cff",
+  "bytes": 1556379
 }
