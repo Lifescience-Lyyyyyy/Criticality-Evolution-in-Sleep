@@ -120,6 +120,8 @@ def audit_hc23(mat, source, config):
         paired = units >= config["min_units"] and min(durations.values()) >= config["min_state_seconds"]
         item = {"dataset": r.source_dataset, "subject": r.subject_id, "session": r.session_id,
                 "asset_id": r.asset_id, "region": r.region, "units": units, "state_seconds": durations,
+                "recording_support_seconds": round(sum(b-a for a,b in r.recording_intervals),6),
+                "total_support_segments": len(r.recording_intervals),
                 "status": "PARTIAL" if paired else "BLOCKED", "eligible_comparisons": ["REM_minus_NREM"] if paired else [],
                 "reason": "Author-validated REM/NREM; overnight Wake unavailable" if paired
                           else "Insufficient verified stable units or REM/NREM exposure",
