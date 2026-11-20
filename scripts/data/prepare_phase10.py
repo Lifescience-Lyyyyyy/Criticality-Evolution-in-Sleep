@@ -75,9 +75,32 @@ def rest_epochs(rows, labels_on):
                            [(a,b) for a,b,l in rows if l.lower() not in labels_on]))
 
 
-def contexts(file, ds, clock, row):
-    if ds != "000056":
+def posub_context(file, clock, row, guard):
+    score_path = "intervals/sleep_states"
+    epochs = labeled_intervals(file["intervals/epochs"], "tags")
+    home = rest_epochs(epochs, {"home_cage"})
+    opto = [(a-guard,b+guard) for a,b,label in epochs if "opto" in label.lower()]
+    home = sorted(intersect(subtract(home,opto),[clock["seconds"]]))
+    row.update(epochs=epochs,context_support=home,opto_exclusion=opto,state_path=score_path)
+    if score_path not in file:
         return {}
+    raw = scores(file[score_path],"state")
+    row["state_description"] = file[score_path].attrs["description"]
+    tasks=[(a,b) for a,b,label in epochs if label.lower()!="home_cage"]
+    contradictory=[]
+    for a,b,label in raw:
+        s=STATES.get(label.lower())
+        if s in ("NREM","REM") and np.isfinite([a,b]).all() and span(intersect([(a,b)],tasks))>1:
+            contradictory.append((a,b,label))
+    row["behavior_conflicting_scores"]=[[*x,"NREM/REM overlaps exploration or intervention by >1 s"] for x in contradictory]
+    rest=cleaned(raw,home,clock,row)
+    rest={s:subtract(ranges,[(a,b) for a,b,_ in contradictory]) for s,ranges in rest.items()}
+    return {"REST":rest}
+
+
+def contexts(file, ds, clock, row, cfg):
+    if ds == "000939":
+        return posub_context(file,clock,row,cfg["opto_guard_seconds"])
     hypnogram="processing/behavior/sleep_states_buzcode"
     paper="processing/behavior/sleep_states"
     if "intervals/epochs" not in file:
@@ -124,7 +147,7 @@ def unit_trains(file, ds, clock, cfg, row):
     cluster=u["cluster_id"][:].tolist() if "cluster_id" in u else [None]*len(ids)
     targets={"000056":{"ADN","PoSub"},"000939":{"PoSub"},"000987":{"RSC"}}[ds]
     resolution=data.attrs.get("resolution")
-    if ds=="000056" and resolution!=.00005:
+    if ds in {"000056","000939"} and resolution!=.00005:
         raise ValueError("Unexpected unit time resolution for 20 kHz source")
     a,b=clock["seconds"]
     output,mapping=defaultdict(dict),[]
@@ -212,6 +235,44 @@ def finish(row, state_contexts, regional, cfg):
     return row,result
 
 
+def audit_secondary(file, row, cfg):
+    ds = row["dandiset"]
+    units = file.get("units")
+    tables = file.get("intervals", {})
+    row["interval_tables"] = list(tables)
+    row["processing_modules"] = list(file.get("processing", {}))
+    row["acquisition_series"] = list(file.get("acquisition", {}))
+    row["intervention_series"] = list(file.get("stimulus/presentation", {}))
+    if units is not None:
+        row["units_total"] = len(units["id"])
+        row["spike_offsets_present"] = {"spike_times","spike_times_index"} <= set(units)
+        row["source_regions"] = dict(Counter(electrode_locations(file,units)))
+    if ds == "000978":
+        if "epoch intervals" in tables:
+            row["behavior_epoch_intervals"] = bounds(tables["epoch intervals"]).tolist()
+        row["behavior_fields"] = list(file.get("processing/behavior", {}))
+        row["trial_fields"] = list(tables.get("trials", {}))
+        row["identified_state_tables"] = [k for k in tables if any(s in k.lower() for s in ("rem","sws","sleep"))]
+        row["reason"] = "Released NWB lacks a verified REM/NREM table and per-unit CA1/PFC mapping"
+        return {**row,"gate":"BLOCKED_METADATA"}, []
+    epochs = labeled_intervals(tables["epochs"], "tags")
+    home = rest_epochs(epochs, {"sleep"})
+    row.update(epochs=epochs,context_support=home,state_path="intervals/SWS")
+    state = []
+    for key in ("SWS","REM"):
+        if key in tables:
+            state.extend((a,b,key) for a,b in bounds(tables[key]).tolist())
+    support = {"seconds":[min(a for a,_,_ in epochs),max(b for _,b,_ in epochs)],"source":"intervals/epochs","rate_hz":None}
+    row["clock"] = row["clock"] or support
+    rests = cleaned(state,home,row["clock"],row)
+    if not rests["REM"]:
+        row["contexts"]={"REST":{s:{"seconds":span(ranges),"segments":len(ranges)} for s,ranges in rests.items()}}
+        row["reason"]="No published REM or rest-scored Wake. Wake experiment epochs are arena exploration."
+        return {**row,"gate":"PARTIAL"}, []
+    trains=unit_trains(file,ds,row["clock"],cfg,row)
+    return finish(row,{"REST":rests},trains,cfg)
+
+
 def inspect_nwb(asset,cfg):
     row=dict(asset)
     ds=row["dandiset"]
@@ -223,9 +284,11 @@ def inspect_nwb(asset,cfg):
                        subject=scalar_text(f["general/subject/subject_id"]),
                        session=scalar_text(f["general/session_id"]) if "general/session_id" in f else Path(row["path"]).stem)
             row["clock"]=recording_clock(f)
+            if ds in {"000978","000987"}:
+                return audit_secondary(f,row,cfg)
             if not row["clock"] or row["clock"]["seconds"][0]>=row["clock"]["seconds"][1]:
                 return {**row,"gate":"BLOCKED_METADATA","reason":"No valid independent LFP or acquisition clock"},[]
-            states=contexts(f,ds,row["clock"],row)
+            states=contexts(f,ds,row["clock"],row,cfg)
             trains=unit_trains(f,ds,row["clock"],cfg,row)
         return finish(row,states,trains,cfg)
     except HTTPError as error:
@@ -276,12 +339,21 @@ def run_stage(candidates,worker,cfg,mode,output,workers):
         return (row, prepared(regions,cfg,"states") if mode!="audit" else [],
                 prepared(regions,cfg,"controls") if mode=="cohort" else [])
     if mode=="pilot":
+        fallback=None
         for asset in candidates:
             row,fits,_=run(asset)
-            if any(m["context"]=="REST" for m,_ in fits):
-                save_prepared(fits,output/"phase10_input.mat","states",[asset["asset_id"]])
-                return
-        print("No eligible pilot")
+            if not any(m["context"]=="REST" for m,_ in fits):
+                continue
+            if fallback is None:
+                fallback=(fits,asset["asset_id"])
+            if row["gate"]=="READY_3STATE":
+                fallback=(fits,asset["asset_id"])
+                break
+        if fallback:
+            fits, asset_id=fallback
+            save_prepared(fits,output/"phase10_input.mat","states",[asset_id])
+        else:
+            print("No eligible pilot")
         return
     audit,fits,controls=[],[],[]
     with ThreadPoolExecutor(max_workers=workers) as pool:
