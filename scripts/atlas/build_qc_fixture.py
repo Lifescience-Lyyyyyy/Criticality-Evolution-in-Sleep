@@ -10,7 +10,7 @@ from zipfile import ZipFile
 import numpy as np
 from scipy.io import loadmat
 
-from build_atlas_data import ROOT, read
+from build_atlas_data import ROOT, read, write
 sys.path.insert(0, str(ROOT / "scripts/data"))
 from prepare_sleep_dandi import save_prepared
 
@@ -74,10 +74,12 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("original_000939_archive", type=Path)
     p.add_argument("--sorting", type=Path)
+    p.add_argument("--brainstem", type=Path)
     p.add_argument("--out", type=Path, required=True)
     p.add_argument("--case", choices=("C", "E"), default="C")
     a = p.parse_args()
-    cases = [x for x in read("results/validation/selected_sessions.json")["cases"] if x["case"] == a.case]
+    selected = read("results/validation/selected_sessions.json")["cases"]
+    cases = [x for x in selected if x["case"] == a.case]
     tasks, sha = paired_window_tasks(a.original_000939_archive, cases)
     inputs = {"000939_cohort_counts": sha}
     if a.sorting:
@@ -89,6 +91,14 @@ def main():
         assert len(sort_rows) == 18
         tasks.extend(sort_rows)
         inputs.update(sorting_source_counts=original["sha256"], **original["source_sha256"])
+    if a.brainstem:
+        from build_brainstem_qc import brainstem_tasks
+        original = {x["asset_id"]: x for x in read("results/phase10/audit/brainstem.json")}
+        extra, receipt = brainstem_tasks(a.brainstem, selected, original)
+        path = a.out.with_name("brainstem_source_recheck.json")
+        write(path, receipt)
+        inputs["brainstem_source_receipt"] = sha256(path.read_bytes()).hexdigest()
+        tasks.extend(extra)
     a.out.parent.mkdir(parents=True, exist_ok=True)
     info = save_prepared(tasks, a.out, "states", sorted({m["asset_id"] for m, _ in tasks}), source_sha256=inputs)
     relative = a.out.resolve().relative_to(ROOT)

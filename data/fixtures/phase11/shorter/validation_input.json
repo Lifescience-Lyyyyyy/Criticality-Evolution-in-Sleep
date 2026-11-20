@@ -1,0 +1,18 @@
+{
+  "records": 15,
+  "asset_ids": [
+    "ab4d5c7e-9860-492b-9274-a306670a53ca",
+    "zenodo:19462601:WT:DL108",
+    "zenodo:19462601:WT:DL159"
+  ],
+  "mode": "states",
+  "source_sha256": {
+    "000939_cohort_counts": "911528a1029065521fdf275b0a0041ad1889c8a73857d8d81543164c2d0b4356",
+    "brainstem_source_receipt": "03e9c8d7f72c3ee56d083b830102fbaf16666ee4f95b5bb97a61f5cab0751bb9"
+  },
+  "reference_fits": 0,
+  "swr_windows": 0,
+  "fixture": "validation_input.mat",
+  "sha256": "d5749421e0cba399c452c115d0d896bd4d720c1c6bafbd793e4e934ee8c1e53f",
+  "bytes": 631326
+}
