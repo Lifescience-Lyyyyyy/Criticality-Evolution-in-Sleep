@@ -51,6 +51,10 @@ if controls_mode
         assert(receipt.subsample_fraction==0.5);
     end
     detailed_controls = isfield(receipt,'detailed_controls') && receipt.detailed_controls;
+    if detailed_controls && isfield(receipt,'repetitions')
+        validateattributes(receipt.repetitions,{'numeric'},{'scalar','integer','positive'});
+        config.repetitions = receipt.repetitions;
+    end
     if detailed_controls
         fit_control = @(series) estimate(series,config.ar_order,config);
     else
@@ -204,7 +208,9 @@ for i = 1:numel(ids)
     groups(i) = string(r.asset_id) + "|" + string(r.context) + "|" + string(r.region);
 end
 [~,~,index] = unique(groups);
-rows = struct([]);
+fits_per_record = 1 + config.repetitions * (2 - double(within_region));
+rows = repmat(struct('record',struct(),'fit',struct(),'long_reach',[]),1,numel(ids)*fits_per_record);
+count = 0;
 for i = 1:numel(ids)
     m = meta{i};
     cells = spike_matrices{i};
@@ -220,7 +226,8 @@ for i = 1:numel(ids)
     r.variant = 'matched_controls_reference';
     r.seed = NaN;
     r.iteration = 0;
-    rows = [rows,struct('record',r,'fit',baseline,'long_reach',[])]; %#ok<AGROW>
+    count = count + 1;
+    rows(count) = struct('record',r,'fit',baseline,'long_reach',[]);
     for k = 1:config.repetitions
         seed = config.seed + 1000*index(i)+k;
         stream = RandStream('mt19937ar','Seed',seed);
@@ -238,7 +245,8 @@ for i = 1:numel(ids)
         end
         r.iteration = k;
         r.seed = seed;
-        rows = [rows,struct('record',r,'fit',fitted,'long_reach',[])]; %#ok<AGROW>
+        count = count + 1;
+        rows(count) = struct('record',r,'fit',fitted,'long_reach',[]);
 
         if within_region, continue, end
         r = m;
@@ -252,11 +260,13 @@ for i = 1:numel(ids)
             stream = RandStream('mt19937ar','Seed',r.seed);
             fitted = fit_control(thin(source,target/means(i),stream));
         end
-        rows = [rows,struct('record',r,'fit',fitted,'long_reach',[])]; %#ok<AGROW>
+        count = count + 1;
+        rows(count) = struct('record',r,'fit',fitted,'long_reach',[]);
     end
     fprintf('%s %s %s %s: %d repetitions and matched units %d\n', ...
             m.session,m.context,m.region,m.state,config.repetitions,m.target_units);
 end
+rows = rows(1:count);
 end
 
 function f = light_fit(c,config)

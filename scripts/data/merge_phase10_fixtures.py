@@ -51,7 +51,7 @@ def main():
                "receipt":receipt} for path,(receipt,_) in zip(a.inputs,inputs,strict=True)]
     extra={"constituent_inputs_json":json.dumps(received,sort_keys=True)}
     if mode=="controls":
-        extra["detailed_controls"]=True
+        extra.update(detailed_controls=True,repetitions=40)
     print(save_prepared(rows,a.out,mode,sorted({r["asset_id"] for r,_ in rows}),**extra))
 
 
