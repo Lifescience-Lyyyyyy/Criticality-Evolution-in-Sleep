@@ -18,7 +18,9 @@ def member(remote,item):
         try:
             raw=remote.fetch(start,stop)
             break
-        except (TimeoutError,URLError) as e:
+        except (TimeoutError,URLError,ValueError) as e:
+            if isinstance(e,ValueError) and str(e)!="Truncated byte range":
+                raise
             if n==3 or isinstance(e,HTTPError) and e.code not in (429,500,502,503,504):
                 raise
             retry=e.headers.get("Retry-After") if isinstance(e,HTTPError) else None

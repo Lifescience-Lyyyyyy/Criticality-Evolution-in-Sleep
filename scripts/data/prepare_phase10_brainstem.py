@@ -135,11 +135,21 @@ def inspect(asset,cfg):
         reader=csv.reader(fd)
         columns=next(reader)
         coarse=np.array([list(map(float,r)) for r in reader])
-    if len(coarse)!=size//2500:
-        return {**row,"gate":"BLOCKED_METADATA","reason":"2.5 s export and 1 ms physical clock differ"},[]
     index={u:i for i,u in enumerate(columns)}
     excluded={r.strip(" '\"") for r in asset.get("EXCLUDE","").split(",")}
     with np.load(highres,allow_pickle=False) as arrays:
+        first=arrays[arrays.files[0]]
+        spike_samples=len(first)
+        n_full=min(size//2500,spike_samples//2500,len(coarse))
+        lengths={"highres_samples":spike_samples,"eeg_samples":size,"coarse_bins":len(coarse),
+                 "exact_common_bins":n_full}
+        row["terminal_export_alignment"]=lengths
+        if abs(spike_samples-size)>=2500 or len(coarse)-n_full>1 or max(size,spike_samples)/2500-n_full>=2:
+            return {**row,"gate":"BLOCKED_METADATA","reason":"Exports disagree by over one terminal score bin"},[]
+        overlap=n_full*2500
+        shared=overlap/1000
+        row["clock"]["seconds"]=[0.,shared]
+        states={s:[(a,min(b,shared)) for a,b in v if a<shared] for s,v in states.items()}
         for u,(region,annotation,spike_count) in units.items():
             qc={"id":u,"region":region,"ontology_id":annotation,"sorter_spikes":spike_count,"eligible":False}
             labels.append(qc)
@@ -147,12 +157,12 @@ def inspect(asset,cfg):
                 qc["exclusion"]="Author exclusion, non-neural mapping, or missing export column"
                 continue
             signal=arrays[u]
-            if signal.shape!=(size,) or signal.dtype.kind not in "bui" or np.any(signal>1) or np.any(signal<0):
+            if signal.shape!=(spike_samples,) or signal.dtype.kind not in "bui" or np.any(signal>1) or np.any(signal<0):
                 qc["exclusion"]="Unexpected 1 ms vector shape or representation"
                 continue
-            counts=signal[:len(coarse)*2500].reshape(-1,2500).sum(axis=1)
-            matches=float(np.mean(np.isclose(counts,coarse[:,index[u]]*2.5,atol=1e-7,rtol=0)))
-            t=np.flatnonzero(signal)*.001
+            counts=signal[:overlap].reshape(-1,2500).sum(axis=1)
+            matches=float(np.mean(np.isclose(counts,coarse[:n_full,index[u]]*2.5,atol=1e-7,rtol=0)))
+            t=np.flatnonzero(signal[:overlap])*.001
             qc.update(spikes=len(t),exact_coarse_bin_fraction=matches)
             if matches<1 or len(t)<2:
                 qc["exclusion"]="Fine counts do not exactly reproduce companion export"
@@ -181,6 +191,8 @@ def catalog(metadata, inventory, root, scope):
     for c in cohorts:
         for asset in sorted(parse_config(root/c/(c+"_config.txt")),key=lambda r:r["mouse"]):
             if scope=="first" and asset["mouse"]!="DL108":
+                continue
+            if scope=="supplement" and asset["mouse"] not in {"DL158","DL159","DL172","DL194"}:
                 continue
             np_path=asset["NP_PATH"]
             sl_path=asset["SL_PATH"]
@@ -217,7 +229,7 @@ def main():
     p.add_argument("--metadata",type=Path,required=True)
     p.add_argument("--inventory",type=Path,required=True)
     p.add_argument("--root",type=Path,required=True)
-    p.add_argument("--scope",choices=("first","WT","all"),required=True)
+    p.add_argument("--scope",choices=("first","WT","all","supplement"),required=True)
     p.add_argument("--output",type=Path,required=True)
     p.add_argument("--config",type=Path,default=Path("config/sleep_dandi.json"))
     p.add_argument("--mode",choices=("pilot","cohort","audit"),required=True)

@@ -1,13 +1,15 @@
 {
-  "records": 108,
+  "records": 219,
   "asset_ids": [
-    "zenodo:19462601:WT:DL108",
-    "zenodo:19462601:WT:DL161"
+    "zenodo:19462601:WT:DL158",
+    "zenodo:19462601:WT:DL159",
+    "zenodo:19462601:WT:DL172",
+    "zenodo:19462601:WT:DL194"
   ],
   "mode": "states",
-  "reference_fits": 33,
+  "reference_fits": 66,
   "swr_windows": 0,
   "fixture": "phase10_input.mat",
-  "sha256": "ae3e5d840ebe8fb6d330905e8efcea0325f7eedeb605ab48843c2ad4494c886f",
-  "bytes": 4146379
+  "sha256": "ef4d5d8c6f79c26720518300d1d6b64fd1e83fa4eaddb519aabc58c5985f5aec",
+  "bytes": 7509837
 }
