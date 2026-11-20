@@ -135,22 +135,27 @@ def cross_region(rows,out):
 
 
 def swr_figure(rows,seed,out):
-    details=event_summary(rows,seed)
-    groups=defaultdict(list)
-    for r in details:
-        if r["status"]=="DESCRIPTIVE":
-            groups[r["subject"]].append(r["matched_difference"]["median"])
-    if not groups:
+    details=[r for r in event_summary(rows,seed) if r["status"]=="DESCRIPTIVE"]
+    if not details:
         return
-    subjects=sorted(groups)
+    subjects=sorted({r["subject"] for r in details})
+    contexts=[c for c in ("HOME","PRE","POST") if any(r["context"]==c for r in details)]
     fig,ax=plt.subplots(figsize=(7.15,2.9),layout="constrained")
     ax.axhline(0,color=".55",linewidth=.75,zorder=0)
-    for i,animal in enumerate(subjects):
-        values=groups[animal]
-        ax.scatter([i]*len(values),values,s=12,color="#91b1bc",zorder=2)
-        ax.scatter(i,np.mean(values),s=26,color="#135d77",zorder=3)
+    shifts=np.linspace(-.13,.13,len(contexts)) if len(contexts)>1 else [0.]
+    colors={"HOME":"#135d77","PRE":"#135d77","POST":"#86543d"}
+    for context,shift in zip(contexts,shifts,strict=True):
+        typed=[r for r in details if r["context"]==context]
+        for i,r in enumerate(typed):
+            position=subjects.index(r["subject"])+shift
+            pairs=[p["rich_minus_poor"] for p in r["matched_pairs"]]
+            ax.scatter([position]*len(pairs),pairs,s=10,color=colors[context],alpha=.24,zorder=2)
+            ax.scatter(position,r["matched_difference"]["median"],s=30,color=colors[context],
+                       marker="D" if context=="POST" else "o",label=context if i==0 else None,zorder=3)
     ax.set(xticks=range(len(subjects)),xticklabels=subjects,ylabel="Matched SWR-rich − poor Δd₂ (bits/s)")
     ax.tick_params(axis="x",labelrotation=42,labelsize=7)
+    if len(contexts)>1:
+        ax.legend()
     save(fig,out/"swr_matched")
 
 
@@ -159,10 +164,13 @@ if __name__=="__main__":
     p.add_argument("kind",choices=["pilot","cohort","cross","events"])
     p.add_argument("input",type=Path)
     p.add_argument("output",type=Path)
+    p.add_argument("--dandiset")
     o=p.parse_args()
     fits=json.loads(o.input.read_text())
     rows=fits["records"]
     if dict is type(rows): rows=[rows]
+    if o.dandiset:
+        rows=[r for r in rows if r["record"]["dandiset"]==o.dandiset]
     if o.kind=="events":
         swr_figure(rows,fits["settings"]["seed"],o.output)
     else:
