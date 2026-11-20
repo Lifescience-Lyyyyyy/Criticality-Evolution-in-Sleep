@@ -1,18 +1,12 @@
 {
-  "records": 38,
+  "records": 20,
   "asset_ids": [
-    "10cc7062-c197-4e51-941e-44aa0b3d191e",
-    "25b0f421-e8d7-43ce-8358-a95cb4e192c0",
-    "26f3cbb2-01ab-4109-aefb-8526d24d55fa",
-    "3837008a-ba8a-407d-a5a2-b64287f3e26e",
-    "42005423-ba05-4d42-ae24-e965aacad171",
-    "d1fb4979-1ae8-4f07-b804-26aa64d1ccf7",
-    "fca18e96-673f-47c2-9db6-f924c9324cb3"
+    "879eb072-6631-493c-bbbb-642f4de8cdd3"
   ],
   "mode": "states",
-  "reference_fits": 14,
+  "reference_fits": 5,
   "swr_windows": 0,
   "fixture": "phase10_input.mat",
-  "sha256": "e3bb0102685332596716edf4dd7386d9e9c84021ba0a77d3b84ad6d24c5fcb69",
-  "bytes": 3196216
+  "sha256": "ae1385e989aad8c8d596f589195cd4cb48431d2f0cea1839330961f9fd11c35d",
+  "bytes": 1276990
 }

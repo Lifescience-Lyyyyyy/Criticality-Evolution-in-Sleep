@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "000056": {
+      "version": "0.261106.1949",
+      "release": "https://doi.org/10.48324/dandi.000056/0.261106.1949",
+      "paper": "https://doi.org/10.1038/nn.3968",
+      "audited_sessions": 42,
+      "audited_subjects": 7,
+      "gates": {
+        "READY_3STATE": 39,
+        "BLOCKED_QUALITY": 2,
+        "BLOCKED_METADATA": 1
+      },
+      "subjects_passing_any_primary_gate": 7,
+      "eligibility_receipt": "results/phase10/audit/000056.json",
+      "receipt_sha256": "56a5155e501c796676e717ae29ebff7f45f038fb70ac2c590053b46f23b3b4c0",
+      "license": "CC BY 4.0",
+      "release_notes": "## Changes since version 0.250624.0430\n\nAll 40 files were re-converted from the lab's source files, including each session's `Analysis/` folder, which the earlier conversion never read, with a new NeuroConv conversion ([catalystneuro/buzsaki-lab-to-nwb](https://github.com/catalystneuro/buzsaki-lab-to-nwb), PRs [#88](https://github.com/catalystneuro/buzsaki-lab-to-nwb/pull/88), [#97](https://github.com/catalystneuro/buzsaki-lab-to-nwb/pull/97), [#99](https://github.com/catalystneuro/buzsaki-lab-to-nwb/pull/99), [#101](https://github.com/catalystneuro/buzsaki-lab-to-nwb/pull/101)), and two sessions were added. The conversion fixes problems found by a reproduction attempt ([issue #77](https://github.com/catalystneuro/buzsaki-lab-to-nwb/issues/77)).\n\n**New sessions**\n\n- **Mouse28-140314 and Mouse32-140822**, in the paper but missing from the dandiset. Mouse32-140822 is the session the paper shows for that mouse (Supplementary Fig. 3).\n\n**Corrections**\n\n- **Units** are read from the `.clu`/`.res` files (clusters 2 and up), sorted, with a resolution of 1/20,000 s. A reading error had merged spikes into the wrong units (unit 0/1 of Mouse12-120808), and empty units are gone. Each lab spike train (SpikeData, spikes.cellinfo) was checked against its cluster.\n- **Brain regions.** The units had no structure and every electrode's location was \"unknown\", so in the mice recorded in both regions (Mouse24, 25, 28) no unit could be assigned to the anterodorsal thalamus or the post-subiculum. Electrode groups now follow the lab's anatomical groups, located from `GeneralInfo.shankStructure` with Allen CCF names (anterodorsal nucleus, postsubiculum, CA1, prelimbic area, reticular nucleus; \"unknown\" where the source gives none), and units are matched to them by channel.\n- **Position.** The raw LED series are in pixels (untracked frames as NaN), not metres; the processed position is in metres and head direction in radians, checked against the LED angle.\n- **Sleep states.** The files hold the paper's scoring, with the later buzcode scoring kept and labelled as such.\n- **Subject.** Sex is \"U\": the paper used 5 male and 2 female mice without saying which. The \"Wild type\" genotype was removed, since three mice expressed channelrhodopsin. Age, in neither the paper nor the lab's files, is \"/\" (unknown).\n\n**Additions**\n\n- **Units columns:** `shank`, `cluster_id`, `region`, `in_lab_cell_list`, quality (`lratio`, `mahalanobis_distance`, `isi_index`), head-direction statistics (`hd_preferred_direction`, `hd_p_value`, `hd_kappa`, `hd_peak_rate`, `is_hd_cell`), `cell_type` (pE/pI), and mean waveforms.\n- **Epochs:** the lab's behavioral epochs (open field, radial maze, sleep, light blocks) with the sub-recordings they cover.\n- **Events:** down states, head-direction-cell down states and ripples, in `processing/ecephys`, with their detection parameters.\n- **Electrodes:** probe depths from the CRCNS table and `bad_channel` from sessionInfo.\n- **Ontology terms** (HERD): the experimenters' ORCIDs, the institution's ROR, the species and the brain regions. **HED** for the sleep states (wake `Awake`; SWS `Asleep`; REM `Asleep, sc:Sleep-stage-REM`).\n\n**Known gaps**\n\n- Subject age is not recorded.\n- Mouse32-140820 has no head-direction series, epochs or sleep states in the source.\n- In Mouse17-130130, spikes continue 1,101 s past the last sub-recording.\n- In Mouse20, 8 units sit on shanks labelled post-subiculum, though the paper lists no post-subiculum probe for that mouse.\n- The paper's selection of 720 thalamic and 357 post-subicular cells can't be recovered for Mouse24, 25 and 28.",
+      "access": [
+        {
+          "status": "dandi:OpenAccess",
+          "schemaKey": "AccessRequirements",
+          "contactPoint": {
+            "email": "petersen.peter@gmail.com",
+            "schemaKey": "ContactPoint"
+          }
+        }
+      ],
+      "api": [
+        "https://dandiarchive.s3.amazonaws.com/dandisets/000056/0.261106.1949/assets.yaml"
+      ]
+    },
+    "000939": {
+      "version": "0.261016.2310",
+      "release": "https://doi.org/10.48324/dandi.000939/0.261016.2310",
+      "paper": "https://doi.org/10.1038/s41593-024-01588-5",
+      "audited_sessions": 31,
+      "audited_subjects": 31,
+      "gates": {
+        "READY_2STATE": 4,
+        "READY_3STATE": 25,
+        "BLOCKED_QUALITY": 2
+      },
+      "subjects_passing_any_primary_gate": 29,
+      "eligibility_receipt": "results/phase10/audit/000939.json",
+      "receipt_sha256": "b8f06ebe3715e1c03ce8dc6375bfbb0cbb1998999d1ebbee3896d5e8f291eb7e",
+      "license": "CC BY 4.0",
+      "release_notes": null,
+      "access": [
+        {
+          "status": "dandi:OpenAccess",
+          "schemaKey": "AccessRequirements"
+        }
+      ],
+      "api": [
+        "https://dandiarchive.s3.amazonaws.com/dandisets/000939/0.261016.2310/assets.yaml"
+      ]
+    },
+    "zenodo:19462601": {
+      "version": "Ver2",
+      "release": "https://doi.org/10.5281/zenodo.19462601",
+      "paper": "https://doi.org/10.1038/s41593-026-02314-z",
+      "audited_sessions": 28,
+      "audited_subjects": 24,
+      "gates": {
+        "READY_3STATE": 6,
+        "PARTIAL": 22
+      },
+      "subjects_passing_any_primary_gate": 6,
+      "eligibility_receipt": "results/phase10/audit/brainstem.json",
+      "receipt_sha256": "23529a50e95c6ae990fed31bee304566159a6c26dcc8db193aadf07d62314c04",
+      "license": {
+        "id": "cc-by-4.0"
+      },
+      "archive_bytes": 22619797342,
+      "archive_md5": "md5:b4283da46ef2989eab44ccd20a2d77cc",
+      "access": "public"
+    },
+    "000978": {
+      "version": "0.240511.0307",
+      "release": "https://doi.org/10.48324/dandi.000978/0.240511.0307",
+      "paper": "https://doi.org/10.7554/eLife.110795.2",
+      "audited_sessions": 9,
+      "audited_subjects": 8,
+      "gates": {
+        "BLOCKED_METADATA": 9
+      },
+      "subjects_passing_any_primary_gate": 0,
+      "eligibility_receipt": "results/phase10/audit/000978.json",
+      "receipt_sha256": "2b7a3bc7ba6469c2ed27c6ef75b008f992b2410aa3be349ed9e16455d41a9527",
+      "license": "CC BY 4.0",
+      "release_notes": null,
+      "access": [
+        {
+          "status": "dandi:OpenAccess",
+          "schemaKey": "AccessRequirements"
+        }
+      ],
+      "api": [
+        "https://dandiarchive.s3.amazonaws.com/dandisets/000978/0.240511.0307/assets.yaml"
+      ]
+    },
+    "000987": {
+      "version": "0.261003.2342",
+      "release": "https://doi.org/10.48324/dandi.000987/0.261003.2342",
+      "paper": "https://doi.org/10.1016/j.cub.2024.05.048",
+      "audited_sessions": 14,
+      "audited_subjects": 3,
+      "gates": {
+        "PARTIAL": 14
+      },
+      "subjects_passing_any_primary_gate": 0,
+      "eligibility_receipt": "results/phase10/audit/000987.json",
+      "receipt_sha256": "d54ef60040d62ac6660d7858ade8a1dbbda2c74b0e76af3f4a70833f85a9f4bf",
+      "license": "CC BY 4.0",
+      "release_notes": "Improved metadata",
+      "access": [
+        {
+          "status": "dandi:OpenAccess",
+          "schemaKey": "AccessRequirements"
+        }
+      ],
+      "api": [
+        "https://dandiarchive.s3.amazonaws.com/dandisets/000987/0.261003.2342/assets.yaml"
+      ]
+    }
+  },
+  "baseline_commit": "9e0ad8eb72762fcdf7c30ec876a49a1713fd42b5",
+  "download_policy": "High-level public metadata, NWB spike/score ranges, and selected Zenodo members only."
+}

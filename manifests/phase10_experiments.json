@@ -1,0 +1,601 @@
+{
+  "estimator_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+  "config": "config/sleep_dandi.json",
+  "runs": [
+    {
+      "artifact_id": 14627387542,
+      "artifact_sha256": "5d227082c6aabf8801119affb88e1435a2190d1e46695c4528281bb57bcce7ef",
+      "job_id": 136279234679,
+      "fit_sha256": "9e763e3ff2869e1e75bba9dd68ce817f58b42312999223e338b964a6dcd05475",
+      "solver_counts": {
+        "reference:True": 5,
+        "reference_AR10:True": 5,
+        "edge_trim:True": 5,
+        "strict_units:True": 5,
+        "equal_duration:True": 5
+      },
+      "project_commit": "6d24a3c46724ad62ca928418569aa9b4a188ee5d",
+      "run_id": "44733585594",
+      "timestamp_utc": "2026-11-20T12:12:59Z",
+      "matlab": "24.2.0.3361896 (R2024b) Update 10",
+      "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+      "input": {
+        "records": 20,
+        "asset_ids": [
+          "879eb072-6631-493c-bbbb-642f4de8cdd3"
+        ],
+        "mode": "states",
+        "reference_fits": 5,
+        "swr_windows": 0,
+        "fixture": "phase10_input.mat",
+        "sha256": "ae1385e989aad8c8d596f589195cd4cb48431d2f0cea1839330961f9fd11c35d",
+        "bytes": 1276990.0
+      },
+      "elapsed_seconds": 15.202722,
+      "url": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44733585594",
+      "batch": "a-pilot"
+    },
+    {
+      "artifact_id": 14627962921,
+      "artifact_sha256": "888f51ba22b4c1e4a359a0ee4164251abf4c62f971bf5f97e6e256ad3fc75a2f",
+      "job_id": 136284913045,
+      "fit_sha256": "248e6f65aad8b30573614a7ebdc9c4d7866f18ec95bcacb1278d9b09b239c0d4",
+      "solver_counts": {
+        "reference:True": 3,
+        "reference_AR10:True": 3,
+        "edge_trim:True": 3,
+        "equal_duration:True": 3
+      },
+      "project_commit": "67eeead36eab5e8cdd8464c22ca445619035eb51",
+      "run_id": "44735258636",
+      "timestamp_utc": "2026-11-20T12:24:38Z",
+      "matlab": "24.2.0.3361896 (R2024b) Update 10",
+      "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+      "input": {
+        "records": 9,
+        "asset_ids": [
+          "bc970cdf-cb90-418f-97ce-2db498cd292f"
+        ],
+        "mode": "states",
+        "reference_fits": 3,
+        "swr_windows": 0,
+        "fixture": "phase10_input.mat",
+        "sha256": "41d4c15a053f05bc43ecf31faaca4f91c468fbeaf022174f597a6690ef22c5e0",
+        "bytes": 304527
+      },
+      "elapsed_seconds": 4.548471,
+      "url": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44735258636",
+      "batch": "b-pilot"
+    },
+    {
+      "artifact_id": 14629625682,
+      "artifact_sha256": "10e1330ac9006093f76b77843c4d2f6b27ad100676808ca2eda0294d8e0838c4",
+      "job_id": 136288041394,
+      "fit_sha256": "8de32d70706ef96d85fc890090e8d45e40acf5d0df12dce2ba9fb8da0aed6a89",
+      "solver_counts": {
+        "reference:True": 262,
+        "reference_AR10:True": 262,
+        "edge_trim:True": 262,
+        "equal_duration:True": 252,
+        "strict_units:True": 25
+      },
+      "project_commit": "2e0fb612e478f51f4dde4136189d3dc5619527fa",
+      "run_id": "44736181780",
+      "timestamp_utc": "2026-11-20T12:35:26Z",
+      "matlab": "24.2.0.3361896 (R2024b) Update 10",
+      "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+      "input": {
+        "records": 801,
+        "asset_ids": [
+          "10cc7062-c197-4e51-941e-44aa0b3d191e",
+          "25b0f421-e8d7-43ce-8358-a95cb4e192c0",
+          "26f3cbb2-01ab-4109-aefb-8526d24d55fa",
+          "2ae1c0e9-aa46-4c7e-aa9c-27bcbb88a55f",
+          "2bf78b50-76d3-4bf4-bafe-97694daaa78f",
+          "334b7fe2-7f6f-4ced-a119-d6db508dac82",
+          "3837008a-ba8a-407d-a5a2-b64287f3e26e",
+          "397c49fa-b9c0-4379-8169-c68139ac5364",
+          "3a576c9f-0f26-49c9-8519-0d7133ca4dc7",
+          "3bd58acd-c4e8-48b4-a853-0ff1cf2bdf4f",
+          "42005423-ba05-4d42-ae24-e965aacad171",
+          "5e01efea-23ff-4671-bdf0-b8a276225c87",
+          "71bcd9c7-7b27-434f-999f-493d4d69dc92",
+          "7a9cccb0-14c0-4945-baa8-809adcb73374",
+          "8151cfd5-919c-4aee-8b67-cf6bce3ec941",
+          "81b150ea-879d-4cb7-9ae5-b3a3f1865f08",
+          "8722ec3c-1fc4-40fd-84da-e927d452596a",
+          "879eb072-6631-493c-bbbb-642f4de8cdd3",
+          "87cde881-7abd-486a-bbfa-fc050acbf77d",
+          "93a3be5c-e51a-4ef6-94fa-9ee62ae77978",
+          "9cd1f5f0-9807-4c79-afe4-449656191bbf",
+          "9f90e419-390b-4b7d-8096-17a4a67ce0d5",
+          "a19ca613-79c1-468f-9141-df3c6397074b",
+          "a43f8517-2fee-4ea1-a742-7b6fe05b9418",
+          "a8cb165b-1c0e-4b46-905a-b7d6a8def174",
+          "afaa1e94-343e-4ed2-a7b7-6eca367f0015",
+          "b70dcead-517f-47c9-9202-dcb3d170e68f",
+          "b94b9e69-837e-4e28-9f52-5026d9772afa",
+          "cb98f5ba-7347-4e3d-9ab6-fb2f324e53b5",
+          "d00d2ffa-0a82-40ed-847d-a6a9038b45df",
+          "d1fb4979-1ae8-4f07-b804-26aa64d1ccf7",
+          "d5bc9b94-9c64-40d2-965b-5413bb39c533",
+          "e1378224-c526-4a08-ba40-c57042894af1",
+          "ec5c0008-9d22-4a55-bdc7-6c92449ad149",
+          "f581d3b8-3029-43f2-8bb9-4847e7cadc23",
+          "ffb6e7dc-92bb-43b3-996c-10261e7b038f"
+        ],
+        "mode": "states",
+        "reference_fits": 262,
+        "swr_windows": 0,
+        "parts": [
+          {
+            "name": "sleep_dandi_part1.mat",
+            "sha256": "35668d157b6e04ebb119436321487f7d4d3bb838f13f93c4e31eb1ad103d2207",
+            "bytes": 22869298.0,
+            "records": 436
+          },
+          {
+            "name": "sleep_dandi_part2.mat",
+            "sha256": "80b4e4f30ef21296e74f767e2a9db3f896abe84ebce1f6e7803ae4214460aa8e",
+            "bytes": 21773958.0,
+            "records": 365
+          }
+        ],
+        "parent_sha256": "4eb57a70b2cb8f1839b817e4eb08c82e2914d7bd64382ced6f5879905f4bc1b2"
+      },
+      "elapsed_seconds": 251.494633,
+      "url": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44736181780",
+      "batch": "a/cohort"
+    },
+    {
+      "artifact_id": 14629496172,
+      "artifact_sha256": "77c8d3e49088cf083dc131a9320a24d4acce0831655da5fd72a3ea04dc9f1ecf",
+      "job_id": 136291444214,
+      "fit_sha256": "2668828deb1b60fcba695d27a1fa1bf9b0c21b6c11fb11cad8036049e80c6f0c",
+      "solver_counts": {
+        "reference:True": 18,
+        "reference_AR10:True": 18,
+        "edge_trim:True": 18,
+        "strict_units:True": 3,
+        "equal_duration:True": 18
+      },
+      "project_commit": "13ac5a9537232ea147e62ef22b4b8e36f8c3a692",
+      "run_id": "44737195695",
+      "timestamp_utc": "2026-11-20T12:38:47Z",
+      "matlab": "24.2.0.3361896 (R2024b) Update 10",
+      "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+      "input": {
+        "records": 57,
+        "asset_ids": [
+          "zenodo:19462601:WT:DL108"
+        ],
+        "mode": "states",
+        "reference_fits": 18,
+        "swr_windows": 0,
+        "fixture": "phase10_input.mat",
+        "sha256": "7823ecac2125df89a62c6a711afa91f39d38c44388af600efa653ba0bae9cb19",
+        "bytes": 2003935.0
+      },
+      "elapsed_seconds": 19.993022,
+      "url": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44737195695",
+      "batch": "c-pilot"
+    },
+    {
+      "artifact_id": 14630260830,
+      "artifact_sha256": "cab7b4c69df3ffb29a6f1ee304d14605638a2bd72e631c5cf7d70e13b97a243d",
+      "job_id": 136293883734,
+      "fit_sha256": "aa090a6440870300f893d005f577e62462ee8cb9a61a6a6527a2a6a5ae284b0c",
+      "solver_counts": {
+        "reference:True": 97,
+        "reference_AR10:True": 97,
+        "edge_trim:True": 94,
+        "strict_units:True": 79,
+        "equal_duration:True": 55
+      },
+      "project_commit": "51d57c648998940305a0de7b77e691496731c7f9",
+      "run_id": "44737915561",
+      "timestamp_utc": "2026-11-20T12:46:05Z",
+      "matlab": "24.2.0.3361896 (R2024b) Update 10",
+      "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+      "input": {
+        "records": 325,
+        "asset_ids": [
+          "0fd7c13c-8c95-4afc-a5fa-6cc5562cddef",
+          "24f06696-c405-49b5-82cd-2067f8446700",
+          "269a4a30-7cd9-41da-8b3f-b6baab31d118",
+          "26a8b4be-3cd0-4ac9-b25d-54700d56e8a5",
+          "2b641587-8a41-4168-9989-172a0e4f64ab",
+          "33bfc63c-e73f-4f33-aa0e-6d5e43697387",
+          "33e0ea8a-01ec-4edd-922f-deff6086feee",
+          "3929166b-7fb7-4651-b2aa-c2c17dd739ad",
+          "3b01ccd3-a199-429b-9116-5ae707d1744e",
+          "45135563-545e-4d40-a288-f44b776d5b39",
+          "590c86fd-1196-41ce-afe9-762b30e9cbb1",
+          "67f99450-68b1-4fba-9e77-3ebf4eaff934",
+          "6fe925dd-ea41-4a84-9cee-ca6bb039edcb",
+          "92b98023-2828-415a-9f6b-b2da07e00fa7",
+          "93327420-6d78-4f4d-aaa1-ab20131a2dcb",
+          "9685b72e-f576-4c67-8ae2-b107653673d0",
+          "a640fd89-41fa-4ba1-81e7-3bab5e84da63",
+          "ab4d5c7e-9860-492b-9274-a306670a53ca",
+          "b6835f72-cb08-4d45-98a7-31f94c3e9f52",
+          "b77f00ad-d269-4953-b8e2-783ebbacbde4",
+          "bc970cdf-cb90-418f-97ce-2db498cd292f",
+          "d27e50bd-9089-4bff-a1ac-c624ce3434de",
+          "db9db7ab-1232-47db-b8d9-7e16ba2ad050",
+          "dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7",
+          "e8a3ee2b-940a-4abe-a020-3821fc7e4f65",
+          "efca17a4-a350-44db-84ab-2ce5b4904e9c",
+          "f1553d12-5d2e-4908-9a90-3989bb7ee0c1",
+          "f46a1012-7a01-4dc7-9fe3-a2c2fe7bf7cd",
+          "f7d0f925-04d3-47d7-8be7-0d14bb52672f",
+          "faaf4ff7-861d-40e4-bc82-34d7d520180a",
+          "fc1cd10d-a850-4f84-b19d-849b99406314",
+          "fca18e96-673f-47c2-9db6-f924c9324cb3"
+        ],
+        "mode": "states",
+        "constituent_inputs_json": "[{\"receipt\": {\"asset_ids\": [\"24f06696-c405-49b5-82cd-2067f8446700\", \"b77f00ad-d269-4953-b8e2-783ebbacbde4\", \"fca18e96-673f-47c2-9db6-f924c9324cb3\"], \"bytes\": 3234045, \"fixture\": \"phase10_input.mat\", \"mode\": \"states\", \"records\": 50, \"reference_fits\": 14, \"sha256\": \"51452b386b5832dd8a3717fc3fb5e2911bfc22ab71fe0c48981f3dcf660f7534\", \"swr_windows\": 0}, \"receipt_sha256\": \"891b1b1c33280d7dd252f6fd08510c60f63d2447ba0a370573fdb596428ddd14\"}, {\"receipt\": {\"asset_ids\": [\"0fd7c13c-8c95-4afc-a5fa-6cc5562cddef\", \"269a4a30-7cd9-41da-8b3f-b6baab31d118\", \"26a8b4be-3cd0-4ac9-b25d-54700d56e8a5\", \"2b641587-8a41-4168-9989-172a0e4f64ab\", \"33bfc63c-e73f-4f33-aa0e-6d5e43697387\", \"33e0ea8a-01ec-4edd-922f-deff6086feee\", \"3929166b-7fb7-4651-b2aa-c2c17dd739ad\", \"3b01ccd3-a199-429b-9116-5ae707d1744e\", \"45135563-545e-4d40-a288-f44b776d5b39\", \"590c86fd-1196-41ce-afe9-762b30e9cbb1\", \"67f99450-68b1-4fba-9e77-3ebf4eaff934\", \"6fe925dd-ea41-4a84-9cee-ca6bb039edcb\", \"92b98023-2828-415a-9f6b-b2da07e00fa7\", \"93327420-6d78-4f4d-aaa1-ab20131a2dcb\", \"9685b72e-f576-4c67-8ae2-b107653673d0\", \"a640fd89-41fa-4ba1-81e7-3bab5e84da63\", \"ab4d5c7e-9860-492b-9274-a306670a53ca\", \"b6835f72-cb08-4d45-98a7-31f94c3e9f52\", \"bc970cdf-cb90-418f-97ce-2db498cd292f\", \"d27e50bd-9089-4bff-a1ac-c624ce3434de\", \"db9db7ab-1232-47db-b8d9-7e16ba2ad050\", \"dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7\", \"e8a3ee2b-940a-4abe-a020-3821fc7e4f65\", \"efca17a4-a350-44db-84ab-2ce5b4904e9c\", \"f1553d12-5d2e-4908-9a90-3989bb7ee0c1\", \"f46a1012-7a01-4dc7-9fe3-a2c2fe7bf7cd\", \"f7d0f925-04d3-47d7-8be7-0d14bb52672f\", \"faaf4ff7-861d-40e4-bc82-34d7d520180a\", \"fc1cd10d-a850-4f84-b19d-849b99406314\"], \"bytes\": 12752073, \"fixture\": \"phase10_input.mat\", \"mode\": \"states\", \"records\": 275, \"reference_fits\": 83, \"sha256\": \"911528a1029065521fdf275b0a0041ad1889c8a73857d8d81543164c2d0b4356\", \"swr_windows\": 0}, \"receipt_sha256\": \"04eb162cf9430a93903d475c4c412fd649e34667ff1cabfd901c3fafdededde3\"}]",
+        "reference_fits": 97,
+        "swr_windows": 0,
+        "fixture": "phase10_input.mat",
+        "sha256": "8d5fbe8c8a8790c42e9ce606656b54b74e45929a61173b7a92e58c7e5c59382c",
+        "bytes": 15984938.0
+      },
+      "elapsed_seconds": 92.61191,
+      "url": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44737915561",
+      "batch": "posub-adn-supplement"
+    },
+    {
+      "artifact_id": 14630885139,
+      "artifact_sha256": "9805baa77459f25732283ef80aadf3d72348b98404587a19f5a24c25d1e1dce8",
+      "job_id": 136296915552,
+      "fit_sha256": "f6140ef12e6161032d0f895b490a69b1605fbf752e9cb3829d049504b489d162",
+      "solver_counts": {
+        "reference:True": 33,
+        "reference_AR10:True": 33,
+        "edge_trim:True": 33,
+        "strict_units:True": 9,
+        "equal_duration:True": 33
+      },
+      "project_commit": "89664ff4042d14e1d9a665f8a6592fc038d3583d",
+      "run_id": "44738814936",
+      "timestamp_utc": "2026-11-20T12:55:55Z",
+      "matlab": "24.2.0.3361896 (R2024b) Update 10",
+      "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+      "input": {
+        "records": 108,
+        "asset_ids": [
+          "zenodo:19462601:WT:DL108",
+          "zenodo:19462601:WT:DL161"
+        ],
+        "mode": "states",
+        "reference_fits": 33,
+        "swr_windows": 0,
+        "fixture": "phase10_input.mat",
+        "sha256": "ae3e5d840ebe8fb6d330905e8efcea0325f7eedeb605ab48843c2ad4494c886f",
+        "bytes": 4146379.0
+      },
+      "elapsed_seconds": 50.912462,
+      "url": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44738814936",
+      "batch": "c/cohort"
+    },
+    {
+      "artifact_id": 14634101879,
+      "artifact_sha256": "907280e5703fe30adea8b09164b196ff6803d8265cd630e900be36714eb98be3",
+      "job_id": 136326586920,
+      "fit_sha256": "c6667c6a3c71f35f288de192ccfdbeb8d7f3fd9a6bf2114a0a3e4d0ce5df72eb",
+      "solver_counts": {
+        "reference:True": 66,
+        "reference_AR10:True": 66,
+        "edge_trim:True": 66,
+        "equal_duration:True": 66,
+        "strict_units:True": 21
+      },
+      "project_commit": "e6ae689e77d37afd46d7cbb97fa1fed6c601d334",
+      "run_id": "44747528799",
+      "timestamp_utc": "2026-11-20T13:51:41Z",
+      "matlab": "24.2.0.3361896 (R2024b) Update 10",
+      "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+      "input": {
+        "records": 219,
+        "asset_ids": [
+          "zenodo:19462601:WT:DL158",
+          "zenodo:19462601:WT:DL159",
+          "zenodo:19462601:WT:DL172",
+          "zenodo:19462601:WT:DL194"
+        ],
+        "mode": "states",
+        "reference_fits": 66,
+        "swr_windows": 0,
+        "fixture": "phase10_input.mat",
+        "sha256": "ef4d5d8c6f79c26720518300d1d6b64fd1e83fa4eaddb519aabc58c5985f5aec",
+        "bytes": 7509837.0
+      },
+      "elapsed_seconds": 39.390124,
+      "url": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44747528799",
+      "batch": "c-rescue/cohort"
+    },
+    {
+      "artifact_id": 14635875319,
+      "artifact_sha256": "172b4693f655c3523b53be8502c9219ed286ac98168a1620a65b96f528678081",
+      "job_id": 136329701983,
+      "fit_sha256": "c3e525f95b4391d484d7ccdde976451e5a606ea067146eea12d898c69b9e5839",
+      "solver_counts": {
+        "matched_controls_reference:True": 144,
+        "unit_count:True": 5760,
+        "rate_thinning:True": 5760
+      },
+      "project_commit": "56952e69678cbc732b438c463cee25eaf40f570d",
+      "run_id": "44748433694",
+      "timestamp_utc": "2026-11-20T14:09:47Z",
+      "matlab": "24.2.0.3361896 (R2024b) Update 10",
+      "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+      "input": {
+        "records": 144,
+        "asset_ids": [
+          "0fd7c13c-8c95-4afc-a5fa-6cc5562cddef",
+          "269a4a30-7cd9-41da-8b3f-b6baab31d118",
+          "26a8b4be-3cd0-4ac9-b25d-54700d56e8a5",
+          "26f3cbb2-01ab-4109-aefb-8526d24d55fa",
+          "2b641587-8a41-4168-9989-172a0e4f64ab",
+          "33bfc63c-e73f-4f33-aa0e-6d5e43697387",
+          "33e0ea8a-01ec-4edd-922f-deff6086feee",
+          "3837008a-ba8a-407d-a5a2-b64287f3e26e",
+          "3929166b-7fb7-4651-b2aa-c2c17dd739ad",
+          "3b01ccd3-a199-429b-9116-5ae707d1744e",
+          "3bd58acd-c4e8-48b4-a853-0ff1cf2bdf4f",
+          "42005423-ba05-4d42-ae24-e965aacad171",
+          "45135563-545e-4d40-a288-f44b776d5b39",
+          "590c86fd-1196-41ce-afe9-762b30e9cbb1",
+          "67f99450-68b1-4fba-9e77-3ebf4eaff934",
+          "6fe925dd-ea41-4a84-9cee-ca6bb039edcb",
+          "92b98023-2828-415a-9f6b-b2da07e00fa7",
+          "93327420-6d78-4f4d-aaa1-ab20131a2dcb",
+          "9685b72e-f576-4c67-8ae2-b107653673d0",
+          "9f90e419-390b-4b7d-8096-17a4a67ce0d5",
+          "a19ca613-79c1-468f-9141-df3c6397074b",
+          "a640fd89-41fa-4ba1-81e7-3bab5e84da63",
+          "ab4d5c7e-9860-492b-9274-a306670a53ca",
+          "b6835f72-cb08-4d45-98a7-31f94c3e9f52",
+          "bc970cdf-cb90-418f-97ce-2db498cd292f",
+          "d1fb4979-1ae8-4f07-b804-26aa64d1ccf7",
+          "d27e50bd-9089-4bff-a1ac-c624ce3434de",
+          "db9db7ab-1232-47db-b8d9-7e16ba2ad050",
+          "dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7",
+          "e8a3ee2b-940a-4abe-a020-3821fc7e4f65",
+          "efca17a4-a350-44db-84ab-2ce5b4904e9c",
+          "f1553d12-5d2e-4908-9a90-3989bb7ee0c1",
+          "f46a1012-7a01-4dc7-9fe3-a2c2fe7bf7cd",
+          "f581d3b8-3029-43f2-8bb9-4847e7cadc23",
+          "f7d0f925-04d3-47d7-8be7-0d14bb52672f",
+          "faaf4ff7-861d-40e4-bc82-34d7d520180a",
+          "fc1cd10d-a850-4f84-b19d-849b99406314",
+          "fca18e96-673f-47c2-9db6-f924c9324cb3",
+          "zenodo:19462601:WT:DL108",
+          "zenodo:19462601:WT:DL158",
+          "zenodo:19462601:WT:DL159",
+          "zenodo:19462601:WT:DL161",
+          "zenodo:19462601:WT:DL172",
+          "zenodo:19462601:WT:DL194"
+        ],
+        "mode": "controls",
+        "constituent_inputs_json": "[{\"receipt\": {\"asset_ids\": [\"26f3cbb2-01ab-4109-aefb-8526d24d55fa\", \"3837008a-ba8a-407d-a5a2-b64287f3e26e\", \"3bd58acd-c4e8-48b4-a853-0ff1cf2bdf4f\", \"42005423-ba05-4d42-ae24-e965aacad171\", \"9f90e419-390b-4b7d-8096-17a4a67ce0d5\", \"a19ca613-79c1-468f-9141-df3c6397074b\", \"d1fb4979-1ae8-4f07-b804-26aa64d1ccf7\", \"f581d3b8-3029-43f2-8bb9-4847e7cadc23\"], \"bytes\": 322216, \"fixture\": \"phase10_input.mat\", \"mode\": \"controls\", \"records\": 18, \"reference_fits\": 0, \"sha256\": \"3ba92a01f60440387c5e7b80eb03998f0fe25068afdb88fc1f72b790382af441\", \"swr_windows\": 0}, \"receipt_sha256\": \"2e64cad9cae112f127cda02bdf9a5e18ece74b64bc2eee811eaf3351617d2582\"}, {\"receipt\": {\"asset_ids\": [\"24f06696-c405-49b5-82cd-2067f8446700\", \"b77f00ad-d269-4953-b8e2-783ebbacbde4\", \"fca18e96-673f-47c2-9db6-f924c9324cb3\"], \"bytes\": 204085, \"fixture\": \"phase10_input.mat\", \"mode\": \"controls\", \"records\": 8, \"reference_fits\": 0, \"sha256\": \"99c9eaafb6f582f6a9af0705b44e55aee41ac5123fda86e1d009ab729baca7be\", \"swr_windows\": 0}, \"receipt_sha256\": \"6bbab593bf361f396efb6059e269d748c11d1b4c9b730e0bfb23c7481da1a552\"}, {\"receipt\": {\"asset_ids\": [\"0fd7c13c-8c95-4afc-a5fa-6cc5562cddef\", \"269a4a30-7cd9-41da-8b3f-b6baab31d118\", \"26a8b4be-3cd0-4ac9-b25d-54700d56e8a5\", \"2b641587-8a41-4168-9989-172a0e4f64ab\", \"33bfc63c-e73f-4f33-aa0e-6d5e43697387\", \"33e0ea8a-01ec-4edd-922f-deff6086feee\", \"3929166b-7fb7-4651-b2aa-c2c17dd739ad\", \"3b01ccd3-a199-429b-9116-5ae707d1744e\", \"45135563-545e-4d40-a288-f44b776d5b39\", \"590c86fd-1196-41ce-afe9-762b30e9cbb1\", \"67f99450-68b1-4fba-9e77-3ebf4eaff934\", \"6fe925dd-ea41-4a84-9cee-ca6bb039edcb\", \"92b98023-2828-415a-9f6b-b2da07e00fa7\", \"93327420-6d78-4f4d-aaa1-ab20131a2dcb\", \"9685b72e-f576-4c67-8ae2-b107653673d0\", \"a640fd89-41fa-4ba1-81e7-3bab5e84da63\", \"ab4d5c7e-9860-492b-9274-a306670a53ca\", \"b6835f72-cb08-4d45-98a7-31f94c3e9f52\", \"bc970cdf-cb90-418f-97ce-2db498cd292f\", \"d27e50bd-9089-4bff-a1ac-c624ce3434de\", \"db9db7ab-1232-47db-b8d9-7e16ba2ad050\", \"dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7\", \"e8a3ee2b-940a-4abe-a020-3821fc7e4f65\", \"efca17a4-a350-44db-84ab-2ce5b4904e9c\", \"f1553d12-5d2e-4908-9a90-3989bb7ee0c1\", \"f46a1012-7a01-4dc7-9fe3-a2c2fe7bf7cd\", \"f7d0f925-04d3-47d7-8be7-0d14bb52672f\", \"faaf4ff7-861d-40e4-bc82-34d7d520180a\", \"fc1cd10d-a850-4f84-b19d-849b99406314\"], \"bytes\": 3327169, \"fixture\": \"phase10_input.mat\", \"mode\": \"controls\", \"records\": 58, \"reference_fits\": 0, \"sha256\": \"540f960b06f09500c1b3b8cc816a1c24f711444bad4ef425d4da8e10ac20f7e0\", \"swr_windows\": 0}, \"receipt_sha256\": \"e11c0021f3b57e8c84cec19ea360283fd1ec9161b942fc0a825709ef8f0345fe\"}, {\"receipt\": {\"asset_ids\": [\"zenodo:19462601:WT:DL108\", \"zenodo:19462601:WT:DL161\"], \"bytes\": 819191, \"fixture\": \"phase10_input.mat\", \"mode\": \"controls\", \"records\": 22, \"reference_fits\": 0, \"sha256\": \"aa997defba47c2e59ad43e3f2c82707d641b2c83435ed29e0d8f01d00eddd1e2\", \"swr_windows\": 0}, \"receipt_sha256\": \"af64d41c1845bf1800936d11db2833602c67e9f701d054347e8164dd293f0154\"}, {\"receipt\": {\"asset_ids\": [\"zenodo:19462601:WT:DL158\", \"zenodo:19462601:WT:DL159\", \"zenodo:19462601:WT:DL172\", \"zenodo:19462601:WT:DL194\"], \"bytes\": 1672018, \"fixture\": \"phase10_input.mat\", \"mode\": \"controls\", \"records\": 44, \"reference_fits\": 0, \"sha256\": \"57607518439f044cabb47a023bd0ce085593806ae59cc7902964c82f0d896d9c\", \"swr_windows\": 0}, \"receipt_sha256\": \"8f19fcb4fa53fcc509508d0a2ba45a83fd31b7634714e16325e813d5f81587d7\"}]",
+        "detailed_controls": true,
+        "repetitions": 40,
+        "reference_fits": 0,
+        "swr_windows": 0,
+        "fixture": "phase10_input.mat",
+        "sha256": "b34d362747f1ef4d1ed33576d4d5b98af4d9482db8694e8a65dbf07e14b2dc07",
+        "bytes": 6207804.0
+      },
+      "elapsed_seconds": 786.190655,
+      "url": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44748433694",
+      "batch": "matched-controls"
+    },
+    {
+      "artifact_id": 14635341883,
+      "artifact_sha256": "2cb79cf50f788dda4e75657432e21c0818300c762b70ac3a780359a59dce1b47",
+      "job_id": 136338895895,
+      "fit_sha256": "afbfe7f5eb22a20d62703797082fa1adcc31c030cff42d2ae9829ca99c5d0779",
+      "solver_counts": {
+        "reference:True": 14,
+        "reference_AR10:True": 14,
+        "edge_trim:True": 14,
+        "strict_units:True": 4,
+        "equal_duration:True": 6
+      },
+      "project_commit": "9a1e1c0613ab6acbe64ccab31ddc448ec7c8fb06",
+      "run_id": "44751101050",
+      "timestamp_utc": "2026-11-20T14:13:52Z",
+      "matlab": "24.2.0.3361896 (R2024b) Update 10",
+      "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+      "input": {
+        "records": 38,
+        "asset_ids": [
+          "10cc7062-c197-4e51-941e-44aa0b3d191e",
+          "25b0f421-e8d7-43ce-8358-a95cb4e192c0",
+          "26f3cbb2-01ab-4109-aefb-8526d24d55fa",
+          "3837008a-ba8a-407d-a5a2-b64287f3e26e",
+          "42005423-ba05-4d42-ae24-e965aacad171",
+          "d1fb4979-1ae8-4f07-b804-26aa64d1ccf7",
+          "fca18e96-673f-47c2-9db6-f924c9324cb3"
+        ],
+        "mode": "states",
+        "reference_fits": 14,
+        "swr_windows": 0,
+        "fixture": "phase10_input.mat",
+        "sha256": "e3bb0102685332596716edf4dd7386d9e9c84021ba0a77d3b84ad6d24c5fcb69",
+        "bytes": 3196216.0
+      },
+      "elapsed_seconds": 24.309258,
+      "url": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44751101050",
+      "batch": "quiet-wake"
+    }
+  ],
+  "drive": {
+    "data_folder": "https://drive.google.com/drive/folders/1ouJdnE7Lt9jHoY4n8j9lREaM_hjUdHlW",
+    "results_folder": "https://drive.google.com/drive/folders/1y527obmNz-TqKssGdrkpNe07Eazr4wt0",
+    "prepared_archives": {
+      "000056-main": {
+        "url": "https://drive.google.com/file/d/1Wuo_smfQ32-vOajcGuN4Jwyf8RjLcSsS/view?usp=drivesdk",
+        "sha256": "941367330fc932f13643f69aea0183c7d97ce8cc60acd3e88c88a934de895803",
+        "bytes": 45269237
+      },
+      "000056-clock": {
+        "url": "https://drive.google.com/file/d/1-ZBHeXpy8zfuNfGmxhcuWQ2OVSNjk373/view?usp=drivesdk",
+        "sha256": "160f8adb8f6c3caf645a7cf86eeb08d1a1dd663b65a9d809e55fe825b8bc2021",
+        "bytes": 3468793
+      },
+      "000939": {
+        "url": "https://drive.google.com/file/d/1sXr8UBm1N4dj0v45KTgp5EgStEMeM5tv/view?usp=drivesdk",
+        "sha256": "01145a2a4cc44ed2040affa1d48f727fe220d6f80957e05166b271eeca0988a7",
+        "bytes": 16361663
+      },
+      "brainstem-initial": {
+        "url": "https://drive.google.com/file/d/1WS9NQja8T_af_l8m_4xIHAvX_U1xJoo3/view?usp=drivesdk",
+        "sha256": "442c9309205f3a99cb78ca3622370f9fd4cb6f78d8af00cd0bc9e46cf6ebce67",
+        "bytes": 5020772
+      },
+      "brainstem-clock": {
+        "url": "https://drive.google.com/file/d/1u_CL8nFftM3KIGINSq-E3VhJDOv9_Ms-/view?usp=drivesdk",
+        "sha256": "1facdb6b950a75f2a57f4561c3efce8c4d63065823269a6edca2fc66d2e8f46c",
+        "bytes": 9254140
+      },
+      "matched-controls": {
+        "url": "https://drive.google.com/file/d/1SxBMnf5wcQIF-HjlzTYKNxVZYOcfKVr1/view?usp=drivesdk",
+        "sha256": "690c94feb25c24b952d40d594a8639bdf833622e1ce7ee45b873adb8cb0bb9ba",
+        "bytes": 6213822
+      },
+      "000056-quiet-wake": {
+        "url": "https://drive.google.com/file/d/14zrgGTfRIGVYlQNPqKpcv9RdEHcwBxRX/view?usp=drivesdk",
+        "sha256": "89fbd0100b30cccdb96745b932eff226427e169e9cac0ddca02204ee77c5b262",
+        "bytes": 3197704
+      }
+    }
+  },
+  "pilot_cohort_replays": {
+    "000056": {
+      "verified_replays": 25,
+      "max_abs_difference": 5.751044085400281e-11
+    },
+    "000939": {
+      "verified_replays": 12,
+      "max_abs_difference": 8.288525421562554e-11
+    },
+    "brainstem": {
+      "verified_replays": 75,
+      "max_abs_difference": 6.52065068607044e-11
+    }
+  },
+  "nwb_api_crosscheck": [
+    {
+      "asset_id": "fca18e96-673f-47c2-9db6-f924c9324cb3",
+      "subject": "Mouse32",
+      "nwb_id": "b9d09191-8c6b-4459-965e-82163ad0b384",
+      "units_total": 53,
+      "states": 114,
+      "validation": "PyNWB object model agrees"
+    },
+    {
+      "asset_id": "bc970cdf-cb90-418f-97ce-2db498cd292f",
+      "subject": "A1813",
+      "nwb_id": "A1813",
+      "units_total": 70,
+      "states": 115,
+      "validation": "PyNWB object model agrees"
+    }
+  ],
+  "dataset_status": {
+    "000056": "COHORT COMPLETE",
+    "000939": "COHORT COMPLETE",
+    "zenodo:19462601": "COHORT COMPLETE",
+    "000978": "BLOCKED",
+    "000987": "BLOCKED"
+  },
+  "result_sha256": {
+    "reports/22_phase10_dataset_audit.md": "4db07413b019574116bffa95e3479c9d3c080fb3a16bb433f799337727f45f5a",
+    "reports/23_phase10_pilot.md": "603ec2434b2c984d0a88ab7904496a863ca3260bf567bb211f03007423b30fdc",
+    "reports/24_phase10_multiregion_results.md": "72e8d71fc5b1a668870908bcb770c5921528b9aa194aeafd118b10178d18fbb6",
+    "reports/25_phase10_scientific_summary.md": "e7d86b64cbff6cd0c18204a95d341524b66c93140ef2af7edf1d68ecf6555d1f",
+    "manifests/phase10_eligibility.csv": "6a8f0d672e27c47a23b2b5359da670dde9ed112713a2a238f2a72cf641d40876",
+    "manifests/phase10_sources.json": "8cdcd483a4963859159b1b1791dc16356cb4c3e29e4e3f706167ac1b4622291b",
+    "results/phase10/animal_effects.csv": "c5dab9fde377912a2bd6722d476fb46703c13e42270ffce9aa68e359945ab010",
+    "results/phase10/animal_state_d2.csv": "c6944d9c012aae0418e02bba39629b5c302303af834c0e488fc79cc517431a93",
+    "results/phase10/audit/000056.json": "56a5155e501c796676e717ae29ebff7f45f038fb70ac2c590053b46f23b3b4c0",
+    "results/phase10/audit/000056_unit_region_validation.csv": "66c55addab44ce95721de7c621a7a994dc87810c8b81f3cfdd00530ee41827a9",
+    "results/phase10/audit/000056_video_wake_audit.json": "f5dfb7ea42c5eb63584a90067eb602e673e3e09c4bf9d730cc7a5a87ac727285",
+    "results/phase10/audit/000939.json": "b8f06ebe3715e1c03ce8dc6375bfbb0cbb1998999d1ebbee3896d5e8f291eb7e",
+    "results/phase10/audit/000939_temporal_anomalies.csv": "72a1434b7c64f39a2bbe7d2cfcb6680480515882003c149c2a32fd6e9f3505cf",
+    "results/phase10/audit/000978.json": "2b7a3bc7ba6469c2ed27c6ef75b008f992b2410aa3be349ed9e16455d41a9527",
+    "results/phase10/audit/000987.json": "d54ef60040d62ac6660d7858ade8a1dbbda2c74b0e76af3f4a70833f85a9f4bf",
+    "results/phase10/audit/brainstem.json": "23529a50e95c6ae990fed31bee304566159a6c26dcc8db193aadf07d62314c04",
+    "results/phase10/audit/brainstem_nuclei_by_session.csv": "d23a5527c1be5c6edf1b8844146cf96613b4ee77021decdae44146389c871907",
+    "results/phase10/audit/pilot_cohort_replays.json": "21fd68b8b75c1e4f1d6ff48308198423e97d7ef547d8b0e6562e13b4b4dee417",
+    "results/phase10/audit/pynwb_receipt.json": "54a7cceee676d4644e9fb99a6857bcd45368484decf31c1b2b8510388649d98d",
+    "results/phase10/control_effects.csv": "499ab578eacecbc74d95158f088bdf419b489c9a811f73890a1f43a60b2d565d",
+    "results/phase10/fits/a-pilot.json": "9e763e3ff2869e1e75bba9dd68ce817f58b42312999223e338b964a6dcd05475",
+    "results/phase10/fits/a_cohort.json": "8de32d70706ef96d85fc890090e8d45e40acf5d0df12dce2ba9fb8da0aed6a89",
+    "results/phase10/fits/b-pilot.json": "248e6f65aad8b30573614a7ebdc9c4d7866f18ec95bcacb1278d9b09b239c0d4",
+    "results/phase10/fits/c-pilot.json": "2668828deb1b60fcba695d27a1fa1bf9b0c21b6c11fb11cad8036049e80c6f0c",
+    "results/phase10/fits/c-rescue_cohort.json": "c6667c6a3c71f35f288de192ccfdbeb8d7f3fd9a6bf2114a0a3e4d0ce5df72eb",
+    "results/phase10/fits/c_cohort.json": "f6140ef12e6161032d0f895b490a69b1605fbf752e9cb3829d049504b489d162",
+    "results/phase10/fits/posub-adn-supplement.json": "aa090a6440870300f893d005f577e62462ee8cb9a61a6a6527a2a6a5ae284b0c",
+    "results/phase10/fits/quiet-wake.json": "afbfe7f5eb22a20d62703797082fa1adcc31c030cff42d2ae9829ca99c5d0779",
+    "results/phase10/session_effects.csv": "bbc4befcf4f677c5e0598685ef5969f69f51e977540cde29a37d84912bb1464a",
+    "results/phase10/simultaneous_adn_posub.csv": "4b036581098f088ecc2548a88d1ec05e79fbcf8f42c51c5e4ecf24c1ade5b4cb",
+    "results/phase10/summary.json": "0b50e704f1c322863a09a06e875e200d7a369318ee0fb7082ee80d5b647e7e85",
+    "figures/phase10/ar_model_diagnostics.pdf": "57b7fd8ac392d8d614f1d09a36de9ee1d3c04d8485ac89232754f1601c00f466",
+    "figures/phase10/ar_model_diagnostics.png": "828a445934734b25e70e15bb6ef038c0fb878ceca429cce3c213ce629d5b1d6a",
+    "figures/phase10/ar_model_diagnostics.svg": "7fd4ae8a854ae6ae3e0b54fe622b20c90fb802264ea58c3b0a5e9296c53f43d7",
+    "figures/phase10/cross_region_directions.pdf": "458b6aca56402ec35966bb106863bcb18ca21fa1fe986bb4bac8882d936003ae",
+    "figures/phase10/cross_region_directions.png": "d58ccab7f41430ba99e2d9a2e257134560bfabf3f5a394ea1f17febeedbe50b8",
+    "figures/phase10/cross_region_directions.svg": "f862539145b3bd06a6615c97e862b280dcd2d2220f179ebdb18fccc3fd1475ca",
+    "figures/phase10/state_d2_000056_ADN.pdf": "8a39b9ed96263a8ddd2baf1b6e60a6667e6a9329fbcd6979c517dfefcc600415",
+    "figures/phase10/state_d2_000056_ADN.png": "c9deba08efb03c74575d1e1c7cd0763b589da6b97078f428f8bdebfa43f211d5",
+    "figures/phase10/state_d2_000056_ADN.svg": "25ca113d739ee5dd51ae8135ad4eba7a9f21671ab043ffcaeaadbeb7f803ac17",
+    "figures/phase10/state_d2_000056_PoSub.pdf": "b84d3c4dfc64481755fc44c5578b3583cc2354af938840e695004d90bcc6c7b5",
+    "figures/phase10/state_d2_000056_PoSub.png": "920521b8c5054151fd3143ec6e815e72d403a5182c81a55c0bd58e8c8b69e8aa",
+    "figures/phase10/state_d2_000056_PoSub.svg": "68dc070ead161132276131f2460392beefbc952dbee0da03d6915bc542c1ca1c",
+    "figures/phase10/state_d2_000939_PoSub.pdf": "93cfa0cc3d73711211a61599d8ca6f068c46a271513df416bbf5b31af603c595",
+    "figures/phase10/state_d2_000939_PoSub.png": "2827e9f35ba46ce1b9c08c837fdb434d0cd210a01cb2911b1df36f8d25ed1c97",
+    "figures/phase10/state_d2_000939_PoSub.svg": "342363c70bb73151b066896d5eec702f9d38b43181ad85fe434efd57e5d61ffc",
+    "figures/phase10/state_d2_WT_CS.pdf": "09c988dc3e3a1125fa64c3c7671f42b7a3c885b002ba19c614edc6d0a9e5ce43",
+    "figures/phase10/state_d2_WT_CS.png": "f7e63fa3aa1a11fa957e9486fdf9b4cb0559c2efe917c7a316861d87875061ec",
+    "figures/phase10/state_d2_WT_CS.svg": "c69744c30983cffcf69685b820dabb2839e576e01dc37b1d50e2d59da3769a00",
+    "figures/phase10/state_d2_WT_DR.pdf": "e22ea8aa3429b82eab13a438a905b8cfa0b7a0a0e07bb3aafe3bb38d0ff30252",
+    "figures/phase10/state_d2_WT_DR.png": "d8027fb434d7c5a619a6be789aca5d7632142e98edd9cd01a39b2f715af76016",
+    "figures/phase10/state_d2_WT_DR.svg": "d48e20008c9dea835c67215dae93abce5a144fa9612083df510426d781ef34db",
+    "figures/phase10/state_d2_WT_LDT.pdf": "1d3e61fdddd6b95ddcbd984ae3b8e58aa15a3d2c41197d1ae8dfe235d95146df",
+    "figures/phase10/state_d2_WT_LDT.png": "ba54fd240b8e4fa83bead3cc8add08d053e4eeedf278f86b42868e6d2d42320e",
+    "figures/phase10/state_d2_WT_LDT.svg": "1539c7a20471ba356703f9da16acfb35454441d145a3fec0653a89fc3f660dbe",
+    "figures/phase10/state_d2_WT_MB.pdf": "fa96c40ff50e2ba78e2d4c35ea793cf4571e2e2669599e90c9e38e38fa1c32e7",
+    "figures/phase10/state_d2_WT_MB.png": "03b8bc094dee5c4700978f1c993315136257ddab57765a7dd561fb240ade3885",
+    "figures/phase10/state_d2_WT_MB.svg": "ad0839472a13e3583842691f6578f817680ad6c30024c99ab5ee0ef1f8c87347",
+    "figures/phase10/state_d2_WT_MRN.pdf": "df84c2293e9f59e8561868cff6c5a62f85f95caeb7645016c5f47e09df087532",
+    "figures/phase10/state_d2_WT_MRN.png": "c49c4c0cc5d9282dc571f8ed210d64892c181f1b0f224334f85059b4449633dd",
+    "figures/phase10/state_d2_WT_MRN.svg": "5acbe51c4dc04d81f2e635b013f74402496a45be8370fe47aba83889f0c8d0aa",
+    "figures/phase10/state_d2_WT_P.pdf": "a8d00ab6fdb89be2bd2dbf70cb3110dff5ff593a6241c04992031cca0985f3c5",
+    "figures/phase10/state_d2_WT_P.png": "a90cb55729c6baa929e4a87098e096941188e4293ccfeb79384eaef1cf22e17d",
+    "figures/phase10/state_d2_WT_P.svg": "5113e259b65243364eaf7fa88e4c3210dfc7b9f63f09304a179a4e1b47d84d1e",
+    "figures/phase10/state_d2_WT_PAG.pdf": "360445fe29eddd4f8bd08610f20ead8e8ffe02f8ca62d99cfccb86d065c51fe1",
+    "figures/phase10/state_d2_WT_PAG.png": "2ed1f0c6d322622598b4bdcf033f04f3e93d9503441d75bb4deaf656e1499b00",
+    "figures/phase10/state_d2_WT_PAG.svg": "cb2d1f26a1794c379a989c346592c839dfef2d97d1919ddd74b53d405b539f89",
+    "figures/phase10/state_d2_WT_PRNc.pdf": "edf5ee175c4230371ed9100ec3c7c6db6c8b374a656dfc2f413a26c870a68825",
+    "figures/phase10/state_d2_WT_PRNc.png": "5466428653f56c13b812fe370273da65337aa8cc00dfbebae8e0558f02c06957",
+    "figures/phase10/state_d2_WT_PRNc.svg": "c2b7341b95b04a3f1fdd4016a592be454a42ad1c2108ed3f4a998c5380dc25a8",
+    "figures/phase10/state_d2_WT_PRNr.pdf": "76770226b0567b66a120f050da7d01b3ce727a1926722acc395d4f066cc39cb5",
+    "figures/phase10/state_d2_WT_PRNr.png": "d8946d4638ad1ea71d324fa25b172654db8b148436248cbf4da0f51ebe921326",
+    "figures/phase10/state_d2_WT_PRNr.svg": "b5ce8429f2a94043b18182b5ef0f5add7aa3b42ab64b0bbc7eabffab65423420",
+    "figures/phase10/state_d2_WT_RPO.pdf": "c46fcc858cf96ce8e0f6c44871abce0fe2921cb02b484ea2435f1565b9716dde",
+    "figures/phase10/state_d2_WT_RPO.png": "0c7f611f93ebda3d27fe15ad6a7579e0dfb631326f0331625d4fbd97454868c4",
+    "figures/phase10/state_d2_WT_RPO.svg": "19b4eb544e2c639eb0248cb53f1462bda232b1cffabf99849fc8b715aa3af4be",
+    "figures/phase10/state_d2_WT_SCdg.pdf": "775e69242848e51a3f094e87218a2d5e540115b3b7b903d586affb93e3cf4494",
+    "figures/phase10/state_d2_WT_SCdg.png": "92f5fd81957bdeae7fb5a935dfb21a54bb45f9de8a6ea480595e72e6ae21c7e2",
+    "figures/phase10/state_d2_WT_SCdg.svg": "6787e55279835c4d4c1a0c38c5dfcb00cc2861b3e7f263de040bf9f07b47657b",
+    "figures/phase10/state_d2_WT_SCdw.pdf": "6f88d38051e1b057a529dcd245fa6ab6168d749be550e53a48dd8f7a70559ed9",
+    "figures/phase10/state_d2_WT_SCdw.png": "0311b523a88086723ca2cce3f79a5df6799d0ccd513c8dd50f5d96326913f7ab",
+    "figures/phase10/state_d2_WT_SCdw.svg": "87b4fec16a38e2e8c879f9d6156f60122b62ee4b0c5370f9d07fc8fa5a5c4227"
+  },
+  "complete_controls_archived_name": "actions_full/matched_controls_fits.json",
+  "complete_controls_sha256": "c3e525f95b4391d484d7ccdde976451e5a606ea067146eea12d898c69b9e5839"
+}

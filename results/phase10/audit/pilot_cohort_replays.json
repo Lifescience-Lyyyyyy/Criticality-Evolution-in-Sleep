@@ -1,0 +1,14 @@
+{
+  "000056": {
+    "verified_replays": 25,
+    "max_abs_difference": 5.751044085400281e-11
+  },
+  "000939": {
+    "verified_replays": 12,
+    "max_abs_difference": 8.288525421562554e-11
+  },
+  "brainstem": {
+    "verified_replays": 75,
+    "max_abs_difference": 6.52065068607044e-11
+  }
+}

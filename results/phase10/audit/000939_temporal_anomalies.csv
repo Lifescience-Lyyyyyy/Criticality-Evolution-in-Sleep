@@ -1,0 +1,539 @@
+subject,session,asset_id,gate,start_s,end_s,label,anomaly,action
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,2816.0,2828.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,2855.0,2862.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,2876.0,2884.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,2909.0,2920.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,2968.0,2981.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,2997.0,3004.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,3087.0,3102.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,3166.0,3186.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,3221.0,3228.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,3279.0,3301.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,3322.0,3344.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,3402.0,3409.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,3463.0,3501.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,3611.0,3618.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,3639.0,3646.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,7851.0,7864.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,8467.0,8476.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,8543.0,8561.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,8791.0,8806.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,9164.0,9179.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,9232.0,9243.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,9284.0,9321.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,9339.0,9350.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,9362.0,9386.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,9519.0,9526.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,9627.0,9640.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,9713.0,9731.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1808,190807,33bfc63c-e73f-4f33-aa0e-6d5e43697387,READY_2STATE,10187.0,10197.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1813,190408,bc970cdf-cb90-418f-97ce-2db498cd292f,READY_3STATE,10101.0,10110.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1813,190408,bc970cdf-cb90-418f-97ce-2db498cd292f,READY_3STATE,11556.0,11564.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1815,190523,67f99450-68b1-4fba-9e77-3ebf4eaff934,READY_3STATE,3565.0,3574.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1815,190523,67f99450-68b1-4fba-9e77-3ebf4eaff934,READY_3STATE,3931.0,3941.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1815,190523,67f99450-68b1-4fba-9e77-3ebf4eaff934,READY_3STATE,7207.0,7214.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1815,190523,67f99450-68b1-4fba-9e77-3ebf4eaff934,READY_3STATE,7287.0,7294.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1815,190523,67f99450-68b1-4fba-9e77-3ebf4eaff934,READY_3STATE,7406.0,7413.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1815,190523,67f99450-68b1-4fba-9e77-3ebf4eaff934,READY_3STATE,7438.0,7473.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1815,190523,67f99450-68b1-4fba-9e77-3ebf4eaff934,READY_3STATE,7504.0,7511.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1815,190523,67f99450-68b1-4fba-9e77-3ebf4eaff934,READY_3STATE,7562.0,7583.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1815,190523,67f99450-68b1-4fba-9e77-3ebf4eaff934,READY_3STATE,7603.0,7619.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1815,190523,67f99450-68b1-4fba-9e77-3ebf4eaff934,READY_3STATE,7657.0,7677.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1815,190523,67f99450-68b1-4fba-9e77-3ebf4eaff934,READY_3STATE,8000.0,8012.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1815,190523,67f99450-68b1-4fba-9e77-3ebf4eaff934,READY_3STATE,8129.0,8143.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1815,190523,67f99450-68b1-4fba-9e77-3ebf4eaff934,READY_3STATE,8162.0,8186.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1815,190523,67f99450-68b1-4fba-9e77-3ebf4eaff934,READY_3STATE,8739.0,8749.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1815,190523,67f99450-68b1-4fba-9e77-3ebf4eaff934,READY_3STATE,8913.0,8939.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1815,190523,67f99450-68b1-4fba-9e77-3ebf4eaff934,READY_3STATE,9125.0,9148.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1815,190523,67f99450-68b1-4fba-9e77-3ebf4eaff934,READY_3STATE,9191.0,9206.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,3189.0,3200.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,3359.0,3369.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,4081.0,4092.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,4778.0,4785.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,4826.0,4842.0,rem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,5033.0,5126.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,5540.0,5552.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,5565.0,5572.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,5583.0,5591.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,9169.0,9181.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,9291.0,9307.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,9421.0,9434.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,9781.0,9788.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,9848.0,9910.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,9921.0,9951.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,10166.0,10174.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,10207.0,10216.0,rem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,10251.0,10263.0,rem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,10494.0,10507.0,rem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,11213.0,11220.0,rem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,11260.0,11314.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1821,190910,ab4d5c7e-9860-492b-9274-a306670a53ca,READY_3STATE,11352.0,11369.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,2948.0,2957.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,3047.0,3054.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,3067.0,3120.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,3172.0,3193.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,3229.0,3248.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,3260.0,3284.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,3299.0,3401.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,3423.0,3546.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,3613.0,3623.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,3648.0,3671.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,3724.0,3844.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,3855.0,3862.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,3872.0,3936.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,3953.0,3971.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,6416.0,6430.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,6484.0,6491.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,6500.0,6585.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,6601.0,6665.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,6679.0,6774.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,6787.0,6885.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,6896.0,6945.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,6956.0,7026.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,7037.0,7502.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,7511.0,7697.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,7714.0,7882.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,7893.0,7942.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,7953.0,8033.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,8051.0,8231.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,8261.0,8269.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,8289.0,8397.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,8409.0,8420.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,8430.0,8573.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,8592.0,8813.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,8834.0,8842.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,8877.0,8954.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,8964.0,8984.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,9027.0,9034.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A1824,190827,db9db7ab-1232-47db-b8d9-7e16ba2ad050,READY_2STATE,9046.0,9103.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,5382.0,5400.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,5426.0,5467.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,5480.0,5490.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,5508.0,5918.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,5941.0,5981.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,5991.0,6789.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,6822.0,7184.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,7203.0,7231.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,7246.0,7353.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,7367.0,7553.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,7562.0,7678.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,7687.0,7906.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,11705.0,11722.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,11763.0,11789.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,11820.0,11853.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,11864.0,11989.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,12002.0,12348.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,12370.0,12586.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,12596.0,12809.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,12831.0,12965.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,12975.0,12992.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,13009.0,13056.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,13066.0,13334.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,13344.0,13523.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,13553.0,13581.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,13601.0,13635.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,13671.0,13724.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,13733.0,13750.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,13773.0,13919.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,13941.0,14066.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3701,191119,e8a3ee2b-940a-4abe-a020-3821fc7e4f65,READY_3STATE,14076.0,14116.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3702,191126,6fe925dd-ea41-4a84-9cee-ca6bb039edcb,READY_3STATE,4273.0,4304.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3702,191126,6fe925dd-ea41-4a84-9cee-ca6bb039edcb,READY_3STATE,4410.0,4435.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3702,191126,6fe925dd-ea41-4a84-9cee-ca6bb039edcb,READY_3STATE,5247.0,5273.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3702,191126,6fe925dd-ea41-4a84-9cee-ca6bb039edcb,READY_3STATE,5673.0,5682.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3702,191126,6fe925dd-ea41-4a84-9cee-ca6bb039edcb,READY_3STATE,5903.0,5918.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3702,191126,6fe925dd-ea41-4a84-9cee-ca6bb039edcb,READY_3STATE,5974.0,6043.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3702,191126,6fe925dd-ea41-4a84-9cee-ca6bb039edcb,READY_3STATE,6145.0,6176.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,4666.0,4759.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,4768.0,5548.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,5570.0,5603.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,5614.0,5626.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,5644.0,5900.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,5911.0,5930.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,5962.0,5991.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,6061.0,6139.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,6221.0,6357.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,6428.0,6456.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,6475.0,6500.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,6538.0,6886.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,6906.0,6915.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,6942.0,7087.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,11177.0,11522.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,11536.0,12313.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,12344.0,12364.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,12405.0,12428.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,12457.0,12476.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,12509.0,12559.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,12587.0,12666.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,12677.0,12738.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,12779.0,12903.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,12923.0,13017.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,13080.0,13226.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3703,191215,a640fd89-41fa-4ba1-81e7-3bab5e84da63,READY_3STATE,13275.0,13309.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,10994.0,11332.0,nrem,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,11333.0,11365.0,wake,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,11366.0,11623.0,nrem,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,11624.0,11631.0,wake,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,11632.0,11669.0,nrem,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,11670.0,11697.0,wake,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,11698.0,11886.0,nrem,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,11887.0,11895.0,rem,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,11896.0,11917.0,wake,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,11918.0,12020.0,nrem,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,12021.0,12176.0,rem,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,12177.0,12259.0,wake,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,12260.0,12334.0,nrem,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,12335.0,12346.0,wake,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,12347.0,12721.0,nrem,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,12722.0,12730.0,wake,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,12731.0,12895.0,nrem,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,12896.0,12918.0,wake,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,12919.0,13142.0,nrem,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,13143.0,13197.0,wake,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,13198.0,13444.0,nrem,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,13445.0,13484.0,rem,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,13485.0,13503.0,wake,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,13504.0,13649.0,nrem,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,13650.0,16197.0,wake,outside independent recording clock,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,5674.0,5687.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,5775.0,5790.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3705,200306,c72bd94f-b744-483e-a782-3a3c475a5276,BLOCKED_QUALITY,11168.136,16198.55965,spike coverage,No adequately mapped stable sorted population,exclude whole session
+A3706,200313,f7d0f925-04d3-47d7-8be7-0d14bb52672f,READY_3STATE,2835.0,2883.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3706,200313,f7d0f925-04d3-47d7-8be7-0d14bb52672f,READY_3STATE,3144.0,3255.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3706,200313,f7d0f925-04d3-47d7-8be7-0d14bb52672f,READY_3STATE,3284.0,3310.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3706,200313,f7d0f925-04d3-47d7-8be7-0d14bb52672f,READY_3STATE,3343.0,3367.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3706,200313,f7d0f925-04d3-47d7-8be7-0d14bb52672f,READY_3STATE,3433.0,3592.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3706,200313,f7d0f925-04d3-47d7-8be7-0d14bb52672f,READY_3STATE,3608.0,3645.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3706,200313,f7d0f925-04d3-47d7-8be7-0d14bb52672f,READY_3STATE,3691.0,3763.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3706,200313,f7d0f925-04d3-47d7-8be7-0d14bb52672f,READY_3STATE,3776.0,3797.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3706,200313,f7d0f925-04d3-47d7-8be7-0d14bb52672f,READY_3STATE,3842.0,3879.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3706,200313,f7d0f925-04d3-47d7-8be7-0d14bb52672f,READY_3STATE,4054.0,4118.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3706,200313,f7d0f925-04d3-47d7-8be7-0d14bb52672f,READY_3STATE,4168.0,4274.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3706,200313,f7d0f925-04d3-47d7-8be7-0d14bb52672f,READY_3STATE,4293.0,4310.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3706,200313,f7d0f925-04d3-47d7-8be7-0d14bb52672f,READY_3STATE,4430.0,4444.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3706,200313,f7d0f925-04d3-47d7-8be7-0d14bb52672f,READY_3STATE,4688.0,4712.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3706,200313,f7d0f925-04d3-47d7-8be7-0d14bb52672f,READY_3STATE,4773.0,4787.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3706,200313,f7d0f925-04d3-47d7-8be7-0d14bb52672f,READY_3STATE,4843.0,4853.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3706,200313,f7d0f925-04d3-47d7-8be7-0d14bb52672f,READY_3STATE,5076.0,5094.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3707,200317,d27e50bd-9089-4bff-a1ac-c624ce3434de,READY_2STATE,9925.0,9936.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3707,200317,d27e50bd-9089-4bff-a1ac-c624ce3434de,READY_2STATE,9958.0,9979.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3707,200317,d27e50bd-9089-4bff-a1ac-c624ce3434de,READY_2STATE,9992.0,10002.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3707,200317,d27e50bd-9089-4bff-a1ac-c624ce3434de,READY_2STATE,10020.0,10080.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3707,200317,d27e50bd-9089-4bff-a1ac-c624ce3434de,READY_2STATE,10249.0,10279.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3707,200317,d27e50bd-9089-4bff-a1ac-c624ce3434de,READY_2STATE,10288.0,10306.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3707,200317,d27e50bd-9089-4bff-a1ac-c624ce3434de,READY_2STATE,10339.0,10367.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3707,200317,d27e50bd-9089-4bff-a1ac-c624ce3434de,READY_2STATE,10397.0,10442.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3707,200317,d27e50bd-9089-4bff-a1ac-c624ce3434de,READY_2STATE,10459.0,10477.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3707,200317,d27e50bd-9089-4bff-a1ac-c624ce3434de,READY_2STATE,10618.0,10625.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3707,200317,d27e50bd-9089-4bff-a1ac-c624ce3434de,READY_2STATE,10637.0,10666.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3707,200317,d27e50bd-9089-4bff-a1ac-c624ce3434de,READY_2STATE,10814.0,10845.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3707,200317,d27e50bd-9089-4bff-a1ac-c624ce3434de,READY_2STATE,10887.0,10907.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3707,200317,d27e50bd-9089-4bff-a1ac-c624ce3434de,READY_2STATE,11044.0,11051.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3708,200317b,2b641587-8a41-4168-9989-172a0e4f64ab,READY_3STATE,7021.0,7036.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3708,200317b,2b641587-8a41-4168-9989-172a0e4f64ab,READY_3STATE,7192.0,7199.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3708,200317b,2b641587-8a41-4168-9989-172a0e4f64ab,READY_3STATE,7276.0,7289.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3708,200317b,2b641587-8a41-4168-9989-172a0e4f64ab,READY_3STATE,7514.0,7529.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3708,200317b,2b641587-8a41-4168-9989-172a0e4f64ab,READY_3STATE,7583.0,7595.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3708,200317b,2b641587-8a41-4168-9989-172a0e4f64ab,READY_3STATE,12031.0,12052.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3708,200317b,2b641587-8a41-4168-9989-172a0e4f64ab,READY_3STATE,12149.0,12161.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3708,200317b,2b641587-8a41-4168-9989-172a0e4f64ab,READY_3STATE,12706.0,12728.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3708,200317b,2b641587-8a41-4168-9989-172a0e4f64ab,READY_3STATE,12791.0,12806.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3708,200317b,2b641587-8a41-4168-9989-172a0e4f64ab,READY_3STATE,13011.0,13035.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3708,200317b,2b641587-8a41-4168-9989-172a0e4f64ab,READY_3STATE,13058.0,13079.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3708,200317b,2b641587-8a41-4168-9989-172a0e4f64ab,READY_3STATE,13385.0,13405.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3708,200317b,2b641587-8a41-4168-9989-172a0e4f64ab,READY_3STATE,13429.0,13468.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3709,200601,3b01ccd3-a199-429b-9116-5ae707d1744e,READY_3STATE,11170.0,11642.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3709,200601,3b01ccd3-a199-429b-9116-5ae707d1744e,READY_3STATE,11693.0,11935.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3709,200601,3b01ccd3-a199-429b-9116-5ae707d1744e,READY_3STATE,11947.0,12998.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3709,200601,3b01ccd3-a199-429b-9116-5ae707d1744e,READY_3STATE,13017.0,13261.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3709,200601,3b01ccd3-a199-429b-9116-5ae707d1744e,READY_3STATE,13279.0,13506.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,3875.0,3910.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,3936.0,3979.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,3994.0,4036.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,4069.0,4077.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,4091.0,4122.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,4171.0,4221.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,4238.0,4284.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,4294.0,4507.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,4544.0,4589.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,4607.0,4665.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,4679.0,4736.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,4763.0,4953.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,4982.0,5201.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,5240.0,5342.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,5400.0,5691.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,5704.0,5910.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,5931.0,5993.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,6015.0,6115.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,6130.0,6173.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,6190.0,6284.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,10191.0,10224.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,10335.0,10395.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,10439.0,10484.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,10519.0,10549.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,10589.0,10627.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,10639.0,10663.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,10680.0,10692.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,10701.0,10720.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,10787.0,10803.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,10813.0,10835.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,10846.0,10856.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,10893.0,10904.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,10943.0,10974.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,10983.0,10996.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,11005.0,11020.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,11050.0,11082.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,11119.0,11157.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,11173.0,11232.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,11241.0,11257.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,11290.0,11341.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,11362.0,11408.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,11438.0,11461.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,11489.0,11512.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,11523.0,11540.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,11551.0,11614.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,11623.0,11704.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,11717.0,11736.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,11750.0,11790.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,11828.0,11837.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,11857.0,11873.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,11889.0,11937.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,11985.0,11997.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,12020.0,12051.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,12110.0,12132.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,12184.0,12195.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,12215.0,12222.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,12232.0,12297.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,12331.0,12382.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,12396.0,12425.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,12480.0,12497.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,12521.0,12564.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3710,200609,9685b72e-f576-4c67-8ae2-b107653673d0,READY_3STATE,12593.0,12600.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,9304.0,9703.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,9704.0,12144.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,12145.0,12176.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,12177.0,12326.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,12327.0,12352.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,12353.0,12413.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,12414.0,12619.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,12620.0,12711.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,12712.0,12750.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,12751.0,12993.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,12994.0,13392.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,13393.0,13427.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,13428.0,13792.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,13793.0,13934.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,13935.0,14093.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,14094.0,14107.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,14108.0,14418.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,14419.0,14448.0,rem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,14449.0,14458.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,14459.0,15195.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,15196.0,15303.0,rem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,15304.0,15342.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,15343.0,15387.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,15388.0,15395.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,15396.0,15519.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,15520.0,15627.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,15628.0,15701.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,15702.0,16720.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,16721.0,16753.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,16754.0,16771.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,16772.0,16788.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,16789.0,17052.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,17053.0,17065.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,17066.0,17463.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,17464.0,17475.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,17476.0,17902.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,17903.0,17932.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,17933.0,17958.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,17959.0,17969.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,17970.0,18545.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,18546.0,18652.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,18653.0,18695.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,18696.0,18761.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,18762.0,18819.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,18820.0,18895.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,18896.0,18971.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,18972.0,19400.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,19401.0,19451.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,19452.0,19776.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,19777.0,19893.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,19894.0,19942.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,19943.0,19958.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,19959.0,19966.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,19967.0,20020.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,20021.0,20430.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,20431.0,20465.0,rem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,20466.0,20567.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,20568.0,20596.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,20597.0,20679.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,20680.0,20995.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,20996.0,21018.0,rem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,21019.0,21034.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,21035.0,21314.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,21315.0,21323.0,rem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,21324.0,21337.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,21338.0,21436.0,rem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,21437.0,21481.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,21482.0,21880.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,21881.0,24324.0,wake,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,24325.0,24351.0,nrem,outside independent recording clock,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,3477.0,3524.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,3614.0,3637.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,4544.0,4610.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,4840.0,4867.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,4879.0,4887.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,5732.0,5758.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,5781.0,5793.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,12145.0,12176.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3711,200810b,aae75b53-726d-4610-8073-a253d016d246,BLOCKED_QUALITY,9499.292,12176.5305,spike coverage,No adequately mapped stable sorted population,exclude whole session
+A3712,200903a,efca17a4-a350-44db-84ab-2ce5b4904e9c,READY_3STATE,3777.0,3789.0,rem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3712,200903a,efca17a4-a350-44db-84ab-2ce5b4904e9c,READY_3STATE,4256.0,4263.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3712,200903a,efca17a4-a350-44db-84ab-2ce5b4904e9c,READY_3STATE,5389.0,5396.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3712,200903a,efca17a4-a350-44db-84ab-2ce5b4904e9c,READY_3STATE,5430.0,5437.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3712,200903a,efca17a4-a350-44db-84ab-2ce5b4904e9c,READY_3STATE,10330.0,10344.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3712,200903a,efca17a4-a350-44db-84ab-2ce5b4904e9c,READY_3STATE,11252.0,11271.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,3942.0,3951.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,4319.0,4342.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,4973.0,4987.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,5298.0,5306.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,5320.0,5328.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,5604.0,5615.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,9439.0,9450.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,9470.0,9554.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,9606.0,9660.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,9737.0,9749.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,9763.0,9772.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,9808.0,9861.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,9928.0,9964.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,10012.0,10042.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,10053.0,10162.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,10176.0,10192.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,10225.0,10237.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,10268.0,10286.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,10374.0,10385.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,10396.0,10408.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,10455.0,10533.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,10546.0,10574.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,10777.0,10786.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,10837.0,10847.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,10931.0,10955.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,10973.0,10994.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3713,200909a,dcc4c241-fbb4-4a5a-a9dc-ee811dc136a7,READY_3STATE,11181.0,11188.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3716,201015b,b6835f72-cb08-4d45-98a7-31f94c3e9f52,READY_3STATE,3661.0,5740.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3716,201015b,b6835f72-cb08-4d45-98a7-31f94c3e9f52,READY_3STATE,9865.0,11726.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,10442.0,12741.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,12742.0,12893.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,12894.0,12957.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,12958.0,12976.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,12977.0,13017.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,13018.0,13682.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,13683.0,13782.0,rem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,13783.0,13799.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,13800.0,13854.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,13855.0,13867.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,13868.0,14192.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,14193.0,14462.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,14463.0,14783.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,14784.0,14813.0,rem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,14814.0,14842.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,14843.0,14977.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,14978.0,14989.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,14990.0,15085.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,15086.0,15127.0,rem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,15128.0,15152.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,15153.0,15508.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,15509.0,15516.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,15517.0,15587.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,15588.0,15624.0,rem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,15625.0,15670.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,15671.0,15703.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,15704.0,15731.0,rem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,15732.0,15755.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,15756.0,15802.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,15803.0,15815.0,rem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,15816.0,15839.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,15840.0,15850.0,rem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,15851.0,15972.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,15973.0,16059.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,16060.0,16069.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,16070.0,16330.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,16331.0,16343.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,16344.0,16464.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,16465.0,16525.0,rem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,16526.0,19178.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,19179.0,19321.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,19322.0,19346.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,19347.0,19879.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,19880.0,19934.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,19935.0,20057.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,20058.0,20723.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,20724.0,21013.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,21014.0,21054.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,21055.0,21357.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,21358.0,21481.0,rem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,21482.0,21678.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,21679.0,22020.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,22021.0,22045.0,rem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,22046.0,22063.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,22064.0,22410.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,22411.0,22431.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,22432.0,22652.0,nrem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,22653.0,22710.0,rem,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,22711.0,24536.0,wake,outside independent recording clock,exclude affected interval
+A3717,201021,fc1cd10d-a850-4f84-b19d-849b99406314,READY_3STATE,6157.0,6172.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,9051.0,12660.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,12661.0,12686.0,nrem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,12687.0,12821.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,12822.0,12941.0,nrem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,12942.0,12970.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,12971.0,13067.0,nrem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,13068.0,13134.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,13135.0,13192.0,nrem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,13193.0,13212.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,13213.0,13245.0,nrem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,13246.0,13347.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,13348.0,13773.0,nrem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,13774.0,13877.0,rem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,13878.0,14018.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,14019.0,14440.0,nrem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,14441.0,14467.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,14468.0,14583.0,nrem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,14584.0,14617.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,14618.0,14682.0,nrem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,14683.0,15718.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,15719.0,15775.0,nrem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,15776.0,15844.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,15845.0,15911.0,nrem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,15912.0,18819.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,18820.0,18853.0,nrem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,18854.0,18927.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,18928.0,19704.0,nrem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,19705.0,19725.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,19726.0,19758.0,rem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,19759.0,19801.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,19802.0,20283.0,nrem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,20284.0,20346.0,rem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,20347.0,20408.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,20409.0,20965.0,nrem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,20966.0,20976.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,20977.0,21003.0,rem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,21004.0,21027.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,21028.0,21098.0,nrem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,21099.0,21138.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,21139.0,21233.0,nrem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,21234.0,21280.0,wake,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,21281.0,21303.0,nrem,outside independent recording clock,exclude affected interval
+A3723,201115,269a4a30-7cd9-41da-8b3f-b6baab31d118,READY_3STATE,21304.0,24481.0,wake,outside independent recording clock,exclude affected interval
+A5506,200914a,33e0ea8a-01ec-4edd-922f-deff6086feee,READY_3STATE,10688.0,10695.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A5507,200920,f46a1012-7a01-4dc7-9fe3-a2c2fe7bf7cd,READY_3STATE,4473.0,4480.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A5507,200920,f46a1012-7a01-4dc7-9fe3-a2c2fe7bf7cd,READY_3STATE,4596.0,4604.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A5507,200920,f46a1012-7a01-4dc7-9fe3-a2c2fe7bf7cd,READY_3STATE,4670.0,4683.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A5507,200920,f46a1012-7a01-4dc7-9fe3-a2c2fe7bf7cd,READY_3STATE,10349.0,10356.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A5801,200924,faaf4ff7-861d-40e4-bc82-34d7d520180a,READY_3STATE,4197.0,4204.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A6211,210407,92b98023-2828-415a-9f6b-b2da07e00fa7,READY_3STATE,3638.0,3647.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A6211,210407,92b98023-2828-415a-9f6b-b2da07e00fa7,READY_3STATE,3680.0,3695.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A6211,210407,92b98023-2828-415a-9f6b-b2da07e00fa7,READY_3STATE,7884.0,8460.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A6216,210623,0fd7c13c-8c95-4afc-a5fa-6cc5562cddef,READY_3STATE,3989.0,4007.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval
+A6216,210623,0fd7c13c-8c95-4afc-a5fa-6cc5562cddef,READY_3STATE,4383.0,4393.0,nrem,NREM/REM overlaps exploration or intervention by >1 s,exclude affected interval

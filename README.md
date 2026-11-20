@@ -49,3 +49,10 @@ RA 的 OSF 发布含四只斑胸草雀的双侧排序脉冲。睡眠时段、鸣
 - 新增手动 `crcns` 阶段，复用固定的 Sooter MATLAB 估计器和原有分段诊断。仓库默认提供可重跑的 hc-23 MEC 试跑计数，源脉冲不进入 Git。图和中文报告按动物汇总，PRE／POST 分开。
 - 用 `scripts/data/audit_crcns_sleep.py --hc23-overnight <排序脉冲缓存.zip> --hc23-mat <作者文件.mat> --out <审计.json>` 核验 Figshare。随后运行 `scripts/data/prepare_crcns_sleep.py` 并传入该审计、原 MAT 和排序脉冲缓存。复算时通过流水线核对输入 SHA-256。其 `--verified-index` 入口也可接收已过数据与评分门槛的 MATLAB／NeuroSuite 或 NWB 会话。
 - 用 `scripts/data/prepare_hc24.py --archive <CRCNS data.zip> --audit <审计.json> --out <计数.mat>` 核验 hc-24，并复算作者 NREM 区间的 40 ms 计数。可用 `--session` 限定一个会话。
+
+## Phase 10 自发睡眠跨脑区分析
+
+- [五个来源逐会话的数据审计](reports/22_phase10_dataset_audit.md) · [MATLAB 试点](reports/23_phase10_pilot.md) · [逐动物队列与敏感性分析](reports/24_phase10_multiregion_results.md) · [科学结论](reports/25_phase10_scientific_summary.md)
+- [固定版本与许可](manifests/phase10_sources.json) · [资格 CSV](manifests/phase10_eligibility.csv) · [Actions 运行和派生计数指纹](manifests/phase10_experiments.json)
+- 手动 `phase10` 工作流默认复跑一个真正的 ADN 试点。批次标签保留每次拟合的输入与代码。MATLAB R2024b 调用固定 Sooter 估计器，状态片段分开，主规格为 40 ms、AR(5)、β=2 和 Yule–Walker。
+- DANDI 输入由 `scripts/data/prepare_phase10.py` 按固定资产读取脉冲、分期及信号时钟。脑干输入由 `scripts/data/prepare_phase10_brainstem.py` 核验选定 ZIP 成员的 1 ms 数组。聚合图及数值由 `scripts/analysis/summarize_phase10.py` 和 `scripts/analysis/plot_phase10.py` 生成。

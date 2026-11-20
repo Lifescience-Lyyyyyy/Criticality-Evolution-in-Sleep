@@ -1,0 +1,1555 @@
+[
+  {
+    "dandiset": "000987",
+    "version": "0.261003.2342",
+    "path": "sub-A7801/sub-A7801_ses-20240509T185057_behavior+ecephys.nwb",
+    "asset_id": "36de62ce-1d87-4c5f-a5ab-604354aae7b2",
+    "bytes": 117323890,
+    "subject": "A7801",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000987/versions/0.261003.2342/assets/36de62ce-1d87-4c5f-a5ab-604354aae7b2/",
+    "digest": {
+      "dandi:dandi-etag": "0a254a0a180d8c4651afdcfd7424eadb-2",
+      "dandi:sha2-256": "cbb3d34b3ad3454bb4099c717a0eca6445fa9ab581c731d200e8861b14a21108"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "A7801-210225",
+    "description": "Freely behaving mouse retrosplenial cortex data as it explores a partial circular arena, followed by the full circular arena. Exploration periods are interleaved with sleep in the home cage.",
+    "session": "sub-A7801_ses-20240509T185057_behavior+ecephys",
+    "clock": {
+      "seconds": [
+        0.0,
+        19116.504
+      ],
+      "source": "intervals/epochs",
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "DOWN",
+      "SWS",
+      "UP",
+      "epochs",
+      "position_time_support"
+    ],
+    "processing_modules": [],
+    "acquisition_series": [
+      "CompassDirection",
+      "Position"
+    ],
+    "intervention_series": [],
+    "units_total": 71,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "RSC": 71
+    },
+    "epochs": [
+      [
+        0.0,
+        3866.076,
+        "sleep"
+      ],
+      [
+        5671.62,
+        10221.732,
+        "sleep"
+      ],
+      [
+        12028.356,
+        19116.504,
+        "sleep"
+      ],
+      [
+        3866.076,
+        5671.62,
+        "wake"
+      ],
+      [
+        10221.732,
+        12028.356,
+        "wake"
+      ]
+    ],
+    "context_support": [
+      [
+        0.0,
+        3866.076
+      ],
+      [
+        5671.62,
+        10221.732
+      ],
+      [
+        12028.356,
+        19116.504
+      ]
+    ],
+    "state_path": "intervals/SWS",
+    "score_counts": {
+      "SWS": 51
+    },
+    "invalid_score_rows": [],
+    "overlapping_score_rows": [],
+    "contexts": {
+      "REST": {
+        "Wake": {
+          "seconds": 0,
+          "segments": 0
+        },
+        "NREM": {
+          "seconds": 8882.0,
+          "segments": 51
+        },
+        "REM": {
+          "seconds": 0,
+          "segments": 0
+        }
+      }
+    },
+    "reason": "No published REM or rest-scored Wake. Wake experiment epochs are arena exploration.",
+    "gate": "PARTIAL"
+  },
+  {
+    "dandiset": "000987",
+    "version": "0.261003.2342",
+    "path": "sub-A7801/sub-A7801_ses-20240509T185458_behavior+ecephys.nwb",
+    "asset_id": "8a83ddb9-3ae7-4e97-9379-51e11f9dcb66",
+    "bytes": 72306042,
+    "subject": "A7801",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000987/versions/0.261003.2342/assets/8a83ddb9-3ae7-4e97-9379-51e11f9dcb66/",
+    "digest": {
+      "dandi:dandi-etag": "4103664c13327b505db07eb6e5f2128e-2",
+      "dandi:sha2-256": "1323f73bf42a9671e35b41c62857506e008e25d952580ea90fa0182cda1318b6"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "A7801-210226",
+    "description": "Freely behaving mouse retrosplenial cortex data as it explores a familiar circular arena, followed by a novel square arena. Exploration periods are interleaved with sleep in the home cage.",
+    "session": "sub-A7801_ses-20240509T185458_behavior+ecephys",
+    "clock": {
+      "seconds": [
+        0.0,
+        18667.296
+      ],
+      "source": "intervals/epochs",
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "DOWN",
+      "SWS",
+      "UP",
+      "epochs",
+      "position_time_support"
+    ],
+    "processing_modules": [],
+    "acquisition_series": [
+      "CompassDirection",
+      "Position"
+    ],
+    "intervention_series": [],
+    "units_total": 40,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "RSC": 40
+    },
+    "epochs": [
+      [
+        0.0,
+        4431.708,
+        "sleep"
+      ],
+      [
+        6240.276,
+        11931.372,
+        "sleep"
+      ],
+      [
+        13737.636,
+        18667.296,
+        "sleep"
+      ],
+      [
+        4431.708,
+        6240.276,
+        "wake"
+      ],
+      [
+        11931.372,
+        13737.636,
+        "wake"
+      ]
+    ],
+    "context_support": [
+      [
+        0.0,
+        4431.708
+      ],
+      [
+        6240.276,
+        11931.372
+      ],
+      [
+        13737.636,
+        18667.296
+      ]
+    ],
+    "state_path": "intervals/SWS",
+    "score_counts": {
+      "SWS": 30
+    },
+    "invalid_score_rows": [],
+    "overlapping_score_rows": [],
+    "contexts": {
+      "REST": {
+        "Wake": {
+          "seconds": 0,
+          "segments": 0
+        },
+        "NREM": {
+          "seconds": 6075.0,
+          "segments": 30
+        },
+        "REM": {
+          "seconds": 0,
+          "segments": 0
+        }
+      }
+    },
+    "reason": "No published REM or rest-scored Wake. Wake experiment epochs are arena exploration.",
+    "gate": "PARTIAL"
+  },
+  {
+    "dandiset": "000987",
+    "version": "0.261003.2342",
+    "path": "sub-A7801/sub-A7801_ses-20240509T185805_behavior+ecephys.nwb",
+    "asset_id": "26c194c9-7d96-45dc-96c4-f95a069d991a",
+    "bytes": 84995398,
+    "subject": "A7801",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000987/versions/0.261003.2342/assets/26c194c9-7d96-45dc-96c4-f95a069d991a/",
+    "digest": {
+      "dandi:dandi-etag": "511daa272877e7c5f4702b7db0d0f1ba-2",
+      "dandi:sha2-256": "03bbe01dcc0f5c3570810875bdb85cc9e7c9c53e62257eb666c50bc15a6cf5bf"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "A7801-210227",
+    "description": "Freely behaving mouse retrosplenial cortex data as it explores a partial circular arena, followed by the full circular arena. Exploration periods are interleaved with sleep in the home cage.",
+    "session": "sub-A7801_ses-20240509T185805_behavior+ecephys",
+    "clock": {
+      "seconds": [
+        0.0,
+        18141.264
+      ],
+      "source": "intervals/epochs",
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "DOWN",
+      "SWS",
+      "UP",
+      "epochs",
+      "position_time_support"
+    ],
+    "processing_modules": [],
+    "acquisition_series": [
+      "CompassDirection",
+      "Position"
+    ],
+    "intervention_series": [],
+    "units_total": 33,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "RSC": 33
+    },
+    "epochs": [
+      [
+        0.0,
+        4538.592,
+        "sleep"
+      ],
+      [
+        6352.74,
+        10591.02,
+        "sleep"
+      ],
+      [
+        12997.728,
+        18141.264,
+        "sleep"
+      ],
+      [
+        4538.592,
+        6352.74,
+        "wake"
+      ],
+      [
+        10591.02,
+        12997.728,
+        "wake"
+      ]
+    ],
+    "context_support": [
+      [
+        0.0,
+        4538.592
+      ],
+      [
+        6352.74,
+        10591.02
+      ],
+      [
+        12997.728,
+        18141.264
+      ]
+    ],
+    "state_path": "intervals/SWS",
+    "score_counts": {
+      "SWS": 24
+    },
+    "invalid_score_rows": [],
+    "overlapping_score_rows": [],
+    "contexts": {
+      "REST": {
+        "Wake": {
+          "seconds": 0,
+          "segments": 0
+        },
+        "NREM": {
+          "seconds": 6194.592,
+          "segments": 24
+        },
+        "REM": {
+          "seconds": 0,
+          "segments": 0
+        }
+      }
+    },
+    "reason": "No published REM or rest-scored Wake. Wake experiment epochs are arena exploration.",
+    "gate": "PARTIAL"
+  },
+  {
+    "dandiset": "000987",
+    "version": "0.261003.2342",
+    "path": "sub-A7801/sub-A7801_ses-20240509T190101_behavior+ecephys.nwb",
+    "asset_id": "225fc8fb-941e-4fa8-94f1-3511f6b3df04",
+    "bytes": 92943946,
+    "subject": "A7801",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000987/versions/0.261003.2342/assets/225fc8fb-941e-4fa8-94f1-3511f6b3df04/",
+    "digest": {
+      "dandi:dandi-etag": "b2f692c5bd3046e8c1159957acfa0582-2",
+      "dandi:sha2-256": "44824e530176d8ed373189ceb5408ceb7809d6d775003599ffa8011ce95ccc18"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "A7801-210228",
+    "description": "Freely behaving mouse retrosplenial cortex data as it explores a familiar circular arena, followed by a novel square arena. Exploration periods are interleaved with sleep in the home cage.",
+    "session": "sub-A7801_ses-20240509T190101_behavior+ecephys",
+    "clock": {
+      "seconds": [
+        0.0,
+        21714.636
+      ],
+      "source": "intervals/epochs",
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "DOWN",
+      "SWS",
+      "UP",
+      "epochs",
+      "position_time_support"
+    ],
+    "processing_modules": [],
+    "acquisition_series": [
+      "CompassDirection",
+      "Position"
+    ],
+    "intervention_series": [],
+    "units_total": 31,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "RSC": 31
+    },
+    "epochs": [
+      [
+        0.0,
+        4225.356,
+        "sleep"
+      ],
+      [
+        6632.64,
+        13670.436,
+        "sleep"
+      ],
+      [
+        16079.664,
+        21714.636,
+        "sleep"
+      ],
+      [
+        4225.356,
+        6632.64,
+        "wake"
+      ],
+      [
+        13670.436,
+        16079.664,
+        "wake"
+      ]
+    ],
+    "context_support": [
+      [
+        0.0,
+        4225.356
+      ],
+      [
+        6632.64,
+        13670.436
+      ],
+      [
+        16079.664,
+        21714.636
+      ]
+    ],
+    "state_path": "intervals/SWS",
+    "score_counts": {
+      "SWS": 29
+    },
+    "invalid_score_rows": [],
+    "overlapping_score_rows": [],
+    "contexts": {
+      "REST": {
+        "Wake": {
+          "seconds": 0,
+          "segments": 0
+        },
+        "NREM": {
+          "seconds": 8022.0,
+          "segments": 29
+        },
+        "REM": {
+          "seconds": 0,
+          "segments": 0
+        }
+      }
+    },
+    "reason": "No published REM or rest-scored Wake. Wake experiment epochs are arena exploration.",
+    "gate": "PARTIAL"
+  },
+  {
+    "dandiset": "000987",
+    "version": "0.261003.2342",
+    "path": "sub-A7802/sub-A7802_ses-20240509T190545_behavior+ecephys.nwb",
+    "asset_id": "0d0f7583-21a0-4618-8501-0aa81bbaba1f",
+    "bytes": 90737982,
+    "subject": "A7802",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000987/versions/0.261003.2342/assets/0d0f7583-21a0-4618-8501-0aa81bbaba1f/",
+    "digest": {
+      "dandi:dandi-etag": "6d92b18951170cc0a1ee47454620e9d6-2",
+      "dandi:sha2-256": "a8fab363364b636728f1de35145a8c9ccaed4fbe7ba78f194d4a2bdff7c9a212"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "A7802-210317",
+    "description": "Freely behaving mouse retrosplenial cortex data as it explores a partial circular arena, followed by the full circular arena. Exploration periods are interleaved with sleep in the home cage.",
+    "session": "sub-A7802_ses-20240509T190545_behavior+ecephys",
+    "clock": {
+      "seconds": [
+        0.0,
+        16142.652
+      ],
+      "source": "intervals/epochs",
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "DOWN",
+      "SWS",
+      "UP",
+      "epochs",
+      "position_time_support"
+    ],
+    "processing_modules": [],
+    "acquisition_series": [
+      "CompassDirection",
+      "Position"
+    ],
+    "intervention_series": [],
+    "units_total": 50,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "RSC": 50
+    },
+    "epochs": [
+      [
+        0.0,
+        4277.052,
+        "sleep"
+      ],
+      [
+        6100.272,
+        10003.536,
+        "sleep"
+      ],
+      [
+        11807.496,
+        16142.652,
+        "sleep"
+      ],
+      [
+        4277.052,
+        6100.272,
+        "wake"
+      ],
+      [
+        10003.536,
+        11807.496,
+        "wake"
+      ]
+    ],
+    "context_support": [
+      [
+        0.0,
+        4277.052
+      ],
+      [
+        6100.272,
+        10003.536
+      ],
+      [
+        11807.496,
+        16142.652
+      ]
+    ],
+    "state_path": "intervals/SWS",
+    "score_counts": {
+      "SWS": 22
+    },
+    "invalid_score_rows": [],
+    "overlapping_score_rows": [],
+    "contexts": {
+      "REST": {
+        "Wake": {
+          "seconds": 0,
+          "segments": 0
+        },
+        "NREM": {
+          "seconds": 5291.0,
+          "segments": 22
+        },
+        "REM": {
+          "seconds": 0,
+          "segments": 0
+        }
+      }
+    },
+    "reason": "No published REM or rest-scored Wake. Wake experiment epochs are arena exploration.",
+    "gate": "PARTIAL"
+  },
+  {
+    "dandiset": "000987",
+    "version": "0.261003.2342",
+    "path": "sub-A7802/sub-A7802_ses-20240509T190914_behavior+ecephys.nwb",
+    "asset_id": "a1f76928-fd9d-4cd9-8ca0-2e1e565069a4",
+    "bytes": 70821302,
+    "subject": "A7802",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000987/versions/0.261003.2342/assets/a1f76928-fd9d-4cd9-8ca0-2e1e565069a4/",
+    "digest": {
+      "dandi:dandi-etag": "8c4bcb33244b1b1ca737bbb9f8d4ff5b-2",
+      "dandi:sha2-256": "279f25148507804f85280b53eb7169a318328f611dde71bfa6e2747f1f8606fc"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "A7802-210318",
+    "description": "Freely behaving mouse retrosplenial cortex data as it explores a familiar circular arena, followed by a novel square arena. Exploration periods are interleaved with sleep in the home cage.",
+    "session": "sub-A7802_ses-20240509T190914_behavior+ecephys",
+    "clock": {
+      "seconds": [
+        0.0,
+        15800.616
+      ],
+      "source": "intervals/epochs",
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "DOWN",
+      "SWS",
+      "UP",
+      "epochs",
+      "position_time_support"
+    ],
+    "processing_modules": [],
+    "acquisition_series": [
+      "CompassDirection",
+      "Position"
+    ],
+    "intervention_series": [],
+    "units_total": 52,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "RSC": 52
+    },
+    "epochs": [
+      [
+        0.0,
+        4000.392,
+        "sleep"
+      ],
+      [
+        5811.372,
+        10199.232,
+        "sleep"
+      ],
+      [
+        12009.312,
+        15800.616,
+        "sleep"
+      ],
+      [
+        4000.392,
+        5811.372,
+        "wake"
+      ],
+      [
+        10199.232,
+        12009.312,
+        "wake"
+      ]
+    ],
+    "context_support": [
+      [
+        0.0,
+        4000.392
+      ],
+      [
+        5811.372,
+        10199.232
+      ],
+      [
+        12009.312,
+        15800.616
+      ]
+    ],
+    "state_path": "intervals/SWS",
+    "score_counts": {
+      "SWS": 28
+    },
+    "invalid_score_rows": [],
+    "overlapping_score_rows": [],
+    "contexts": {
+      "REST": {
+        "Wake": {
+          "seconds": 0,
+          "segments": 0
+        },
+        "NREM": {
+          "seconds": 4078.0,
+          "segments": 28
+        },
+        "REM": {
+          "seconds": 0,
+          "segments": 0
+        }
+      }
+    },
+    "reason": "No published REM or rest-scored Wake. Wake experiment epochs are arena exploration.",
+    "gate": "PARTIAL"
+  },
+  {
+    "dandiset": "000987",
+    "version": "0.261003.2342",
+    "path": "sub-A7803/sub-A7803_ses-20240509T212028_behavior+ecephys.nwb",
+    "asset_id": "0b2e639b-2eb7-457d-9dcb-9d047bdbaa06",
+    "bytes": 23906254,
+    "subject": "A7803",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000987/versions/0.261003.2342/assets/0b2e639b-2eb7-457d-9dcb-9d047bdbaa06/",
+    "digest": {
+      "dandi:dandi-etag": "f356500c89a4938706c402c0eda6a910-1",
+      "dandi:sha2-256": "70fa99faf7239bd78391ec6f978bf1595abd837f6cdb3380c930647fcc6908ad"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "A7803-210722",
+    "description": "Freely behaving mouse retrosplenial cortex data with hippocampal LFP. Order of epochs – sleep, square arena.",
+    "session": "sub-A7803_ses-20240509T212028_behavior+ecephys",
+    "clock": {
+      "seconds": [
+        0.0,
+        4892.724
+      ],
+      "source": "intervals/epochs",
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "DOWN",
+      "SWS",
+      "UP",
+      "epochs",
+      "position_time_support"
+    ],
+    "processing_modules": [],
+    "acquisition_series": [
+      "CompassDirection",
+      "Position"
+    ],
+    "intervention_series": [],
+    "units_total": 58,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "RSC": 58
+    },
+    "epochs": [
+      [
+        0.0,
+        3681.288,
+        "sleep"
+      ],
+      [
+        3681.288,
+        4892.724,
+        "wake"
+      ]
+    ],
+    "context_support": [
+      [
+        0.0,
+        3681.288
+      ]
+    ],
+    "state_path": "intervals/SWS",
+    "score_counts": {
+      "SWS": 22
+    },
+    "invalid_score_rows": [],
+    "overlapping_score_rows": [],
+    "contexts": {
+      "REST": {
+        "Wake": {
+          "seconds": 0,
+          "segments": 0
+        },
+        "NREM": {
+          "seconds": 3138.288,
+          "segments": 19
+        },
+        "REM": {
+          "seconds": 0,
+          "segments": 0
+        }
+      }
+    },
+    "reason": "No published REM or rest-scored Wake. Wake experiment epochs are arena exploration.",
+    "gate": "PARTIAL"
+  },
+  {
+    "dandiset": "000987",
+    "version": "0.261003.2342",
+    "path": "sub-A7803/sub-A7803_ses-20240509T212641_behavior+ecephys.nwb",
+    "asset_id": "f60689a3-4042-4da1-8510-da44fa65ecd9",
+    "bytes": 20443114,
+    "subject": "A7803",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000987/versions/0.261003.2342/assets/f60689a3-4042-4da1-8510-da44fa65ecd9/",
+    "digest": {
+      "dandi:dandi-etag": "2755dc596e467517c9e3fb07c27d364e-1",
+      "dandi:sha2-256": "cc5b17f54fcd47b098c7d0e55eb634830719470c24a00dc6157166e0cf5a489a"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "A7803-210723",
+    "description": "Freely behaving mouse retrosplenial cortex data with hippocampal LFP. Order of epochs – sleep, square arena.",
+    "session": "sub-A7803_ses-20240509T212641_behavior+ecephys",
+    "clock": {
+      "seconds": [
+        0.0,
+        3106.872
+      ],
+      "source": "intervals/epochs",
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "DOWN",
+      "SWS",
+      "UP",
+      "epochs",
+      "position_time_support"
+    ],
+    "processing_modules": [],
+    "acquisition_series": [
+      "CompassDirection",
+      "Position"
+    ],
+    "intervention_series": [],
+    "units_total": 39,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "RSC": 39
+    },
+    "epochs": [
+      [
+        0.0,
+        1884.564,
+        "sleep"
+      ],
+      [
+        1884.564,
+        3106.872,
+        "wake"
+      ]
+    ],
+    "context_support": [
+      [
+        0.0,
+        1884.564
+      ]
+    ],
+    "state_path": "intervals/SWS",
+    "score_counts": {
+      "SWS": 23
+    },
+    "invalid_score_rows": [],
+    "overlapping_score_rows": [],
+    "contexts": {
+      "REST": {
+        "Wake": {
+          "seconds": 0,
+          "segments": 0
+        },
+        "NREM": {
+          "seconds": 707.0,
+          "segments": 9
+        },
+        "REM": {
+          "seconds": 0,
+          "segments": 0
+        }
+      }
+    },
+    "reason": "No published REM or rest-scored Wake. Wake experiment epochs are arena exploration.",
+    "gate": "PARTIAL"
+  },
+  {
+    "dandiset": "000987",
+    "version": "0.261003.2342",
+    "path": "sub-A7803/sub-A7803_ses-20240509T213129_behavior+ecephys.nwb",
+    "asset_id": "fccdeeeb-6f18-4c39-b385-d68932b2e665",
+    "bytes": 20192758,
+    "subject": "A7803",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000987/versions/0.261003.2342/assets/fccdeeeb-6f18-4c39-b385-d68932b2e665/",
+    "digest": {
+      "dandi:dandi-etag": "9d132f872bfcd7b6d061280734ec02ce-1",
+      "dandi:sha2-256": "3b9083c7b37882e8d4d1396f9b751449a948bd1f183afa53ab406cea05d8e876"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "A7803-210726",
+    "description": "Freely behaving mouse retrosplenial cortex data with hippocampal LFP. Order of epochs – sleep, square arena.",
+    "session": "sub-A7803_ses-20240509T213129_behavior+ecephys",
+    "clock": {
+      "seconds": [
+        0.0,
+        5085.18
+      ],
+      "source": "intervals/epochs",
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "DOWN",
+      "SWS",
+      "UP",
+      "epochs",
+      "position_time_support"
+    ],
+    "processing_modules": [],
+    "acquisition_series": [
+      "CompassDirection",
+      "Position"
+    ],
+    "intervention_series": [],
+    "units_total": 37,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "RSC": 37
+    },
+    "epochs": [
+      [
+        0.0,
+        3878.064,
+        "sleep"
+      ],
+      [
+        3878.064,
+        5085.18,
+        "wake"
+      ]
+    ],
+    "context_support": [
+      [
+        0.0,
+        3878.064
+      ]
+    ],
+    "state_path": "intervals/SWS",
+    "score_counts": {
+      "SWS": 16
+    },
+    "invalid_score_rows": [],
+    "overlapping_score_rows": [],
+    "contexts": {
+      "REST": {
+        "Wake": {
+          "seconds": 0,
+          "segments": 0
+        },
+        "NREM": {
+          "seconds": 2768.0,
+          "segments": 10
+        },
+        "REM": {
+          "seconds": 0,
+          "segments": 0
+        }
+      }
+    },
+    "reason": "No published REM or rest-scored Wake. Wake experiment epochs are arena exploration.",
+    "gate": "PARTIAL"
+  },
+  {
+    "dandiset": "000987",
+    "version": "0.261003.2342",
+    "path": "sub-A7803/sub-A7803_ses-20240509T213653_behavior+ecephys.nwb",
+    "asset_id": "69df4025-2f7a-4b93-92dd-7f621bf84a3f",
+    "bytes": 70027458,
+    "subject": "A7803",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000987/versions/0.261003.2342/assets/69df4025-2f7a-4b93-92dd-7f621bf84a3f/",
+    "digest": {
+      "dandi:dandi-etag": "5d482e15b29d0954539b586021a3b923-2",
+      "dandi:sha2-256": "bcf954cb8a2453686ab2be40cfd8a394670b76e988dbfb74ecf149d8a4b2b06a"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "A7803-210727",
+    "description": "Freely behaving mouse retrosplenial cortex data with hippocampal LFP. Order of epochs – sleep, square arena, sleep, circular arena, sleep",
+    "session": "sub-A7803_ses-20240509T213653_behavior+ecephys",
+    "clock": {
+      "seconds": [
+        0.0,
+        15282.936
+      ],
+      "source": "intervals/epochs",
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "DOWN",
+      "SWS",
+      "UP",
+      "epochs",
+      "position_time_support"
+    ],
+    "processing_modules": [],
+    "acquisition_series": [
+      "CompassDirection",
+      "Position"
+    ],
+    "intervention_series": [],
+    "units_total": 36,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "RSC": 36
+    },
+    "epochs": [
+      [
+        0.0,
+        3839.292,
+        "sleep"
+      ],
+      [
+        5359.356,
+        10006.2,
+        "sleep"
+      ],
+      [
+        11516.076,
+        15282.936,
+        "sleep"
+      ],
+      [
+        3839.292,
+        5359.356,
+        "wake"
+      ],
+      [
+        10006.2,
+        11516.076,
+        "wake"
+      ]
+    ],
+    "context_support": [
+      [
+        0.0,
+        3839.292
+      ],
+      [
+        5359.356,
+        10006.2
+      ],
+      [
+        11516.076,
+        15282.936
+      ]
+    ],
+    "state_path": "intervals/SWS",
+    "score_counts": {
+      "SWS": 46
+    },
+    "invalid_score_rows": [],
+    "overlapping_score_rows": [],
+    "contexts": {
+      "REST": {
+        "Wake": {
+          "seconds": 0,
+          "segments": 0
+        },
+        "NREM": {
+          "seconds": 7832.0,
+          "segments": 40
+        },
+        "REM": {
+          "seconds": 0,
+          "segments": 0
+        }
+      }
+    },
+    "reason": "No published REM or rest-scored Wake. Wake experiment epochs are arena exploration.",
+    "gate": "PARTIAL"
+  },
+  {
+    "dandiset": "000987",
+    "version": "0.261003.2342",
+    "path": "sub-A7803/sub-A7803_ses-20240509T221227_behavior+ecephys.nwb",
+    "asset_id": "258358f0-ef87-4265-9bbb-09e0d6fedb95",
+    "bytes": 122292754,
+    "subject": "A7803",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000987/versions/0.261003.2342/assets/258358f0-ef87-4265-9bbb-09e0d6fedb95/",
+    "digest": {
+      "dandi:dandi-etag": "0a37eb5c7a5f5fe33bc7386fa3c1509b-2",
+      "dandi:sha2-256": "9b4dde453adc1dd4cda54ca84f5a2a9289d81b5ba8ddef93125e7b7da6d413d7"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "A7803-210728",
+    "description": "Freely behaving mouse retrosplenial cortex data with hippocampal LFP. Order of epochs – sleep, square arena, circular arena, sleep, square arena, circular arena, sleep",
+    "session": "sub-A7803_ses-20240509T221227_behavior+ecephys",
+    "clock": {
+      "seconds": [
+        0.0,
+        18288.828
+      ],
+      "source": "intervals/epochs",
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "DOWN",
+      "SWS",
+      "UP",
+      "epochs",
+      "position_time_support"
+    ],
+    "processing_modules": [],
+    "acquisition_series": [
+      "CompassDirection",
+      "Position"
+    ],
+    "intervention_series": [],
+    "units_total": 34,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "RSC": 34
+    },
+    "epochs": [
+      [
+        0.0,
+        2711.088,
+        "sleep"
+      ],
+      [
+        5597.388,
+        10996.02,
+        "sleep"
+      ],
+      [
+        14609.772,
+        18288.828,
+        "sleep"
+      ],
+      [
+        2711.088,
+        4134.167999,
+        "wake"
+      ],
+      [
+        4134.168,
+        5597.388,
+        "wake"
+      ],
+      [
+        10996.02,
+        12803.003999,
+        "wake"
+      ],
+      [
+        12803.004,
+        14609.772,
+        "wake"
+      ]
+    ],
+    "context_support": [
+      [
+        0.0,
+        2711.088
+      ],
+      [
+        5597.388,
+        10996.02
+      ],
+      [
+        14609.772,
+        18288.828
+      ]
+    ],
+    "state_path": "intervals/SWS",
+    "score_counts": {
+      "SWS": 39
+    },
+    "invalid_score_rows": [],
+    "overlapping_score_rows": [],
+    "contexts": {
+      "REST": {
+        "Wake": {
+          "seconds": 0,
+          "segments": 0
+        },
+        "NREM": {
+          "seconds": 6690.0,
+          "segments": 38
+        },
+        "REM": {
+          "seconds": 0,
+          "segments": 0
+        }
+      }
+    },
+    "reason": "No published REM or rest-scored Wake. Wake experiment epochs are arena exploration.",
+    "gate": "PARTIAL"
+  },
+  {
+    "dandiset": "000987",
+    "version": "0.261003.2342",
+    "path": "sub-A7803/sub-A7803_ses-20240509T221830_behavior+ecephys.nwb",
+    "asset_id": "2c3f3f71-a90c-409a-b831-41fba77cb1c4",
+    "bytes": 156338854,
+    "subject": "A7803",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000987/versions/0.261003.2342/assets/2c3f3f71-a90c-409a-b831-41fba77cb1c4/",
+    "digest": {
+      "dandi:dandi-etag": "c6db921ea3784e633e416c64ab2f745d-3",
+      "dandi:sha2-256": "949eb3c72fcc1c96614fcb4b9daf2eb684f03e1bc49ba15802c84c3aec6526b6"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "A7803-210729",
+    "description": "Freely behaving mouse retrosplenial cortex data with hippocampal LFP. Order of epochs – sleep, square arena, circular arena, sleep, square arena, circular arena, sleep",
+    "session": "sub-A7803_ses-20240509T221830_behavior+ecephys",
+    "clock": {
+      "seconds": [
+        0.0,
+        18706.032
+      ],
+      "source": "intervals/epochs",
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "DOWN",
+      "SWS",
+      "UP",
+      "epochs",
+      "position_time_support"
+    ],
+    "processing_modules": [],
+    "acquisition_series": [
+      "CompassDirection",
+      "Position"
+    ],
+    "intervention_series": [],
+    "units_total": 58,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "RSC": 58
+    },
+    "epochs": [
+      [
+        0.0,
+        4174.056,
+        "sleep"
+      ],
+      [
+        7784.532,
+        12167.892,
+        "sleep"
+      ],
+      [
+        14680.584,
+        18706.032,
+        "sleep"
+      ],
+      [
+        4174.056,
+        5978.519999,
+        "wake"
+      ],
+      [
+        5978.52,
+        7784.532,
+        "wake"
+      ],
+      [
+        12167.892,
+        13382.783999,
+        "wake"
+      ],
+      [
+        13382.784,
+        14680.584,
+        "wake"
+      ]
+    ],
+    "context_support": [
+      [
+        0.0,
+        4174.056
+      ],
+      [
+        7784.532,
+        12167.892
+      ],
+      [
+        14680.584,
+        18706.032
+      ]
+    ],
+    "state_path": "intervals/SWS",
+    "score_counts": {
+      "SWS": 24
+    },
+    "invalid_score_rows": [],
+    "overlapping_score_rows": [],
+    "contexts": {
+      "REST": {
+        "Wake": {
+          "seconds": 0,
+          "segments": 0
+        },
+        "NREM": {
+          "seconds": 7694.892,
+          "segments": 23
+        },
+        "REM": {
+          "seconds": 0,
+          "segments": 0
+        }
+      }
+    },
+    "reason": "No published REM or rest-scored Wake. Wake experiment epochs are arena exploration.",
+    "gate": "PARTIAL"
+  },
+  {
+    "dandiset": "000987",
+    "version": "0.261003.2342",
+    "path": "sub-A7803/sub-A7803_ses-20240509T222731_behavior+ecephys.nwb",
+    "asset_id": "4aa41392-4287-463b-80de-3b7b8e9413f1",
+    "bytes": 96742134,
+    "subject": "A7803",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000987/versions/0.261003.2342/assets/4aa41392-4287-463b-80de-3b7b8e9413f1/",
+    "digest": {
+      "dandi:dandi-etag": "f0b8a5cd11417dfeabffcc892a87ea3b-2",
+      "dandi:sha2-256": "46526d6e8490c082568a2156981eea0020c43d05b8fdad036b230e5df615a0b9"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "A7803-210730",
+    "description": "Freely behaving mouse retrosplenial cortex data with hippocampal LFP. Order of epochs – sleep, square arena, circular arena, sleep, square arena, circular arena, sleep",
+    "session": "sub-A7803_ses-20240509T222731_behavior+ecephys",
+    "clock": {
+      "seconds": [
+        0.0,
+        12498.696
+      ],
+      "source": "intervals/epochs",
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "DOWN",
+      "SWS",
+      "UP",
+      "epochs",
+      "position_time_support"
+    ],
+    "processing_modules": [],
+    "acquisition_series": [
+      "CompassDirection",
+      "Position"
+    ],
+    "intervention_series": [],
+    "units_total": 57,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "RSC": 57
+    },
+    "epochs": [
+      [
+        0.0,
+        1945.836,
+        "sleep"
+      ],
+      [
+        3756.888,
+        7680.168,
+        "sleep"
+      ],
+      [
+        9564.804,
+        12498.696,
+        "sleep"
+      ],
+      [
+        1945.836,
+        2852.063999,
+        "wake"
+      ],
+      [
+        2852.064,
+        3756.888,
+        "wake"
+      ],
+      [
+        7680.168,
+        8585.423999,
+        "wake"
+      ],
+      [
+        8585.424,
+        9564.804,
+        "wake"
+      ]
+    ],
+    "context_support": [
+      [
+        0.0,
+        1945.836
+      ],
+      [
+        3756.888,
+        7680.168
+      ],
+      [
+        9564.804,
+        12498.696
+      ]
+    ],
+    "state_path": "intervals/SWS",
+    "score_counts": {
+      "SWS": 14
+    },
+    "invalid_score_rows": [],
+    "overlapping_score_rows": [],
+    "contexts": {
+      "REST": {
+        "Wake": {
+          "seconds": 0,
+          "segments": 0
+        },
+        "NREM": {
+          "seconds": 4977.364,
+          "segments": 15
+        },
+        "REM": {
+          "seconds": 0,
+          "segments": 0
+        }
+      }
+    },
+    "reason": "No published REM or rest-scored Wake. Wake experiment epochs are arena exploration.",
+    "gate": "PARTIAL"
+  },
+  {
+    "dandiset": "000987",
+    "version": "0.261003.2342",
+    "path": "sub-A7803/sub-A7803_ses-20240509T224110_behavior+ecephys.nwb",
+    "asset_id": "2ecee928-e83c-49bf-9c35-437ce47cfbc6",
+    "bytes": 123965170,
+    "subject": "A7803",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000987/versions/0.261003.2342/assets/2ecee928-e83c-49bf-9c35-437ce47cfbc6/",
+    "digest": {
+      "dandi:dandi-etag": "6d6276b99591bee46396702678d6c7ed-2",
+      "dandi:sha2-256": "e35e8eb0538aeb56e85be021941a3d3eccfc347db3e5302b6ca72427bfd309a1"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "A7803-210802",
+    "description": "Freely behaving mouse retrosplenial cortex data with hippocampal LFP. Order of epochs – sleep, square arena, circular arena, sleep, square arena, circular arena, sleep",
+    "session": "sub-A7803_ses-20240509T224110_behavior+ecephys",
+    "clock": {
+      "seconds": [
+        0.0,
+        17643.6
+      ],
+      "source": "intervals/epochs",
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "DOWN",
+      "SWS",
+      "UP",
+      "epochs",
+      "position_time_support"
+    ],
+    "processing_modules": [],
+    "acquisition_series": [
+      "CompassDirection",
+      "Position"
+    ],
+    "intervention_series": [],
+    "units_total": 42,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "RSC": 42
+    },
+    "epochs": [
+      [
+        0.0,
+        4117.068,
+        "sleep"
+      ],
+      [
+        7763.256,
+        11522.7,
+        "sleep"
+      ],
+      [
+        14920.2,
+        17643.6,
+        "sleep"
+      ],
+      [
+        4117.068,
+        5922.755999,
+        "wake"
+      ],
+      [
+        5922.756,
+        7763.256,
+        "wake"
+      ],
+      [
+        11522.7,
+        13298.831999,
+        "wake"
+      ],
+      [
+        13298.832,
+        14920.2,
+        "wake"
+      ]
+    ],
+    "context_support": [
+      [
+        0.0,
+        4117.068
+      ],
+      [
+        7763.256,
+        11522.7
+      ],
+      [
+        14920.2,
+        17643.6
+      ]
+    ],
+    "state_path": "intervals/SWS",
+    "score_counts": {
+      "SWS": 27
+    },
+    "invalid_score_rows": [],
+    "overlapping_score_rows": [],
+    "contexts": {
+      "REST": {
+        "Wake": {
+          "seconds": 0,
+          "segments": 0
+        },
+        "NREM": {
+          "seconds": 6032.0,
+          "segments": 24
+        },
+        "REM": {
+          "seconds": 0,
+          "segments": 0
+        }
+      }
+    },
+    "reason": "No published REM or rest-scored Wake. Wake experiment epochs are arena exploration.",
+    "gate": "PARTIAL"
+  }
+]

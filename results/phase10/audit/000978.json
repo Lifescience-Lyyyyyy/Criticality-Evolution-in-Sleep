@@ -1,0 +1,1122 @@
+[
+  {
+    "dandiset": "000978",
+    "version": "0.240511.0307",
+    "path": "sub-JDS-SingleDay-ER1/sub-JDS-SingleDay-ER1_behavior+ecephys.nwb",
+    "asset_id": "b6425692-0f32-4087-8412-aebcfc37cd96",
+    "bytes": 30009167808,
+    "subject": "JDS-SingleDay-ER1",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000978/versions/0.240511.0307/assets/b6425692-0f32-4087-8412-aebcfc37cd96/",
+    "digest": {
+      "dandi:dandi-etag": "a4f80cf369b07b36b8ceb3399351aeef-448",
+      "dandi:sha2-256": "508f7f4e5c1ef2b49373aef815bc64e6591ed7889407a3d57089d38dd4e2dba4"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "ER1_01",
+    "description": "Single Day WTrack Learning Experiment",
+    "session": "01",
+    "clock": {
+      "source": "/processing/ecephys/LFP/ElectricalSeries/timestamps",
+      "seconds": [
+        365.3240666666667,
+        21747.464166666665
+      ],
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "epoch intervals",
+      "trials"
+    ],
+    "processing_modules": [
+      "behavior",
+      "ecephys"
+    ],
+    "acquisition_series": [
+      "ElectricalSeries"
+    ],
+    "intervention_series": [],
+    "units_total": 122,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "unknown": 122
+    },
+    "behavior_epoch_intervals": [
+      [
+        365.3385,
+        1268.1786666666667
+      ],
+      [
+        1628.5682666666667,
+        2576.3791
+      ],
+      [
+        2649.8006,
+        3599.9946666666665
+      ],
+      [
+        3789.9728,
+        4760.379966666666
+      ],
+      [
+        4839.552333333333,
+        5741.3563
+      ],
+      [
+        5900.9518333333335,
+        6849.147533333334
+      ],
+      [
+        6922.087933333333,
+        8147.671833333334
+      ],
+      [
+        8339.603933333334,
+        9308.545633333333
+      ],
+      [
+        9378.784533333333,
+        11164.303566666667
+      ],
+      [
+        11287.055133333333,
+        12256.699966666667
+      ],
+      [
+        12329.018666666667,
+        13590.7138
+      ],
+      [
+        13744.032966666668,
+        14674.043533333333
+      ],
+      [
+        14760.2472,
+        16265.5433
+      ],
+      [
+        16396.044066666665,
+        17340.4725
+      ],
+      [
+        17410.829833333333,
+        18659.1063
+      ],
+      [
+        18816.326,
+        19767.3416
+      ],
+      [
+        19851.0732,
+        21747.4572
+      ]
+    ],
+    "behavior_fields": [
+      "Position"
+    ],
+    "trial_fields": [
+      "correct",
+      "end_well",
+      "id",
+      "start_time",
+      "start_well",
+      "stop_time",
+      "trajectory_type"
+    ],
+    "identified_state_tables": [],
+    "reason": "Released NWB lacks a verified REM/NREM table and per-unit CA1/PFC mapping",
+    "gate": "BLOCKED_METADATA"
+  },
+  {
+    "dandiset": "000978",
+    "version": "0.240511.0307",
+    "path": "sub-JDS-SingleDay-JS14/sub-JDS-SingleDay-JS14_behavior+ecephys.nwb",
+    "asset_id": "4b7c7959-04b3-4817-8f96-1af6f41888c1",
+    "bytes": 28291364968,
+    "subject": "JDS-SingleDay-JS14",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000978/versions/0.240511.0307/assets/4b7c7959-04b3-4817-8f96-1af6f41888c1/",
+    "digest": {
+      "dandi:dandi-etag": "ca822b7303cf85d5d7172f85db8799e1-422",
+      "dandi:sha2-256": "6b8cf8ce3bbe34374e10a8a310592d1ae9762b20554569bc3c45fcfecdcf67b6"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "JS14_01",
+    "description": "Single Day WTrack Learning Experiment",
+    "session": "01",
+    "clock": {
+      "source": "/processing/ecephys/LFP/ElectricalSeries/timestamps",
+      "seconds": [
+        167.57236666666665,
+        19731.814333333332
+      ],
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "epoch intervals",
+      "trials"
+    ],
+    "processing_modules": [
+      "behavior",
+      "ecephys"
+    ],
+    "acquisition_series": [
+      "ElectricalSeries"
+    ],
+    "intervention_series": [],
+    "units_total": 72,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "unknown": 72
+    },
+    "behavior_epoch_intervals": [
+      [
+        167.58073333333334,
+        1420.1491333333333
+      ],
+      [
+        1614.8091333333334,
+        2536.8967666666667
+      ],
+      [
+        2630.941766666667,
+        3595.24
+      ],
+      [
+        3726.4697333333334,
+        4645.338633333334
+      ],
+      [
+        4780.204066666666,
+        5853.121133333333
+      ],
+      [
+        5970.043333333333,
+        6923.783033333333
+      ],
+      [
+        7024.0897,
+        8028.5633
+      ],
+      [
+        8112.0093,
+        9037.396733333333
+      ],
+      [
+        9131.842566666666,
+        10345.611133333334
+      ],
+      [
+        10441.577066666667,
+        11345.9712
+      ],
+      [
+        11428.052,
+        12810.878366666666
+      ],
+      [
+        12909.743266666666,
+        13829.486
+      ],
+      [
+        13918.4003,
+        14981.113
+      ],
+      [
+        15116.9347,
+        16025.489233333334
+      ],
+      [
+        16128.7664,
+        17303.1477
+      ],
+      [
+        17429.6023,
+        18331.2745
+      ],
+      [
+        18430.513366666666,
+        19731.798033333333
+      ]
+    ],
+    "behavior_fields": [
+      "Position"
+    ],
+    "trial_fields": [
+      "correct",
+      "end_well",
+      "id",
+      "start_time",
+      "start_well",
+      "stop_time",
+      "trajectory_type"
+    ],
+    "identified_state_tables": [],
+    "reason": "Released NWB lacks a verified REM/NREM table and per-unit CA1/PFC mapping",
+    "gate": "BLOCKED_METADATA"
+  },
+  {
+    "dandiset": "000978",
+    "version": "0.240511.0307",
+    "path": "sub-JDS-SingleDay-JS15/sub-JDS-SingleDay-JS15_behavior+ecephys.nwb",
+    "asset_id": "8fae63eb-84c2-4f7c-8a13-acb0832178f9",
+    "bytes": 33642353128,
+    "subject": "JDS-SingleDay-JS15",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000978/versions/0.240511.0307/assets/8fae63eb-84c2-4f7c-8a13-acb0832178f9/",
+    "digest": {
+      "dandi:dandi-etag": "108956c255c51c0d759ec31084ac3c93-502",
+      "dandi:sha2-256": "512ff29a08d0822eaa5811e5f64f076fce43a2d409167c436e9a6f25681febe9"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "JS15_01",
+    "description": "Single Day WTrack Learning Experiment",
+    "session": "01",
+    "clock": {
+      "source": "/processing/ecephys/LFP/ElectricalSeries/timestamps",
+      "seconds": [
+        3605.1824333333334,
+        90718.37653333334
+      ],
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "epoch intervals",
+      "trials"
+    ],
+    "processing_modules": [
+      "behavior",
+      "ecephys"
+    ],
+    "acquisition_series": [
+      "ElectricalSeries"
+    ],
+    "intervention_series": [],
+    "units_total": 81,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "unknown": 81
+    },
+    "behavior_epoch_intervals": [
+      [
+        3605.2222666666667,
+        5088.677466666667
+      ],
+      [
+        5215.695066666667,
+        6202.433
+      ],
+      [
+        6287.0552,
+        7352.761233333334
+      ],
+      [
+        7502.061233333333,
+        8459.433733333333
+      ],
+      [
+        8537.753366666666,
+        9765.238166666666
+      ],
+      [
+        9954.6116,
+        10948.255233333333
+      ],
+      [
+        11036.8024,
+        12363.334033333333
+      ],
+      [
+        12498.0152,
+        13486.033466666666
+      ],
+      [
+        14737.1005,
+        16391.6533
+      ],
+      [
+        19321.999933333333,
+        20282.8896
+      ],
+      [
+        24285.682766666665,
+        26573.057
+      ],
+      [
+        32931.12586666667,
+        33903.81363333333
+      ],
+      [
+        41360.66246666667,
+        42711.376
+      ],
+      [
+        51578.5213,
+        52507.145
+      ],
+      [
+        62415.4034,
+        64059.8573
+      ],
+      [
+        75637.58436666666,
+        76568.0335
+      ],
+      [
+        89178.82616666667,
+        90718.37613333334
+      ]
+    ],
+    "behavior_fields": [
+      "Position"
+    ],
+    "trial_fields": [
+      "correct",
+      "end_well",
+      "id",
+      "start_time",
+      "start_well",
+      "stop_time",
+      "trajectory_type"
+    ],
+    "identified_state_tables": [],
+    "reason": "Released NWB lacks a verified REM/NREM table and per-unit CA1/PFC mapping",
+    "gate": "BLOCKED_METADATA"
+  },
+  {
+    "dandiset": "000978",
+    "version": "0.240511.0307",
+    "path": "sub-JDS-SingleDay-JS17/sub-JDS-SingleDay-JS17_behavior+ecephys.nwb",
+    "asset_id": "f1f51660-4c23-4b61-a6bd-64d817d141e5",
+    "bytes": 35702063632,
+    "subject": "JDS-SingleDay-JS17",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000978/versions/0.240511.0307/assets/f1f51660-4c23-4b61-a6bd-64d817d141e5/",
+    "digest": {
+      "dandi:dandi-etag": "cac9ba24f16fde0818cb738947f2028e-533",
+      "dandi:sha2-256": "6a6d39429758f746fae16b5ca1977a5084d8df0bcf8f7623dc8e9b536ca755be"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "JS17_01",
+    "description": "Single Day WTrack Learning Experiment",
+    "session": "01",
+    "clock": {
+      "source": "/processing/ecephys/LFP/ElectricalSeries/timestamps",
+      "seconds": [
+        952.8513333333333,
+        24222.492433333333
+      ],
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "epoch intervals",
+      "trials"
+    ],
+    "processing_modules": [
+      "behavior",
+      "ecephys"
+    ],
+    "acquisition_series": [
+      "ElectricalSeries"
+    ],
+    "intervention_series": [],
+    "units_total": 78,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "unknown": 78
+    },
+    "behavior_epoch_intervals": [
+      [
+        952.8676333333333,
+        2665.6685333333335
+      ],
+      [
+        2811.6413333333335,
+        3839.5681
+      ],
+      [
+        3951.0950333333335,
+        5242.5611
+      ],
+      [
+        5321.168466666667,
+        6271.257866666667
+      ],
+      [
+        6363.6032,
+        7695.842933333333
+      ],
+      [
+        7881.9202,
+        8805.549633333334
+      ],
+      [
+        8880.193966666666,
+        10077.494333333334
+      ],
+      [
+        10169.762166666667,
+        11135.652633333333
+      ],
+      [
+        11284.545333333333,
+        12987.387466666667
+      ],
+      [
+        13131.0471,
+        14068.7437
+      ],
+      [
+        14162.3653,
+        15921.0196
+      ],
+      [
+        16041.627833333334,
+        16987.1846
+      ],
+      [
+        17089.548533333334,
+        18658.945633333333
+      ],
+      [
+        18735.5944,
+        19711.622
+      ],
+      [
+        19801.844466666666,
+        21311.5475
+      ],
+      [
+        21390.534166666668,
+        22316.722066666665
+      ],
+      [
+        22400.101333333332,
+        24222.491733333332
+      ]
+    ],
+    "behavior_fields": [
+      "Position"
+    ],
+    "trial_fields": [
+      "correct",
+      "end_well",
+      "id",
+      "start_time",
+      "start_well",
+      "stop_time",
+      "trajectory_type"
+    ],
+    "identified_state_tables": [],
+    "reason": "Released NWB lacks a verified REM/NREM table and per-unit CA1/PFC mapping",
+    "gate": "BLOCKED_METADATA"
+  },
+  {
+    "dandiset": "000978",
+    "version": "0.240511.0307",
+    "path": "sub-JDS-SingleDay-JS21/sub-JDS-SingleDay-JS21_behavior+ecephys.nwb",
+    "asset_id": "f3a457e9-fa5b-45b4-9778-9c0e69de91a9",
+    "bytes": 32484552528,
+    "subject": "JDS-SingleDay-JS21",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000978/versions/0.240511.0307/assets/f3a457e9-fa5b-45b4-9778-9c0e69de91a9/",
+    "digest": {
+      "dandi:dandi-etag": "7e6f0ae1e214a14f59b3a21c300415fb-485",
+      "dandi:sha2-256": "32977517317db3f0c48c6f899e08c76717241a69bff547cce14b78e1f0ca4f46"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "JS21_01",
+    "description": "Single Day WTrack Learning Experiment",
+    "session": "01",
+    "clock": {
+      "source": "/processing/ecephys/LFP/ElectricalSeries/timestamps",
+      "seconds": [
+        210.68813333333333,
+        21347.682833333332
+      ],
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "epoch intervals",
+      "trials"
+    ],
+    "processing_modules": [
+      "behavior",
+      "ecephys"
+    ],
+    "acquisition_series": [
+      "ElectricalSeries"
+    ],
+    "intervention_series": [],
+    "units_total": 72,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "unknown": 72
+    },
+    "behavior_epoch_intervals": [
+      [
+        210.72266666666667,
+        1725.4436333333333
+      ],
+      [
+        1839.3065666666666,
+        2825.463333333333
+      ],
+      [
+        2919.653566666667,
+        4410.928466666666
+      ],
+      [
+        4515.618133333333,
+        5600.6047
+      ],
+      [
+        5675.898166666667,
+        7144.136533333333
+      ],
+      [
+        7219.534333333333,
+        8290.8909
+      ],
+      [
+        8359.783033333333,
+        9675.6993
+      ],
+      [
+        9736.262233333333,
+        10714.705333333333
+      ],
+      [
+        10779.173433333333,
+        12099.4109
+      ],
+      [
+        12165.567266666667,
+        13117.657433333334
+      ],
+      [
+        13224.8589,
+        14440.8047
+      ],
+      [
+        14512.082766666666,
+        15424.819633333333
+      ],
+      [
+        15494.412566666666,
+        16549.478966666666
+      ],
+      [
+        16615.6455,
+        17530.9739
+      ],
+      [
+        17599.368366666666,
+        18965.294833333333
+      ],
+      [
+        19036.946366666667,
+        19950.4441
+      ],
+      [
+        20020.832533333334,
+        21347.6781
+      ]
+    ],
+    "behavior_fields": [
+      "Position"
+    ],
+    "trial_fields": [
+      "correct",
+      "end_well",
+      "id",
+      "start_time",
+      "start_well",
+      "stop_time",
+      "trajectory_type"
+    ],
+    "identified_state_tables": [],
+    "reason": "Released NWB lacks a verified REM/NREM table and per-unit CA1/PFC mapping",
+    "gate": "BLOCKED_METADATA"
+  },
+  {
+    "dandiset": "000978",
+    "version": "0.240511.0307",
+    "path": "sub-JDS-SingleDay-JS34/sub-JDS-SingleDay-JS34_behavior+ecephys.nwb",
+    "asset_id": "b79b4575-b3c9-4449-ac4b-7a11c17bdbf9",
+    "bytes": 40959559064,
+    "subject": "JDS-SingleDay-JS34",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000978/versions/0.240511.0307/assets/b79b4575-b3c9-4449-ac4b-7a11c17bdbf9/",
+    "digest": {
+      "dandi:dandi-etag": "3569ef620144313835812363af48e057-611",
+      "dandi:sha2-256": "b3f7f47e8d8d84d23b99f09d77566bd805f724668a559c0b17cab99ff296d455"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "JS34_01",
+    "description": "Single Day WTrack Learning Experiment",
+    "session": "01",
+    "clock": {
+      "source": "/processing/ecephys/LFP/ElectricalSeries/timestamps",
+      "seconds": [
+        274.1775,
+        27006.591266666666
+      ],
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "epoch intervals",
+      "trials"
+    ],
+    "processing_modules": [
+      "behavior",
+      "ecephys"
+    ],
+    "acquisition_series": [
+      "ElectricalSeries"
+    ],
+    "intervention_series": [],
+    "units_total": 102,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "unknown": 102
+    },
+    "behavior_epoch_intervals": [
+      [
+        274.19936666666666,
+        1710.6124666666667
+      ],
+      [
+        1829.9365666666667,
+        2880.304833333333
+      ],
+      [
+        2967.628833333333,
+        4166.1651
+      ],
+      [
+        4252.4383333333335,
+        5181.277766666667
+      ],
+      [
+        5257.074166666666,
+        6879.565833333333
+      ],
+      [
+        6997.7890333333335,
+        7972.728133333333
+      ],
+      [
+        8047.0961,
+        9422.299633333334
+      ],
+      [
+        9494.209733333333,
+        10482.708166666667
+      ],
+      [
+        10581.7226,
+        12383.3106
+      ],
+      [
+        12441.1722,
+        13303.8623
+      ],
+      [
+        13367.435066666667,
+        16699.8492
+      ],
+      [
+        16821.298833333334,
+        17598.610233333333
+      ],
+      [
+        17683.700733333335,
+        19982.86503333333
+      ],
+      [
+        20088.655333333332,
+        20990.315333333332
+      ],
+      [
+        21148.389566666665,
+        23196.857566666666
+      ],
+      [
+        23252.2739,
+        24277.7332
+      ],
+      [
+        24340.0154,
+        27006.575733333335
+      ]
+    ],
+    "behavior_fields": [
+      "Position"
+    ],
+    "trial_fields": [
+      "correct",
+      "end_well",
+      "id",
+      "start_time",
+      "start_well",
+      "stop_time",
+      "trajectory_type"
+    ],
+    "identified_state_tables": [],
+    "reason": "Released NWB lacks a verified REM/NREM table and per-unit CA1/PFC mapping",
+    "gate": "BLOCKED_METADATA"
+  },
+  {
+    "dandiset": "000978",
+    "version": "0.240511.0307",
+    "path": "sub-JDS-SingleDay-KL8/sub-JDS-SingleDay-KL8_behavior+ecephys.nwb",
+    "asset_id": "9fcb710b-00ea-435b-900c-454a5af46ab3",
+    "bytes": 32802639552,
+    "subject": "JDS-SingleDay-KL8",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000978/versions/0.240511.0307/assets/9fcb710b-00ea-435b-900c-454a5af46ab3/",
+    "digest": {
+      "dandi:dandi-etag": "3593c23b9aecf312b1cbf30ecde1aaab-489",
+      "dandi:sha2-256": "d3ee47b26eca08af715fb6ce2bc8dfbb2bbd9fa07a999554309cc568db5b51cf"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "KL8_01",
+    "description": "Single Day WTrack Learning Experiment",
+    "session": "01",
+    "clock": {
+      "source": "/processing/ecephys/LFP/ElectricalSeries/timestamps",
+      "seconds": [
+        270.4388333333333,
+        22632.936233333334
+      ],
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "epoch intervals",
+      "trials"
+    ],
+    "processing_modules": [
+      "behavior",
+      "ecephys"
+    ],
+    "acquisition_series": [
+      "ElectricalSeries"
+    ],
+    "intervention_series": [],
+    "units_total": 91,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "unknown": 91
+    },
+    "behavior_epoch_intervals": [
+      [
+        270.44356666666664,
+        1215.4083
+      ],
+      [
+        1932.5343333333333,
+        2855.6783
+      ],
+      [
+        2914.0435666666667,
+        4104.974966666667
+      ],
+      [
+        4271.661033333334,
+        5216.365966666666
+      ],
+      [
+        5291.626766666666,
+        6624.662333333334
+      ],
+      [
+        6732.968866666667,
+        7728.773733333333
+      ],
+      [
+        7796.169,
+        9387.530466666667
+      ],
+      [
+        9485.061166666666,
+        10439.7166
+      ],
+      [
+        10497.243566666666,
+        12320.920733333332
+      ],
+      [
+        12401.4698,
+        13328.083733333333
+      ],
+      [
+        13396.227833333332,
+        14809.273766666667
+      ],
+      [
+        14894.851733333333,
+        15810.945066666667
+      ],
+      [
+        15873.802433333334,
+        17691.3587
+      ],
+      [
+        17792.1606,
+        18716.1144
+      ],
+      [
+        18805.591066666668,
+        20583.477133333334
+      ],
+      [
+        20689.649733333332,
+        21606.5138
+      ],
+      [
+        21657.958166666667,
+        22632.912633333333
+      ]
+    ],
+    "behavior_fields": [
+      "Position"
+    ],
+    "trial_fields": [
+      "correct",
+      "end_well",
+      "id",
+      "start_time",
+      "start_well",
+      "stop_time",
+      "trajectory_type"
+    ],
+    "identified_state_tables": [],
+    "reason": "Released NWB lacks a verified REM/NREM table and per-unit CA1/PFC mapping",
+    "gate": "BLOCKED_METADATA"
+  },
+  {
+    "dandiset": "000978",
+    "version": "0.240511.0307",
+    "path": "sub-JDS-SingleDay-ZT2/sub-JDS-SingleDay-ZT2_obj-1dss6zi_behavior+ecephys.nwb",
+    "asset_id": "efae9f4d-6628-4fcb-b1c1-414af48a9d08",
+    "bytes": 47112109304,
+    "subject": "JDS-SingleDay-ZT2",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000978/versions/0.240511.0307/assets/efae9f4d-6628-4fcb-b1c1-414af48a9d08/",
+    "digest": {
+      "dandi:dandi-etag": "2ddd95968a2fea0c1f1d3a5011e591bf-703",
+      "dandi:sha2-256": "cf13ebd7a2876ff5d6900fcc87fc10f2c615d9b1084f768b54b6764966a8a1a6"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "ZT2_01",
+    "description": "Single Day WTrack Learning Experiment",
+    "session": "01",
+    "clock": {
+      "source": "/processing/ecephys/LFP/ElectricalSeries/timestamps",
+      "seconds": [
+        14760.220133333334,
+        30586.038933333333
+      ],
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "epoch intervals",
+      "trials"
+    ],
+    "processing_modules": [
+      "behavior",
+      "ecephys"
+    ],
+    "acquisition_series": [
+      "ElectricalSeries"
+    ],
+    "intervention_series": [],
+    "units_total": 240,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "unknown": 240
+    },
+    "behavior_epoch_intervals": [
+      [
+        14760.220066666667,
+        15763.2795
+      ],
+      [
+        15848.492333333334,
+        18312.770933333333
+      ],
+      [
+        18392.8024,
+        19383.5516
+      ],
+      [
+        19478.520533333332,
+        22845.95
+      ],
+      [
+        22946.434066666665,
+        23990.342933333333
+      ],
+      [
+        24100.370266666665,
+        27572.896766666665
+      ],
+      [
+        27659.6539,
+        28717.7048
+      ],
+      [
+        28791.2083,
+        30586.028
+      ]
+    ],
+    "behavior_fields": [
+      "Position"
+    ],
+    "trial_fields": [
+      "correct",
+      "end_well",
+      "id",
+      "start_time",
+      "start_well",
+      "stop_time",
+      "trajectory_type"
+    ],
+    "identified_state_tables": [],
+    "reason": "Released NWB lacks a verified REM/NREM table and per-unit CA1/PFC mapping",
+    "gate": "BLOCKED_METADATA"
+  },
+  {
+    "dandiset": "000978",
+    "version": "0.240511.0307",
+    "path": "sub-JDS-SingleDay-ZT2/sub-JDS-SingleDay-ZT2_obj-u40err_behavior+ecephys.nwb",
+    "asset_id": "785df3db-c72d-4ac7-927f-d88725dd4944",
+    "bytes": 41977536000,
+    "subject": "JDS-SingleDay-ZT2",
+    "metadata_url": "https://api.dandiarchive.org/api/dandisets/000978/versions/0.240511.0307/assets/785df3db-c72d-4ac7-927f-d88725dd4944/",
+    "digest": {
+      "dandi:dandi-etag": "e5bbd1813164cc67b2d3b8ed1da39f7c-626",
+      "dandi:sha2-256": "5cf8f505aa5fc9b3630e33d1ce931f6b85691e5eb341bb3e118db2544c5f2d1b"
+    },
+    "access": [
+      {
+        "schemaKey": "AccessRequirements",
+        "status": "dandi:OpenAccess"
+      }
+    ],
+    "nwb_id": "ZT2_01",
+    "description": "Single Day WTrack Learning Experiment",
+    "session": "01",
+    "clock": {
+      "source": "/processing/ecephys/LFP/ElectricalSeries/timestamps",
+      "seconds": [
+        205.68206666666666,
+        14663.872599999999
+      ],
+      "rate_hz": null
+    },
+    "interval_tables": [
+      "epoch intervals",
+      "trials"
+    ],
+    "processing_modules": [
+      "behavior",
+      "ecephys"
+    ],
+    "acquisition_series": [
+      "ElectricalSeries"
+    ],
+    "intervention_series": [],
+    "units_total": 233,
+    "spike_offsets_present": true,
+    "source_regions": {
+      "unknown": 233
+    },
+    "behavior_epoch_intervals": [
+      [
+        205.70176666666666,
+        1855.5542333333333
+      ],
+      [
+        2000.9833666666666,
+        2930.535533333333
+      ],
+      [
+        3010.9726,
+        4562.2592
+      ],
+      [
+        4654.429733333333,
+        5654.7586
+      ],
+      [
+        5761.493433333333,
+        7362.3979
+      ],
+      [
+        7631.4964666666665,
+        8677.3259
+      ],
+      [
+        8746.710433333334,
+        10580.3699
+      ],
+      [
+        10664.778533333334,
+        11862.329
+      ],
+      [
+        11935.500966666666,
+        14663.844133333334
+      ]
+    ],
+    "behavior_fields": [
+      "Position"
+    ],
+    "trial_fields": [
+      "correct",
+      "end_well",
+      "id",
+      "start_time",
+      "start_well",
+      "stop_time",
+      "trajectory_type"
+    ],
+    "identified_state_tables": [],
+    "reason": "Released NWB lacks a verified REM/NREM table and per-unit CA1/PFC mapping",
+    "gate": "BLOCKED_METADATA"
+  }
+]

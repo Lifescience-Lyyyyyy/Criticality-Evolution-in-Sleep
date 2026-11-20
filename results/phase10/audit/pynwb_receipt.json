@@ -1,0 +1,18 @@
+[
+  {
+    "asset_id": "fca18e96-673f-47c2-9db6-f924c9324cb3",
+    "subject": "Mouse32",
+    "nwb_id": "b9d09191-8c6b-4459-965e-82163ad0b384",
+    "units_total": 53,
+    "states": 114,
+    "validation": "PyNWB object model agrees"
+  },
+  {
+    "asset_id": "bc970cdf-cb90-418f-97ce-2db498cd292f",
+    "subject": "A1813",
+    "nwb_id": "A1813",
+    "units_total": 70,
+    "states": 115,
+    "validation": "PyNWB object model agrees"
+  }
+]
