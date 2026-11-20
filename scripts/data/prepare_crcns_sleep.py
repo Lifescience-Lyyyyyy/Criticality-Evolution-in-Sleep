@@ -40,12 +40,14 @@ def quality_sets(record, cfg):
 
 def prepare_group(group, cfg, mode):
     states = paired_intervals(group)
+    if mode == "nrem":
+        states = {"NREM": states["NREM"]} if "NREM" in states else {}
     width = cfg["bin_seconds"]
     n = round(cfg["window_seconds"] / width)
     effective = {s: clock_bins(ranges, width, cfg["min_segment_seconds"]) for s, ranges in states.items()}
     states = {s: states[s] for s in ("Wake", "NREM", "REM") if s in effective
               and width * sum(b - a for a, b in effective[s]) >= cfg["min_state_seconds"]}
-    if "NREM" not in states or len(states) < 2:
+    if "NREM" not in states or (mode != "nrem" and len(states) < 2):
         return []
     windows = {s: whole_windows(effective[s], n) for s in states}
     count = min(map(len, windows.values()))
@@ -88,7 +90,7 @@ def prepare_group(group, cfg, mode):
                 variants.append(("edge_trim", trimmed, pooled, r.unit_ids))
             if strict_spikes is not None:
                 variants.append(("strict_units", segments, strict_spikes, strict))
-            if count >= 3:
+            if mode != "nrem" and count >= 3:
                 chosen = [matched[i] for i in np.linspace(0, len(matched)-1, count, dtype=int)]
                 variants.append(("equal_duration", chosen, pooled, r.unit_ids))
             for variant, spans, spikes, selected in variants:
