@@ -1,0 +1,16 @@
+{
+  "records": 6,
+  "asset_ids": [
+    "hc-23:Rat-109:Session7"
+  ],
+  "mode": "states",
+  "source_sha256": {
+    "author_mat": "e6c335643b74ad60bc65c984d3046d52711ecc82ca10a2086f64c6ba581b87f7",
+    "sorted_t_cache": "d2bd82bfa92e5c7f596bf8efb68b2d257051d1ebaa8454b0e87eee8c2b54e032"
+  },
+  "reference_fits": 2,
+  "swr_windows": 0,
+  "fixture": "crcns_input.mat",
+  "sha256": "3c6f5bd5e1e5943534dc9c4635b3cad258c0799f5012fbc606122897787e4f0c",
+  "bytes": 148529
+}

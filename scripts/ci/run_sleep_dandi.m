@@ -1,15 +1,21 @@
-function run_sleep_dandi
+function run_sleep_dandi(input_receipt,out,experiment)
 % Run the pinned estimator on audited population counts without joining bouts.
+if nargin == 0
+    input_receipt = fullfile('data','fixtures','sleep_dandi_input.json');
+    out = fullfile('results','sleep_dandi');
+    experiment = 'sleep-dandi';
+end
+fixture_dir = fileparts(input_receipt);
 config = jsondecode(fileread('config/sleep_dandi.json'));
 manifest = jsondecode(fileread('manifests/sources.json'));
-receipt = jsondecode(fileread('data/fixtures/sleep_dandi_input.json'));
+receipt = jsondecode(fileread(input_receipt));
 src = fullfile(pwd,'external','prox_crit_toolkit','src');
 addpath(src);
 cohort = struct();
 if isfield(receipt,'parts')
     for p = 1:numel(receipt.parts)
         part = receipt.parts(p);
-        file = load(fullfile('data','fixtures',part.name),'cohort');
+        file = load(fullfile(fixture_dir,part.name),'cohort');
         names = fieldnames(file.cohort);
         assert(numel(names)==part.records);
         for n = 1:numel(names)
@@ -19,7 +25,7 @@ if isfield(receipt,'parts')
         end
     end
 else
-    file = load(fullfile('data','fixtures',receipt.fixture),'cohort');
+    file = load(fullfile(fixture_dir,receipt.fixture),'cohort');
     cohort = file.cohort;
 end
 ids = fieldnames(cohort);
@@ -68,7 +74,7 @@ else
     end
 end
 clear cleanup
-result = struct('schema_version',1,'experiment','sleep-dandi','input',receipt, ...
+result = struct('schema_version',1,'experiment',experiment,'input',receipt, ...
     'settings',config,'toolkit_commit',manifest.estimator.commit,'project_commit',getenv('GITHUB_SHA'), ...
     'matlab',version,'run_id',getenv('GITHUB_RUN_ID'),'elapsed_seconds',toc(timer), ...
     'timestamp_utc',char(datetime('now','TimeZone','UTC','Format','yyyy-MM-dd''T''HH:mm:ss''Z''')), ...
@@ -80,7 +86,6 @@ if pilot
 else
     result.pilot_original_replay_max_error = NaN;
 end
-out = fullfile('results','sleep_dandi');
 if ~isfolder(out), mkdir(out); end
 writelines(string(jsonencode(result,'PrettyPrint',true)),fullfile(out,'matlab_fits.json'));
 if any(reference)
@@ -231,7 +236,7 @@ for i = 1:numel(ids)
         r.variant = 'rate_thinning';
         r.unit_count = n;
         r.iteration = k;
-        r.seed = seed + 10^6 + 100000*strcmp(m.state,'Wake');
+        r.seed = seed + 10^6 + 100000*any(strcmp(m.state,{'Wake','REM'}));
         r.target_rate_hz = target/config.bin_seconds;
         fitted = baseline;
         if target < means(i)
