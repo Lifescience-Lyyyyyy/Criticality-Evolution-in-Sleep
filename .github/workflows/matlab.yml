@@ -12,12 +12,14 @@ on:
           - synthetic
           - mouse
           - zebra
+          - sleep
   push:
     tags:
       - 'matlab-smoke-*'
       - 'matlab-synthetic-*'
       - 'matlab-mouse-*'
       - 'matlab-zebra-*'
+      - 'matlab-sleep-*'
 
 jobs:
   replicate:
@@ -90,6 +92,16 @@ jobs:
         uses: matlab-actions/run-command@v3
         with:
           command: addpath('scripts/ci'); run_zebra_finch
+
+      - name: Verify prepared spontaneous sleep counts
+        if: inputs.stage == 'sleep' || startsWith(github.ref, 'refs/tags/matlab-sleep-')
+        run: sha256sum -c data/fixtures/sleep_dandi_input.sha256
+
+      - name: Estimate spontaneous sleep d2
+        if: inputs.stage == 'sleep' || startsWith(github.ref, 'refs/tags/matlab-sleep-')
+        uses: matlab-actions/run-command@v3
+        with:
+          command: addpath('scripts/ci'); run_sleep_dandi
 
       - name: Save results
         if: always()

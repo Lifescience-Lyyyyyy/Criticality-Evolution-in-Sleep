@@ -1,0 +1,22 @@
+{
+  "versions": {
+    "000041": "0.261104.0300",
+    "000061": "0.250624.0426",
+    "000552": "0.261113.1035"
+  },
+  "bin_seconds": 0.04,
+  "ar_order": 5,
+  "long_ar_order": 10,
+  "beta": 2,
+  "fit_method": "YuleWalker",
+  "min_segment_seconds": 1,
+  "min_state_seconds": 120,
+  "min_units": 5,
+  "edge_trim_seconds": 5,
+  "opto_guard_seconds": 60,
+  "refractory_seconds": 0.0015,
+  "max_refractory_fraction": 0.01,
+  "window_seconds": 60,
+  "repetitions": 100,
+  "seed": 2026
+}
