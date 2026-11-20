@@ -1,0 +1,15 @@
+{
+  "records": 2,
+  "asset_ids": [
+    "YMV02.mat"
+  ],
+  "mode": "states",
+  "source_sha256": {
+    "original_count_fixture": "04b56e582138805105ec3d77c78632b8c0e5811c819cb83b074b13a2c87681ad"
+  },
+  "reference_fits": 2,
+  "swr_windows": 0,
+  "fixture": "validation_input.mat",
+  "sha256": "9a8db562f74f61caf965bde24f1ee709dbdc31cc290c9507f36e9e425b9881c9",
+  "bytes": 114556
+}

@@ -1,0 +1,42 @@
+name: Phase 11 targeted MATLAB validation
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ['matlab-phase11-*']
+
+permissions:
+  contents: read
+
+jobs:
+  fit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify Phase 11 counts
+        run: sha256sum -c data/fixtures/phase11/validation_input.sha256
+      - name: Fetch pinned Sooter toolkit
+        uses: actions/checkout@v4
+        with:
+          repository: sam-sooter/prox_crit_toolkit
+          ref: f26c782dca3b1c9ab18cc92c6449591c44e0d507
+          path: external/prox_crit_toolkit
+          persist-credentials: false
+          sparse-checkout: /src/
+          sparse-checkout-cone-mode: false
+      - name: Install MATLAB R2024b
+        uses: matlab-actions/setup-matlab@v3
+        with:
+          release: R2024b
+          products: Optimization_Toolbox
+      - name: Fit only the selected count series
+        uses: matlab-actions/run-command@v3
+        with:
+          command: addpath('scripts/ci'); run_atlas_validation
+      - name: Save spot-check fits
+        uses: actions/upload-artifact@v4
+        with:
+          name: atlas-validation
+          path: results/validation/runner/matlab_fits.json
+          if-no-files-found: error
