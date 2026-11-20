@@ -5,17 +5,33 @@ manifest = jsondecode(fileread('manifests/sources.json'));
 receipt = jsondecode(fileread('data/fixtures/sleep_dandi_input.json'));
 src = fullfile(pwd,'external','prox_crit_toolkit','src');
 addpath(src);
-input = load(fullfile('data','fixtures',receipt.fixture),'cohort');
-ids = fieldnames(input.cohort);
+cohort = struct();
+if isfield(receipt,'parts')
+    for p = 1:numel(receipt.parts)
+        part = receipt.parts(p);
+        file = load(fullfile('data','fixtures',part.name),'cohort');
+        names = fieldnames(file.cohort);
+        assert(numel(names)==part.records);
+        for n = 1:numel(names)
+            k = names{n};
+            assert(~isfield(cohort,k),'Duplicate fit identifier in split count fixtures.');
+            cohort.(k) = file.cohort.(k);
+        end
+    end
+else
+    file = load(fullfile('data','fixtures',receipt.fixture),'cohort');
+    cohort = file.cohort;
+end
+ids = fieldnames(cohort);
 assert(numel(ids) == receipt.records);
 timer = tic;
 controls_mode = isfield(receipt,'mode') && strcmp(receipt.mode,'controls');
 pilot = numel(receipt.asset_ids) == 1 && receipt.swr_windows == 0 && ~controls_mode;
-reference = strcmp(arrayfun(@(i) variant(input.cohort.(ids{i})),1:numel(ids),'UniformOutput',false),'reference');
+reference = strcmp(arrayfun(@(i) variant(cohort.(ids{i})),1:numel(ids),'UniformOutput',false),'reference');
 original = nan(size(ids));
 if pilot
     for i = find(reference(:))'
-        item = input.cohort.(ids{i});
+        item = cohort.(ids{i});
         [original(i),~,~,~,~,~,status] = calc_db(counts(item),config.ar_order, ...
             config.bin_seconds,config.beta,struct('fit_method',config.fit_method));
         assert(status == 0 && isfinite(original(i)));
@@ -24,11 +40,11 @@ end
 
 cleanup = trace_solver(src);
 if controls_mode
-    rows = controls(input.cohort,ids,config);
+    rows = controls(cohort,ids,config);
 else
     rows = struct([]);
     for i = 1:numel(ids)
-        item = input.cohort.(ids{i});
+        item = cohort.(ids{i});
         m = jsondecode(item.metadata);
         c = counts(item);
         fit = estimate(c,config.ar_order,config);

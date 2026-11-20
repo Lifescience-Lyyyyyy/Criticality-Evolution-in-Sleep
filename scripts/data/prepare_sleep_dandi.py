@@ -1,5 +1,6 @@
 """Build versioned segment-aware MATLAB count fixtures from audited DANDI sessions."""
 
+from collections import defaultdict
 from concurrent.futures import ProcessPoolExecutor
 from hashlib import file_digest
 from pathlib import Path
@@ -141,6 +142,15 @@ def prepare(job):
     return data
 
 
+def save_counts(path, records):
+    stage=path.with_suffix(".part")
+    savemat(stage, {"cohort":records}, appendmat=False, do_compression=True, long_field_names=True)
+    with stage.open("rb") as stream:
+        digest=file_digest(stream,"sha256").hexdigest()
+    stage.replace(path)
+    return {"name":path.name,"sha256":digest,"bytes":path.stat().st_size,"records":len(records)}
+
+
 def write_fixture(rows,cfg,path,workers,mode):
     jobs = ((r,cfg,mode) for r in rows)
     with ProcessPoolExecutor(max_workers=workers) as pool:
@@ -150,17 +160,32 @@ def write_fixture(rows,cfg,path,workers,mode):
     path.parent.mkdir(parents=True,exist_ok=True)
     saved = {f"r{i:05d}":{"metadata":json.dumps(meta,allow_nan=False),"counts":counts}
              for i,(meta,counts) in enumerate(data,1)}
-    temp = path.with_suffix(".part")
-    savemat(temp,{"cohort":saved},appendmat=False,do_compression=True,long_field_names=True)
-    with temp.open("rb") as stream:
-        digest=file_digest(stream,"sha256").hexdigest()
-    if temp.stat().st_size>=25*2**20:
-        raise ValueError(f"Fixture {temp.stat().st_size} bytes requires a separate transfer batch")
-    receipt = {"fixture":path.name,"sha256":digest,"bytes":temp.stat().st_size,"records":len(data),
-               "asset_ids":[r["asset_id"] for r in rows],
-               "reference_fits":sum(m["variant"]=="reference" for m,_ in data),"mode":mode, "swr_windows":sum(m["variant"]=="swr_window" for m,_ in data)}
-    temp.replace(path)
-    path.with_suffix(".json").write_text(json.dumps(receipt,indent=2)+"\n")
+    entry=save_counts(path,saved)
+    receipt = {"records":len(data),"asset_ids":[r["asset_id"] for r in rows],"mode":mode,
+               "reference_fits":sum(m["variant"]=="reference" for m,_ in data),
+               "swr_windows":sum(m["variant"]=="swr_window" for m,_ in data)}
+    limit=25*2**20
+    if entry["bytes"] < limit:
+        receipt.update(fixture=path.name, sha256=entry["sha256"], bytes=entry["bytes"])
+    else:
+        subjects=defaultdict(dict)
+        for key,record in saved.items():
+            subjects[json.loads(record["metadata"])["subject"]][key]=record
+        if len(subjects)<2:
+            raise ValueError("One animal exceeds the verified transfer limit. Split at session boundaries.")
+        count=max(2,(entry["bytes"]+limit-1)//limit)
+        outlets=[{} for _ in range(count)]
+        for subject,group in sorted(subjects.items(),key=lambda pair:(-len(pair[1]),pair[0])):
+            min(outlets,key=len).update(group)
+        parts=[save_counts(path.parent/f"sleep_dandi_part{i}.mat", group)
+               for i,group in enumerate(outlets,1) if group]
+        if any(part["bytes"]>=limit for part in parts):
+            raise ValueError("Transfer part exceeds verification limit. Split this cohort by more animals.")
+        path.replace(path.parent/"full_derived_counts.mat")
+        receipt.update(parts=parts,parent_sha256=entry["sha256"])
+    temp=path.with_suffix(".json.part")
+    temp.write_text(json.dumps(receipt,indent=2)+"\n")
+    temp.replace(path.with_suffix(".json"))
     return receipt
 
 
@@ -168,7 +193,7 @@ if __name__ == "__main__":
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--audit",type=Path,required=True)
     p.add_argument("--out",type=Path,required=True)
-    p.add_argument("--dandiset",required=True)
+    p.add_argument("--dandiset",required=True,help="Dandiset ID, or comma-separated IDs for a shared analysis batch")
     p.add_argument("--asset")
     p.add_argument("--config",type=Path,default=Path("config/sleep_dandi.json"))
     p.add_argument("--workers",type=int,default=4)
@@ -179,9 +204,12 @@ if __name__ == "__main__":
     a=p.parse_args()
     cfg=json.loads(a.config.read_text())
     rows=[json.loads(f.read_text()) for f in sorted((a.audit/"asset_receipts").glob("*.json"))]
-    rows=[r for r in rows if r["dandiset"]==a.dandiset and r["status"]=="READY"
+    requested=set(a.dandiset.split(","))
+    if not requested<=cfg["versions"].keys():
+        raise ValueError("One or more requested Dandisets have no immutable version")
+    rows=[r for r in rows if r["dandiset"] in requested and r["status"]=="READY"
           and (not a.asset or r["asset_id"]==a.asset)
-          and (not a.paired_regions or {"CA1","BLA"}<=set(r["eligible_regions"]))]
+          and (not a.paired_regions or r["dandiset"]!="000061" or {"CA1","BLA"}<=set(r["eligible_regions"]))]
     if a.asset and len(rows)!=1:
         raise ValueError("Pilot input must match one audited READY asset")
     if a.events:
@@ -197,9 +225,9 @@ if __name__ == "__main__":
                           if all(c[s]["seconds"]>=cfg["min_state_seconds"] for s in ("Wake","NREM")))
             if support:
                 score = (support,row["asset_id"])
-                previous = best.get(row["subject"])
+                previous = best.get((row["dandiset"],row["subject"]))
                 if previous is None or score>previous[0]:
-                    best[row["subject"]] = score,row
+                    best[row["dandiset"],row["subject"]] = score,row
         rows = [item[1] for _, item in sorted(best.items())]
     if a.controls:
         # Choose one session per animal without consulting MATLAB estimates.
@@ -211,9 +239,9 @@ if __name__ == "__main__":
             if not support:
                 continue
             score = (len(support),min(row["eligible_regions"].values()),row["asset_id"])
-            current = best.get(row["subject"])
+            current = best.get((row["dandiset"],row["subject"]))
             if current is None or score>current[0]:
-                best[row["subject"]] = score,row
+                best[row["dandiset"],row["subject"]] = score,row
         rows = [item[1] for _, item in sorted(best.items())]
     mode = "controls" if a.controls else "events" if a.events else "states"
     print(write_fixture(rows,cfg,a.out,a.workers,mode))
