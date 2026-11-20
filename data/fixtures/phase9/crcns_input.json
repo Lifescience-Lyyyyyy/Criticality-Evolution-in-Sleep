@@ -1,16 +1,36 @@
 {
-  "records": 6,
+  "records": 128,
   "asset_ids": [
-    "hc-23:Rat-109:Session7"
+    "hc-23:Rat-109:Session1",
+    "hc-23:Rat-109:Session2",
+    "hc-23:Rat-109:Session3",
+    "hc-23:Rat-109:Session4",
+    "hc-23:Rat-109:Session5",
+    "hc-23:Rat-109:Session6",
+    "hc-23:Rat-109:Session7",
+    "hc-23:Rat-20:Session2",
+    "hc-23:Rat-20:Session3",
+    "hc-23:Rat-20:Session4",
+    "hc-23:Rat-20:Session5",
+    "hc-23:Rat-26:Session2",
+    "hc-23:Rat-26:Session3",
+    "hc-23:Rat-26:Session4",
+    "hc-23:Rat-29:Session1",
+    "hc-23:Rat-74:Session7",
+    "hc-23:Rat-78:Session1",
+    "hc-23:Rat-78:Session2",
+    "hc-23:Rat-78:Session3",
+    "hc-23:Rat-78:Session4",
+    "hc-23:Rat-78:Session5"
   ],
   "mode": "states",
   "source_sha256": {
     "author_mat": "e6c335643b74ad60bc65c984d3046d52711ecc82ca10a2086f64c6ba581b87f7",
     "sorted_t_cache": "d2bd82bfa92e5c7f596bf8efb68b2d257051d1ebaa8454b0e87eee8c2b54e032"
   },
-  "reference_fits": 2,
+  "reference_fits": 42,
   "swr_windows": 0,
   "fixture": "crcns_input.mat",
-  "sha256": "3c6f5bd5e1e5943534dc9c4635b3cad258c0799f5012fbc606122897787e4f0c",
-  "bytes": 148529
+  "sha256": "a3a28322ae9d40b5341879e147e98c57b4389f6997e00758246b869eee574424",
+  "bytes": 2783410
 }
