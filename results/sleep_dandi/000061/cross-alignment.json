@@ -1,0 +1,26 @@
+{
+  "asset_ids": [
+    "0c15485d-2ad3-4042-b0f2-b52c3735dcca",
+    "1cbd355a-1854-493a-b281-1261742a250e",
+    "4aedf8b7-a467-46ba-8d2e-548a90c6fda8",
+    "5addf7b8-bceb-41ac-ab95-f4880c9b96b9",
+    "61c87d1a-c1a9-4818-8977-3ac211983235",
+    "802b435f-5b4e-4c71-9604-b83733760702",
+    "89e13026-902f-4400-ba3e-b58c0535132c",
+    "94f94ece-4837-47dc-9eaa-e87c03cf689f",
+    "980fa56f-3bd1-4c48-90c2-18c75a8f288d",
+    "99a925a5-6dd9-40d5-aa4c-dd3f5af37b04",
+    "a47310b1-96c3-40f6-bcca-f8dea4fcfdc0",
+    "b5eb3266-28ff-4660-a410-9f27b83a5ad0",
+    "bf4b6c69-8df1-466c-b43a-1d25348f8220",
+    "c1857c56-c872-4129-b471-854f308b55c8",
+    "d8b354e9-9173-4482-abc9-a0f8e5457ed2",
+    "e987b8bc-7de8-4c32-8598-2b40bc3e25d5",
+    "ec300b56-e590-4420-9ad3-ff00f7dc73ea",
+    "fc6956e1-47b5-40c3-94aa-3369c44d7f3e"
+  ],
+  "fixture_sha256": "3671b1959b5bcc5a2fb22bf3b5826be0cd70800b32a759ed488705afda371b9e",
+  "verified_same_window_rows": 107,
+  "status": "PASS",
+  "methods": "Before fitting, exact binned interval arrays matched for each asset, PRE or POST, and state"
+}

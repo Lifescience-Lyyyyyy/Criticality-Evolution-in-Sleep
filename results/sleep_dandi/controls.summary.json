@@ -1,0 +1,3142 @@
+{
+  "schema_version": 1,
+  "run_id": "44682631225",
+  "sensitivity": [
+    {
+      "dandiset": "000041",
+      "subject": "BWRat17",
+      "session": "BWRat17_121712",
+      "context": "HOME",
+      "region": "ACC",
+      "reference_effect": 0.2291014056913232,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 0.2291014056913232,
+          "median": 0.2291014056913232,
+          "high": 0.2291014056913232
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 66.10555555555555,
+              "median": 66.10555555555555,
+              "high": 66.10555555555555
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 48.86666666666667,
+              "median": 48.86666666666667,
+              "high": 48.86666666666667
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.022408687068983225,
+          "median": 0.1131085755159289,
+          "high": 0.21605037792650175
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 48.382083333333334,
+              "median": 48.888888888888886,
+              "high": 49.36666666666666
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -1.455395481481508,
+              "median": -1.379873160493857,
+              "high": -1.3031494814815165
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.08130825318638171,
+              "median": -0.06570053596978101,
+              "high": -0.04386197570129319
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 48.86666666666667,
+              "median": 48.86666666666667,
+              "high": 48.86666666666667
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat18",
+      "session": "BWRat18_020513",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "reference_effect": 0.38432214149941,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 0.38432214149941,
+          "median": 0.38432214149941,
+          "high": 0.38432214149941
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 35.144444444444446,
+              "median": 35.144444444444446,
+              "high": 35.144444444444446
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 26.055555555555554,
+              "median": 26.055555555555554,
+              "high": 26.055555555555554
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.03667964938303851,
+          "median": 0.1378089744196862,
+          "high": 0.2490391488860249
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 25.67027777777778,
+              "median": 26.055555555555557,
+              "high": 26.38847222222222
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -0.49709301851850546,
+              "median": -0.45187995061726793,
+              "high": -0.4146972037036896
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.07333920452025261,
+              "median": -0.04518439785329609,
+              "high": -0.0289269844268122
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 26.055555555555554,
+              "median": 26.055555555555554,
+              "high": 26.055555555555554
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat19",
+      "session": "BWRat19_032513",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "reference_effect": 0.6360984999174581,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 0.6360984999174581,
+          "median": 0.6360984999174581,
+          "high": 0.6360984999174581
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 150.13333333333333,
+              "median": 150.13333333333333,
+              "high": 150.13333333333333
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 112.89444444444445,
+              "median": 112.89444444444445,
+              "high": 112.89444444444445
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.3857579589443552,
+          "median": 0.44276766532107936,
+          "high": 0.5062920708583546
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 112.25472222222221,
+              "median": 112.96111111111111,
+              "high": 113.62916666666666
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -2.393302756790185,
+              "median": -2.2496279753086346,
+              "high": -2.1229139753086352
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.08968705147357421,
+              "median": -0.07250465835499642,
+              "high": -0.053750342257720796
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 112.89444444444445,
+              "median": 112.89444444444445,
+              "high": 112.89444444444445
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat20",
+      "session": "BWRat20_101513",
+      "context": "HOME",
+      "region": "ACC",
+      "reference_effect": 0.4297887628398951,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 0.4297887628398951,
+          "median": 0.4297887628398951,
+          "high": 0.4297887628398951
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 96.52222222222221,
+              "median": 96.52222222222221,
+              "high": 96.52222222222221
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 66.83888888888889,
+              "median": 66.83888888888889,
+              "high": 66.83888888888889
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.12141730953993604,
+          "median": 0.2257579872431834,
+          "high": 0.3632083520622091
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 66.16583333333332,
+              "median": 66.80555555555554,
+              "high": 67.40430555555555
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -1.5811645432098602,
+              "median": -1.4783158765432363,
+              "high": -1.4020046370370656
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.09233996735007438,
+              "median": -0.07128986888578201,
+              "high": -0.04612459277544463
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 66.83888888888889,
+              "median": 66.83888888888889,
+              "high": 66.83888888888889
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121113",
+      "context": "HOME",
+      "region": "mPFC",
+      "reference_effect": 0.1336160266903459,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 0.1336160266903459,
+          "median": 0.1336160266903459,
+          "high": 0.1336160266903459
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 41.57777777777778,
+              "median": 41.57777777777778,
+              "high": 41.57777777777778
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 42.327777777777776,
+              "median": 42.327777777777776,
+              "high": 42.327777777777776
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.11724450400434652,
+          "median": 0.13821578829819892,
+          "high": 0.16665592953299435
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 41.57777777777778,
+              "median": 41.57777777777778,
+              "high": 41.57777777777778
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 41.44097222222222,
+              "median": 41.58888888888889,
+              "high": 41.72222222222222
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -0.10178225555551698,
+              "median": -0.07717333333331311,
+              "high": -0.0590884703703811
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.006125678146503609,
+              "median": -0.0022865021039189942,
+              "high": 0.001990247313987001
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Bogey",
+      "session": "Bogey_012615",
+      "context": "HOME",
+      "region": "mPFC",
+      "reference_effect": 0.18692207355016,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 0.18692207355016,
+          "median": 0.18692207355016,
+          "high": 0.18692207355016
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 61.67777777777778,
+              "median": 61.67777777777778,
+              "high": 61.67777777777778
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 51.522222222222226,
+              "median": 51.522222222222226,
+              "high": 51.522222222222226
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": -0.09994688915017726,
+          "median": 0.02080864681349559,
+          "high": 0.12801043751109867
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 51.09013888888889,
+              "median": 51.544444444444444,
+              "high": 51.99736111111111
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -0.3855571209876321,
+              "median": -0.3363097777777766,
+              "high": -0.3001298370370489
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.035082585196198675,
+              "median": -0.016563793276638088,
+              "high": 0.0024188951491473727
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 51.522222222222226,
+              "median": 51.522222222222226,
+              "high": 51.522222222222226
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_061814",
+      "context": "HOME",
+      "region": "mPFC",
+      "reference_effect": 0.5924148731083072,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 0.5924148731083072,
+          "median": 0.5924148731083072,
+          "high": 0.5924148731083072
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 157.23333333333332,
+              "median": 157.23333333333332,
+              "high": 157.23333333333332
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 119.44444444444444,
+              "median": 119.44444444444444,
+              "high": 119.44444444444444
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.2493909286582924,
+          "median": 0.366986266921541,
+          "high": 0.4597854931290367
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 118.50861111111111,
+              "median": 119.51944444444445,
+              "high": 120.18527777777778
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -2.1156775790123166,
+              "median": -1.989619382716005,
+              "high": -1.8317914481481699
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.050807840373610746,
+              "median": -0.03622568253507388,
+              "high": -0.019064892377429903
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 119.44444444444444,
+              "median": 119.44444444444444,
+              "high": 119.44444444444444
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Rizzo",
+      "session": "Rizzo_022715",
+      "context": "HOME",
+      "region": "OFC",
+      "reference_effect": 1.0485613591432388,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 1.0485613591432388,
+          "median": 1.0485613591432388,
+          "high": 1.0485613591432388
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 191.44444444444443,
+              "median": 191.44444444444443,
+              "high": 191.44444444444443
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 154.99444444444444,
+              "median": 154.99444444444444,
+              "high": 154.99444444444444
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.897276775897051,
+          "median": 0.9498514483379712,
+          "high": 1.0010050188770947
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 154.1913888888889,
+              "median": 154.98888888888888,
+              "high": 155.86222222222221
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -3.99885432098761,
+              "median": -3.774630740740685,
+              "high": -3.6053285543209315
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.05252995716834314,
+              "median": -0.03833830261567964,
+              "high": -0.024473913365274078
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 154.99444444444444,
+              "median": 154.99444444444444,
+              "high": 154.99444444444444
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Splinter",
+      "session": "Splinter_020915",
+      "context": "HOME",
+      "region": "OFC",
+      "reference_effect": 1.4228884903341923,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 1.4228884903341923,
+          "median": 1.4228884903341923,
+          "high": 1.4228884903341923
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 129.11666666666665,
+              "median": 129.11666666666665,
+              "high": 129.11666666666665
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 85.27222222222223,
+              "median": 85.27222222222223,
+              "high": 85.27222222222223
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 1.1122908116383903,
+          "median": 1.180900445615919,
+          "high": 1.2361292033425542
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 84.54680555555554,
+              "median": 85.27777777777777,
+              "high": 86.1
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -3.6945086086419976,
+              "median": -3.565411728395068,
+              "high": -3.4055614753086823
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.13144043468842115,
+              "median": -0.10991987669139386,
+              "high": -0.09188696482965451
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 85.27222222222223,
+              "median": 85.27222222222223,
+              "high": 85.27222222222223
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Templeton",
+      "session": "Templeton_032415",
+      "context": "HOME",
+      "region": "mPFC",
+      "reference_effect": 0.1035754862171192,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 0.1035754862171192,
+          "median": 0.1035754862171192,
+          "high": 0.1035754862171192
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 5.5055555555555555,
+              "median": 5.5055555555555555,
+              "high": 5.5055555555555555
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 5.855555555555555,
+              "median": 5.855555555555555,
+              "high": 5.855555555555555
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.07072188340633986,
+          "median": 0.12365438394822026,
+          "high": 0.18532505737066876
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 5.5055555555555555,
+              "median": 5.5055555555555555,
+              "high": 5.5055555555555555
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 5.421944444444445,
+              "median": 5.511111111111111,
+              "high": 5.5725
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -0.03307609876544264,
+              "median": -0.024538592592603575,
+              "high": -0.018464839506185868
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.022999375555048288,
+              "median": -0.007921626587956504,
+              "high": 0.0010001679730237652
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000061",
+      "subject": "Rat08",
+      "session": "Rat08-20130713",
+      "context": "POST",
+      "region": "BLA",
+      "reference_effect": 0.0545068540710556,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": -0.26865865883344037,
+          "median": 0.031307632178304345,
+          "high": 0.4787073002828525
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 35.616527777777776,
+              "median": 68.03055555555555,
+              "high": 91.74138888888888
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -3.063636625925898,
+              "median": -1.838855925925915,
+              "high": -0.8703218469136115
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.06345579113916895,
+              "median": -0.018007162130174725,
+              "high": 0.025614838722615434
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 41.08902777777778,
+              "median": 63.016666666666666,
+              "high": 80.06569444444443
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -5.130553451851874,
+              "median": -3.389229456790107,
+              "high": -1.6606800000000057
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.20851710304937437,
+              "median": -0.062028332712530554,
+              "high": 0.014426567311292186
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": -0.07112697117032676,
+          "median": -0.004926559358143789,
+          "high": 0.05489957641439944
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 99.48430555555557,
+              "median": 99.90555555555555,
+              "high": 100.2923611111111
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -0.42787031111110807,
+              "median": -0.3627388148147843,
+              "high": -0.3056038518518373
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.021857242864036314,
+              "median": -0.010386529528149877,
+              "high": 0.0011864709709494222
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 99.92222222222222,
+              "median": 99.92222222222222,
+              "high": 99.92222222222222
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000061",
+      "subject": "Rat08",
+      "session": "Rat08-20130713",
+      "context": "POST",
+      "region": "CA1",
+      "reference_effect": 0.7499908715033694,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 0.7499908715033694,
+          "median": 0.7499908715033694,
+          "high": 0.7499908715033694
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 58.644444444444446,
+              "median": 58.644444444444446,
+              "high": 58.644444444444446
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 85.33333333333334,
+              "median": 85.33333333333334,
+              "high": 85.33333333333334
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.7557882895916229,
+          "median": 0.8385280022630579,
+          "high": 0.9141071562756578
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 58.644444444444446,
+              "median": 58.644444444444446,
+              "high": 58.644444444444446
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 58.07083333333333,
+              "median": 58.68611111111111,
+              "high": 59.20430555555556
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -5.112927901234534,
+              "median": -4.995737111111156,
+              "high": -4.851271723456826
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.05219398293913696,
+              "median": -0.03928912288493128,
+              "high": -0.023790006501897207
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000061",
+      "subject": "Rat08",
+      "session": "Rat08-20130713",
+      "context": "PRE",
+      "region": "BLA",
+      "reference_effect": 0.02480066968438699,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": -0.29663195086962035,
+          "median": -0.005124219007998976,
+          "high": 0.41826102081539124
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 37.40972222222222,
+              "median": 58.64722222222221,
+              "high": 75.55291666666666
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -2.1788991222222323,
+              "median": -1.4212179012345663,
+              "high": -0.6611326617283682
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.07096434530384454,
+              "median": -0.010369348509981738,
+              "high": 0.023221677948132992
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 37.17916666666667,
+              "median": 58.90277777777777,
+              "high": 71.95041666666665
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -4.512673258024654,
+              "median": -2.681715209876482,
+              "high": -1.3799237876542974
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.2613001907967384,
+              "median": -0.058989623406679376,
+              "high": 0.037445214364730035
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.01535635927641108,
+          "median": 0.025628242464933226,
+          "high": 0.03524553974370319
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 89.64444444444445,
+              "median": 89.64444444444445,
+              "high": 89.64444444444445
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 89.56930555555556,
+              "median": 89.64722222222221,
+              "high": 89.72513888888889
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -0.04948130370368187,
+              "median": -0.033496938271561305,
+              "high": -0.015680337036981195
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.0030540100421245137,
+              "median": -0.000760356750619029,
+              "high": 0.001027523249003721
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000061",
+      "subject": "Rat08",
+      "session": "Rat08-20130713",
+      "context": "PRE",
+      "region": "CA1",
+      "reference_effect": 0.04214664771624621,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 0.04214664771624621,
+          "median": 0.04214664771624621,
+          "high": 0.04214664771624621
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 42.75555555555556,
+              "median": 42.75555555555556,
+              "high": 42.75555555555556
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 72.42777777777778,
+              "median": 72.42777777777778,
+              "high": 72.42777777777778
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.07788894688293711,
+          "median": 0.15838278026881625,
+          "high": 0.2720599408403413
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 42.75555555555556,
+              "median": 42.75555555555556,
+              "high": 42.75555555555556
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 42.19305555555556,
+              "median": 42.825,
+              "high": 43.381249999999994
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -5.357058907407398,
+              "median": -5.227274864197506,
+              "high": -5.107796320987639
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.0791881577725084,
+              "median": -0.05630559032935381,
+              "high": -0.03654661367838067
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000061",
+      "subject": "Rat10",
+      "session": "Rat10-20140624",
+      "context": "POST",
+      "region": "BLA",
+      "reference_effect": 0.3001923371409372,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 0.02997897745319722,
+          "median": 0.3328509514404183,
+          "high": 0.67676973901701
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 15.94625,
+              "median": 28.075,
+              "high": 32.075694444444444
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -0.6833662358024937,
+              "median": -0.2168045185185543,
+              "high": -0.04701533333338022
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.03838311105664323,
+              "median": 0.002061389494016172,
+              "high": 0.0566196342056904
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 17.48875,
+              "median": 21.230555555555554,
+              "high": 23.668611111111108
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -0.4446584259259044,
+              "median": -0.2824745432098499,
+              "high": -0.14474126790121386
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.027194772976157588,
+              "median": -0.0007159888346210952,
+              "high": 0.04808000094357688
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.013805768568337262,
+          "median": 0.10912919200188687,
+          "high": 0.21072055046562058
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 26.1775,
+              "median": 26.452777777777776,
+              "high": 26.845
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -0.31812338765434567,
+              "median": -0.28701597530866074,
+              "high": -0.2534683888889185
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.04702465775442,
+              "median": -0.02667213434206442,
+              "high": -0.012868296586489577
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 26.45,
+              "median": 26.45,
+              "high": 26.45
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000061",
+      "subject": "Rat10",
+      "session": "Rat10-20140624",
+      "context": "POST",
+      "region": "CA1",
+      "reference_effect": 0.45826199499555087,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 0.45826199499555087,
+          "median": 0.45826199499555087,
+          "high": 0.45826199499555087
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 81.03888888888889,
+              "median": 81.03888888888889,
+              "high": 81.03888888888889
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 53.31666666666667,
+              "median": 53.31666666666667,
+              "high": 53.31666666666667
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.2616635256812596,
+          "median": 0.3342034188186418,
+          "high": 0.40151086300936567
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 52.816111111111105,
+              "median": 53.24444444444445,
+              "high": 53.93972222222222
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -4.560760870370414,
+              "median": -4.461043234567969,
+              "high": -4.287202137037091
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.08800292660424842,
+              "median": -0.07412625984985541,
+              "high": -0.055552197671846625
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 53.31666666666667,
+              "median": 53.31666666666667,
+              "high": 53.31666666666667
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000061",
+      "subject": "Rat10",
+      "session": "Rat10-20140624",
+      "context": "PRE",
+      "region": "BLA",
+      "reference_effect": 0.18322097238948176,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": -0.08940304578193488,
+          "median": 0.22170508980667702,
+          "high": 0.5484088607610732
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 14.839722222222221,
+              "median": 25.18611111111111,
+              "high": 28.723055555555558
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -0.583030492592596,
+              "median": -0.21007446913579098,
+              "high": -0.055407753086405935
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.03334835571437219,
+              "median": -0.0008354347453858879,
+              "high": 0.03391791904745683
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 17.89222222222222,
+              "median": 21.672222222222224,
+              "high": 24.523333333333333
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -0.4876274666666798,
+              "median": -0.3001715308641921,
+              "high": -0.1627086913580287
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.045244887944767366,
+              "median": -0.012018370812709081,
+              "high": 0.026034682002791625
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.031076225695531937,
+          "median": 0.11535439782040902,
+          "high": 0.19430447337309334
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 27.02111111111111,
+              "median": 27.227777777777778,
+              "high": 27.445277777777775
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -0.12928271604938318,
+              "median": -0.1039978024691317,
+              "high": -0.08267012345677723
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.022737917925754973,
+              "median": -0.008616033641194308,
+              "high": -0.00045891693662650234
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 27.23888888888889,
+              "median": 27.23888888888889,
+              "high": 27.23888888888889
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000061",
+      "subject": "Rat10",
+      "session": "Rat10-20140624",
+      "context": "PRE",
+      "region": "CA1",
+      "reference_effect": 0.6742014263858271,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 0.6742014263858271,
+          "median": 0.6742014263858271,
+          "high": 0.6742014263858271
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 89.45555555555555,
+              "median": 89.45555555555555,
+              "high": 89.45555555555555
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 50.73888888888889,
+              "median": 50.73888888888889,
+              "high": 50.73888888888889
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.3842879379316333,
+          "median": 0.47972811345592103,
+          "high": 0.5652601608053398
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 49.984583333333326,
+              "median": 50.733333333333334,
+              "high": 51.311249999999994
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -5.662737659259212,
+              "median": -5.53816190123453,
+              "high": -5.41801962839504
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.12118593204873461,
+              "median": -0.10269598224809834,
+              "high": -0.08080565985976965
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 50.73888888888889,
+              "median": 50.73888888888889,
+              "high": 50.73888888888889
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000061",
+      "subject": "Rat11",
+      "session": "Rat11-20150327",
+      "context": "POST",
+      "region": "BLA",
+      "reference_effect": 0.15733373166179332,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 0.15733373166179332,
+          "median": 0.15733373166179332,
+          "high": 0.15733373166179332
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 83.70555555555555,
+              "median": 83.70555555555555,
+              "high": 83.70555555555555
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 67.16666666666666,
+              "median": 67.16666666666666,
+              "high": 67.16666666666666
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": -0.0695261826693251,
+          "median": -0.007181480684233299,
+          "high": 0.05831842147424101
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 66.73541666666667,
+              "median": 67.18055555555554,
+              "high": 67.60555555555555
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -1.0469717037037125,
+              "median": -0.9628223703703995,
+              "high": -0.8799302617283805
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.05522761826762102,
+              "median": -0.039696380181436106,
+              "high": -0.01744252353587509
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 67.16666666666666,
+              "median": 67.16666666666666,
+              "high": 67.16666666666666
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000061",
+      "subject": "Rat11",
+      "session": "Rat11-20150327",
+      "context": "POST",
+      "region": "CA1",
+      "reference_effect": 0.08918667131835356,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": -0.28903637292828827,
+          "median": 0.12430246349580609,
+          "high": 0.33583418043536184
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 57.933055555555555,
+              "median": 95.04166666666666,
+              "high": 123.25569444444444
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -12.93544261728409,
+              "median": -6.802640000000117,
+              "high": -1.21030038395068
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.1693579955944412,
+              "median": -0.02813430395495553,
+              "high": 0.011024072747088125
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 43.78847222222222,
+              "median": 66.86111111111111,
+              "high": 78.11999999999999
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -8.208765277777752,
+              "median": -4.7041779012345835,
+              "high": -1.9749086320986768
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.14260196577094267,
+              "median": -0.027790649900439862,
+              "high": 0.01474127271544248
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": -0.0396979592105795,
+          "median": 0.01792623187150799,
+          "high": 0.09371579326841627
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 85.50527777777778,
+              "median": 86.16666666666667,
+              "high": 86.95333333333333
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -9.31941186666678,
+              "median": -9.074135456790078,
+              "high": -8.757245659259299
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.07023301495378866,
+              "median": -0.0576963163967987,
+              "high": -0.04264948109994236
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 86.17777777777778,
+              "median": 86.17777777777778,
+              "high": 86.17777777777778
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000061",
+      "subject": "Rat11",
+      "session": "Rat11-20150327",
+      "context": "PRE",
+      "region": "BLA",
+      "reference_effect": 1.2923525582345334,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 1.2923525582345334,
+          "median": 1.2923525582345334,
+          "high": 1.2923525582345334
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 104.52222222222223,
+              "median": 104.52222222222223,
+              "high": 104.52222222222223
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 100.75,
+              "median": 100.75,
+              "high": 100.75
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 1.2477732332162859,
+          "median": 1.2691467404468308,
+          "high": 1.2914469065754652
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 100.49652777777777,
+              "median": 100.78333333333333,
+              "high": 101.04819444444445
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -0.32200290370372175,
+              "median": -0.267990962962974,
+              "high": -0.21849630246917898
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.015017647337962153,
+              "median": -0.008455966541381421,
+              "high": -0.0011719540595588804
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 100.75,
+              "median": 100.75,
+              "high": 100.75
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000061",
+      "subject": "Rat11",
+      "session": "Rat11-20150327",
+      "context": "PRE",
+      "region": "CA1",
+      "reference_effect": 0.5932306343077896,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 0.3381623138317123,
+          "median": 0.5862165636313923,
+          "high": 0.6573091655097076
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 59.35124999999999,
+              "median": 127.46388888888889,
+              "high": 137.3372222222222
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -14.527082774074046,
+              "median": -2.8027111851851814,
+              "high": -0.7846742814814893
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.17363828740144505,
+              "median": -0.017150311681124825,
+              "high": 0.010935548295999431
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 50.913333333333334,
+              "median": 106.15277777777777,
+              "high": 115.72694444444443
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -14.770861179012321,
+              "median": -4.7332938271605105,
+              "high": -2.12615016419757
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.17666341386788145,
+              "median": -0.0006961564685649957,
+              "high": 0.016157120246996105
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.5336315041745376,
+          "median": 0.5647613657661674,
+          "high": 0.6026817267428171
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 123.22402777777778,
+              "median": 123.73055555555555,
+              "high": 124.345
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -4.242625837037069,
+              "median": -4.017275629629653,
+              "high": -3.7851333888889673
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.029610421832639237,
+              "median": -0.0207983731291147,
+              "high": -0.01342104690957382
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 123.76666666666667,
+              "median": 123.76666666666667,
+              "high": 123.76666666666667
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000552",
+      "subject": "e13_1f1",
+      "session": "e13_1f1_200229",
+      "context": "HOME",
+      "region": "CA1",
+      "reference_effect": 0.6894590987921945,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 0.6894590987921945,
+          "median": 0.6894590987921945,
+          "high": 0.6894590987921945
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 231.89444444444445,
+              "median": 231.89444444444445,
+              "high": 231.89444444444445
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 202.2111111111111,
+              "median": 202.2111111111111,
+              "high": 202.2111111111111
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.6469005653898541,
+          "median": 0.6694577036811185,
+          "high": 0.6967575823126291
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 201.5377777777778,
+              "median": 202.2222222222222,
+              "high": 203.02791666666664
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -12.240173195061628,
+              "median": -11.695200345679499,
+              "high": -11.201679851851864
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.01883811861041663,
+              "median": -0.01207798760771267,
+              "high": -0.003897787036347717
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 202.2111111111111,
+              "median": 202.2111111111111,
+              "high": 202.2111111111111
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000552",
+      "subject": "e13_1m1",
+      "session": "e13_1m1_200224",
+      "context": "HOME",
+      "region": "CA1",
+      "reference_effect": 0.8063635524949018,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 0.8063635524949018,
+          "median": 0.8063635524949018,
+          "high": 0.8063635524949018
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 462.71111111111105,
+              "median": 462.71111111111105,
+              "high": 462.71111111111105
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 447.45,
+              "median": 447.45,
+              "high": 447.45
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.791765299852506,
+          "median": 0.8021905138333917,
+          "high": 0.8121076129567691
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 446.90736111111113,
+              "median": 447.4666666666667,
+              "high": 447.9715277777778
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -8.719898139505977,
+              "median": -8.186754962963022,
+              "high": -7.6793748481481225
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.004474560399327428,
+              "median": -0.0021258306700276397,
+              "high": 0.0009478992338472988
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 447.45,
+              "median": 447.45,
+              "high": 447.45
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000552",
+      "subject": "e14_1m1",
+      "session": "e14_1m1_200212",
+      "context": "HOME",
+      "region": "CA1",
+      "reference_effect": 0.38363169643645256,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 0.38363169643645256,
+          "median": 0.38363169643645256,
+          "high": 0.38363169643645256
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 516.1333333333333,
+              "median": 516.1333333333333,
+              "high": 516.1333333333333
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 331.2333333333333,
+              "median": 331.2333333333333,
+              "high": 331.2333333333333
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.19623388135801018,
+          "median": 0.28755745148285183,
+          "high": 0.3721304494678386
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 329.3036111111111,
+              "median": 331.4222222222222,
+              "high": 333.0490277777778
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -45.68755403456789,
+              "median": -44.89526508641964,
+              "high": -44.06616843827161
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.0386280815839,
+              "median": -0.024803275010745696,
+              "high": -0.013742807730158133
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 331.2333333333333,
+              "median": 331.2333333333333,
+              "high": 331.2333333333333
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000552",
+      "subject": "e15_4m1",
+      "session": "e15_4m1_191121",
+      "context": "HOME",
+      "region": "CA1",
+      "reference_effect": 1.1807490834763423,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 1.1807490834763423,
+          "median": 1.1807490834763423,
+          "high": 1.1807490834763423
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 387.0777777777778,
+              "median": 387.0777777777778,
+              "high": 387.0777777777778
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 310.6944444444444,
+              "median": 310.6944444444444,
+              "high": 310.6944444444444
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 1.1151589552036807,
+          "median": 1.1450839691367376,
+          "high": 1.1737808587790148
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 309.5804166666667,
+              "median": 310.7416666666667,
+              "high": 311.47222222222223
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -30.319845991358005,
+              "median": -29.504131975308653,
+              "high": -28.911778462963017
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.024762090108680503,
+              "median": -0.017574044419170293,
+              "high": -0.008046020283385497
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 310.6944444444444,
+              "median": 310.6944444444444,
+              "high": 310.6944444444444
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000552",
+      "subject": "e15_4m2",
+      "session": "e15_4m2_191216",
+      "context": "HOME",
+      "region": "CA1",
+      "reference_effect": 1.2316262501251884,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 1.2316262501251884,
+          "median": 1.2316262501251884,
+          "high": 1.2316262501251884
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 579.4055555555556,
+              "median": 579.4055555555556,
+              "high": 579.4055555555556
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 339.49444444444447,
+              "median": 339.49444444444447,
+              "high": 339.49444444444447
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 1.1011111915136103,
+          "median": 1.1440439902633919,
+          "high": 1.1736858524528304
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 337.8023611111111,
+              "median": 339.4555555555556,
+              "high": 341.20194444444445
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -104.00892130370379,
+              "median": -102.87776079012326,
+              "high": -101.7743883851852
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.05773536171379354,
+              "median": -0.04362381429928547,
+              "high": -0.032121815255214806
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 339.49444444444447,
+              "median": 339.49444444444447,
+              "high": 339.49444444444447
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "dandiset": "000552",
+      "subject": "e15_5m1",
+      "session": "e15_5m1_200313_1",
+      "context": "HOME",
+      "region": "CA1",
+      "reference_effect": 0.6916471693646582,
+      "unit_count": {
+        "effect": {
+          "n": 100,
+          "low": 0.6916471693646582,
+          "median": 0.6916471693646582,
+          "high": 0.6916471693646582
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 429.52777777777777,
+              "median": 429.52777777777777,
+              "high": 429.52777777777777
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 308.7944444444445,
+              "median": 308.7944444444445,
+              "high": 308.7944444444445
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      },
+      "rate_thinning": {
+        "effect": {
+          "n": 100,
+          "low": 0.5063029282440435,
+          "median": 0.5850361167964107,
+          "high": 0.6455880051853568
+        },
+        "states": {
+          "Wake": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 307.575,
+              "median": 308.7777777777777,
+              "high": 309.9963888888889
+            },
+            "variance_change": {
+              "n": 100,
+              "low": -21.28799298765442,
+              "median": -20.645670370370432,
+              "high": -20.12174943703713
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": -0.050553234902577154,
+              "median": -0.033316371977946665,
+              "high": -0.018035214907977017
+            }
+          },
+          "NREM": {
+            "returned_seeds": 100,
+            "actual_rate_hz": {
+              "n": 100,
+              "low": 308.7944444444445,
+              "median": 308.7944444444445,
+              "high": 308.7944444444445
+            },
+            "variance_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            },
+            "lag1_change": {
+              "n": 100,
+              "low": 0.0,
+              "median": 0.0,
+              "high": 0.0
+            }
+          }
+        }
+      }
+    }
+  ]
+}

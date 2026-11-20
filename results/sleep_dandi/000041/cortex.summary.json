@@ -1,0 +1,3958 @@
+{
+  "schema_version": 1,
+  "run_id": "44680281113",
+  "session_contrasts": [
+    {
+      "dandiset": "000041",
+      "subject": "Templeton",
+      "session": "Templeton_032415",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.14701786052080035,
+      "rate_difference_hz": -0.7793965972713659,
+      "seconds": [
+        8785,
+        7839
+      ],
+      "long_effect": 0.14443353858718155,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Templeton",
+      "session": "Templeton_032415",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.0883295501459842,
+      "rate_difference_hz": 6.432224451813422,
+      "seconds": [
+        2222,
+        8785
+      ],
+      "long_effect": -0.14297224700728473,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Templeton",
+      "session": "Templeton_032415",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.058688310374816144,
+      "rate_difference_hz": 5.652827854542056,
+      "seconds": [
+        2222,
+        7839
+      ],
+      "long_effect": 0.0014612915798968285,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Templeton",
+      "session": "Templeton_032415",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.18066590212313116,
+      "rate_difference_hz": -1.0276664480013311,
+      "seconds": [
+        7948,
+        6986
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Templeton",
+      "session": "Templeton_032415",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.09344536345368493,
+      "rate_difference_hz": 6.901695002912777,
+      "seconds": [
+        1917,
+        7948
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Templeton",
+      "session": "Templeton_032415",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.08722053866944623,
+      "rate_difference_hz": 5.874028554911446,
+      "seconds": [
+        1917,
+        6986
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Templeton",
+      "session": "Templeton_032415",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.2134252560223433,
+      "rate_difference_hz": -1.55531914893617,
+      "seconds": [
+        5640,
+        5640
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121113",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.12123162354405781,
+      "rate_difference_hz": -5.799632639988133,
+      "seconds": [
+        10257,
+        7559
+      ],
+      "long_effect": 0.23436346030011346,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121113",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.4199783437746114,
+      "rate_difference_hz": 23.144303113494253,
+      "seconds": [
+        3845,
+        10257
+      ],
+      "long_effect": -0.3771010078164756,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121113",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.2987467202305536,
+      "rate_difference_hz": 17.34467047350612,
+      "seconds": [
+        3845,
+        7559
+      ],
+      "long_effect": -0.14273754751636214,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121113",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.09838322646477504,
+      "rate_difference_hz": -6.361005793387363,
+      "seconds": [
+        9587,
+        6674
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121113",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.4185405426261417,
+      "rate_difference_hz": 24.028528565318112,
+      "seconds": [
+        3278,
+        9587
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121113",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.32015731616136667,
+      "rate_difference_hz": 17.66752277193075,
+      "seconds": [
+        3278,
+        6674
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121113",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.09462501713655547,
+      "rate_difference_hz": -8.67896825396825,
+      "seconds": [
+        5040,
+        5040
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Bogey",
+      "session": "Bogey_012615",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.5571976903529081,
+      "rate_difference_hz": -13.235110974019776,
+      "seconds": [
+        12863,
+        9834
+      ],
+      "long_effect": 0.8685951814819017,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Bogey",
+      "session": "Bogey_012615",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6789930489764002,
+      "rate_difference_hz": 10.912911833484806,
+      "seconds": [
+        1339,
+        12863
+      ],
+      "long_effect": -0.9470400166311678,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Bogey",
+      "session": "Bogey_012615",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.12179535862349211,
+      "rate_difference_hz": -2.32219914053497,
+      "seconds": [
+        1339,
+        9834
+      ],
+      "long_effect": -0.07844483514926603,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Bogey",
+      "session": "Bogey_012615",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.5446301371762474,
+      "rate_difference_hz": -14.251617353643418,
+      "seconds": [
+        11954,
+        8787
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Bogey",
+      "session": "Bogey_012615",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.671207479109367,
+      "rate_difference_hz": 11.187762388025156,
+      "seconds": [
+        1122,
+        11954
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Bogey",
+      "session": "Bogey_012615",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.12657734193311954,
+      "rate_difference_hz": -3.063854965618262,
+      "seconds": [
+        1122,
+        8787
+      ],
+      "long_effect": null,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Bogey",
+      "session": "Bogey_012615",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.49932011273776733,
+      "rate_difference_hz": -15.497640117994088,
+      "seconds": [
+        6780,
+        6780
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121613",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.4731675169663263,
+      "rate_difference_hz": -2.017398881296004,
+      "seconds": [
+        9142,
+        9113
+      ],
+      "long_effect": 0.4702941075831363,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121613",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.7655244615133219,
+      "rate_difference_hz": 2.2528233942368283,
+      "seconds": [
+        3095,
+        9142
+      ],
+      "long_effect": -0.6004235691583517,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121613",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.29235694454699557,
+      "rate_difference_hz": 0.23542451294082412,
+      "seconds": [
+        3095,
+        9113
+      ],
+      "long_effect": -0.13012946157521543,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121613",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.5213083113498529,
+      "rate_difference_hz": -2.153366128851898,
+      "seconds": [
+        8552,
+        8332
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121613",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.8356337449890552,
+      "rate_difference_hz": 2.339734771364112,
+      "seconds": [
+        2652,
+        8552
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121613",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.3143254336392023,
+      "rate_difference_hz": 0.18636864251221397,
+      "seconds": [
+        2652,
+        8332
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121613",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.5475247252971265,
+      "rate_difference_hz": -2.5649425287356316,
+      "seconds": [
+        6960,
+        6960
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121813",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.7933811104982373,
+      "rate_difference_hz": 2.8334308715054597,
+      "seconds": [
+        9331,
+        8833
+      ],
+      "long_effect": 0.6505494797341494,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121813",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6731429778689493,
+      "rate_difference_hz": 2.3267250449897166,
+      "seconds": [
+        3384,
+        9331
+      ],
+      "long_effect": -0.5625223758434885,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121813",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.12023813262928806,
+      "rate_difference_hz": 5.160155916495176,
+      "seconds": [
+        3384,
+        8833
+      ],
+      "long_effect": 0.08802710389066093,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121813",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.8002615314613895,
+      "rate_difference_hz": 2.8832528149187935,
+      "seconds": [
+        8846,
+        8294
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121813",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6700694386941222,
+      "rate_difference_hz": 2.56632701288134,
+      "seconds": [
+        2942,
+        8846
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121813",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.1301920927672673,
+      "rate_difference_hz": 5.449579827800133,
+      "seconds": [
+        2942,
+        8294
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat21",
+      "session": "BWRat21_121813",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.8326911123095369,
+      "rate_difference_hz": 3.0294973544973542,
+      "seconds": [
+        7560,
+        7560
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat19",
+      "session": "BWRat19_032513",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 1.0120716548464803,
+      "rate_difference_hz": -47.09464687359423,
+      "seconds": [
+        2223,
+        1365
+      ],
+      "long_effect": 0.9446271956300385,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat19",
+      "session": "BWRat19_032513",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.8310016700700343,
+      "rate_difference_hz": 81.50021869508302,
+      "seconds": [
+        289,
+        2223
+      ],
+      "long_effect": -0.9180006986269145,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat19",
+      "session": "BWRat19_032513",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.18106998477644587,
+      "rate_difference_hz": 34.40557182148879,
+      "seconds": [
+        289,
+        1365
+      ],
+      "long_effect": 0.026626497003123972,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat19",
+      "session": "BWRat19_032513",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 1.0428824327431458,
+      "rate_difference_hz": -52.903255650248056,
+      "seconds": [
+        2047,
+        1177
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat19",
+      "session": "BWRat19_032513",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.8294145131064284,
+      "rate_difference_hz": 85.84481965477936,
+      "seconds": [
+        240,
+        2047
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat19",
+      "session": "BWRat19_032513",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.2134679196367173,
+      "rate_difference_hz": 32.9415640045313,
+      "seconds": [
+        240,
+        1177
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat19",
+      "session": "BWRat19_032513",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 1.1142447134556743,
+      "rate_difference_hz": -67.52444444444443,
+      "seconds": [
+        900,
+        900
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Splinter",
+      "session": "Splinter_020915",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 1.4654604551233321,
+      "rate_difference_hz": -31.925014146200553,
+      "seconds": [
+        12943,
+        8889
+      ],
+      "long_effect": 0.7882585681268794,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Splinter",
+      "session": "Splinter_020915",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -1.0280997559503668,
+      "rate_difference_hz": 17.28920068175563,
+      "seconds": [
+        1519,
+        12943
+      ],
+      "long_effect": -0.6156353644205992,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Splinter",
+      "session": "Splinter_020915",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.4373606991729653,
+      "rate_difference_hz": -14.635813464444922,
+      "seconds": [
+        1519,
+        8889
+      ],
+      "long_effect": 0.1726232037062802,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Splinter",
+      "session": "Splinter_020915",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 1.488427786898435,
+      "rate_difference_hz": -34.66974809455361,
+      "seconds": [
+        12436,
+        8349
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Splinter",
+      "session": "Splinter_020915",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -1.0653506388839245,
+      "rate_difference_hz": 19.519632417290026,
+      "seconds": [
+        1311,
+        12436
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Splinter",
+      "session": "Splinter_020915",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.4230771480145107,
+      "rate_difference_hz": -15.150115677263585,
+      "seconds": [
+        1311,
+        8349
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Splinter",
+      "session": "Splinter_020915",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 1.5065441706677625,
+      "rate_difference_hz": -39.52936507936508,
+      "seconds": [
+        7560,
+        7560
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072414",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.4895706321742168,
+      "rate_difference_hz": -43.870039254277046,
+      "seconds": [
+        6399,
+        5454
+      ],
+      "long_effect": 0.4776832798694246,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072414",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.41381029280525405,
+      "rate_difference_hz": 49.5428993105708,
+      "seconds": [
+        1261,
+        6399
+      ],
+      "long_effect": -0.38097688127713003,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072414",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.07576033936896276,
+      "rate_difference_hz": 5.672860056293757,
+      "seconds": [
+        1261,
+        5454
+      ],
+      "long_effect": 0.09670639859229457,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072414",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.49785322045999725,
+      "rate_difference_hz": -45.57238817017556,
+      "seconds": [
+        6139,
+        5109
+      ],
+      "long_effect": null,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072414",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.4542178335323843,
+      "rate_difference_hz": 51.05874591940484,
+      "seconds": [
+        1034,
+        6139
+      ],
+      "long_effect": null,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072414",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.04363538692761293,
+      "rate_difference_hz": 5.486357749229285,
+      "seconds": [
+        1034,
+        5109
+      ],
+      "long_effect": null,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072414",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.42897139970791276,
+      "rate_difference_hz": -48.852412280701756,
+      "seconds": [
+        4560,
+        4560
+      ],
+      "long_effect": null,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Splinter",
+      "session": "Splinter_020515",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.3203884934483525,
+      "rate_difference_hz": -0.5689071977753031,
+      "seconds": [
+        13283,
+        8187
+      ],
+      "long_effect": 0.7455273790307066,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Splinter",
+      "session": "Splinter_020515",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.13951127031776278,
+      "rate_difference_hz": 4.599741407455259,
+      "seconds": [
+        2213,
+        13283
+      ],
+      "long_effect": -0.685136071587669,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Splinter",
+      "session": "Splinter_020515",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.18087722313058974,
+      "rate_difference_hz": 4.030834209679956,
+      "seconds": [
+        2213,
+        8187
+      ],
+      "long_effect": 0.06039130744303767,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Splinter",
+      "session": "Splinter_020515",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.33305114529397106,
+      "rate_difference_hz": -0.878870177064627,
+      "seconds": [
+        12754,
+        7638
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Splinter",
+      "session": "Splinter_020515",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.07844025276411881,
+      "rate_difference_hz": 5.253516213299225,
+      "seconds": [
+        1874,
+        12754
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Splinter",
+      "session": "Splinter_020515",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.25461089252985225,
+      "rate_difference_hz": 4.374646036234598,
+      "seconds": [
+        1874,
+        7638
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Splinter",
+      "session": "Splinter_020515",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.34022892383898573,
+      "rate_difference_hz": -1.5181159420289845,
+      "seconds": [
+        6900,
+        6900
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat20",
+      "session": "BWRat20_101013",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.598093612648317,
+      "rate_difference_hz": -20.935852597693113,
+      "seconds": [
+        4167,
+        8358
+      ],
+      "long_effect": 0.8934505313758659,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat20",
+      "session": "BWRat20_101013",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.775946550086611,
+      "rate_difference_hz": 25.08644839662827,
+      "seconds": [
+        768,
+        4167
+      ],
+      "long_effect": -0.988787382877737,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat20",
+      "session": "BWRat20_101013",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.177852937438294,
+      "rate_difference_hz": 4.150595798935157,
+      "seconds": [
+        768,
+        8358
+      ],
+      "long_effect": -0.0953368515018711,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat20",
+      "session": "BWRat20_101013",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.5848768012562453,
+      "rate_difference_hz": -22.242668022383477,
+      "seconds": [
+        3907,
+        8099
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat20",
+      "session": "BWRat20_101013",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.7683540699933966,
+      "rate_difference_hz": 26.55242164761851,
+      "seconds": [
+        668,
+        3907
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat20",
+      "session": "BWRat20_101013",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.1834772687371513,
+      "rate_difference_hz": 4.309753625235032,
+      "seconds": [
+        668,
+        8099
+      ],
+      "long_effect": null,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat20",
+      "session": "BWRat20_101013",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.5038066855224472,
+      "rate_difference_hz": -23.801169590643283,
+      "seconds": [
+        3420,
+        3420
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Rizzo",
+      "session": "Rizzo_022715",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.9570756192173901,
+      "rate_difference_hz": -44.021564456403325,
+      "seconds": [
+        10768,
+        13253
+      ],
+      "long_effect": 0.6896531299970113,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Rizzo",
+      "session": "Rizzo_022715",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.7267981475511243,
+      "rate_difference_hz": 63.2614210339305,
+      "seconds": [
+        1748,
+        10768
+      ],
+      "long_effect": -0.5098211129771182,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Rizzo",
+      "session": "Rizzo_022715",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.2302774716662659,
+      "rate_difference_hz": 19.239856577527178,
+      "seconds": [
+        1748,
+        13253
+      ],
+      "long_effect": 0.17983201701989315,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Rizzo",
+      "session": "Rizzo_022715",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.9780869082742936,
+      "rate_difference_hz": -46.22867130252746,
+      "seconds": [
+        10159,
+        12625
+      ],
+      "long_effect": null,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Rizzo",
+      "session": "Rizzo_022715",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.7539291445907672,
+      "rate_difference_hz": 66.36314974478964,
+      "seconds": [
+        1469,
+        10159
+      ],
+      "long_effect": null,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Rizzo",
+      "session": "Rizzo_022715",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.22415776368352636,
+      "rate_difference_hz": 20.13447844226218,
+      "seconds": [
+        1469,
+        12625
+      ],
+      "long_effect": null,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Rizzo",
+      "session": "Rizzo_022715",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 1.0493192737643011,
+      "rate_difference_hz": -50.229251700680265,
+      "seconds": [
+        8820,
+        8820
+      ],
+      "long_effect": null,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat19",
+      "session": "BWRat19_032413",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 1.0995547445192413,
+      "rate_difference_hz": -68.64505063783194,
+      "seconds": [
+        2143,
+        2815
+      ],
+      "long_effect": 0.9488695679536896,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat19",
+      "session": "BWRat19_032413",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 1.1261420145647423,
+      "rate_difference_hz": -72.33762539239488,
+      "seconds": [
+        1983,
+        2645
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat19",
+      "session": "BWRat19_032413",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 1.1400050881252526,
+      "rate_difference_hz": -76.08563218390803,
+      "seconds": [
+        1740,
+        1740
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_061814",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.6442114417932301,
+      "rate_difference_hz": -32.03239698578696,
+      "seconds": [
+        8540,
+        9280
+      ],
+      "long_effect": 0.9184533029901656,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_061814",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.49335841631616595,
+      "rate_difference_hz": 55.45650420301166,
+      "seconds": [
+        1656,
+        8540
+      ],
+      "long_effect": -0.8699048066794777,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_061814",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.15085302547706414,
+      "rate_difference_hz": 23.4241072172247,
+      "seconds": [
+        1656,
+        9280
+      ],
+      "long_effect": 0.048548496310687916,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_061814",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.6444682849769969,
+      "rate_difference_hz": -34.13644085435179,
+      "seconds": [
+        7935,
+        8601
+      ],
+      "long_effect": null,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_061814",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.5412634452360454,
+      "rate_difference_hz": 57.80446697344654,
+      "seconds": [
+        1347,
+        7935
+      ],
+      "long_effect": null,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_061814",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.10320483974095152,
+      "rate_difference_hz": 23.668026119094748,
+      "seconds": [
+        1347,
+        8601
+      ],
+      "long_effect": null,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_061814",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.6019241603274961,
+      "rate_difference_hz": -36.83746312684366,
+      "seconds": [
+        6780,
+        6780
+      ],
+      "long_effect": null,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat18",
+      "session": "BWRat18_020513",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.7052100464921149,
+      "rate_difference_hz": -9.787907002763905,
+      "seconds": [
+        4390,
+        2606
+      ],
+      "long_effect": 0.45529715886245414,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat18",
+      "session": "BWRat18_020513",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -1.1826556064480354,
+      "rate_difference_hz": 9.802998457179246,
+      "seconds": [
+        533,
+        4390
+      ],
+      "long_effect": -0.7197255256045765,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat18",
+      "session": "BWRat18_020513",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.47744555995592053,
+      "rate_difference_hz": 0.015091454415340877,
+      "seconds": [
+        533,
+        2606
+      ],
+      "long_effect": -0.26442836674212233,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat18",
+      "session": "BWRat18_020513",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.7133591713049912,
+      "rate_difference_hz": -10.571422216926802,
+      "seconds": [
+        4200,
+        2398
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat18",
+      "session": "BWRat18_020513",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -1.2292920695221095,
+      "rate_difference_hz": 12.044383753501403,
+      "seconds": [
+        408,
+        4200
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat18",
+      "session": "BWRat18_020513",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.5159328982171184,
+      "rate_difference_hz": 1.4729615365746014,
+      "seconds": [
+        408,
+        2398
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat18",
+      "session": "BWRat18_020513",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.694994042402798,
+      "rate_difference_hz": -11.77254901960784,
+      "seconds": [
+        2040,
+        2040
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat20",
+      "session": "BWRat20_101513",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.6613123168466373,
+      "rate_difference_hz": -10.701597401905033,
+      "seconds": [
+        12105,
+        8290
+      ],
+      "long_effect": 0.6394103788586692,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat20",
+      "session": "BWRat20_101513",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.724555495668133,
+      "rate_difference_hz": 32.06928391723932,
+      "seconds": [
+        2310,
+        12105
+      ],
+      "long_effect": -0.6706086917219812,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat20",
+      "session": "BWRat20_101513",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.06324317882149577,
+      "rate_difference_hz": 21.367686515334285,
+      "seconds": [
+        2310,
+        8290
+      ],
+      "long_effect": -0.031198312863311983,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat20",
+      "session": "BWRat20_101513",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.6488509495741723,
+      "rate_difference_hz": -11.38292723000788,
+      "seconds": [
+        11048,
+        7003
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat20",
+      "session": "BWRat20_101513",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6611510197694885,
+      "rate_difference_hz": 34.52161926937289,
+      "seconds": [
+        1763,
+        11048
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat20",
+      "session": "BWRat20_101513",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.012300070195316204,
+      "rate_difference_hz": 23.13869203936501,
+      "seconds": [
+        1763,
+        7003
+      ],
+      "long_effect": null,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat20",
+      "session": "BWRat20_101513",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.6639515273947239,
+      "rate_difference_hz": -13.182437275985656,
+      "seconds": [
+        5580,
+        5580
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Rizzo",
+      "session": "Rizzo_022615",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.6878436903543743,
+      "rate_difference_hz": -13.545826736442564,
+      "seconds": [
+        21573,
+        16408
+      ],
+      "long_effect": 0.6366859441293181,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Rizzo",
+      "session": "Rizzo_022615",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.4481641013126052,
+      "rate_difference_hz": 14.717506197285019,
+      "seconds": [
+        2278,
+        21573
+      ],
+      "long_effect": -0.41176656702561454,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Rizzo",
+      "session": "Rizzo_022615",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.23967958904176911,
+      "rate_difference_hz": 1.171679460842455,
+      "seconds": [
+        2278,
+        16408
+      ],
+      "long_effect": 0.22491937710370358,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Rizzo",
+      "session": "Rizzo_022615",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.6944226049790438,
+      "rate_difference_hz": -14.371734389587559,
+      "seconds": [
+        20474,
+        15058
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Rizzo",
+      "session": "Rizzo_022615",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.4311851931762647,
+      "rate_difference_hz": 15.488673251628697,
+      "seconds": [
+        1872,
+        20474
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Rizzo",
+      "session": "Rizzo_022615",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.26323741180277915,
+      "rate_difference_hz": 1.1169388620411382,
+      "seconds": [
+        1872,
+        15058
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Rizzo",
+      "session": "Rizzo_022615",
+      "context": "HOME",
+      "region": "OFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.7199982157583893,
+      "rate_difference_hz": -16.403565891472873,
+      "seconds": [
+        12900,
+        12900
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072114",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.3658625628970369,
+      "rate_difference_hz": 4.921696757494249,
+      "seconds": [
+        2249,
+        5260
+      ],
+      "long_effect": 0.40140063891696076,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072114",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.4656875838494896,
+      "rate_difference_hz": 6.373161754664647,
+      "seconds": [
+        407,
+        2249
+      ],
+      "long_effect": -0.5229997612744307,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072114",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.09982502095245271,
+      "rate_difference_hz": 11.294858512158896,
+      "seconds": [
+        407,
+        5260
+      ],
+      "long_effect": -0.12159912235746995,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072114",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.3681657322182015,
+      "rate_difference_hz": 4.994143262636413,
+      "seconds": [
+        2109,
+        5110
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072114",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.5057364467826369,
+      "rate_difference_hz": 6.60051059233621,
+      "seconds": [
+        367,
+        2109
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072114",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.13757071456443537,
+      "rate_difference_hz": 11.594653854972623,
+      "seconds": [
+        367,
+        5110
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072114",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.3656102786787092,
+      "rate_difference_hz": 4.663020833333331,
+      "seconds": [
+        1920,
+        1920
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_062014",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": -0.30317553146543985,
+      "rate_difference_hz": -29.123472429402923,
+      "seconds": [
+        9768,
+        10446
+      ],
+      "long_effect": 0.07213854964821709,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_062014",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": 0.5641206241066996,
+      "rate_difference_hz": 61.207391523464736,
+      "seconds": [
+        1994,
+        9768
+      ],
+      "long_effect": -0.010955577712344233,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_062014",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.26094509264125976,
+      "rate_difference_hz": 32.08391909406181,
+      "seconds": [
+        1994,
+        10446
+      ],
+      "long_effect": 0.061182971935872854,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_062014",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": -0.302916312950537,
+      "rate_difference_hz": -30.394987664915924,
+      "seconds": [
+        9173,
+        9858
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_062014",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": 0.5890162221911319,
+      "rate_difference_hz": 62.798033509569954,
+      "seconds": [
+        1735,
+        9173
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_062014",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.2860999092405949,
+      "rate_difference_hz": 32.40304584465403,
+      "seconds": [
+        1735,
+        9858
+      ],
+      "long_effect": null,
+      "model_deviation": false
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_062014",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": -0.3036690266898263,
+      "rate_difference_hz": -32.3116049382716,
+      "seconds": [
+        8100,
+        8100
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat17",
+      "session": "BWRat17_121912",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.08481646136220888,
+      "rate_difference_hz": -0.04239057183714934,
+      "seconds": [
+        3665,
+        2573
+      ],
+      "long_effect": 0.2796011089372561,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat17",
+      "session": "BWRat17_121912",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.15801786183501854,
+      "rate_difference_hz": 7.929829215299886,
+      "seconds": [
+        216,
+        3665
+      ],
+      "long_effect": -0.2753055847831424,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat17",
+      "session": "BWRat17_121912",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.07320140047280965,
+      "rate_difference_hz": 7.887438643462737,
+      "seconds": [
+        216,
+        2573
+      ],
+      "long_effect": 0.004295524154113717,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat17",
+      "session": "BWRat17_121912",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.13054632220967854,
+      "rate_difference_hz": -0.5266662084499281,
+      "seconds": [
+        3358,
+        2227
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat17",
+      "session": "BWRat17_121912",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.17770590830625066,
+      "rate_difference_hz": 9.591944609886838,
+      "seconds": [
+        168,
+        3358
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat17",
+      "session": "BWRat17_121912",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.047159586096572115,
+      "rate_difference_hz": 9.06527840143691,
+      "seconds": [
+        168,
+        2227
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat17",
+      "session": "BWRat17_121912",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.1457425388689524,
+      "rate_difference_hz": -1.8434523809523746,
+      "seconds": [
+        1680,
+        1680
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat17",
+      "session": "BWRat17_121712",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.37339326813230267,
+      "rate_difference_hz": -13.255368852408374,
+      "seconds": [
+        1453,
+        4456
+      ],
+      "long_effect": 0.5921879148565437,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat17",
+      "session": "BWRat17_121712",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.3898036149718509,
+      "rate_difference_hz": -13.636236642234849,
+      "seconds": [
+        1323,
+        4287
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat17",
+      "session": "BWRat17_121712",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.3001973278664367,
+      "rate_difference_hz": -14.584259259259255,
+      "seconds": [
+        1080,
+        1080
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072314",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.4563935681090401,
+      "rate_difference_hz": -2.107215977720351,
+      "seconds": [
+        4436,
+        4406
+      ],
+      "long_effect": 0.40212177838702756,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072314",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.5184442300539507,
+      "rate_difference_hz": 14.114891476271062,
+      "seconds": [
+        1403,
+        4436
+      ],
+      "long_effect": -0.4419533301283214,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072314",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.0620506619449106,
+      "rate_difference_hz": 12.00767549855071,
+      "seconds": [
+        1403,
+        4406
+      ],
+      "long_effect": -0.039831551741293825,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072314",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.45796243894649313,
+      "rate_difference_hz": -2.2787884683009523,
+      "seconds": [
+        4196,
+        4126
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072314",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.5546322402347412,
+      "rate_difference_hz": 14.737039756858131,
+      "seconds": [
+        1254,
+        4196
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072314",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.09666980128824809,
+      "rate_difference_hz": 12.458251288557179,
+      "seconds": [
+        1254,
+        4126
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "Dino",
+      "session": "Dino_072314",
+      "context": "HOME",
+      "region": "mPFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.3719697644581563,
+      "rate_difference_hz": -2.6030555555555495,
+      "seconds": [
+        3600,
+        3600
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    }
+  ],
+  "per_animal_region": [
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.2601749685907647,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.17770590830625066,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.047159586096572115,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "region": "ACC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.22296993336769455,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.22910486474725578,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.15801786183501854,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.07320140047280965,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat18",
+      "region": "MotorCtx",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.7133591713049912,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat18",
+      "region": "MotorCtx",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -1.2292920695221095,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat18",
+      "region": "MotorCtx",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.5159328982171184,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat18",
+      "region": "MotorCtx",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.694994042402798,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat18",
+      "region": "MotorCtx",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.7052100464921149,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat18",
+      "region": "MotorCtx",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -1.1826556064480354,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat18",
+      "region": "MotorCtx",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.47744555995592053,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat19",
+      "region": "MotorCtx",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 1.084512223653944,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat19",
+      "region": "MotorCtx",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.8294145131064284,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat19",
+      "region": "MotorCtx",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.2134679196367173,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat19",
+      "region": "MotorCtx",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 1.1271249007904633,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat19",
+      "region": "MotorCtx",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 1.0558131996828608,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat19",
+      "region": "MotorCtx",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.8310016700700343,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat19",
+      "region": "MotorCtx",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.18106998477644587,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat20",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.6168638754152088,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat20",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.7147525448814426,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat20",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.09788866946623376,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat20",
+      "region": "ACC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.5838791064585855,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat20",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.6297029647474771,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat20",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.750251022877372,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat20",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.12054805812989489,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat21",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.47331768975867244,
+      "sessions": 3
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat21",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6414145754364396,
+      "sessions": 3
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat21",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.16809688567776723,
+      "sessions": 3
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat21",
+      "region": "mPFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.4916136182477396,
+      "sessions": 3
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat21",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.4625934170028738,
+      "sessions": 3
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat21",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6195485943856275,
+      "sessions": 3
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat21",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.1569551773827537,
+      "sessions": 3
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Bogey",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.5446301371762474,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Bogey",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.671207479109367,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Bogey",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.12657734193311954,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Bogey",
+      "region": "mPFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.49932011273776733,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Bogey",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.5571976903529081,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Bogey",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6789930489764002,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Bogey",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.12179535862349211,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Dino",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.33310667273023037,
+      "sessions": 5
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Dino",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.2933667487189352,
+      "sessions": 5
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Dino",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.03973992401129518,
+      "sessions": 5
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Dino",
+      "region": "mPFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.2929613152964896,
+      "sessions": 5
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Dino",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.3305725347016168,
+      "sessions": 5
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Dino",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.26543597978363215,
+      "sessions": 5
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Dino",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.06513655491798467,
+      "sessions": 5
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Rizzo",
+      "region": "OFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.8362547566266687,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Rizzo",
+      "region": "OFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.592557168883516,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Rizzo",
+      "region": "OFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.24369758774315275,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Rizzo",
+      "region": "OFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.8846587447613452,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Rizzo",
+      "region": "OFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.8224596547858822,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Rizzo",
+      "region": "OFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.5874811244318647,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Rizzo",
+      "region": "OFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.2349785303540175,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Splinter",
+      "region": "OFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.910739466096203,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Splinter",
+      "region": "OFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.5718954458240216,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Splinter",
+      "region": "OFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.33884402027218147,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Splinter",
+      "region": "OFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.9233865472533741,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Splinter",
+      "region": "OFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.8929244742858423,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Splinter",
+      "region": "OFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.5838055131340648,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Splinter",
+      "region": "OFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.3091189611517775,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Templeton",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.18066590212313116,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Templeton",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.09344536345368493,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Templeton",
+      "region": "mPFC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.08722053866944623,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Templeton",
+      "region": "mPFC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.2134252560223433,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Templeton",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.14701786052080035,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Templeton",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.0883295501459842,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Templeton",
+      "region": "mPFC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.058688310374816144,
+      "sessions": 1
+    }
+  ],
+  "per_animal_dataset": [
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.2601749685907647,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.17770590830625066,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.047159586096572115,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.22296993336769455,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.22910486474725578,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.15801786183501854,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.07320140047280965,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat18",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.7133591713049912,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat18",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -1.2292920695221095,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat18",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.5159328982171184,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat18",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.694994042402798,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat18",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.7052100464921149,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat18",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -1.1826556064480354,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat18",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.47744555995592053,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat19",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 1.084512223653944,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat19",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.8294145131064284,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat19",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.2134679196367173,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat19",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 1.1271249007904633,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat19",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 1.0558131996828608,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat19",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.8310016700700343,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat19",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.18106998477644587,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat20",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.6168638754152088,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat20",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.7147525448814426,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat20",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.09788866946623376,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat20",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.5838791064585855,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat20",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.6297029647474771,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat20",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.750251022877372,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat20",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.12054805812989489,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat21",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.47331768975867244,
+      "sessions": 3
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat21",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6414145754364396,
+      "sessions": 3
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat21",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.16809688567776723,
+      "sessions": 3
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat21",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.4916136182477396,
+      "sessions": 3
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat21",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.4625934170028738,
+      "sessions": 3
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat21",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6195485943856275,
+      "sessions": 3
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat21",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.1569551773827537,
+      "sessions": 3
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Bogey",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.5446301371762474,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Bogey",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.671207479109367,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Bogey",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.12657734193311954,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Bogey",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.49932011273776733,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Bogey",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.5571976903529081,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Bogey",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6789930489764002,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Bogey",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.12179535862349211,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Dino",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.33310667273023037,
+      "sessions": 5
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Dino",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.2933667487189352,
+      "sessions": 5
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Dino",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.03973992401129518,
+      "sessions": 5
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Dino",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.2929613152964896,
+      "sessions": 5
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Dino",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.3305725347016168,
+      "sessions": 5
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Dino",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.26543597978363215,
+      "sessions": 5
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Dino",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.06513655491798467,
+      "sessions": 5
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Rizzo",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.8362547566266687,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Rizzo",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.592557168883516,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Rizzo",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.24369758774315275,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Rizzo",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.8846587447613452,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Rizzo",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.8224596547858822,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Rizzo",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.5874811244318647,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Rizzo",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.2349785303540175,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Splinter",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.910739466096203,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Splinter",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.5718954458240216,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Splinter",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.33884402027218147,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Splinter",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.9233865472533741,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Splinter",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.8929244742858423,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Splinter",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.5838055131340648,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Splinter",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.3091189611517775,
+      "sessions": 2
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Templeton",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.18066590212313116,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Templeton",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.09344536345368493,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Templeton",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.08722053866944623,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Templeton",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.2134252560223433,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Templeton",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.14701786052080035,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Templeton",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.0883295501459842,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "Templeton",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": 0.058688310374816144,
+      "sessions": 1
+    }
+  ],
+  "paired_cross_region_sessions": [],
+  "reference_model_diagnostics": [
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "region": "ACC",
+      "state": "NREM",
+      "animals": 2,
+      "fits": 4,
+      "model_deviation_count": 4,
+      "diagnostic_medians": {
+        "duration_s": 3916.0,
+        "rate_hz": 55.37280934937455,
+        "count_variance": 5.064045819820327,
+        "fano": 2.27659528653544,
+        "zero_fraction": 0.3200735797984062,
+        "silence_p95_s": 0.26,
+        "residual_excess_kurtosis": 1.9356216898653669,
+        "residual_abs_tail_over_3sd": 0.012403521690962047,
+        "acf_rmse": 0.017088222541240847,
+        "max_abs_residual_acf_20": 0.012952065960759838
+      }
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "region": "ACC",
+      "state": "REM",
+      "animals": 2,
+      "fits": 3,
+      "model_deviation_count": 1,
+      "diagnostic_medians": {
+        "duration_s": 768.0,
+        "rate_hz": 88.75911458333333,
+        "count_variance": 4.130275908745693,
+        "fano": 1.1642356707779478,
+        "zero_fraction": 0.04010416666666667,
+        "silence_p95_s": 0.08,
+        "residual_excess_kurtosis": 0.982968452340117,
+        "residual_abs_tail_over_3sd": 0.007866341802993386,
+        "acf_rmse": 0.0764061773098823,
+        "max_abs_residual_acf_20": 0.03563020842029954
+      }
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "region": "ACC",
+      "state": "Wake",
+      "animals": 2,
+      "fits": 4,
+      "model_deviation_count": 2,
+      "diagnostic_medians": {
+        "duration_s": 6373.0,
+        "rate_hz": 67.68183257607421,
+        "count_variance": 3.7478618807569157,
+        "fano": 1.23457618946092,
+        "zero_fraction": 0.11056567580502996,
+        "silence_p95_s": 0.1,
+        "residual_excess_kurtosis": 1.0229908909639556,
+        "residual_abs_tail_over_3sd": 0.008317899106430935,
+        "acf_rmse": 0.06831401616361815,
+        "max_abs_residual_acf_20": 0.03507646018935649
+      }
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "state": "NREM",
+      "animals": 2,
+      "fits": 3,
+      "model_deviation_count": 3,
+      "diagnostic_medians": {
+        "duration_s": 2223.0,
+        "rate_hz": 102.10592627158191,
+        "count_variance": 12.83555460922916,
+        "fano": 3.142705589656246,
+        "zero_fraction": 0.22814745683621093,
+        "silence_p95_s": 0.32,
+        "residual_excess_kurtosis": 1.868640838262337,
+        "residual_abs_tail_over_3sd": 0.00988877465183662,
+        "acf_rmse": 0.033144546063872654,
+        "max_abs_residual_acf_20": 0.02285257046883044
+      }
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "state": "REM",
+      "animals": 2,
+      "fits": 2,
+      "model_deviation_count": 2,
+      "diagnostic_medians": {
+        "duration_s": 411.0,
+        "rate_hz": 118.5787083622766,
+        "count_variance": 8.67980229663919,
+        "fano": 1.7407041509467733,
+        "zero_fraction": 0.16942916312314574,
+        "silence_p95_s": 0.12000000000000001,
+        "residual_excess_kurtosis": 1.5439730237000895,
+        "residual_abs_tail_over_3sd": 0.010209904474610357,
+        "acf_rmse": 0.14430362515457684,
+        "max_abs_residual_acf_20": 0.07810393567631932
+      }
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "region": "MotorCtx",
+      "state": "Wake",
+      "animals": 2,
+      "fits": 3,
+      "model_deviation_count": 2,
+      "diagnostic_medians": {
+        "duration_s": 2606.0,
+        "rate_hz": 167.77435897435896,
+        "count_variance": 10.60532998071218,
+        "fano": 1.5527480680737888,
+        "zero_fraction": 0.006323268206039076,
+        "silence_p95_s": 0.08,
+        "residual_excess_kurtosis": 0.6010414984143964,
+        "residual_abs_tail_over_3sd": 0.005935938877461064,
+        "acf_rmse": 0.08879017693246763,
+        "max_abs_residual_acf_20": 0.04710412030948843
+      }
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "region": "OFC",
+      "state": "NREM",
+      "animals": 2,
+      "fits": 4,
+      "model_deviation_count": 3,
+      "diagnostic_medians": {
+        "duration_s": 13113.0,
+        "rate_hz": 67.31130184002046,
+        "count_variance": 6.988690819665381,
+        "fano": 2.4952751503211323,
+        "zero_fraction": 0.2368146353215169,
+        "silence_p95_s": 0.2,
+        "residual_excess_kurtosis": 1.6484773814626803,
+        "residual_abs_tail_over_3sd": 0.01091168700333777,
+        "acf_rmse": 0.026330693052953144,
+        "max_abs_residual_acf_20": 0.01620046931734699
+      }
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "region": "OFC",
+      "state": "REM",
+      "animals": 2,
+      "fits": 4,
+      "model_deviation_count": 2,
+      "diagnostic_medians": {
+        "duration_s": 1980.5,
+        "rate_hz": 83.3146552795408,
+        "count_variance": 4.415783054990467,
+        "fano": 1.2012202922556665,
+        "zero_fraction": 0.05956842245805399,
+        "silence_p95_s": 0.08,
+        "residual_excess_kurtosis": 0.7038776396817392,
+        "residual_abs_tail_over_3sd": 0.006724016752219584,
+        "acf_rmse": 0.0705017030109571,
+        "max_abs_residual_acf_20": 0.044100158818093926
+      }
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "region": "OFC",
+      "state": "Wake",
+      "animals": 2,
+      "fits": 4,
+      "model_deviation_count": 3,
+      "diagnostic_medians": {
+        "duration_s": 11071.0,
+        "rate_hz": 90.04672228134203,
+        "count_variance": 6.222073281157069,
+        "fano": 1.4756555709796457,
+        "zero_fraction": 0.07666543252802221,
+        "silence_p95_s": 0.1,
+        "residual_excess_kurtosis": 1.0030080685522058,
+        "residual_abs_tail_over_3sd": 0.008213611451817107,
+        "acf_rmse": 0.09319595967196508,
+        "max_abs_residual_acf_20": 0.04445439167209519
+      }
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "region": "mPFC",
+      "state": "NREM",
+      "animals": 4,
+      "fits": 10,
+      "model_deviation_count": 8,
+      "diagnostic_medians": {
+        "duration_s": 8963.5,
+        "rate_hz": 39.623095013166136,
+        "count_variance": 2.7918011115464414,
+        "fano": 1.7621075908592363,
+        "zero_fraction": 0.3295904103837904,
+        "silence_p95_s": 0.28,
+        "residual_excess_kurtosis": 2.3971541459168932,
+        "residual_abs_tail_over_3sd": 0.013400911619276857,
+        "acf_rmse": 0.023431541434417433,
+        "max_abs_residual_acf_20": 0.01920815382848201
+      }
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "region": "mPFC",
+      "state": "REM",
+      "animals": 4,
+      "fits": 10,
+      "model_deviation_count": 5,
+      "diagnostic_medians": {
+        "duration_s": 1825.0,
+        "rate_hz": 55.74219838317231,
+        "count_variance": 2.7024715394669925,
+        "fano": 1.1368162526734473,
+        "zero_fraction": 0.1372194438781295,
+        "silence_p95_s": 0.08,
+        "residual_excess_kurtosis": 1.108739245855357,
+        "residual_abs_tail_over_3sd": 0.008499134304636047,
+        "acf_rmse": 0.05898221334147715,
+        "max_abs_residual_acf_20": 0.042663951533606456
+      }
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "region": "mPFC",
+      "state": "Wake",
+      "animals": 4,
+      "fits": 10,
+      "model_deviation_count": 6,
+      "diagnostic_medians": {
+        "duration_s": 8336.0,
+        "rate_hz": 43.57651932202038,
+        "count_variance": 2.2013613562932193,
+        "fano": 1.1554078655438902,
+        "zero_fraction": 0.21824124182846794,
+        "silence_p95_s": 0.12,
+        "residual_excess_kurtosis": 1.8136201212118057,
+        "residual_abs_tail_over_3sd": 0.0079054964785988,
+        "acf_rmse": 0.0587934537259531,
+        "max_abs_residual_acf_20": 0.036053027749507666
+      }
+    }
+  ]
+}

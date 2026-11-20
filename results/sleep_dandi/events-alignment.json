@@ -1,0 +1,154 @@
+{
+  "scope": "Independent author-event expansion, bin containment, nonoverlap, duration, peak count and interval union checks",
+  "fixture_sha256": "6a32a7dac394236d3176c6ce8e99447b8c3cb073f23397f65cec5bb9b5ca9cff",
+  "verified": 1875,
+  "windows": [
+    {
+      "dandiset": "000061",
+      "version": "0.250624.0426",
+      "asset_id": "bf4b6c69-8df1-466c-b43a-1d25348f8220",
+      "subject": "Rat08",
+      "session": "Rat08-20130717",
+      "source": "stimulus/presentation/rip",
+      "source_events": 7857,
+      "contexts": {
+        "PRE": {
+          "windows_60s": 66,
+          "windows_120s": 33
+        },
+        "POST": {
+          "windows_60s": 46,
+          "windows_120s": 23
+        }
+      }
+    },
+    {
+      "dandiset": "000061",
+      "version": "0.250624.0426",
+      "asset_id": "980fa56f-3bd1-4c48-90c2-18c75a8f288d",
+      "subject": "Rat10",
+      "session": "Rat10-20140701",
+      "source": "stimulus/presentation/rip",
+      "source_events": 9275,
+      "contexts": {
+        "PRE": {
+          "windows_60s": 84,
+          "windows_120s": 42
+        },
+        "POST": {
+          "windows_60s": 60,
+          "windows_120s": 30
+        }
+      }
+    },
+    {
+      "dandiset": "000061",
+      "version": "0.250624.0426",
+      "asset_id": "e987b8bc-7de8-4c32-8598-2b40bc3e25d5",
+      "subject": "Rat11",
+      "session": "Rat11-20150326",
+      "source": "stimulus/presentation/rip",
+      "source_events": 3823,
+      "contexts": {
+        "PRE": {
+          "windows_60s": 60,
+          "windows_120s": 30
+        },
+        "POST": {
+          "windows_60s": 52,
+          "windows_120s": 26
+        }
+      }
+    },
+    {
+      "dandiset": "000552",
+      "version": "0.261113.1035",
+      "asset_id": "6420e68b-9b79-4f51-95d3-f53ad7ce023d",
+      "subject": "e13_1f1",
+      "session": "e13_1f1_200228",
+      "source": "processing/ecephys/Ripples",
+      "source_events": 5827,
+      "contexts": {
+        "HOME": {
+          "windows_60s": 128,
+          "windows_120s": 64
+        }
+      }
+    },
+    {
+      "dandiset": "000552",
+      "version": "0.261113.1035",
+      "asset_id": "4ceac11e-8f09-40de-8660-b00550dd41c4",
+      "subject": "e13_1m1",
+      "session": "e13_1m1_200224",
+      "source": "processing/ecephys/Ripples",
+      "source_events": 5425,
+      "contexts": {
+        "HOME": {
+          "windows_60s": 208,
+          "windows_120s": 104
+        }
+      }
+    },
+    {
+      "dandiset": "000552",
+      "version": "0.261113.1035",
+      "asset_id": "cc7d4555-38a7-4634-ba3c-43c41904c30e",
+      "subject": "e14_1m1",
+      "session": "e14_1m1_200212",
+      "source": "processing/ecephys/Ripples",
+      "source_events": 4695,
+      "contexts": {
+        "HOME": {
+          "windows_60s": 134,
+          "windows_120s": 67
+        }
+      }
+    },
+    {
+      "dandiset": "000552",
+      "version": "0.261113.1035",
+      "asset_id": "3dd65e10-04fe-4536-91a6-38be9c0aa2ba",
+      "subject": "e15_4m1",
+      "session": "e15_4m1_191203",
+      "source": "processing/ecephys/Ripples",
+      "source_events": 5087,
+      "contexts": {
+        "HOME": {
+          "windows_60s": 162,
+          "windows_120s": 81
+        }
+      }
+    },
+    {
+      "dandiset": "000552",
+      "version": "0.261113.1035",
+      "asset_id": "a6ce4233-9c4f-4fbb-ab6f-8bf37f923e1f",
+      "subject": "e15_4m2",
+      "session": "e15_4m2_191213",
+      "source": "processing/ecephys/Ripples",
+      "source_events": 3525,
+      "contexts": {
+        "HOME": {
+          "windows_60s": 104,
+          "windows_120s": 52
+        }
+      }
+    },
+    {
+      "dandiset": "000552",
+      "version": "0.261113.1035",
+      "asset_id": "6cdee910-eb88-4908-833a-980f620ddcfb",
+      "subject": "e15_5m1",
+      "session": "e15_5m1_200314",
+      "source": "processing/ecephys/Ripples",
+      "source_events": 6770,
+      "contexts": {
+        "HOME": {
+          "windows_60s": 146,
+          "windows_120s": 73
+        }
+      }
+    }
+  ]
+}

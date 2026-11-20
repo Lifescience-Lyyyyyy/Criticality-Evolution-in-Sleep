@@ -1,0 +1,328 @@
+{
+  "schema_version": 1,
+  "run_id": "44679472413",
+  "session_contrasts": [
+    {
+      "dandiset": "000041",
+      "subject": "BWRat17",
+      "session": "BWRat17_121912",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.08481646136220888,
+      "rate_difference_hz": -0.04239057183714934,
+      "seconds": [
+        3665,
+        2573
+      ],
+      "long_effect": 0.2796011089372561,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat17",
+      "session": "BWRat17_121912",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.15801786183501854,
+      "rate_difference_hz": 7.929829215299886,
+      "seconds": [
+        216,
+        3665
+      ],
+      "long_effect": -0.2753055847831424,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat17",
+      "session": "BWRat17_121912",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.07320140047280965,
+      "rate_difference_hz": 7.887438643462737,
+      "seconds": [
+        216,
+        2573
+      ],
+      "long_effect": 0.004295524154113717,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat17",
+      "session": "BWRat17_121912",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.13054632220967854,
+      "rate_difference_hz": -0.5266662084499281,
+      "seconds": [
+        3358,
+        2227
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat17",
+      "session": "BWRat17_121912",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.17770590830625066,
+      "rate_difference_hz": 9.591944609886838,
+      "seconds": [
+        168,
+        3358
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat17",
+      "session": "BWRat17_121912",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.047159586096572115,
+      "rate_difference_hz": 9.06527840143691,
+      "seconds": [
+        168,
+        2227
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "000041",
+      "subject": "BWRat17",
+      "session": "BWRat17_121912",
+      "context": "HOME",
+      "region": "ACC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.1457425388689524,
+      "rate_difference_hz": -1.8434523809523746,
+      "seconds": [
+        1680,
+        1680
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    }
+  ],
+  "per_animal_region": [
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.13054632220967854,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.17770590830625066,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "region": "ACC",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.047159586096572115,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "region": "ACC",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.1457425388689524,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.08481646136220888,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.15801786183501854,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "region": "ACC",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.07320140047280965,
+      "sessions": 1
+    }
+  ],
+  "per_animal_dataset": [
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "variant": "edge_trim",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.13054632220967854,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.17770590830625066,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.047159586096572115,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "variant": "equal_duration",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.1457425388689524,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "variant": "reference",
+      "contrast": "NREM_minus_Wake",
+      "effect": 0.08481646136220888,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.15801786183501854,
+      "sessions": 1
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "subject": "BWRat17",
+      "variant": "reference",
+      "contrast": "REM_minus_Wake",
+      "effect": -0.07320140047280965,
+      "sessions": 1
+    }
+  ],
+  "paired_cross_region_sessions": [],
+  "reference_model_diagnostics": [
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "region": "ACC",
+      "state": "NREM",
+      "animals": 1,
+      "fits": 1,
+      "model_deviation_count": 1,
+      "diagnostic_medians": {
+        "duration_s": 3665.0,
+        "rate_hz": 30.523874488403816,
+        "count_variance": 2.0016782148899446,
+        "fano": 1.6394365463421041,
+        "zero_fraction": 0.40678854024556615,
+        "silence_p95_s": 0.24,
+        "residual_excess_kurtosis": 2.325020768805299,
+        "residual_abs_tail_over_3sd": 0.013621952552749535,
+        "acf_rmse": 0.017788149611306127,
+        "max_abs_residual_acf_20": 0.012533938998320851
+      }
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "region": "ACC",
+      "state": "REM",
+      "animals": 1,
+      "fits": 1,
+      "model_deviation_count": 1,
+      "diagnostic_medians": {
+        "duration_s": 216.0,
+        "rate_hz": 38.4537037037037,
+        "count_variance": 1.7907669410151175,
+        "fano": 1.1642356707779478,
+        "zero_fraction": 0.23425925925925925,
+        "silence_p95_s": 0.12,
+        "residual_excess_kurtosis": 1.418751790646569,
+        "residual_abs_tail_over_3sd": 0.009674418604651163,
+        "acf_rmse": 0.05291887078826708,
+        "max_abs_residual_acf_20": 0.04038232967643608
+      }
+    },
+    {
+      "dandiset": "000041",
+      "context": "HOME",
+      "region": "ACC",
+      "state": "Wake",
+      "animals": 1,
+      "fits": 1,
+      "model_deviation_count": 1,
+      "diagnostic_medians": {
+        "duration_s": 2573.0,
+        "rate_hz": 30.566265060240966,
+        "count_variance": 1.4606016023675168,
+        "fano": 1.1946189692205744,
+        "zero_fraction": 0.3264827050136028,
+        "silence_p95_s": 0.16,
+        "residual_excess_kurtosis": 1.666313555179828,
+        "residual_abs_tail_over_3sd": 0.010818394388152767,
+        "acf_rmse": 0.05995912086094307,
+        "max_abs_residual_acf_20": 0.03664930679895155
+      }
+    }
+  ]
+}
