@@ -9,7 +9,8 @@ input = load(fullfile('data','fixtures',receipt.fixture),'cohort');
 ids = fieldnames(input.cohort);
 assert(numel(ids) == receipt.records);
 timer = tic;
-pilot = numel(receipt.asset_ids) == 1 && receipt.swr_windows == 0;
+controls_mode = isfield(receipt,'mode') && strcmp(receipt.mode,'controls');
+pilot = numel(receipt.asset_ids) == 1 && receipt.swr_windows == 0 && ~controls_mode;
 reference = strcmp(arrayfun(@(i) variant(input.cohort.(ids{i})),1:numel(ids),'UniformOutput',false),'reference');
 original = nan(size(ids));
 if pilot
@@ -22,24 +23,28 @@ if pilot
 end
 
 cleanup = trace_solver(src);
-rows = struct([]);
-for i = 1:numel(ids)
-    item = input.cohort.(ids{i});
-    m = jsondecode(item.metadata);
-    c = counts(item);
-    fit = estimate(c,config.ar_order,config);
-    if pilot && reference(i)
-        assert(is_valid(fit) && abs(fit.d2-original(i)) < 1e-8, ...
-            'Pilot fit or original-vs-diagnostic replay failed.');
-    end
-    row = struct('record',m,'fit',fit,'long_reach',[]);
-    if reference(i)
-        row.long_reach = estimate(c,config.long_ar_order,config);
-    end
-    rows = [rows,row]; %#ok<AGROW>
-    if reference(i) || mod(i,50)==0
-        fprintf('%s %s %s %s, %d segments, flag %g, d2 %.8g\n', ...
-            m.session,m.region,m.context,m.state,numel(c),fit.solver_flag,fit.d2);
+if controls_mode
+    rows = controls(input.cohort,ids,config);
+else
+    rows = struct([]);
+    for i = 1:numel(ids)
+        item = input.cohort.(ids{i});
+        m = jsondecode(item.metadata);
+        c = counts(item);
+        fit = estimate(c,config.ar_order,config);
+        if pilot && reference(i)
+            assert(is_valid(fit) && abs(fit.d2-original(i)) < 1e-8, ...
+                'Pilot fit or original-vs-diagnostic replay failed.');
+        end
+        row = struct('record',m,'fit',fit,'long_reach',[]);
+        if reference(i)
+            row.long_reach = estimate(c,config.long_ar_order,config);
+        end
+        rows = [rows,row]; %#ok<AGROW>
+        if reference(i) || mod(i,50)==0
+            fprintf('%s %s %s %s, %d segments, flag %g, d2 %.8g\n', ...
+                m.session,m.region,m.context,m.state,numel(c),fit.solver_flag,fit.d2);
+        end
     end
 end
 clear cleanup
@@ -62,7 +67,7 @@ if any(reference)
     primary = [rows(reference).fit];
     assert(any(arrayfun(@is_valid,primary)), 'No valid primary estimates. See diagnostics.');
 else
-    assert(any(arrayfun(@is_valid,[rows.fit])), 'No valid window estimates.');
+    assert(any(arrayfun(@is_valid,[rows.fit])), 'No valid controls or window estimates.');
 end
 end
 
@@ -150,4 +155,96 @@ for i = 1:numel(series)
     end
 end
 acf = num./den/v;
+end
+
+function rows = controls(cohort,ids,config)
+% Equal-exposure sensitivity cohorts, prespecified from audit metadata.
+meta = cell(numel(ids),1);
+spike_matrices = cell(size(meta));
+means = zeros(size(meta));
+groups = strings(size(meta));
+for i = 1:numel(ids)
+    item = cohort.(ids{i});
+    meta{i} = jsondecode(item.metadata);
+    r = meta{i};
+    spike_matrices{i} = item.counts(:);
+    c = cellfun(@(x)sum(double(x),1),spike_matrices{i},'UniformOutput',false);
+    means(i) = mean([c{:}]);
+    groups(i) = string(r.asset_id) + "|" + string(r.context) + "|" + string(r.region);
+end
+[~,~,index] = unique(groups);
+rows = struct([]);
+for i = 1:numel(ids)
+    m = meta{i};
+    cells = spike_matrices{i};
+    source = cellfun(@(x)sum(double(x),1),cells,'UniformOutput',false);
+    target = min(means(index == index(i)));
+    if target <= 0, continue, end
+    baseline = light_fit(source,config);
+    r = m;
+    r.variant = 'matched_controls_reference';
+    r.seed = NaN;
+    r.iteration = 0;
+    rows = [rows,struct('record',r,'fit',baseline,'long_reach',[])]; %#ok<AGROW>
+    for k = 1:config.repetitions
+        seed = config.seed + 1000*index(i)+k;
+        n = size(cells{1},1);
+        stream = RandStream('mt19937ar','Seed',seed);
+        selected = randperm(stream,n,m.target_units);
+        fitted = baseline;
+        if n ~= m.target_units
+            sampled = cellfun(@(x)sum(double(x(selected,:)),1),cells,'UniformOutput',false);
+            fitted = light_fit(sampled,config);
+        end
+        r = m;
+        r.variant = 'unit_count';
+        r.unit_count = m.target_units;
+        r.iteration = k;
+        r.seed = seed;
+        rows = [rows,struct('record',r,'fit',fitted,'long_reach',[])]; %#ok<AGROW>
+
+        r = m;
+        r.variant = 'rate_thinning';
+        r.unit_count = n;
+        r.iteration = k;
+        r.seed = seed + 10^6 + 100000*strcmp(m.state,'Wake');
+        r.target_rate_hz = target/config.bin_seconds;
+        fitted = baseline;
+        if target < means(i)
+            stream = RandStream('mt19937ar','Seed',r.seed);
+            fitted = light_fit(thin(source,target/means(i),stream),config);
+        end
+        rows = [rows,struct('record',r,'fit',fitted,'long_reach',[])]; %#ok<AGROW>
+    end
+    fprintf('%s %s %s %s: %d repetitions and matched units %d\n', ...
+            m.session,m.context,m.region,m.state,config.repetitions,m.target_units);
+end
+end
+
+function f = light_fit(c,config)
+setappdata(0,'estimator_solver',struct('flag',NaN,'output',struct()));
+[d2,~,kernel,sigma,~,~,code] = calc_db(c,config.ar_order,config.bin_seconds,config.beta,struct('fit_method',config.fit_method));
+solver = getappdata(0,'estimator_solver');
+rmappdata(0,'estimator_solver');
+x = [c{:}];
+f = struct('d2',d2,'exit_status',code,'solver_flag',solver.flag, ...
+    'min_ar_root',min(abs(roots([-flip(kernel(:)); 1]))),'innovation_variance',sigma^2, ...
+    'rate_hz',mean(x)/config.bin_seconds,'count_variance',var(x,1), ...
+    'observed_acf',segment_acf(c,5),'duration_s',numel(x)*config.bin_seconds);
+end
+
+function result = thin(series,p,stream)
+% Invert the binomial CDF in base MATLAB. Preserve every segment boundary.
+x = [series{:}];
+u = rand(stream,size(x));
+draws = zeros(size(x));
+for k = unique(x)
+    if k==0, continue, end
+    idx = x==k;
+    counts = 0:k-1;
+    cdf = betainc(1-p,k-counts,counts+1);
+    draws(idx) = sum(u(idx)' > cdf,2)';
+end
+result = mat2cell(draws,1,cellfun(@numel,series)');
+result = result(:);
 end

@@ -56,7 +56,9 @@ def event_features(events,start,stop):
 
 
 def prepare(job):
-    row, cfg, events_mode = job
+    row, cfg, mode = job
+    events_mode = mode == "events"
+    controls_mode = mode == "controls"
     with open_asset(fetch_json(row["metadata_url"])) as f:
         qc, trains = read_units(f,row["dandiset"],cfg)
         required = [k for k in ("id","region","eligible","strict","spikes","duplicates","nonmonotonic")]
@@ -87,7 +89,11 @@ def prepare(job):
                 continue
             windows = {s:whole_windows(bins[s],wn) for s in states_to_fit}
             least = min(len(windows[s]) for s in ("Wake","NREM"))
+            if controls_mode and least<3:
+                continue
             for state in states_to_fit:
+                if controls_mode and state not in ("Wake","NREM"):
+                    continue
                 if events_mode and (state!="NREM" or region!="CA1" or not len(events)):
                     continue
                 base = bins[state]
@@ -95,10 +101,28 @@ def prepare(job):
                         "bin_seconds":width,"unit_ids":[qc[i]["id"] for i in unit_idx],
                         "strict_unit_ids":[qc[i]["id"] for i in strict_idx]}
                 if events_mode:
-                    for start, stop in windows[state]:
-                        start_s,stop_s = start*width,stop*width
-                        m = {**meta,"variant":"swr_window","start_s":start_s,**event_features(events,start_s,stop_s)}
-                        data.append((m,matlab_segments(pooled,[(start,stop)],width)))
+                    state_counts = np.concatenate(matlab_segments(pooled,base,width)[:,0])
+                    cutoff = float(state_counts.mean()+2*state_counts.std())
+                    for start, stop in whole_windows(base,2*wn):
+                        for a,b in ((start,start+wn),(start+wn,stop),(start,stop)):
+                            start_s,stop_s = a*width,b*width
+                            cells=matlab_segments(pooled,[(a,b)],width)
+                            m = {**meta,"variant":"swr_window" if b-a==wn else "swr_stability",
+                                 "start_s":start_s,"pair_start_s":start*width,"high_count_cutoff":cutoff,
+                                 "high_count_bin_fraction":float(np.mean(cells[0,0]>cutoff)),
+                                 **event_features(events,start_s,stop_s)}
+                            data.append((m,cells))
+                    continue
+                if controls_mode:
+                    positions = np.linspace(0,len(windows[state])-1,3,dtype=int)
+                    matched = [windows[state][i] for i in positions]
+                    m = {**meta,"variant":"matched_controls","intervals_s":[[a*width,b*width] for a,b in matched]}
+                    m["target_units"] = min(row["eligible_regions"].values())
+                    cells = np.empty((len(matched),1),dtype=object)
+                    for j in range(len(matched)):
+                        cells[j,0] = np.stack([matlab_segments(trains[i],[matched[j]],width)[0,0]
+                                               for i in unit_idx])
+                    data.append((m,cells))
                     continue
                 data.append(({**meta,"variant":"reference","intervals_s":[[a*width,b*width] for a,b in base]},
                              matlab_segments(pooled,base,width)))
@@ -117,8 +141,8 @@ def prepare(job):
     return data
 
 
-def write_fixture(rows,cfg,path,workers,events_mode):
-    jobs = ((r,cfg,events_mode) for r in rows)
+def write_fixture(rows,cfg,path,workers,mode):
+    jobs = ((r,cfg,mode) for r in rows)
     with ProcessPoolExecutor(max_workers=workers) as pool:
         data = [item for results in pool.map(prepare,jobs) for item in results]
     if not data:
@@ -134,7 +158,7 @@ def write_fixture(rows,cfg,path,workers,events_mode):
         raise ValueError(f"Fixture {temp.stat().st_size} bytes requires a separate transfer batch")
     receipt = {"fixture":path.name,"sha256":digest,"bytes":temp.stat().st_size,"records":len(data),
                "asset_ids":[r["asset_id"] for r in rows],
-               "reference_fits":sum(m["variant"]=="reference" for m,_ in data),"swr_windows":sum(m["variant"]=="swr_window" for m,_ in data)}
+               "reference_fits":sum(m["variant"]=="reference" for m,_ in data),"mode":mode, "swr_windows":sum(m["variant"]=="swr_window" for m,_ in data)}
     temp.replace(path)
     path.with_suffix(".json").write_text(json.dumps(receipt,indent=2)+"\n")
     return receipt
@@ -149,7 +173,9 @@ if __name__ == "__main__":
     p.add_argument("--config",type=Path,default=Path("config/sleep_dandi.json"))
     p.add_argument("--workers",type=int,default=4)
     p.add_argument("--paired-regions",action="store_true")
-    p.add_argument("--events",action="store_true")
+    group = p.add_mutually_exclusive_group()
+    group.add_argument("--events",action="store_true")
+    group.add_argument("--controls",action="store_true")
     a=p.parse_args()
     cfg=json.loads(a.config.read_text())
     rows=[json.loads(f.read_text()) for f in sorted((a.audit/"asset_receipts").glob("*.json"))]
@@ -158,4 +184,19 @@ if __name__ == "__main__":
           and (not a.paired_regions or {"CA1","BLA"}<=set(r["eligible_regions"]))]
     if a.asset and len(rows)!=1:
         raise ValueError("Pilot input must match one audited READY asset")
-    print(write_fixture(rows,cfg,a.out,a.workers,a.events))
+    if a.controls:
+        # Choose one session per animal without consulting MATLAB estimates.
+        best = {}
+        for row in rows:
+            support = [c for c in row["spontaneous_contexts"].values()
+                       if min(len(whole_windows(clock_bins(c[s]["intervals"],cfg["bin_seconds"]),
+                                  round(cfg["window_seconds"]/cfg["bin_seconds"]))) for s in ("Wake","NREM"))>=3]
+            if not support:
+                continue
+            score = (len(support),min(row["eligible_regions"].values()),row["asset_id"])
+            current = best.get(row["subject"])
+            if current is None or score>current[0]:
+                best[row["subject"]] = score,row
+        rows = [item[1] for _, item in sorted(best.items())]
+    mode = "controls" if a.controls else "events" if a.events else "states"
+    print(write_fixture(rows,cfg,a.out,a.workers,mode))

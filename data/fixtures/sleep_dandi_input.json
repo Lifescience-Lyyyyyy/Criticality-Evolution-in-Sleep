@@ -1,11 +1,32 @@
 {
   "fixture": "sleep_dandi_input.mat",
-  "sha256": "c78d79a6434b6ce65535566ac5876ef5bac8e9efc24b5457d9c4917fe903f29a",
-  "bytes": 161853,
-  "records": 8,
+  "sha256": "5276b132e0f2920012db817ba457d78718f745bffbcbcc52082fa25fd463a6e8",
+  "bytes": 10309923,
+  "records": 164,
   "asset_ids": [
-    "d89041a6-42b7-4c7f-8da0-d2c65061e04a"
+    "0113b24c-6497-4bb7-8deb-699fdd5be53b",
+    "0cc966a4-d56a-444e-83bd-b7619d4d0626",
+    "130f1cf4-2484-4bf3-b555-2a1a42813d8a",
+    "36f460a3-687b-4dee-a5f4-a43cda8d5f93",
+    "377ad232-a1ce-4489-8f28-3b69462773af",
+    "3f82e999-8b0a-4c46-91aa-b27ea3aefd4f",
+    "472ffae6-6f89-4c15-8a36-5b986c6fac29",
+    "51bfb6de-777d-4f3d-b676-fef7dbf15ed7",
+    "5e7d4ecd-8c99-4c9c-a06e-064f197b3b10",
+    "66503017-c350-4b7a-9e86-018bf72b7bf0",
+    "67d6bc20-47d8-4bec-bd99-3accd591eda2",
+    "6ccbfdd3-2cc0-4055-adba-ab4527082ebf",
+    "7bfa9a69-f77e-4f32-97e4-acbd7c5d098e",
+    "8f434f2c-c586-408c-80f3-9e0548f24125",
+    "93de9552-9f1e-46b8-acb2-926164697d79",
+    "b998fe22-727a-4931-a454-2fabf50cabb6",
+    "c29894bc-7791-4886-96d0-7afcfd3ba12a",
+    "d04eb92d-1564-4abe-95db-1d5f1457c2e1",
+    "d89041a6-42b7-4c7f-8da0-d2c65061e04a",
+    "d90132bb-f4cb-49b4-8824-e4f504446991",
+    "ff844357-1af4-4393-8582-b4addc5e914a"
   ],
-  "reference_fits": 3,
+  "reference_fits": 61,
+  "mode": "states",
   "swr_windows": 0
 }
