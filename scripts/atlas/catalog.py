@@ -50,8 +50,8 @@ RAT = (
 DATASETS = {
     "PNAS-V1": ("mouse", "Sooter et al. · Mouse V1", "02_mouse_replication", "已排序皮层尖峰", "作者发布 WAKE 和 NREM 区间", "沿用作者 WAKE 标注。", "动物与会话的对应关系未核实。仅按会话描述，REM 无已复现结果。"),
     "000552": ("mouse", "Preconfigured dynamics in the hippocampus are guided by embryonic birthdate and rate of neurogenesis", "13_sleep_within_region", "海马胞外尖峰与 LFP", "NWB processing/behavior/SleepStates", "作者家笼 Awake。排除任务及光刺激前后 60 秒。", "36 个合格会话中有 33 个提供可用 REM。"),
-    "000056": ("mouse", "Peyrache et al. · Anterodorsal thalamus and postsubiculum", "24_phase10_multiregion_results", "多单元胞外记录、LFP、行为视频", "新版 NWB Buzcode 分期。论文分期另列。", "主分析采用休息场景的作者 Wake。排除开放场和干预。视频低移动 Wake 另列。", "部分 ADN 和 PoSub 来自同一动物或同时记录。两种分期使用同一批记录。"),
-    "000939": ("mouse", "Duszkiewicz et al. · Postsubiculum", "24_phase10_multiregion_results", "PoSub 胞外尖峰和 LFP", "NWB 作者睡眠状态表", "确认家笼时间并避开干预及其前后 60 秒。", "31 个会话中 2 个存在时钟冲突，已排除。4 个合格会话缺可用 REM。"),
+    "000056": ("mouse", "Internally organized mechanisms of the head direction sense", "24_phase10_multiregion_results", "多单元胞外记录、LFP、行为视频", "新版 NWB Buzcode 分期。论文分期另列。", "主分析采用休息场景的作者 Wake。排除开放场和干预。视频低移动 Wake 另列。", "部分 ADN 和 PoSub 来自同一动物或同时记录。两种分期使用同一批记录。"),
+    "000939": ("mouse", "Large-scale recordings of head direction cells in mouse postsubiculum", "24_phase10_multiregion_results", "PoSub 胞外尖峰和 LFP", "NWB 作者睡眠状态表", "确认家笼时间并避开干预及其前后 60 秒。", "31 个会话中 2 个存在时钟冲突，已排除。4 个合格会话缺可用 REM。"),
     "zenodo:19462601": ("mouse", "High-density electrophysiological recordings in midbrain and pons during sleep", "24_phase10_multiregion_results", "Neuropixels、EEG／EMG", "remidx 作者评分，1 ms 尖峰与 EEG／EMG 时钟独立核对", "WT 无刺激对照的作者 Wake。", "不同核团共享部分动物。部分核团仅一只。P、MB 是来源大区标签。"),
     "000041": ("rat", "Network Homeostasis and State Dynamics of Neocortical Sleep", "13_sleep_within_region", "额叶胞外尖峰与 LFP", "NWB 作者 SleepStates", "作者家笼 Wake。", "汇总包含多个额叶子区。子区与队列共享动物。"),
     "000061": ("rat", "Reactivations of emotional memory in the hippocampus–amygdala system during sleep", "14_sleep_cross_region", "CA1／BLA 同步胞外记录", "NWB 作者 SleepStates，按 epoch 区分训练前后", "保留 PRE／POST 自发时段。排除跑道、训练和刺激。", "CA1 与 BLA、PRE 与 POST 共享动物。"),

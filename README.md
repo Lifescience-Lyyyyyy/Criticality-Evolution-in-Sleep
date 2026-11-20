@@ -56,3 +56,9 @@ RA 的 OSF 发布含四只斑胸草雀的双侧排序脉冲。睡眠时段、鸣
 - [固定版本与许可](manifests/phase10_sources.json) · [资格 CSV](manifests/phase10_eligibility.csv) · [Actions 运行和派生计数指纹](manifests/phase10_experiments.json)
 - 手动 `phase10` 工作流默认复跑一个真正的 ADN 试点。批次标签保留每次拟合的输入与代码。MATLAB R2024b 调用固定 Sooter 估计器，状态片段分开，主规格为 40 ms、AR(5)、β=2 和 Yule–Walker。
 - DANDI 输入由 `scripts/data/prepare_phase10.py` 按固定资产读取脉冲、分期及信号时钟。脑干输入由 `scripts/data/prepare_phase10_brainstem.py` 核验选定 ZIP 成员的 1 ms 数组。聚合图及数值由 `scripts/analysis/summarize_phase10.py` 和 `scripts/analysis/plot_phase10.py` 生成。
+
+## Phase 11 睡眠临界性脑图谱
+
+中文交互图谱位于 `website/`。小鼠版使用 Allen CCFv3 实际矢状和冠状切片，大鼠有独立数据入口。数据从原 MATLAB 拟合和来源清单导出。Phase 11 针对性核验保留原参考值并独立发布敏感性结果。
+
+[图谱运行与 GitHub Pages 配置](reports/27_sleep_criticality_atlas_data.md) · [针对性验证](reports/26_targeted_validation.md) · [研究汇总](reports/28_research_consolidation.md)

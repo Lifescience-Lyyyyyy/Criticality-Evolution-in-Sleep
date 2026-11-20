@@ -1,0 +1,1 @@
+{"runtime":"CPU","records":20,"nwb_sha256":"7473ab79ba1a05ec2040d8d83e9c1169b5afe0205ed5e703eafa1b009f6a6003","colab_fixture_sha256":"0a5c99069141bd7f1cf84a98a28652ae1c778f77da46fbc1d17daf896514c5d1","local_fixture_sha256":"a32b2147d31a3112e39ec52217f2e2c9507db243b5485b67ed51ae2e3b4b5bf7","verified":"metadata and count arrays exactly equal for all 20 input records"}
