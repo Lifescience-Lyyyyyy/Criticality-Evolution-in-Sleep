@@ -50,7 +50,13 @@ if controls_mode
     if within_region
         assert(receipt.subsample_fraction==0.5);
     end
-    rows = controls(cohort,ids,config,within_region);
+    detailed_controls = isfield(receipt,'detailed_controls') && receipt.detailed_controls;
+    if detailed_controls
+        fit_control = @(series) estimate(series,config.ar_order,config);
+    else
+        fit_control = @(series) light_fit(series,config);
+    end
+    rows = controls(cohort,ids,config,within_region,fit_control,detailed_controls);
 else
     rows = struct([]);
     for i = 1:numel(ids)
@@ -182,7 +188,7 @@ end
 acf = num./den/v;
 end
 
-function rows = controls(cohort,ids,config,within_region)
+function rows = controls(cohort,ids,config,within_region,fit_control,detailed_controls)
 % Equal-exposure sensitivity cohorts, prespecified from audit metadata.
 meta = cell(numel(ids),1);
 spike_matrices = cell(size(meta));
@@ -209,7 +215,7 @@ for i = 1:numel(ids)
     if within_region
         m.target_units = max(config.min_units,floor(n/2));
     end
-    baseline = light_fit(source,config);
+    baseline = fit_control(source);
     r = m;
     r.variant = 'matched_controls_reference';
     r.seed = NaN;
@@ -222,11 +228,14 @@ for i = 1:numel(ids)
         fitted = baseline;
         if n ~= m.target_units
             sampled = cellfun(@(x)sum(double(x(selected,:)),1),cells,'UniformOutput',false);
-            fitted = light_fit(sampled,config);
+            fitted = fit_control(sampled);
         end
         r = m;
         r.variant = 'unit_count';
         r.unit_count = m.target_units;
+        if detailed_controls
+            r.unit_ids = m.unit_ids(selected);
+        end
         r.iteration = k;
         r.seed = seed;
         rows = [rows,struct('record',r,'fit',fitted,'long_reach',[])]; %#ok<AGROW>
@@ -241,7 +250,7 @@ for i = 1:numel(ids)
         fitted = baseline;
         if target < means(i)
             stream = RandStream('mt19937ar','Seed',r.seed);
-            fitted = light_fit(thin(source,target/means(i),stream),config);
+            fitted = fit_control(thin(source,target/means(i),stream));
         end
         rows = [rows,struct('record',r,'fit',fitted,'long_reach',[])]; %#ok<AGROW>
     end
