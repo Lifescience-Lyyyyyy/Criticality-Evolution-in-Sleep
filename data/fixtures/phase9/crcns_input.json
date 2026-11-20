@@ -1,15 +1,15 @@
 {
-  "records": 4,
+  "records": 2,
   "asset_ids": [
-    "hc-24:Session1_PETHphaseLocking"
+    "hc-24:Session3_SleepAfterRun"
   ],
   "mode": "nrem",
   "source_sha256": {
     "archive": "187e25461f9c2cb118eec825957ed2938e34809ce4211442d9229b249061d738"
   },
-  "reference_fits": 2,
+  "reference_fits": 1,
   "swr_windows": 0,
   "fixture": "crcns_input.mat",
-  "sha256": "0e8cd5e97ea7ef3a1b134dd8514ce97281f7d0516200287a2a816812ca6987d1",
-  "bytes": 51059
+  "sha256": "08a9c7e3c6c2d2f2007684254392d4b78b628a0da92748614316e01466fe7b0c",
+  "bytes": 16100
 }

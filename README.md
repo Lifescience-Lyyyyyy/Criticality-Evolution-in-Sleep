@@ -44,7 +44,8 @@ RA 的 OSF 发布含四只斑胸草雀的双侧排序脉冲。睡眠时段、鸣
 
 ## Phase 9 CRCNS 睡眠回路
 
-- [逐会话资格审计](reports/17_phase9_data_feasibility.md) · [原始大鼠 V1 获取与申请](reports/18_pnas_rat_v1_access.md) · [新分析结果](reports/19_phase9_sleep_results.md) · [跨脑区总结](reports/20_cross_region_sleep_summary.md)
+- [逐会话资格审计](reports/17_phase9_data_feasibility.md) · [新分析结果](reports/19_phase9_sleep_results.md) · [跨脑区总结](reports/20_cross_region_sleep_summary.md)
 - [来源和校验](manifests/phase9_sources.json) · [资格 CSV](manifests/phase9_dataset_eligibility.csv) · [Actions 实验清单](manifests/phase9_experiments.json)
 - 新增手动 `crcns` 阶段，复用固定的 Sooter MATLAB 估计器和原有分段诊断。仓库默认提供可重跑的 hc-23 MEC 试跑计数，源脉冲不进入 Git。图和中文报告按动物汇总，PRE／POST 分开。
 - 用 `scripts/data/audit_crcns_sleep.py --hc23-overnight <排序脉冲缓存.zip> --hc23-mat <作者文件.mat> --out <审计.json>` 核验 Figshare。随后运行 `scripts/data/prepare_crcns_sleep.py` 并传入该审计、原 MAT 和排序脉冲缓存。复算时通过流水线核对输入 SHA-256。其 `--verified-index` 入口也可接收已过数据与评分门槛的 MATLAB／NeuroSuite 或 NWB 会话。
+- 用 `scripts/data/prepare_hc24.py --archive <CRCNS data.zip> --audit <审计.json> --out <计数.mat>` 核验 hc-24，并复算作者 NREM 区间的 40 ms 计数。可用 `--session` 限定一个会话。

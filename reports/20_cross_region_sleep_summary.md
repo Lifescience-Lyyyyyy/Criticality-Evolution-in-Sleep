@@ -1,6 +1,6 @@
 # 跨脑区睡眠 d₂ 证据汇总
 
-**目前能扩展的是 REM 低于 NREM 的观察。** hc-23 的 6 只大鼠在同一记录的 MEC 浅层单元上都有较低的 REM d₂。该记录发布的 Overnight 缺 Wake。现阶段仍无法判定 NREM > Wake 是否扩展到 MEC、丘脑或纹状体。丘脑 hc-24 等待用户下载，pfc-8 缺可核对的分期和 dmSTR 映射，PNAS 原大鼠 V1 须向数据保管人申请。[数据资格](17_phase9_data_feasibility.md) · [新结果](19_phase9_sleep_results.md)
+**目前能扩展的是 REM 低于 NREM 的观察。** hc-23 的 6 只大鼠在同一记录的 MEC 浅层单元上都有较低的 REM d₂。该记录发布的 Overnight 缺 Wake。hc-24 提供 NREM 时段的绝对估计。两批新数据均缺可用的 Wake 标签，所以仍无法检验 NREM > Wake 是否扩展到 MEC。[数据资格](17_phase9_data_feasibility.md) · [新结果](19_phase9_sleep_results.md)
 
 ## 有效的独立来源对比
 
@@ -23,7 +23,7 @@
 
 ### 同时记录的区域
 
-同时间 CA1–BLA 图复用 Phase 8 的 DANDI 000061 验证。同一动物、会话和时段比较同一状态区间的 40 ms 箱，两区有 107 组已验证的共同状态时间。各动物的区域差值按会话平均，PRE／POST 单独绘制。排序随模型时间跨度和三态等时长子集变化，跨区解释依赖状态与分析规格。MEC 数据只含本区单元。新的同录区域比较仍待 hc-24 或经核验的 pfc-8 数据。[同时间 CA1–BLA 图](../figures/sleep_crcns/phase8_same_time_ca1_bla.pdf) · [Phase 8 区域核验](14_sleep_cross_region.md)
+同时间 CA1–BLA 图复用 Phase 8 的 DANDI 000061 验证。同一动物、会话和时段比较同一状态区间的 40 ms 箱，两区有 107 组已验证的共同状态时间。各动物的区域差值按会话平均，PRE／POST 单独绘制。排序随模型时间跨度和三态等时长子集变化，跨区解释依赖状态与分析规格。MEC 数据只含本区单元。hc-24 的第一场提供 CA1 与 mPFC 同时间 NREM 的描述性比较。[同时间 CA1–BLA 图](../figures/sleep_crcns/phase8_same_time_ca1_bla.pdf) · [Phase 8 区域核验](14_sleep_cross_region.md)
 
 ### 模型和统计约束
 
@@ -33,4 +33,4 @@
 
 新证据是跨 6 只大鼠的 MEC REM–NREM 方向一致，并经边界裁剪和 AR(10) 复核。4 个会话在参考拟合中反向，等时长后有一只动物反向。六个等时长锚点中，区域内单元数对照保留 5 个负中位差，匹配平均群体率后只剩 3 个。率稀释也改变计数方差与短时相关。科学上可以确认该批记录在固定模型下存在睡眠状态差异，普遍的生理方向和单独的放电率作用仍不确定。[逐动物重复对照](19_phase9_sleep_results.md)
 
-验证所需的下一批资料是 hc-24 的原档案、pfc-8 的分期和精确四极管映射，以及原始大鼠 V1 的获准处理数据。合格的同步记录应保留同时间箱和同一动物的区域对照。Wake 资料补齐后再检验 NREM − Wake 的外推。[数据核验和恢复条件](17_phase9_data_feasibility.md) · [大鼠 V1 请求草稿](pnas_rat_v1_data_request_email.md)
+检验 NREM − Wake 是否扩展到 MEC，还需要同一动物、同一组单元的独立 Wake 标签。[数据资格](17_phase9_data_feasibility.md)

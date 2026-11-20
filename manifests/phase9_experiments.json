@@ -2,17 +2,14 @@
   "schema_version": 1,
   "reference_commit": "ded7b3a75e229b17221768a53658dd9aa63b0acc",
   "source_audit_status": {
-    "pnas_rat_v1": "ACCESS_REQUEST_REQUIRED",
-    "hc-24": "USER_DEFERRED_ACCESS_REQUIRED",
-    "pfc-8": "BLOCKED_STATE_SCORES_AND_DORSOMEDIAL_SITE_MAP",
+    "hc-24": "AUDITED_NREM_ONLY",
     "hc-23": "PASS_FOR_REM_NREM"
   },
   "eligibility_counts": {
     "hc-23:BLOCKED": 8,
     "hc-23:PARTIAL": 21,
-    "hc-24:ACCESS_REQUIRED": 3,
-    "pfc-8:BLOCKED": 16,
-    "pnas-rat-v1:ACCESS_REQUIRED": 1
+    "hc-24:PARTIAL": 2,
+    "hc-24:BLOCKED": 1
   },
   "matlab_runs": [
     {
@@ -238,10 +235,8 @@
     "manifests/phase9_sources.json": "bc9322218401db5dbdaecb057d0f2fc1a3f2e0b3c6fd59a04002df0763dabd0f",
     "manifests/phase9_dataset_eligibility.csv": "ee942e697f20de90b4c7079102b0c2278b4170a18468db333aa8493b564294f9",
     "reports/17_phase9_data_feasibility.md": "063b12065040d1f1307e6f9bc338ea97b97ba218c7d458d90c9750cd1e875eb3",
-    "reports/18_pnas_rat_v1_access.md": "6b8e0e2afb6797b6a02552ee011adaacacc62c31fa25476ca2e3aa84d6f0512f",
     "reports/19_phase9_sleep_results.md": "58e3d714e75aad87c8b36ece65de91159693213ed24245d248f8d93ae79fab18",
     "reports/20_cross_region_sleep_summary.md": "e4a6d405f283f52693826e2f9db2de3e346ad033b2bc487520ac6b018e5a119f",
-    "reports/pnas_rat_v1_data_request_email.md": "375e3b0269c92a2cadda4c6d6c4a6c1f4045c2038864bc20a8b8652c5e620161",
     "figures/sleep_crcns/cross_region_sleep_effects.pdf": "1e50e6d9f47c797a070a073c7d74ab384f22d51531345838a52f44868695ff08",
     "figures/sleep_crcns/cross_region_sleep_effects.png": "f2e135681f865ef3decc9c566f660706eba5fe24b37665e28a41a2c6fd063b38",
     "figures/sleep_crcns/cross_region_sleep_effects.svg": "4cd89de6ec7549b1171a9ea48c270f3d3c11d358a24893d1f70f6e6ad03c1613",

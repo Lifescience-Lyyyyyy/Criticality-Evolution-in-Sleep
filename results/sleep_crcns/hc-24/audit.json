@@ -1,0 +1,356 @@
+{
+  "archive_sha256": "187e25461f9c2cb118eec825957ed2938e34809ce4211442d9229b249061d738",
+  "archive_bytes": 104977380,
+  "sessions": [
+    {
+      "subject": "Rat-1",
+      "session": "Session1_PETHphaseLocking",
+      "context": "REST",
+      "clock_source": "data/Session1_PETHphaseLocking/PrimaryData/LFPs/Timestamp_LFP_600Hz.mat",
+      "clock_samples": 1884001,
+      "recording_seconds": 3140.0,
+      "lfp_signals": [
+        "data/Session1_PETHphaseLocking/PrimaryData/LFPs/HC_LFP_600Hz.mat",
+        "data/Session1_PETHphaseLocking/PrimaryData/LFPs/PFC_LFP_600Hz.mat",
+        "data/Session1_PETHphaseLocking/PrimaryData/LFPs/THAL_LFP_600Hz.mat"
+      ],
+      "state_source": "data/Session1_PETHphaseLocking/DerivedData/SleepTimes.mat:nremSleep",
+      "state_sha256": "640b51da8be8e6fc993f40a2a4dd767db1cac80fad5aa577b9399fdbb6615722",
+      "nrem_bouts": 4,
+      "nrem_seconds": 2530.88,
+      "regions": [
+        {
+          "region": "CA1",
+          "released_units": 5,
+          "valid_units": 5,
+          "eligible_nrem": true,
+          "unit_qc": [
+            {
+              "id": "Spikes/CA1_electrode1/cl-1PeakAmpTime.mat",
+              "spikes": 9808,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 6356,
+              "accepted": true
+            },
+            {
+              "id": "Spikes/CA1_electrode2/cl-1PeakAmpTime.mat",
+              "spikes": 4987,
+              "outside_lfp_spikes": 1,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 3969,
+              "accepted": true
+            },
+            {
+              "id": "Spikes/CA1_electrode3/cl-1PeakAmpTime.mat",
+              "spikes": 935,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 793,
+              "accepted": true
+            },
+            {
+              "id": "Spikes/CA1_electrode3/cl-2PeakAmpTime.mat",
+              "spikes": 754,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 659,
+              "accepted": true
+            },
+            {
+              "id": "Spikes/CA1_electrode3/cl-3PeakAmpTime.mat",
+              "spikes": 4957,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 2880,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "region": "mPFC",
+          "released_units": 6,
+          "valid_units": 6,
+          "eligible_nrem": true,
+          "unit_qc": [
+            {
+              "id": "Spikes/PFC_electrode1/cl-1PeakAmpTime.mat",
+              "spikes": 1973,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 1731,
+              "accepted": true
+            },
+            {
+              "id": "Spikes/PFC_electrode1/cl-2PeakAmpTime.mat",
+              "spikes": 688,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 616,
+              "accepted": true
+            },
+            {
+              "id": "Spikes/PFC_electrode2/cl-1PeakAmpTime.mat",
+              "spikes": 5857,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 4219,
+              "accepted": true
+            },
+            {
+              "id": "Spikes/PFC_electrode2/cl-2PeakAmpTime.mat",
+              "spikes": 5104,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 4158,
+              "accepted": true
+            },
+            {
+              "id": "Spikes/PFC_electrode2/cl-3PeakAmpTime.mat",
+              "spikes": 5603,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 4914,
+              "accepted": true
+            },
+            {
+              "id": "Spikes/PFC_electrode2/cl-4PeakAmpTime.mat",
+              "spikes": 2486,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 1710,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "region": "Midline thalamus",
+          "released_units": 1,
+          "valid_units": 1,
+          "eligible_nrem": false,
+          "unit_qc": [
+            {
+              "id": "Spikes/THAL_electrode1/cl-1PeakAmpTime.mat",
+              "spikes": 14881,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 7275,
+              "accepted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Rat-2",
+      "session": "Session2_ThalPairCorrelations",
+      "context": "REST",
+      "clock_source": "data/Session2_ThalPairCorrelations/PrimaryData/Timestamp_LFP_600Hz.mat",
+      "clock_samples": 2490601,
+      "recording_seconds": 4151.0,
+      "lfp_signals": [
+        "data/Session2_ThalPairCorrelations/PrimaryData/PFC_LFP_600Hz.mat"
+      ],
+      "state_source": "data/Session2_ThalPairCorrelations/DerivedData/SleepTimes.mat:nremSleep",
+      "state_sha256": "58fda6ea26d09f49565b71558fc6c27920fc393a5f1b66350fe71712a180ed41",
+      "nrem_bouts": 2,
+      "nrem_seconds": 3250.0,
+      "regions": [
+        {
+          "region": "CA1",
+          "released_units": 0,
+          "valid_units": 0,
+          "eligible_nrem": false,
+          "unit_qc": []
+        },
+        {
+          "region": "mPFC",
+          "released_units": 0,
+          "valid_units": 0,
+          "eligible_nrem": false,
+          "unit_qc": []
+        },
+        {
+          "region": "Midline thalamus",
+          "released_units": 2,
+          "valid_units": 2,
+          "eligible_nrem": false,
+          "unit_qc": [
+            {
+              "id": "cl-1PeakAmpTime.mat",
+              "spikes": 30863,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 19732,
+              "accepted": true
+            },
+            {
+              "id": "cl-2PeakAmpTime.mat",
+              "spikes": 28926,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 19094,
+              "accepted": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "subject": "Rat-3",
+      "session": "Session3_SleepAfterRun",
+      "context": "POST_RUN",
+      "clock_source": "data/Session3_SleepAfterRun/PrimaryData/LFP/Timestamp_LFP_600Hz.mat",
+      "clock_samples": 3336001,
+      "recording_seconds": 5560.0,
+      "lfp_signals": [
+        "data/Session3_SleepAfterRun/PrimaryData/LFP/HC_LFP_600Hz.mat",
+        "data/Session3_SleepAfterRun/PrimaryData/LFP/PFC_LFP_600Hz.mat",
+        "data/Session3_SleepAfterRun/PrimaryData/LFP/THAL_LFP_600Hz.mat"
+      ],
+      "state_source": "data/Session3_SleepAfterRun/DerivedData/SleepTimes.mat:nremSleep",
+      "state_sha256": "9d8524cabfce3937f41077860ef6563d2e3aec4bf1a3aaa0dadcce14e283fb96",
+      "nrem_bouts": 5,
+      "nrem_seconds": 4676.8,
+      "regions": [
+        {
+          "region": "CA1",
+          "released_units": 8,
+          "valid_units": 7,
+          "eligible_nrem": true,
+          "unit_qc": [
+            {
+              "id": "Spikes/CA1_UnitsInRun/E1cl-1PeakAmpTimeInRun.mat",
+              "spikes": 1068,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 953,
+              "accepted": true
+            },
+            {
+              "id": "Spikes/CA1_UnitsInRun/E1cl-2PeakAmpTimeInRun.mat",
+              "spikes": 1168,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 1081,
+              "accepted": true
+            },
+            {
+              "id": "Spikes/CA1_UnitsInRun/E2cl-1PeakAmpTimeInRun.mat",
+              "spikes": 699,
+              "outside_lfp_spikes": 0,
+              "ties": 1,
+              "reversals": 0,
+              "nrem_spikes": null,
+              "accepted": false
+            },
+            {
+              "id": "Spikes/CA1_UnitsInRun/E2cl-2PeakAmpTimeInRun.mat",
+              "spikes": 1670,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 1402,
+              "accepted": true
+            },
+            {
+              "id": "Spikes/CA1_UnitsNotInRun/E1cl-3PeakAmpTime.mat",
+              "spikes": 685,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 643,
+              "accepted": true
+            },
+            {
+              "id": "Spikes/CA1_UnitsNotInRun/E1cl-4PeakAmpTime.mat",
+              "spikes": 381,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 343,
+              "accepted": true
+            },
+            {
+              "id": "Spikes/CA1_UnitsNotInRun/E2cl-3PeakAmpTime.mat",
+              "spikes": 479,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 399,
+              "accepted": true
+            },
+            {
+              "id": "Spikes/CA1_UnitsNotInRun/E3cl-2PeakAmpTime.mat",
+              "spikes": 1427,
+              "outside_lfp_spikes": 0,
+              "ties": 0,
+              "reversals": 0,
+              "nrem_spikes": 1343,
+              "accepted": true
+            }
+          ]
+        },
+        {
+          "region": "mPFC",
+          "released_units": 1,
+          "valid_units": 0,
+          "eligible_nrem": false,
+          "unit_qc": [
+            {
+              "id": "Spikes/PFC_Electrode/cl-1PeakAmpTime.mat",
+              "spikes": 56741,
+              "outside_lfp_spikes": 20804,
+              "ties": 2,
+              "reversals": 0,
+              "nrem_spikes": null,
+              "accepted": false
+            }
+          ]
+        },
+        {
+          "region": "Midline thalamus",
+          "released_units": 2,
+          "valid_units": 0,
+          "eligible_nrem": false,
+          "unit_qc": [
+            {
+              "id": "Spikes/Thal_Electrode/cl-1PeakAmpTime.mat",
+              "spikes": 24698,
+              "outside_lfp_spikes": 0,
+              "ties": 17,
+              "reversals": 0,
+              "nrem_spikes": null,
+              "accepted": false
+            },
+            {
+              "id": "Spikes/Thal_Electrode/cl-2PeakAmpTime.mat",
+              "spikes": 27079,
+              "outside_lfp_spikes": 0,
+              "ties": 8,
+              "reversals": 0,
+              "nrem_spikes": null,
+              "accepted": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

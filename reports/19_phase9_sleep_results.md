@@ -2,7 +2,7 @@
 
 ## 可回答的问题
 
-公开 hc-23 的 MEC 浅层记录支持同一组单元的 **REM − NREM** 对比。在这批 Overnight 文件中没有合格 Wake，NREM − Wake 与 REM − Wake 均缺比较基础。hc-24 按用户安排等下载后继续。pfc-8 的 PRE／POST 边界已有核对，仍缺经验证的睡眠阶段。原始 PNAS 大鼠 V1 仍需作者授权。[资格审计](17_phase9_data_feasibility.md) · [原始大鼠 V1](18_pnas_rat_v1_access.md)
+公开 hc-23 的 MEC 浅层记录支持同一组单元的 **REM − NREM** 对比。在这批 Overnight 文件中没有合格 Wake，NREM − Wake 与 REM − Wake 均缺比较基础。[资格审计](17_phase9_data_feasibility.md) · [原始大鼠 V1](18_pnas_rat_v1_access.md)
 
 ## 试跑
 

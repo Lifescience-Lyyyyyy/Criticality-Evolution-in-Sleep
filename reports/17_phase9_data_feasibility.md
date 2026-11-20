@@ -4,21 +4,11 @@
 
 先读取论文、官方数据说明和文件目录，再做逐会话只读检查。状态对比要求可核对的排序脉冲、状态与神经信号共用时钟、明确脑区以及同一会话内同一组单元。预设每区至少 5 个可用单元，每个待比较状态至少 120 秒有效 40 ms 箱，单连续片段至少 1 秒。保留作者状态名称和边界。跨区只用共同标注时间。[逐会话资格表](../manifests/phase9_dataset_eligibility.csv) · [来源及文件指纹](../manifests/phase9_sources.json)
 
-## 原始 PNAS 大鼠 V1
-
-状态为 `ACCESS_REQUEST_REQUIRED`。论文公开了 Methods、补充结果、估计代码和小鼠数据。原始大鼠的可重算输入需要联系作者。申请范围为现成排序脉冲或分段 40 ms 群体计数及同期阶段评分。[核查与申请条件](18_pnas_rat_v1_access.md)
-
 ## CRCNS hc-24 · 丘脑、mPFC、CA1
 
-状态为 `ACCESS_REQUIRED`。官方说明列三场、三只大鼠，时长分别约 52、69 和 93 分钟，整个 MATLAB 档案约 101 MB。登录页要求 CRCNS 账号。按用户当前安排，本轮完成文档审计后暂缓档案内核验。官方说明区分 `cl-` 排序单元和来自一根四极管的多单元活动，排序文件为五列，第五列为秒。LFP 文档采样率为 600 Hz。论文用 mPFC δ 功率和 CA1 涟漪频带功率识别部分 NREM。三态标签、每区单元数、同步范围和可用时长须在实际档案中核验。丘脑有单元记录的公开说明无法证明 CA1 或 mPFC 具有足量单元。[CRCNS 文档](https://crcns.org/files/data/hc-24/crcns_hc-24_data_description.pdf) · [Varela 与 Wilson 的论文](https://doi.org/10.7554/eLife.48881)
+已核验用户提供的官方归档及数据说明。两个文件匹配发布的 MD5，归档的 99 个条目通过 ZIP CRC 检查。三场各来自一只大鼠，本报告以 Rat-1 至 Rat-3 对应会话编号。所有会话的 LFP 时间轴连续，按 600 Hz 采样。每个会话的作者评分文件只含 NREM 区间，Wake 和 REM 无可用标签。[数据说明](https://crcns.org/files/data/hc-24/crcns_hc-24_data_description.pdf) · [原论文](https://doi.org/10.7554/eLife.48881)
 
-在浏览器打开官方下载页，拥有账号时直接登录，首次使用者按 CRCNS 页面办理注册。下载档案后将文件交给当前项目的本地输入目录。需要核验的材料包括 `Primary Data`、`Derived Data` 和 `Sample Scripts`，尤其是时间轴、单元区域目录、人工或算法评分定义、连续记录边界。账号信息保留在浏览器中。论文使用需引用论文和 DOI，作者欢迎事先沟通。[官方登录与下载](https://download.crcns.org/hc-24) · [CRCNS 使用说明](https://crcns.org/data-sets/hc/hc-24/about-hc-24)
-
-## CRCNS pfc-8 · mPFC 和纹状体
-
-16 个已发布会话目录均可匿名访问。可见动物 ID 有 R205、R209、R268、R287、R294 共 5 个，官方说明则描述采集了 6 只。保留实见 ID，缺少的第 6 只无法对应到发布文件。文件目录总计 33,116,450,597 字节，其中所有 LFP 共 17,585,969,664 字节。审计读取 XML、事件文本和 CLU 整数标签，并对每会话的一份排序 RES 的开头和末尾取样。XML 的 19,531.25 Hz 脉冲计数时钟与 1,250 Hz LFP 的时长及毫秒事件边界相容。每会话均有 POST，R268-20140930 无标为 PRE 的休息片段。所有 `MIX`、`ShiftTasks` 等任务段单独标识并排除。[数据门户](https://crcns.org/data-sets/pfc/pfc-8/about-pfc-8) · [正式论文](https://doi.org/10.1016/j.cub.2021.10.007)
-
-**16 个会话的状态对比均为 `BLOCKED`。** `.cat.evt` 只提供实验段边界，`.all.evt` 和 `.cue.evt` 是数值和任务提示事件。发布目录中没有三态评分边界。XML 的电极分组支持逐会话统计候选排序簇，但通道备注使用固定的 mPFC／腹侧纹状体模板，未给出可逐四极管复核的 dmSTR 身份。可用的 LFP 和位置提供重新评分的输入。需要实验者评分，或有独立可验证的分期标准及验证样本，才能用来比较 Wake、NREM、REM。还需索取已核验的四极管到 vSTR／dmSTR 对照表。使用这些数据筹备发表时，应按 CRCNS 要求联系 Sidney Wiener 或 Michaël Zugaro 讨论作者安排。当前工作只进行审计。[数据和使用条件](https://crcns.org/files/data/pfc-8/crcns_pfc-8_data_description.pdf)
+按来源文件名映射脑区和单元，只使用作者排序的 cl- 簇。脉冲取第五列的秒级时间，与 LFP 共用时轴。落在 LFP 支持之外的脉冲排除，含非递增时间戳的簇按既定时间 QC 排除。第一场通过筛选的 CA1 5 个和 mPFC 6 个单元可进行同一 NREM 时段的描述性比较。第二场只有 2 个排序丘脑单元，低于 5 个单元门槛。第三场为跑后休息，CA1 发布的 8 个簇有 7 个通过检验，满足单区 NREM 分析。公开材料中的多单元信号单独记录。[逐会话资格表](../manifests/phase9_dataset_eligibility.csv)
 
 ## CRCNS hc-23 · MEC 浅层 II／III
 
