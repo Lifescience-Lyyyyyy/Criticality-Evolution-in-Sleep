@@ -184,6 +184,23 @@ if __name__ == "__main__":
           and (not a.paired_regions or {"CA1","BLA"}<=set(r["eligible_regions"]))]
     if a.asset and len(rows)!=1:
         raise ValueError("Pilot input must match one audited READY asset")
+    if a.events:
+        # Select the strongest continuous-window support before reading any estimates.
+        best = {}
+        width = cfg["bin_seconds"]
+        window_bins = round(cfg["window_seconds"]/width)
+        for row in rows:
+            if not row.get("ripples") or "CA1" not in row["eligible_regions"]:
+                continue
+            support = sum(len(whole_windows(clock_bins(c["NREM"]["intervals"],width),2*window_bins))
+                          for c in row["spontaneous_contexts"].values()
+                          if all(c[s]["seconds"]>=cfg["min_state_seconds"] for s in ("Wake","NREM")))
+            if support:
+                score = (support,row["asset_id"])
+                previous = best.get(row["subject"])
+                if previous is None or score>previous[0]:
+                    best[row["subject"]] = score,row
+        rows = [item[1] for _, item in sorted(best.items())]
     if a.controls:
         # Choose one session per animal without consulting MATLAB estimates.
         best = {}

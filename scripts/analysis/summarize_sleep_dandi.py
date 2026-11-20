@@ -40,6 +40,8 @@ def state_summary(rows):
     for r in rows:
         record = r["record"]
         key = tuple(record[k] for k in ("dandiset","subject","session","context","region","variant"))
+        if record["state"] in grouped[key]:
+            raise ValueError(f"Duplicate job for {key} {record['state']}")
         grouped[key][record["state"]] = r
     contrasts = []
     for (ds,bird,session,context,region,variant), states in grouped.items():
@@ -89,8 +91,12 @@ def spearman(x,y):
 
 def event_summary(rows,seed):
     groups = defaultdict(list)
+    full_pairs = {}
     for r in rows:
         m=r["record"]
+        if m["variant"]=="swr_stability" and valid(r["fit"]):
+            key=tuple(m[k] for k in ("dandiset","subject","session","context","pair_start_s"))
+            full_pairs[key]=r["fit"]["d2"]
         if m["variant"]=="swr_window" and valid(r["fit"]):
             groups[tuple(m[k] for k in ("dandiset","subject","session","context"))].append(r)
     output=[]
@@ -108,6 +114,9 @@ def event_summary(rows,seed):
         m=dict(zip(("dandiset","subject","session","context"),key,strict=True))
         m["windows"]=len(subset)
         m["adjacent_window_abs_delta"]=distribution(half_diffs)
+        m["full_vs_mean_halves_abs_delta"]=distribution(
+            [abs(full_pairs[(*key,at)]-np.mean(pair)) for at,pair in halves.items()
+             if len(pair)==2 and (*key,at) in full_pairs])
         if len(subset)<12 or np.ptp(swr)==0:
             output.append({**m,"status":"INSUFFICIENT_ELIGIBLE_WINDOWS"})
             continue
@@ -130,7 +139,9 @@ def event_summary(rows,seed):
             if i not in used and j not in used:
                 used.update([i,j])
                 matched.append({"rich_start_s":float(times[i]),"poor_start_s":float(times[j]),"time_gap_s":float(gap),
-                                "rich_rate_hz":float(rates[i]),"poor_rate_hz":float(rates[j]),"rich_minus_poor":float(d2[i]-d2[j])})
+                                "rich_rate_hz":float(rates[i]),"poor_rate_hz":float(rates[j]),"rich_minus_poor":float(d2[i]-d2[j]),
+                                "high_count_fraction_gap":abs(subset[i]["record"]["high_count_bin_fraction"]-
+                                                              subset[j]["record"]["high_count_bin_fraction"])})
         rng=np.random.default_rng(seed)
         blocks=np.floor(times/300).astype(int)
         indices=[np.flatnonzero(blocks==b) for b in np.unique(blocks)]
@@ -152,8 +163,46 @@ def event_summary(rows,seed):
                        "thresholds":[float(lo),float(hi)],"matched_pairs":matched,
                        "unmatched_median_difference":float(np.median(d2[rhigh])-np.median(d2[rlow])),
                        "matched_difference":distribution([r["rich_minus_poor"] for r in matched]),
+                       "matched_with_high_count_fraction_gap_le_0p05":distribution(
+                           [r["rich_minus_poor"] for r in matched if r["high_count_fraction_gap"]<=.05]),
                        "associations":associations})
     return output
+
+
+def controls_summary(rows):
+    groups=defaultdict(dict)
+    for r in rows:
+        m=r["record"]
+        key=tuple(m[k] for k in ("dandiset","subject","session","context","region"))
+        entry=(m["state"],m["variant"],m["iteration"])
+        if entry in groups[key]:
+            raise ValueError(f"Duplicate control {key} {entry}")
+        groups[key][entry]=r
+    result=[]
+    for key,group in sorted(groups.items()):
+        row=dict(zip(("dandiset","subject","session","context","region"),key,strict=True))
+        ref="matched_controls_reference"
+        baseline={state:group[state,ref,0]["fit"] for state in ("Wake","NREM")}
+        row["reference_effect"]=baseline["NREM"]["d2"]-baseline["Wake"]["d2"] if all(map(valid,baseline.values())) else None
+        for variant in ("unit_count","rate_thinning"):
+            states={state:{i:r for (s,v,i),r in group.items() if s==state and v==variant}
+                    for state in ("Wake","NREM")}
+            fits=[]
+            for i in sorted(states["Wake"].keys() & states["NREM"].keys()):
+                n,w=(states[s][i]["fit"] for s in ("NREM","Wake"))
+                if valid(n) and valid(w):
+                    fits.append(n["d2"]-w["d2"])
+            status={"effect":distribution(fits),"states":{}}
+            for state, iterations in states.items():
+                successful=[r["fit"] for r in iterations.values() if valid(r["fit"])]
+                base=baseline[state]
+                status["states"][state]={"returned_seeds":len({r["record"]["seed"] for r in iterations.values()}),
+                    "actual_rate_hz":distribution([f["rate_hz"] for f in successful]),
+                    "variance_change":distribution([f["count_variance"]-base["count_variance"] for f in successful]),
+                    "lag1_change":distribution([f["observed_acf"][0]-base["observed_acf"][0] for f in successful])}
+            row[variant]=status
+        result.append(row)
+    return result
 
 
 if __name__ == "__main__":
@@ -165,7 +214,9 @@ if __name__ == "__main__":
     rows=dataset["records"]
     if isinstance(rows,dict):
         rows=[rows]
-    if dataset["input"]["swr_windows"]:
+    if dataset["input"].get("mode")=="controls":
+        summary={"sensitivity":controls_summary(rows)}
+    elif dataset["input"]["swr_windows"]:
         summary={"windows":event_summary(rows,dataset["settings"]["seed"])}
     else:
         summary=state_summary(rows)

@@ -8,6 +8,7 @@ import os
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
 import numpy as np
 
 from summarize_sleep_dandi import event_summary, state_summary, valid
@@ -28,8 +29,9 @@ def save(fig, base):
         out.mkdir(parents=True,exist_ok=True)
         require_matplotlib_panel_alignment(fig,json_out=str(out/(base.name+".alignment.json")),
                                            tolerance_pt=1.5,gutter_tolerance_pt=1.5,strict=True)
-    for suffix in ("pdf","svg","png"):
-        fig.savefig(base.with_suffix("."+suffix),dpi=600 if suffix=="png" else None,facecolor="white")
+    fig.savefig(f"{base}.pdf",facecolor="white")
+    fig.savefig(f"{base}.svg",facecolor="white")
+    fig.savefig(f"{base}.png",dpi=600,facecolor="white")
     plt.close(fig)
 
 
@@ -48,6 +50,10 @@ def pilot(data, out):
         axes[1].plot(np.arange(1,21),fit["residual_acf"],color=PALETTE[s],linewidth=1.2,label=s)
     axes[0].set(xticks=range(len(use)),xticklabels=use,ylabel="d₂ (bits/s)",title="ACC  ·  BWRat17")
     axes[0].set_xlim(-.45,len(use)-.55)
+    axes[0].legend(handles=[
+        Line2D([],[],color=".25",marker="o",linestyle="none",label="0.20 s reach"),
+        Line2D([],[],color=".25",marker="D",markerfacecolor="white",linestyle="none",label="0.40 s reach")],
+        loc="center left",fontsize=7)
     axes[1].axhline(0,color=".65",linewidth=.75)
     axes[1].set(xlabel="Lag (40 ms bins)",ylabel="Residual autocorrelation",xticks=[1,5,10,15,20])
     axes[1].legend(loc="best",fontsize=7)
@@ -73,6 +79,33 @@ def cohort(rows,out):
     ax.tick_params(axis="x",labelrotation=42,labelsize=7)
     ax.legend(loc="best")
     save(fig,out/"within_region")
+
+    # Animal means use identical sessions for the states in each plot.
+    sessions=defaultdict(dict)
+    for row in rows:
+        r=row["record"]
+        if r["variant"]=="reference" and r["context"]=="HOME" and valid(row["fit"]):
+            sessions[r["subject"],r["asset_id"]][r["state"]]=row["fit"]["d2"]
+    for states,name in ((STATES[:2],"paired_wake_nrem"),(STATES,"paired_wake_nrem_rem")):
+        by_animal=defaultdict(list)
+        for (animal,_), session in sessions.items():
+            if set(states)<=set(session):
+                by_animal[animal].append([session[st] for st in states])
+        if not by_animal:
+            continue
+        fig,ax=plt.subplots(figsize=(7.15,3.1),layout="constrained")
+        animals=sorted(by_animal)
+        shift=np.linspace(-.21,.21,len(states))
+        points=np.array([np.mean(by_animal[a],axis=0) for a in animals])
+        for index,values in enumerate(points):
+            ax.plot(index+shift,values,color=".69",lw=.8,zorder=1)
+        for j,state in enumerate(states):
+            ax.scatter(np.arange(len(animals))+shift[j],points[:,j],s=18,
+                       label=state,color=PALETTE[state],marker=("o","s","D")[j],zorder=2)
+        ax.set(xticks=range(len(animals)),xticklabels=animals,ylabel="Mean d₂ (bits/s)")
+        ax.tick_params(axis="x",labelrotation=42,labelsize=7)
+        ax.legend()
+        save(fig,out/name)
 
 
 def cross_region(rows,out):
