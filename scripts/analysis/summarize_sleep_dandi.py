@@ -35,6 +35,32 @@ def assess(fit):
               or (fit["acf_rmse"] is not None and fit["acf_rmse"]>.1))}
 
 
+def model_summary(rows):
+    by_state = defaultdict(list)
+    keys = ("dandiset","context","region","state")
+    fields = ("duration_s","rate_hz","count_variance","fano","zero_fraction","silence_p95_s",
+              "residual_excess_kurtosis","residual_abs_tail_over_3sd","acf_rmse")
+    for row in rows:
+        record = row["record"]
+        if record["variant"] == "reference" and valid(row["fit"]):
+            by_state[tuple(record[k] for k in keys)].append(row)
+    result = []
+    for key, group in sorted(by_state.items()):
+        fits = [row["fit"] for row in group]
+        deviations = [assess(fit) for fit in fits]
+        metrics = {}
+        for name in fields:
+            values = [fit[name] for fit in fits if fit[name] is not None]
+            metrics[name] = float(np.median(values)) if values else None
+        residual_acf = [d["max_abs_residual_acf_20"] for d in deviations if d["max_abs_residual_acf_20"] is not None]
+        metrics["max_abs_residual_acf_20"] = float(np.median(residual_acf)) if residual_acf else None
+        result.append({**dict(zip(keys,key,strict=True)),
+                       "animals":len({r["record"]["subject"] for r in group}),"fits":len(fits),
+                       "model_deviation_count":sum(d["model_deviation"] for d in deviations),
+                       "diagnostic_medians":metrics})
+    return result
+
+
 def state_summary(rows):
     grouped = defaultdict(dict)
     for r in rows:
@@ -44,7 +70,7 @@ def state_summary(rows):
             raise ValueError(f"Duplicate job for {key} {record['state']}")
         grouped[key][record["state"]] = r
     contrasts = []
-    for (ds,bird,session,context,region,variant), states in grouped.items():
+    for (ds,subject,session,context,region,variant), states in grouped.items():
         for high,low in COMPARISONS:
             if not (high in states and low in states):
                 continue
@@ -53,7 +79,7 @@ def state_summary(rows):
                 continue
             first,second = (q["fit"] for q in pair)
             alts = [q["long_reach"] for q in pair]
-            contrasts.append({"dandiset":ds,"subject":bird,"session":session,"context":context,"region":region,
+            contrasts.append({"dandiset":ds,"subject":subject,"session":session,"context":context,"region":region,
                               "variant":variant,"contrast":f"{high}_minus_{low}","effect":first["d2"]-second["d2"],
                               "rate_difference_hz":first["rate_hz"]-second["rate_hz"],"seconds":[q["duration_s"] for q in (first,second)],
                               "long_effect":alts[0]["d2"]-alts[1]["d2"] if all(valid(q) for q in alts) else None,
@@ -80,7 +106,8 @@ def state_summary(rows):
         aligned.append({"subject":subject,"session":session,"context":context,"variant":variant,
                         "contrast":contrast,"ca1":a["effect"],"bla":b["effect"],"ca1_minus_bla":a["effect"]-b["effect"]})
     return {"session_contrasts":contrasts,"per_animal_region":flatten(akeys,per_animal),
-            "per_animal_dataset":flatten(okeys,overall),"paired_cross_region_sessions":aligned}
+            "per_animal_dataset":flatten(okeys,overall),"paired_cross_region_sessions":aligned,
+            "reference_model_diagnostics":model_summary(rows)}
 
 
 def spearman(x,y):
