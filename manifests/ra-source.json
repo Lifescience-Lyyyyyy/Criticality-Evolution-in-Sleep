@@ -1,0 +1,480 @@
+{
+  "schema_version": 1,
+  "audited_utc": "2026-11-20T03:02:58.180015+00:00",
+  "doi": "10.17605/OSF.IO/8WFZ6",
+  "project_api": "https://api.osf.io/v2/nodes/8wfz6/",
+  "public": true,
+  "license": null,
+  "metadata_counts": {
+    "children": 0,
+    "linked_nodes": 0,
+    "wikis": 0
+  },
+  "sampling": "OSF file metadata plus bounded HTTP 206 reads, no complete recordings",
+  "files": [
+    {
+      "id": "64e1ed5d57125e0fe4cc14e8",
+      "metadata": "https://api.osf.io/v2/files/64e1ed5d57125e0fe4cc14e8/",
+      "download": "https://osf.io/download/ku2r9/",
+      "path": "/A413/audioFull.wav",
+      "bytes": 3169781804,
+      "version": 1,
+      "modified": "2023-08-20T10:39:25.774605",
+      "osf_sha256": "a0273738bcafd8f888554a377469301d3b4b3eb6d7ae1e29880e89d80d2099b6",
+      "audio_header": {
+        "chunks": [
+          "fmt ",
+          "data"
+        ],
+        "format": 1,
+        "channels": 1,
+        "sample_rate_hz": 30000,
+        "bits": 16,
+        "audio_duration_s": 52829.696,
+        "bytes_after_inspected_chunks": 0
+      }
+    },
+    {
+      "id": "64e1fd9e3fc43d14bce58e1b",
+      "metadata": "https://api.osf.io/v2/files/64e1fd9e3fc43d14bce58e1b/",
+      "download": "https://osf.io/download/78wk4/",
+      "path": "/A413/data_A413.mat",
+      "bytes": 530848147,
+      "version": 1,
+      "modified": "2023-08-20T11:48:46.782080",
+      "osf_sha256": "099f0cc3a572f581a899750d23bd45372972dcfd28e7ad5d35cdc2e17463f457",
+      "mat_variables": [
+        {
+          "name": "clusters",
+          "shape": [
+            1,
+            67
+          ],
+          "matlab_class": 2,
+          "fields": [
+            "spikeTimes",
+            "clusterID",
+            "maxChannel",
+            "coordinates",
+            "shank",
+            "group"
+          ],
+          "first_cluster_spike_vector_shape": [
+            1442877,
+            1
+          ],
+          "first_cluster_first_four_times": [
+            0.03203333333333334,
+            0.05873333333333334,
+            0.0813,
+            0.1285
+          ]
+        },
+        {
+          "name": "indL",
+          "shape": [
+            1,
+            35
+          ],
+          "matlab_class": 6
+        },
+        {
+          "name": "indR",
+          "shape": [
+            1,
+            32
+          ],
+          "matlab_class": 6
+        }
+      ],
+      "hemisphere_indices_partition_clusters": true
+    },
+    {
+      "id": "64e1ecd3b11c86143f073eb4",
+      "metadata": "https://api.osf.io/v2/files/64e1ecd3b11c86143f073eb4/",
+      "download": "https://osf.io/download/j6sez/",
+      "path": "/B1/audioFull.wav",
+      "bytes": 2063388716,
+      "version": 1,
+      "modified": "2023-08-20T10:37:07.969105",
+      "osf_sha256": "8449c9cbca5505df96565403224c6684ddbd900aabbfe300880b045cabc3c00b",
+      "audio_header": {
+        "chunks": [
+          "fmt ",
+          "data"
+        ],
+        "format": 1,
+        "channels": 1,
+        "sample_rate_hz": 30000,
+        "bits": 16,
+        "audio_duration_s": 34389.8112,
+        "bytes_after_inspected_chunks": 0
+      }
+    },
+    {
+      "id": "64e1fd8557125e104ccc1405",
+      "metadata": "https://api.osf.io/v2/files/64e1fd8557125e104ccc1405/",
+      "download": "https://osf.io/download/g93xw/",
+      "path": "/B1/data_B1.mat",
+      "bytes": 327575217,
+      "version": 1,
+      "modified": "2023-08-20T11:48:21.611005",
+      "osf_sha256": "c92ecf1da310a21d9596f1e5403d31ac5cf60f6fd9d7b6077f679b2beeb854a2",
+      "mat_variables": [
+        {
+          "name": "clusters",
+          "shape": [
+            1,
+            80
+          ],
+          "matlab_class": 2,
+          "fields": [
+            "spikeTimes",
+            "clusterID",
+            "maxChannel",
+            "coordinates",
+            "shank",
+            "group"
+          ],
+          "first_cluster_spike_vector_shape": [
+            783858,
+            1
+          ],
+          "first_cluster_first_four_times": [
+            0.008033333333333333,
+            0.060033333333333334,
+            0.1124,
+            0.16513333333333335
+          ]
+        },
+        {
+          "name": "indL",
+          "shape": [
+            1,
+            46
+          ],
+          "matlab_class": 6
+        },
+        {
+          "name": "indR",
+          "shape": [
+            1,
+            34
+          ],
+          "matlab_class": 6
+        }
+      ],
+      "hemisphere_indices_partition_clusters": true
+    },
+    {
+      "id": "64e1ed323fc43d1424e58e2b",
+      "metadata": "https://api.osf.io/v2/files/64e1ed323fc43d1424e58e2b/",
+      "download": "https://osf.io/download/64e1ed323fc43d1424e58e2b/",
+      "path": "/B3/audioFull.wav",
+      "bytes": 2499180044,
+      "version": 1,
+      "modified": "2023-08-20T10:38:42.893308",
+      "osf_sha256": "3dccbf90a5e3be9aa8cc6486eeb9440e5f8c19ee1cbcd676e21b03050356f1b3",
+      "audio_header": {
+        "chunks": [
+          "fmt ",
+          "data"
+        ],
+        "format": 1,
+        "channels": 1,
+        "sample_rate_hz": 30000,
+        "bits": 16,
+        "audio_duration_s": 41653.0,
+        "bytes_after_inspected_chunks": 0
+      }
+    },
+    {
+      "id": "64e1fdb2a9601a10d09c948e",
+      "metadata": "https://api.osf.io/v2/files/64e1fdb2a9601a10d09c948e/",
+      "download": "https://osf.io/download/6vcxm/",
+      "path": "/B3/data_B3.mat",
+      "bytes": 581841735,
+      "version": 1,
+      "modified": "2023-08-20T11:49:06.220884",
+      "osf_sha256": "70800a50e9f5930496b164436e89683c79721e33f33dab5078490069b029f8f0",
+      "mat_variables": [
+        {
+          "name": "clusters",
+          "shape": [
+            1,
+            116
+          ],
+          "matlab_class": 2,
+          "fields": [
+            "spikeTimes",
+            "clusterID",
+            "maxChannel",
+            "coordinates",
+            "shank",
+            "group"
+          ],
+          "first_cluster_spike_vector_shape": [
+            617257,
+            1
+          ],
+          "first_cluster_first_four_times": [
+            0.035666666666666666,
+            0.06956666666666667,
+            0.10656666666666667,
+            0.14473333333333335
+          ]
+        },
+        {
+          "name": "indL",
+          "shape": [
+            1,
+            50
+          ],
+          "matlab_class": 6
+        },
+        {
+          "name": "indR",
+          "shape": [
+            1,
+            66
+          ],
+          "matlab_class": 6
+        }
+      ],
+      "hemisphere_indices_partition_clusters": true
+    },
+    {
+      "id": "64e1eda4b11c861444073f58",
+      "metadata": "https://api.osf.io/v2/files/64e1eda4b11c861444073f58/",
+      "download": "https://osf.io/download/72rzc/",
+      "path": "/B5/audioFull.wav",
+      "bytes": 3059005484,
+      "version": 1,
+      "modified": "2023-08-20T10:40:37.019653",
+      "osf_sha256": "049649b32782496e88b74604cc6a5ac409d703f1b96f8cb9739e9f5768aa3c4f",
+      "audio_header": {
+        "chunks": [
+          "fmt ",
+          "data"
+        ],
+        "format": 1,
+        "channels": 1,
+        "sample_rate_hz": 30000,
+        "bits": 16,
+        "audio_duration_s": 50983.424,
+        "bytes_after_inspected_chunks": 0
+      }
+    },
+    {
+      "id": "64e1fddfb11c8614d4073ed3",
+      "metadata": "https://api.osf.io/v2/files/64e1fddfb11c8614d4073ed3/",
+      "download": "https://osf.io/download/2w5ms/",
+      "path": "/B5/data_B5.mat",
+      "bytes": 779402870,
+      "version": 1,
+      "modified": "2023-08-20T11:49:51.808496",
+      "osf_sha256": "1689dac950e3bc76cf2325662a923a4295e43224f7d8102f3047513c0f002d00",
+      "mat_variables": [
+        {
+          "name": "clusters",
+          "shape": [
+            1,
+            104
+          ],
+          "matlab_class": 2,
+          "fields": [
+            "spikeTimes",
+            "clusterID",
+            "maxChannel",
+            "coordinates",
+            "shank",
+            "group"
+          ],
+          "first_cluster_spike_vector_shape": [
+            1288828,
+            1
+          ],
+          "first_cluster_first_four_times": [
+            0.027133333333333336,
+            0.058833333333333335,
+            0.08276666666666667,
+            0.11526666666666667
+          ]
+        },
+        {
+          "name": "indL",
+          "shape": [
+            1,
+            50
+          ],
+          "matlab_class": 6
+        },
+        {
+          "name": "indR",
+          "shape": [
+            1,
+            54
+          ],
+          "matlab_class": 6
+        }
+      ],
+      "hemisphere_indices_partition_clusters": true
+    },
+    {
+      "id": "64e2089db11c8614fa073eb3",
+      "metadata": "https://api.osf.io/v2/files/64e2089db11c8614fa073eb3/",
+      "download": "https://osf.io/download/bcwdt/",
+      "path": "/TemplateMatching/fcns/eventDetect/distAllPoints.m",
+      "bytes": 247,
+      "version": 1,
+      "modified": "2023-08-20T12:35:41.283414",
+      "osf_sha256": "8b4b6a13936b6d24a9cdf8f6bf0b75b10e6e67dc9a8a008a0500eadd6ca10cb0"
+    },
+    {
+      "id": "64e2089da9601a10f79c956f",
+      "metadata": "https://api.osf.io/v2/files/64e2089da9601a10f79c956f/",
+      "download": "https://osf.io/download/64e2089da9601a10f79c956f/",
+      "path": "/TemplateMatching/fcns/eventDetect/joinSeq.m",
+      "bytes": 2046,
+      "version": 1,
+      "modified": "2023-08-20T12:35:41.261584",
+      "osf_sha256": "c2929a655dddbb1fd8442a8a0fdb9fd1677085e60229f5486afedf93a1ac0600"
+    },
+    {
+      "id": "64e208a1a9601a10f69c94e1",
+      "metadata": "https://api.osf.io/v2/files/64e208a1a9601a10f69c94e1/",
+      "download": "https://osf.io/download/64e208a1a9601a10f69c94e1/",
+      "path": "/TemplateMatching/fcns/eventDetect/labelIslands.m",
+      "bytes": 402,
+      "version": 1,
+      "modified": "2023-08-20T12:35:45.644492",
+      "osf_sha256": "a54d7a974083d7b34f402a805182e837c7e2b767ef65495f313b70b39b6596cc"
+    },
+    {
+      "id": "64e208a1b11c861500073f4d",
+      "metadata": "https://api.osf.io/v2/files/64e208a1b11c861500073f4d/",
+      "download": "https://osf.io/download/64e208a1b11c861500073f4d/",
+      "path": "/TemplateMatching/fcns/eventDetect/loopJoinSeq.m",
+      "bytes": 932,
+      "version": 1,
+      "modified": "2023-08-20T12:35:45.683257",
+      "osf_sha256": "765b78f7a4f72dc5b60c841c1816395dad7790e5b3cdd19f5bfb49a196fc7262"
+    },
+    {
+      "id": "64e208a4a9601a10f69c94e3",
+      "metadata": "https://api.osf.io/v2/files/64e208a4a9601a10f69c94e3/",
+      "download": "https://osf.io/download/64e208a4a9601a10f69c94e3/",
+      "path": "/TemplateMatching/fcns/eventDetect/make_heatMap_nsOut_slidingWin.m",
+      "bytes": 695,
+      "version": 1,
+      "modified": "2023-08-20T12:35:48.875838",
+      "osf_sha256": "b644a86d8485dea578d2df7d195b5087eb34771b55f49e4bf5ea65b6e2680234"
+    },
+    {
+      "id": "64e208a4b11c8614ff073ef8",
+      "metadata": "https://api.osf.io/v2/files/64e208a4b11c8614ff073ef8/",
+      "download": "https://osf.io/download/64e208a4b11c8614ff073ef8/",
+      "path": "/TemplateMatching/fcns/eventDetect/nsSyncFull.m",
+      "bytes": 3046,
+      "version": 1,
+      "modified": "2023-08-20T12:35:48.147217",
+      "osf_sha256": "e572794c2af52a3299541a7502f24771ec39ea5b868c9c359ca76b6614deb5ab"
+    },
+    {
+      "id": "64e208a657125e1073cc15ae",
+      "metadata": "https://api.osf.io/v2/files/64e208a657125e1073cc15ae/",
+      "download": "https://osf.io/download/9ymcr/",
+      "path": "/TemplateMatching/fcns/eventDetect/removeOutliersBilatDiff2.m",
+      "bytes": 5291,
+      "version": 1,
+      "modified": "2023-08-20T12:35:50.641816",
+      "osf_sha256": "4cb76dfa10abd1034ee3ad474edb2af0653790672654e426e64d0b7590e6b379"
+    },
+    {
+      "id": "64e208a857125e1073cc15b5",
+      "metadata": "https://api.osf.io/v2/files/64e208a857125e1073cc15b5/",
+      "download": "https://osf.io/download/eg6k2/",
+      "path": "/TemplateMatching/fcns/eventDetect/run_extractSeqNS.m",
+      "bytes": 1008,
+      "version": 1,
+      "modified": "2023-08-20T12:35:52.106697",
+      "osf_sha256": "2f8521796788b6a7228eb4b4cddbb0ee14ceba8573d777ab1ffa7602cef6fedf"
+    },
+    {
+      "id": "64e208aba9601a10f79c9579",
+      "metadata": "https://api.osf.io/v2/files/64e208aba9601a10f79c9579/",
+      "download": "https://osf.io/download/zbesh/",
+      "path": "/TemplateMatching/fcns/eventDetect/seqSlope.m",
+      "bytes": 477,
+      "version": 1,
+      "modified": "2023-08-20T12:35:55.198288",
+      "osf_sha256": "ce6bea128a792762d7c87e40db74d766f0e28fa0a18cc0546e2a15819e5d4f43"
+    },
+    {
+      "id": "64e208aa57125e106ecc13d2",
+      "metadata": "https://api.osf.io/v2/files/64e208aa57125e106ecc13d2/",
+      "download": "https://osf.io/download/x6hrt/",
+      "path": "/TemplateMatching/fcns/eventDetect/sortSeq.m",
+      "bytes": 185,
+      "version": 1,
+      "modified": "2023-08-20T12:35:54.751083",
+      "osf_sha256": "89d528498606cab5a4d8e46579d52d5c78dd19f9c880f30f27feae15aa8d6f87"
+    },
+    {
+      "id": "64e1fd4557125e104ccc13e0",
+      "metadata": "https://api.osf.io/v2/files/64e1fd4557125e104ccc13e0/",
+      "download": "https://osf.io/download/2fgck/",
+      "path": "/TemplateMatching/fcns/makeNStemplate.m",
+      "bytes": 339,
+      "version": 1,
+      "modified": "2023-08-20T11:47:17.992357",
+      "osf_sha256": "9cd828b6519c2fcd918972212835d339ed151e1c3dbe5f973d1e902ad4428c51"
+    },
+    {
+      "id": "64e1fd46a9601a10d49c94cf",
+      "metadata": "https://api.osf.io/v2/files/64e1fd46a9601a10d49c94cf/",
+      "download": "https://osf.io/download/76dbk/",
+      "path": "/TemplateMatching/fcns/makePopBinary.m",
+      "bytes": 1895,
+      "version": 1,
+      "modified": "2023-08-20T11:47:18.201696",
+      "osf_sha256": "57da2b177ecbb757083b8bf23584da855acb1636c3a094c63ba9d10d33383f99"
+    },
+    {
+      "id": "64e1fd4662e5ee11403ab703",
+      "metadata": "https://api.osf.io/v2/files/64e1fd4662e5ee11403ab703/",
+      "download": "https://osf.io/download/84hv6/",
+      "path": "/TemplateMatching/fcns/neuroSaberFunctionPar.m",
+      "bytes": 1399,
+      "version": 1,
+      "modified": "2023-08-20T11:47:18.225881",
+      "osf_sha256": "6e0dd6c80cf07e2982535adf61a49eab55d27753ff9e8997b3bfbe74e2ba8c87"
+    },
+    {
+      "id": "64e20870b11c8614f6073e9a",
+      "metadata": "https://api.osf.io/v2/files/64e20870b11c8614f6073e9a/",
+      "download": "https://osf.io/download/2ewzq/",
+      "path": "/TemplateMatching/run_templateMatching.m",
+      "bytes": 2377,
+      "version": 1,
+      "modified": "2023-08-20T12:34:56.556584",
+      "osf_sha256": "4cd02b90a5594901c3fe09dab5ff5ae2c8f3f1edbe2df5f7ee494bb728b9ecce"
+    }
+  ],
+  "annotations": {
+    "paper_doi": "10.1016/j.cub.2023.09.005",
+    "paper_supplement": "https://ars.els-cdn.com/content/image/1-s2.0-S0960982223012186-mmc1.pdf",
+    "paper_supplement_sha256": "58a0a89211785d774a0f3b14dc460a3b082d4fa9b09f99c1320c8d3fabf1576c",
+    "verified_source_scripts": 14,
+    "continuous_sorted_times": "SUPPORTED_BY_FORMAT_AND_AUTHORS_METHODS_FULL_VECTORS_NOT_LOADED",
+    "sleep_clock": "UNAVAILABLE_IN_PUBLIC_RELEASE",
+    "published_detector_inputs_missing": [
+      "valid master clock bounds/gaps",
+      "per-bird winOn",
+      "per-bird winOff",
+      "vocalization timing and templateTime",
+      "per-hemisphere threshOn/threshOff or annotated events"
+    ],
+    "gate_ra0": "BLOCKED_INSUFFICIENT_ALIGNED_METADATA"
+  }
+}

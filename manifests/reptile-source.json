@@ -1,0 +1,785 @@
+{
+  "schema_version": 1,
+  "audited_utc": "2026-11-20T03:07:16.247765+00:00",
+  "gate_rep0": "PASS_AUDIT_COMPLETE_NO_READY_DATASET",
+  "datasets": {
+    "shein_idelson_2016": {
+      "publication": "https://pubmed.ncbi.nlm.nih.gov/27126045/",
+      "index": "https://public.brain.mpg.de/Laurent/SheinIdelsonetal2016/",
+      "doi": "10.17617/3.RNVKOY",
+      "api": "https://edmond.mpg.de/api/datasets/:persistentId/?persistentId=doi:10.17617/3.RNVKOY",
+      "version": "1.0",
+      "license": "CC0-1.0",
+      "classification": "PARTIAL",
+      "files": [
+        {
+          "name": "analysisExampleCodeAndData.zip",
+          "id": 333863,
+          "bytes": 3132168090,
+          "restricted": false,
+          "checksum": {
+            "type": "MD5",
+            "value": "e490f631c20e6018cd67514f0543da82"
+          },
+          "download": "https://edmond.mpg.de/api/access/datafile/333863"
+        },
+        {
+          "name": "analysisExampleHtml.zip",
+          "id": 333865,
+          "bytes": 509272,
+          "restricted": false,
+          "checksum": {
+            "type": "MD5",
+            "value": "46dd498eb463d0648c1bd4e801cffe85"
+          },
+          "download": "https://edmond.mpg.de/api/access/datafile/333865"
+        },
+        {
+          "name": "code.zip",
+          "id": 333862,
+          "bytes": 218086,
+          "restricted": false,
+          "checksum": {
+            "type": "MD5",
+            "value": "f525e4c247fe24911338ff9e21a61399"
+          },
+          "download": "https://edmond.mpg.de/api/access/datafile/333862"
+        },
+        {
+          "name": "README.txt",
+          "id": 333864,
+          "bytes": 395,
+          "restricted": false,
+          "checksum": {
+            "type": "MD5",
+            "value": "0c568ca4aa2c56ec2af92ddfe3652ee8"
+          },
+          "download": "https://edmond.mpg.de/api/access/datafile/333864"
+        }
+      ],
+      "example_members": [
+        {
+          "path": "crosscorr.m",
+          "bytes": 5884,
+          "compressed": 2219,
+          "crc32": "326cf7cb",
+          "header_offset": 0
+        },
+        {
+          "path": "dataRecording.m",
+          "bytes": 12322,
+          "compressed": 2905,
+          "crc32": "c6e00bd8",
+          "header_offset": 2260
+        },
+        {
+          "path": "DendrogramMatrix.m",
+          "bytes": 4063,
+          "compressed": 1468,
+          "crc32": "3b9e6a1b",
+          "header_offset": 5210
+        },
+        {
+          "path": "fastmedfilt1d.m",
+          "bytes": 1756,
+          "compressed": 833,
+          "crc32": "c72a742f",
+          "header_offset": 6726
+        },
+        {
+          "path": "fastmedfilt1d_core.c",
+          "bytes": 6335,
+          "compressed": 2121,
+          "crc32": "ac422b17",
+          "header_offset": 7604
+        },
+        {
+          "path": "fastmedfilt1d_core.mexw64",
+          "bytes": 8704,
+          "compressed": 3962,
+          "crc32": "88435f92",
+          "header_offset": 9775
+        },
+        {
+          "path": "filterData.m",
+          "bytes": 16095,
+          "compressed": 3581,
+          "crc32": "fb286144",
+          "header_offset": 13792
+        },
+        {
+          "path": "layout_32_32x1_linearEdgeProbeNLynx.mat",
+          "bytes": 280,
+          "compressed": 211,
+          "crc32": "456d3513",
+          "header_offset": 17415
+        },
+        {
+          "path": "NLRecording.m",
+          "bytes": 15655,
+          "compressed": 4291,
+          "crc32": "5f22d020",
+          "header_offset": 17695
+        },
+        {
+          "path": "runMe.asv",
+          "bytes": 1826,
+          "compressed": 804,
+          "crc32": "16670308",
+          "header_offset": 22029
+        },
+        {
+          "path": "runMe.m",
+          "bytes": 2063,
+          "compressed": 907,
+          "crc32": "b94b4129",
+          "header_offset": 22872
+        },
+        {
+          "path": "sleepAnalysis.m",
+          "bytes": 146058,
+          "compressed": 24243,
+          "crc32": "f61607e5",
+          "header_offset": 23816
+        },
+        {
+          "path": "sleepData.xlsx",
+          "bytes": 12523,
+          "compressed": 9074,
+          "crc32": "62033bf9",
+          "header_offset": 48104
+        },
+        {
+          "path": "subaxis.m",
+          "bytes": 8286,
+          "compressed": 2747,
+          "crc32": "d19c7540",
+          "header_offset": 57222
+        },
+        {
+          "path": "xcorrmat.m",
+          "bytes": 952,
+          "compressed": 487,
+          "crc32": "3d14c8b7",
+          "header_offset": 60008
+        },
+        {
+          "path": "data/CheetahLogFile.txt",
+          "bytes": 1326051,
+          "compressed": 89593,
+          "crc32": "87ea0a8c",
+          "header_offset": 60535
+        },
+        {
+          "path": "data/CheetahLostADRecords.txt",
+          "bytes": 16384,
+          "compressed": 403,
+          "crc32": "7af4d524",
+          "header_offset": 150181
+        },
+        {
+          "path": "data/CSC29.ncs",
+          "bytes": 4060264972,
+          "compressed": 3132016093,
+          "crc32": "b2aa78ff",
+          "header_offset": 150643
+        },
+        {
+          "path": "data/layout.chMap",
+          "bytes": 32,
+          "compressed": 32,
+          "crc32": "10e8255a",
+          "header_offset": 3132166800
+        }
+      ],
+      "neuralynx_sample": {
+        "file": "data/CSC29.ncs",
+        "animal": "Lizard14",
+        "region": "DVR",
+        "channels": 1,
+        "sample_rate_hz": 32000,
+        "hardware_passband_hz": [
+          0.1,
+          9000
+        ],
+        "duration_h_estimated_from_records": 17.28500888888889,
+        "raw_broadband": true,
+        "sorted_times_in_public_archive": false
+      },
+      "inspection": "Read checksummed code and README, central directory, selected example members and Neuralynx header using HTTP Range"
+    },
+    "fenk_2023": {
+      "publication": "https://www.nature.com/articles/s41586-023-05827-w",
+      "classification": "RESTRICTED",
+      "access": "Data available upon reasonable request",
+      "code": "https://gitlab.mpcdf.mpg.de/mpibr/laur/inter-hemispheric-rem",
+      "code_ref": "7cb3a6ffa0cd7fc0359b74d2c9201114d83902dc",
+      "code_paths": [
+        ".gitignore",
+        "LICENSE.md",
+        "README.md",
+        "ihrem/__init__.py",
+        "ihrem/analysis/__init__.py",
+        "ihrem/analysis/sleep.py",
+        "ihrem/analysis/sne.py",
+        "ihrem/analysis/sne_extraction.py",
+        "ihrem/analysis/sne_matching.py",
+        "ihrem/analysis/stas.py",
+        "ihrem/analysis/switches.py",
+        "ihrem/analysis/xcorr.py",
+        "ihrem/analysis/xcorr_bestlags.py",
+        "ihrem/events.py",
+        "ihrem/extract.py",
+        "ihrem/figs/__init__.py",
+        "ihrem/figs/fig1.py",
+        "ihrem/figs/fig2.py",
+        "ihrem/figs/fig3.py",
+        "ihrem/figs/fig4.py",
+        "ihrem/figs/fig5.py",
+        "ihrem/io_common.py",
+        "ihrem/io_neuralynx.py",
+        "ihrem/io_neuropixel.py",
+        "ihrem/io_neuropixel_interp.py",
+        "ihrem/paths.py",
+        "ihrem/plot.py",
+        "ihrem/stacks.py",
+        "ihrem/tests/test_timeslice.py",
+        "ihrem/timeslice.py",
+        "ihrem/trains.py",
+        "notebooks/fig1.ipynb",
+        "notebooks/fig2.ipynb",
+        "notebooks/fig3.ipynb",
+        "notebooks/fig4.ipynb",
+        "notebooks/fig5.ipynb",
+        "notebooks/figs/.gitkeep",
+        "notebooks/temp/.gitkeep",
+        "requirements.txt",
+        "setup.py"
+      ]
+    },
+    "yamaguchi_hatori_2024": {
+      "publication": "https://doi.org/10.1093/pnasnexus/pgad481",
+      "doi": "10.17632/v7kkwgnyn5.1",
+      "version": 1,
+      "classification": "LFP_ONLY",
+      "license": "CC-BY-4.0",
+      "public_files_api": "https://data.mendeley.com/public-api/datasets/v7kkwgnyn5/files?folder_id=root&version=1",
+      "archive": {
+        "name": "dataForFigures.zip",
+        "id": "88dfb732-4d7c-4ade-948e-a123e65915a5",
+        "bytes": 16580730,
+        "sha256": "1f4701e5c423f4d068d51d0bddca24098ef058968478a9a2674bf2591b74adb3",
+        "download": "https://data.mendeley.com/public-files/datasets/v7kkwgnyn5/files/88dfb732-4d7c-4ade-948e-a123e65915a5/file_downloaded"
+      },
+      "members": [
+        {
+          "path": "dataForFigures/Fig1/activityInSDSN.mat",
+          "bytes": 925,
+          "compressed": 922,
+          "crc32": "7023bf38"
+        },
+        {
+          "path": "dataForFigures/Fig1/activityProfile.mat",
+          "bytes": 1529,
+          "compressed": 1529,
+          "crc32": "1401429e"
+        },
+        {
+          "path": "dataForFigures/Fig1/dailyActivity.mat",
+          "bytes": 1082,
+          "compressed": 1082,
+          "crc32": "52c9d2e1"
+        },
+        {
+          "path": "dataForFigures/Fig1/locomotionPer30min.mat",
+          "bytes": 5188,
+          "compressed": 5153,
+          "crc32": "085ee42e"
+        },
+        {
+          "path": "dataForFigures/Fig1/LombScargleResults.mat",
+          "bytes": 53870,
+          "compressed": 52971,
+          "crc32": "684405c0"
+        },
+        {
+          "path": "dataForFigures/Fig2/deltabetaZscore.mat",
+          "bytes": 16154,
+          "compressed": 16154,
+          "crc32": "415d50ad"
+        },
+        {
+          "path": "dataForFigures/Fig2/LombScargleResults.mat",
+          "bytes": 39046,
+          "compressed": 38139,
+          "crc32": "6e73cf22"
+        },
+        {
+          "path": "dataForFigures/Fig2/profile.mat",
+          "bytes": 1681,
+          "compressed": 1681,
+          "crc32": "0cf83a38"
+        },
+        {
+          "path": "dataForFigures/Fig2/representativeDeltaBetaTrace.mat",
+          "bytes": 2109585,
+          "compressed": 2110225,
+          "crc32": "9935bc1a"
+        },
+        {
+          "path": "dataForFigures/Fig3/cumulativeFractionREMSSWSbout.mat",
+          "bytes": 6397,
+          "compressed": 6397,
+          "crc32": "5820abbc"
+        },
+        {
+          "path": "dataForFigures/Fig3/representativeTraces.mat",
+          "bytes": 9031424,
+          "compressed": 8974774,
+          "crc32": "c1f5935c"
+        },
+        {
+          "path": "dataForFigures/Fig3/sleepCycleQuantifications.mat",
+          "bytes": 1694,
+          "compressed": 1694,
+          "crc32": "48703448"
+        },
+        {
+          "path": "dataForFigures/Fig4/cumulativeFractionREMSSWSbout.mat",
+          "bytes": 2852,
+          "compressed": 2852,
+          "crc32": "1ffba015"
+        },
+        {
+          "path": "dataForFigures/Fig4/dailyAct.mat",
+          "bytes": 904,
+          "compressed": 899,
+          "crc32": "d4ce5e8b"
+        },
+        {
+          "path": "dataForFigures/Fig4/dailyActSlpCycleWithConditions.mat",
+          "bytes": 2260,
+          "compressed": 2260,
+          "crc32": "6f1855c1"
+        },
+        {
+          "path": "dataForFigures/Fig4/representativeTraces.mat",
+          "bytes": 5323800,
+          "compressed": 5280772,
+          "crc32": "6fe3bf58"
+        },
+        {
+          "path": "dataForFigures/Fig4/sleepCycleQuantification.mat",
+          "bytes": 1098,
+          "compressed": 1096,
+          "crc32": "6d3dbfbd"
+        },
+        {
+          "path": "dataForFigures/SupFig1/bodyWeight.xlsx",
+          "bytes": 9271,
+          "compressed": 6810,
+          "crc32": "fdf9f610"
+        },
+        {
+          "path": "dataForFigures/SupFig2/velo-Acce.mat",
+          "bytes": 1108,
+          "compressed": 1100,
+          "crc32": "8f85e8bb"
+        },
+        {
+          "path": "dataForFigures/SupFig3/activityProfile.mat",
+          "bytes": 1572,
+          "compressed": 1572,
+          "crc32": "7077e839"
+        },
+        {
+          "path": "dataForFigures/SupFig3/dailyActLD.mat",
+          "bytes": 1070,
+          "compressed": 1070,
+          "crc32": "34aeab8a"
+        },
+        {
+          "path": "dataForFigures/SupFig3/locomotionPer30min.mat",
+          "bytes": 5385,
+          "compressed": 5361,
+          "crc32": "76025125"
+        },
+        {
+          "path": "dataForFigures/SupFig3/meanTotalActInLD.mat",
+          "bytes": 923,
+          "compressed": 921,
+          "crc32": "8bc2203d"
+        },
+        {
+          "path": "dataForFigures/SupFig4/bodyBrightnessPer30min.mat",
+          "bytes": 4648,
+          "compressed": 4648,
+          "crc32": "5cdb39c8"
+        },
+        {
+          "path": "dataForFigures/SupFig4/bodyBrightnessProfile.mat",
+          "bytes": 1664,
+          "compressed": 1664,
+          "crc32": "cfc970d6"
+        },
+        {
+          "path": "dataForFigures/SupFig4/brightnessInSDSN.mat",
+          "bytes": 944,
+          "compressed": 942,
+          "crc32": "3ac4f9e4"
+        },
+        {
+          "path": "dataForFigures/SupFig4/LombScargleResults.mat",
+          "bytes": 53588,
+          "compressed": 52686,
+          "crc32": "ef7f5491"
+        }
+      ],
+      "matlab_variables": {
+        "dataForFigures/Fig1/activityInSDSN.mat": [
+          [
+            "activityInSDSN",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/Fig1/activityProfile.mat": [
+          [
+            "actProf",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/Fig1/dailyActivity.mat": [
+          [
+            "dailyAct",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/Fig1/locomotionPer30min.mat": [
+          [
+            "locomotionPer30min",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/Fig1/LombScargleResults.mat": [
+          [
+            "LombScargleReults",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/Fig2/deltabetaZscore.mat": [
+          [
+            "deltabetaZscore",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/Fig2/LombScargleResults.mat": [
+          [
+            "LombScargleReults",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/Fig2/profile.mat": [
+          [
+            "prof",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/Fig2/representativeDeltaBetaTrace.mat": [
+          [
+            "repDeltaBeta",
+            [
+              1,
+              583200
+            ],
+            "single"
+          ]
+        ],
+        "dataForFigures/Fig3/cumulativeFractionREMSSWSbout.mat": [
+          [
+            "CumulFracRawREMSSWSbout",
+            [
+              1,
+              7
+            ],
+            "struct"
+          ],
+          [
+            "__function_workspace__",
+            [
+              1,
+              1840
+            ],
+            "uint8"
+          ]
+        ],
+        "dataForFigures/Fig3/representativeTraces.mat": [
+          [
+            "repTrace",
+            [
+              1,
+              1
+            ],
+            "struct"
+          ]
+        ],
+        "dataForFigures/Fig3/sleepCycleQuantifications.mat": [
+          [
+            "sleepCycleResults",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/Fig4/cumulativeFractionREMSSWSbout.mat": [
+          [
+            "CumulFracRAWREMSSWSboutPost",
+            [
+              1,
+              3
+            ],
+            "struct"
+          ],
+          [
+            "__function_workspace__",
+            [
+              1,
+              1232
+            ],
+            "uint8"
+          ]
+        ],
+        "dataForFigures/Fig4/dailyAct.mat": [
+          [
+            "dailyAct",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/Fig4/dailyActSlpCycleWithConditions.mat": [
+          [
+            "dailyActSlpCycleWithConditions",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/Fig4/representativeTraces.mat": [
+          [
+            "repTrace",
+            [
+              1,
+              1
+            ],
+            "struct"
+          ]
+        ],
+        "dataForFigures/Fig4/sleepCycleQuantification.mat": [
+          [
+            "sleepCycleResults",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/SupFig2/velo-Acce.mat": [
+          [
+            "s2",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/SupFig3/activityProfile.mat": [
+          [
+            "actProf",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/SupFig3/dailyActLD.mat": [
+          [
+            "dailyAct",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/SupFig3/locomotionPer30min.mat": [
+          [
+            "locomotionPer30min",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/SupFig3/meanTotalActInLD.mat": [
+          [
+            "actInSDSN",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/SupFig4/bodyBrightnessPer30min.mat": [
+          [
+            "bodyBrightnessPer30min",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/SupFig4/bodyBrightnessProfile.mat": [
+          [
+            "bodyBrightnessProfile",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/SupFig4/brightnessInSDSN.mat": [
+          [
+            "brightnessInSDSN",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ],
+        "dataForFigures/SupFig4/LombScargleResults.mat": [
+          [
+            "LombScargleResults",
+            [
+              1
+            ],
+            "MatlabOpaque"
+          ]
+        ]
+      },
+      "representative_trace_fields": {
+        "dataForFigures/Fig3/representativeTraces.mat": {
+          "raw_day2": {
+            "shape": [
+              1200001
+            ],
+            "type": "ndarray"
+          },
+          "deltabeta_day2": {
+            "shape": [
+              1201
+            ],
+            "type": "ndarray"
+          },
+          "autoCorr_day2": {
+            "shape": [
+              1201
+            ],
+            "type": "ndarray"
+          },
+          "raw_day7": {
+            "shape": [
+              1200001
+            ],
+            "type": "ndarray"
+          },
+          "deltabeta_day7": {
+            "shape": [
+              1201
+            ],
+            "type": "ndarray"
+          },
+          "autoCorr_day7": {
+            "shape": [
+              1201
+            ],
+            "type": "ndarray"
+          },
+          "autoCorr30minInterval": {
+            "shape": [
+              327,
+              1201
+            ],
+            "type": "ndarray"
+          },
+          "lagForAutoCorr": {
+            "shape": [
+              1201
+            ],
+            "type": "ndarray"
+          }
+        },
+        "dataForFigures/Fig4/representativeTraces.mat": {
+          "raw_day7": {
+            "shape": [
+              900001
+            ],
+            "type": "ndarray"
+          },
+          "deltabeta_day7": {
+            "shape": [
+              901
+            ],
+            "type": "ndarray"
+          },
+          "raw_day8": {
+            "shape": [
+              900001
+            ],
+            "type": "ndarray"
+          },
+          "deltabeta_day8": {
+            "shape": [
+              901
+            ],
+            "type": "ndarray"
+          }
+        }
+      },
+      "recording": {
+        "region": "DVR",
+        "sample_rate_hz": 1000,
+        "passband_hz": [
+          0.1,
+          100
+        ],
+        "study_total_animals": 10
+      }
+    }
+  }
+}

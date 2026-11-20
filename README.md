@@ -22,4 +22,12 @@ python scripts/analysis/plot_zebra.py
 - 斑胸草雀诊断图　[三态 d₂](figures/zebra_finch/lman_state_comparison.pdf) · [发放统计](figures/zebra_finch/lman_firing_statistics.pdf) · [爆发统计](figures/zebra_finch/lman_burst_statistics.pdf) · [SWS 爆发与 d₂](figures/zebra_finch/lman_burst_d2.pdf) · [敏感性](figures/zebra_finch/lman_sensitivity.pdf)
 - [来源清单](manifests/sources.json) · [斑胸草雀准备清单](manifests/zebra-finch-preparation.json) · [实验记录和校验值](manifests/experiments.json)
 
+## Phase 7 数据审计
+
+RA 的 OSF 发布含四只斑胸草雀的双侧排序脉冲。睡眠时段、鸣唱与重放缺少可对齐到神经时钟的标注，RA-0 受阻。三个爬行动物数据源的公开资料也尚不足以开展本项目的群体脉冲 d₂ 分析。
+
+- [RA 可行性](reports/07_ra_feasibility.md) · [Phase 7 科学结论与验证顺序](reports/08_ra_analysis.md) · [RA–LMAN 可比范围](reports/09_ra_lman_comparison.md)
+- [爬行动物数据审计](reports/10_reptile_data_audit.md) · [RA 来源清单](manifests/ra-source.json) · [爬行动物来源清单](manifests/reptile-source.json)
+- 重跑 OSF 只读清单和文件头检查可用 `python3 scripts/data/inspect_ra.py`。
+
 [Sooter 等人的 PNAS 论文](https://doi.org/10.1073/pnas.2526984123) · [原始 MATLAB 工具包](https://github.com/sam-sooter/prox_crit_toolkit) · [Lorenz 等人的斑胸草雀录制](https://doi.org/10.12751/g-node.vsxyi8)
