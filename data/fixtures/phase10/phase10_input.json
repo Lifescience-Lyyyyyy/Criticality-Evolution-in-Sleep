@@ -1,59 +1,12 @@
 {
-  "records": 801,
+  "records": 57,
   "asset_ids": [
-    "10cc7062-c197-4e51-941e-44aa0b3d191e",
-    "25b0f421-e8d7-43ce-8358-a95cb4e192c0",
-    "26f3cbb2-01ab-4109-aefb-8526d24d55fa",
-    "2ae1c0e9-aa46-4c7e-aa9c-27bcbb88a55f",
-    "2bf78b50-76d3-4bf4-bafe-97694daaa78f",
-    "334b7fe2-7f6f-4ced-a119-d6db508dac82",
-    "3837008a-ba8a-407d-a5a2-b64287f3e26e",
-    "397c49fa-b9c0-4379-8169-c68139ac5364",
-    "3a576c9f-0f26-49c9-8519-0d7133ca4dc7",
-    "3bd58acd-c4e8-48b4-a853-0ff1cf2bdf4f",
-    "42005423-ba05-4d42-ae24-e965aacad171",
-    "5e01efea-23ff-4671-bdf0-b8a276225c87",
-    "71bcd9c7-7b27-434f-999f-493d4d69dc92",
-    "7a9cccb0-14c0-4945-baa8-809adcb73374",
-    "8151cfd5-919c-4aee-8b67-cf6bce3ec941",
-    "81b150ea-879d-4cb7-9ae5-b3a3f1865f08",
-    "8722ec3c-1fc4-40fd-84da-e927d452596a",
-    "879eb072-6631-493c-bbbb-642f4de8cdd3",
-    "87cde881-7abd-486a-bbfa-fc050acbf77d",
-    "93a3be5c-e51a-4ef6-94fa-9ee62ae77978",
-    "9cd1f5f0-9807-4c79-afe4-449656191bbf",
-    "9f90e419-390b-4b7d-8096-17a4a67ce0d5",
-    "a19ca613-79c1-468f-9141-df3c6397074b",
-    "a43f8517-2fee-4ea1-a742-7b6fe05b9418",
-    "a8cb165b-1c0e-4b46-905a-b7d6a8def174",
-    "afaa1e94-343e-4ed2-a7b7-6eca367f0015",
-    "b70dcead-517f-47c9-9202-dcb3d170e68f",
-    "b94b9e69-837e-4e28-9f52-5026d9772afa",
-    "cb98f5ba-7347-4e3d-9ab6-fb2f324e53b5",
-    "d00d2ffa-0a82-40ed-847d-a6a9038b45df",
-    "d1fb4979-1ae8-4f07-b804-26aa64d1ccf7",
-    "d5bc9b94-9c64-40d2-965b-5413bb39c533",
-    "e1378224-c526-4a08-ba40-c57042894af1",
-    "ec5c0008-9d22-4a55-bdc7-6c92449ad149",
-    "f581d3b8-3029-43f2-8bb9-4847e7cadc23",
-    "ffb6e7dc-92bb-43b3-996c-10261e7b038f"
+    "zenodo:19462601:WT:DL108"
   ],
   "mode": "states",
-  "reference_fits": 262,
+  "reference_fits": 18,
   "swr_windows": 0,
-  "parts": [
-    {
-      "name": "sleep_dandi_part1.mat",
-      "sha256": "35668d157b6e04ebb119436321487f7d4d3bb838f13f93c4e31eb1ad103d2207",
-      "bytes": 22869298,
-      "records": 436
-    },
-    {
-      "name": "sleep_dandi_part2.mat",
-      "sha256": "80b4e4f30ef21296e74f767e2a9db3f896abe84ebce1f6e7803ae4214460aa8e",
-      "bytes": 21773958,
-      "records": 365
-    }
-  ],
-  "parent_sha256": "4eb57a70b2cb8f1839b817e4eb08c82e2914d7bd64382ced6f5879905f4bc1b2"
+  "fixture": "phase10_input.mat",
+  "sha256": "7823ecac2125df89a62c6a711afa91f39d38c44388af600efa653ba0bae9cb19",
+  "bytes": 2003935
 }

@@ -107,9 +107,11 @@ def contexts(file, ds, clock, row, cfg):
         return {}
     epochs=labeled_intervals(file["intervals/epochs"],"tags")
     parts=bounds(file["intervals/sub_recordings"]).tolist()
-    if overlaps(sorted(parts)) or overlaps(sorted((a,b) for a,b,_ in epochs)):
-        raise ValueError("Overlapping behavioral epochs or source sub-recordings")
+    if overlaps(sorted(parts)):
+        raise ValueError("Overlapping source sub-recordings")
     rest=rest_epochs(epochs,{"sleep_pre","sleep_post"})
+    if overlaps(rest):
+        raise ValueError("Overlapping intervals within the verified rest context")
     home=sorted(intersect(intersect(rest,parts),[clock["seconds"]]))
     row.update(epochs=epochs,source_intervals=parts,context_support=home,state_path=hypnogram)
     if hypnogram not in file or not home:
@@ -273,6 +275,38 @@ def audit_secondary(file, row, cfg):
     return finish(row,{"REST":rests},trains,cfg)
 
 
+def adn_clock(file):
+    clock=recording_clock(file)
+    if clock:
+        return clock
+    name="intervals/sub_recordings"
+    if name not in file or "DatSegments.txt (1250 Hz samples)" not in file[name].attrs.get("description",""):
+        return None
+    parts=bounds(file[name]).tolist()
+    if not parts or overlaps(sorted(parts)):
+        return None
+    lo,hi=parts[0][0],parts[-1][1]
+    if any(a!=b for (_,a),(b,_) in zip(parts,parts[1:])):
+        return None
+    channels={}
+    for led in ("blue","red"):
+        path=f"acquisition/{led}_led_position_pixels"
+        if path not in file or "starting_time" not in file[path]:
+            return None
+        t=file[path+"/starting_time"]
+        hz=float(t.attrs["rate"])
+        count=file[path+"/data"].shape[0]
+        offset=float(t[()])
+        end=offset+count/hz
+        if offset!=lo or abs(end-hi)>2/hz:
+            return None
+        channels[led]={"source":t.name,"sample_count":count,"sample_rate_hz":hz,"end_s":end}
+    if channels["blue"]["sample_count"]!=channels["red"]["sample_count"]:
+        return None
+    return {"source":name+" DatSegments.txt acquisition offsets, corroborated by both independent LED frame clocks",
+            "seconds":[lo,hi],"rate_hz":1250.0,"led_clocks":channels}
+
+
 def inspect_nwb(asset,cfg):
     row=dict(asset)
     ds=row["dandiset"]
@@ -283,7 +317,7 @@ def inspect_nwb(asset,cfg):
             row.update(nwb_id=scalar_text(f["identifier"]),description=scalar_text(f["session_description"]),
                        subject=scalar_text(f["general/subject/subject_id"]),
                        session=scalar_text(f["general/session_id"]) if "general/session_id" in f else Path(row["path"]).stem)
-            row["clock"]=recording_clock(f)
+            row["clock"]=adn_clock(f) if ds=="000056" else recording_clock(f)
             if ds in {"000978","000987"}:
                 return audit_secondary(f,row,cfg)
             if not row["clock"] or row["clock"]["seconds"][0]>=row["clock"]["seconds"][1]:
@@ -382,9 +416,15 @@ def main():
     parser.add_argument("--output",type=Path,required=True)
     parser.add_argument("--mode",choices=("pilot","audit","cohort"),required=True)
     parser.add_argument("--workers",type=int,default=4)
+    parser.add_argument("--asset",action="append")
     args=parser.parse_args()
     cfg=json.loads(args.config.read_text())
-    run_stage(catalog(args.dataset,args.meta),inspect_nwb,cfg,args.mode,args.output,args.workers)
+    records=catalog(args.dataset,args.meta)
+    if args.asset:
+        records=[a for a in records if a["asset_id"] in args.asset]
+        if len(records)!=len(set(args.asset)):
+            parser.error("Unknown asset ID for this Dandiset")
+    run_stage(records,inspect_nwb,cfg,args.mode,args.output,args.workers)
 
 
 if __name__=="__main__":
