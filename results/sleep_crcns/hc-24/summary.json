@@ -1,0 +1,53 @@
+{
+  "analysis": "Descriptive NREM only",
+  "animal_session_count": 2,
+  "validated_comparison": {
+    "session": "Session1_PETHphaseLocking",
+    "subject": "Rat-1",
+    "effect": "mPFC minus CA1, bits/s",
+    "ar5": 0.24761175742622998,
+    "ar10": 0.23796694888611925,
+    "ar5_edge_trim": 0.2555049780133545
+  },
+  "reference": [
+    {
+      "subject": "Rat-1",
+      "session": "Session1_PETHphaseLocking",
+      "region": "CA1",
+      "units": 5,
+      "segments": 4,
+      "duration_s": 2530.88,
+      "ar5": 1.9995782649218674,
+      "ar10": 0.9262849154933906,
+      "ar5_edge_trim": 1.990327272886398,
+      "rate_hz": 5.7912662789227465,
+      "residual_excess_kurtosis": 17.345136957535768
+    },
+    {
+      "subject": "Rat-1",
+      "session": "Session1_PETHphaseLocking",
+      "region": "mPFC",
+      "units": 6,
+      "segments": 4,
+      "duration_s": 2530.88,
+      "ar5": 2.2471900223480974,
+      "ar10": 1.16425186437951,
+      "ar5_edge_trim": 2.2458322508997526,
+      "rate_hz": 6.854532810721962,
+      "residual_excess_kurtosis": 6.739855112196485
+    },
+    {
+      "subject": "Rat-3",
+      "session": "Session3_SleepAfterRun",
+      "region": "CA1",
+      "units": 7,
+      "segments": 5,
+      "duration_s": 4676.8,
+      "ar5": 2.74185967352994,
+      "ar10": 1.4922549047622289,
+      "ar5_edge_trim": 2.7380894269367837,
+      "rate_hz": 1.3179952104002737,
+      "residual_excess_kurtosis": 87.47227895198047
+    }
+  ]
+}

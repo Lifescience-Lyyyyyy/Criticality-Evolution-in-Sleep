@@ -2,7 +2,7 @@
   "schema_version": 1,
   "reference_commit": "ded7b3a75e229b17221768a53658dd9aa63b0acc",
   "source_audit_status": {
-    "hc-24": "AUDITED_NREM_ONLY",
+    "hc-24": "VALIDATED_NREM_ONLY",
     "hc-23": "PASS_FOR_REM_NREM"
   },
   "eligibility_counts": {
@@ -210,6 +210,120 @@
         "0:1": 2412
       },
       "animal_count": 6
+    },
+    {
+      "experiment_id": "phase9-crcns-hc24-nrem-pilot-20261120",
+      "run_id": 44712040641,
+      "job_id": 136205864743,
+      "run_url": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44712040641",
+      "timestamp_utc": "2026-11-20T09:37:41Z",
+      "elapsed_seconds": 6.459786,
+      "project_commit": "75ae1b2104c637260059f72e47ca269233b8cbe9",
+      "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+      "matlab": "24.2.0.3361896 (R2024b) Update 10",
+      "settings": {
+        "versions": {
+          "x000041": "0.261104.0300",
+          "x000061": "0.250624.0426",
+          "x000552": "0.261113.1035"
+        },
+        "bin_seconds": 0.04,
+        "ar_order": 5,
+        "long_ar_order": 10,
+        "beta": 2,
+        "fit_method": "YuleWalker",
+        "min_segment_seconds": 1,
+        "min_state_seconds": 120,
+        "min_units": 5,
+        "edge_trim_seconds": 5,
+        "opto_guard_seconds": 60,
+        "refractory_seconds": 0.0015,
+        "max_refractory_fraction": 0.01,
+        "window_seconds": 60,
+        "repetitions": 100,
+        "seed": 2026
+      },
+      "input": {
+        "records": 4,
+        "asset_ids": [
+          "hc-24:Session1_PETHphaseLocking"
+        ],
+        "mode": "nrem",
+        "source_sha256": {
+          "archive": "187e25461f9c2cb118eec825957ed2938e34809ce4211442d9229b249061d738"
+        },
+        "reference_fits": 2,
+        "swr_windows": 0,
+        "fixture": "crcns_input.mat",
+        "sha256": "0e8cd5e97ea7ef3a1b134dd8514ce97281f7d0516200287a2a816812ca6987d1",
+        "bytes": 51059
+      },
+      "artifact_id": 14616914472,
+      "tag": "matlab-crcns-hc24-nrem-pilot-20261120",
+      "artifact_sha256": "5624f950374f6a07eb37cc2694b9d531e067c9e6f7f321b3cb9675e59e6f8d69",
+      "fit_sha256": "a170621ed908749a89d5436e807e3d104358688cffd5bf2800a4595c26975232",
+      "fit_count": 4,
+      "exit_solver_flags": {
+        "0:1": 4
+      },
+      "animal_count": 1
+    },
+    {
+      "experiment_id": "phase9-crcns-hc24-nrem-post-run-20261120",
+      "run_id": 44712586860,
+      "job_id": 136207750430,
+      "run_url": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44712586860",
+      "timestamp_utc": "2026-11-20T09:42:13Z",
+      "elapsed_seconds": 3.100647,
+      "project_commit": "9177741a4055da019a28429ea61543ff56936310",
+      "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+      "matlab": "24.2.0.3361896 (R2024b) Update 10",
+      "settings": {
+        "versions": {
+          "x000041": "0.261104.0300",
+          "x000061": "0.250624.0426",
+          "x000552": "0.261113.1035"
+        },
+        "bin_seconds": 0.04,
+        "ar_order": 5,
+        "long_ar_order": 10,
+        "beta": 2,
+        "fit_method": "YuleWalker",
+        "min_segment_seconds": 1,
+        "min_state_seconds": 120,
+        "min_units": 5,
+        "edge_trim_seconds": 5,
+        "opto_guard_seconds": 60,
+        "refractory_seconds": 0.0015,
+        "max_refractory_fraction": 0.01,
+        "window_seconds": 60,
+        "repetitions": 100,
+        "seed": 2026
+      },
+      "input": {
+        "records": 2,
+        "asset_ids": [
+          "hc-24:Session3_SleepAfterRun"
+        ],
+        "mode": "nrem",
+        "source_sha256": {
+          "archive": "187e25461f9c2cb118eec825957ed2938e34809ce4211442d9229b249061d738"
+        },
+        "reference_fits": 1,
+        "swr_windows": 0,
+        "fixture": "crcns_input.mat",
+        "sha256": "08a9c7e3c6c2d2f2007684254392d4b78b628a0da92748614316e01466fe7b0c",
+        "bytes": 16100
+      },
+      "artifact_id": 14617982687,
+      "tag": "matlab-crcns-hc24-nrem-post-run-20261120",
+      "artifact_sha256": "856a803cbf239f081c68d749047181a12385af5535efc58f44777bda7f3ee8cc",
+      "fit_sha256": "cf87eb40a9e060634b0243c394c1836158fa421fc6a1321e5df7cd4db7b4121a",
+      "fit_count": 2,
+      "exit_solver_flags": {
+        "0:1": 2
+      },
+      "animal_count": 1
     }
   ],
   "drive": {
@@ -223,20 +337,24 @@
       "sha256": "d2bd82bfa92e5c7f596bf8efb68b2d257051d1ebaa8454b0e87eee8c2b54e032"
     },
     "eligibility": "https://drive.google.com/file/d/16GvoHRg6OKydMkprElewUN3TYt8bDsGL/view?usp=drivesdk",
-    "sources": "https://drive.google.com/file/d/1IVBo0ZvTNUUP82ACMqEmO9Tng2JMteOZ/view?usp=drivesdk"
+    "sources": "https://drive.google.com/file/d/1IVBo0ZvTNUUP82ACMqEmO9Tng2JMteOZ/view?usp=drivesdk",
+    "results_archive": "https://drive.google.com/file/d/1nrVM0f5lbmvrustqoOeIhCjIeK48TMxH/view",
+    "results_sha256_file": "https://drive.google.com/file/d/1IpcCAaAfYi6nGyS5jfjVof1Z1xQbp7-x/view"
   },
   "validation": {
     "nwb_acc_all_35_units": "All stored reference bin counts matched Phase 8 exactly",
     "hc23_pilot_original_replay_error": 0,
     "hc23_pipeline": "Colab CPU, SHA-256 input transfer, pinned MATLAB R2024b fitter",
-    "figures": "Colab Python PDF/SVG/600 dpi PNG, checked geometry, font sizes and visual panels"
+    "figures": "Colab Python PDF/SVG/600 dpi PNG, checked geometry, font sizes and visual panels",
+    "hc24_nrem": {
+      "pilot_original_replay_max_error": 0,
+      "post_run_original_replay_max_error": 0,
+      "matched_pilot_reference_bins": 63272,
+      "independent_bin_total_check": "PASS",
+      "colab_exact_count_array_replay": 6
+    }
   },
   "result_sha256": {
-    "manifests/phase9_sources.json": "bc9322218401db5dbdaecb057d0f2fc1a3f2e0b3c6fd59a04002df0763dabd0f",
-    "manifests/phase9_dataset_eligibility.csv": "ee942e697f20de90b4c7079102b0c2278b4170a18468db333aa8493b564294f9",
-    "reports/17_phase9_data_feasibility.md": "063b12065040d1f1307e6f9bc338ea97b97ba218c7d458d90c9750cd1e875eb3",
-    "reports/19_phase9_sleep_results.md": "58e3d714e75aad87c8b36ece65de91159693213ed24245d248f8d93ae79fab18",
-    "reports/20_cross_region_sleep_summary.md": "e4a6d405f283f52693826e2f9db2de3e346ad033b2bc487520ac6b018e5a119f",
     "figures/sleep_crcns/cross_region_sleep_effects.pdf": "1e50e6d9f47c797a070a073c7d74ab384f22d51531345838a52f44868695ff08",
     "figures/sleep_crcns/cross_region_sleep_effects.png": "f2e135681f865ef3decc9c566f660706eba5fe24b37665e28a41a2c6fd063b38",
     "figures/sleep_crcns/cross_region_sleep_effects.svg": "4cd89de6ec7549b1171a9ea48c270f3d3c11d358a24893d1f70f6e6ad03c1613",
@@ -246,11 +364,22 @@
     "figures/sleep_crcns/phase8_same_time_ca1_bla.pdf": "3aa97eefa40b0dd6e79e37fd65d3fb641d70a33fda4e94129630acef42321b8b",
     "figures/sleep_crcns/phase8_same_time_ca1_bla.png": "d03805634c34d0924636c2ec2a0988f5bca4acd5f184b0d57cc74c7853f0a358",
     "figures/sleep_crcns/phase8_same_time_ca1_bla.svg": "27cc45a67bec3edca97b1a966cf73bceca7f80a0168eb5ae7d82011bf11a59b9",
+    "manifests/phase9_dataset_eligibility.csv": "f7c06a525bc20b89c7ad4dbb57d7cc31b766e00ecafd9ed7dbff8dccf9bf404c",
+    "manifests/phase9_sources.json": "55fa712d327ac2422af560379db52d973abb2920bd7cf4213707e422acb92eca",
+    "reports/17_phase9_data_feasibility.md": "436ea4344cda321b10e9596be9697c8f6b12e80f9f7c36a18b0765a3359dbb62",
+    "reports/19_phase9_sleep_results.md": "68efa85efd78a595b26fcf8fe8736b1eeb38b5e09ef5149afeab34bea7a9019a",
+    "reports/20_cross_region_sleep_summary.md": "fe3580d513896b16c5fcc951d4addaf8aa1a72ed3bfb81b5870865c793fb9d56",
+    "reports/21_hc24_nrem.md": "5e2d0b53ea5274d683202ce4d1733ed8825b32896fcf8493fccbc843a06d8a7e",
     "results/sleep_crcns/hc-23/cohort.json": "3a630960223ccde77b6e101f057c5b34dac92bc36a1121e3b7aba5c59161bea3",
     "results/sleep_crcns/hc-23/cohort.summary.json": "35fdd516e38d1452a4158fdc6814a3df1da418903c8cd7d0602fb3e313f2aba6",
     "results/sleep_crcns/hc-23/controls.summary.json": "1863557f584964d9034f9c6963c9bc54aa5bc47b92434dbe4fea84a63ac55524",
     "results/sleep_crcns/hc-23/phase9_comparison.json": "595bb2cb9d4a9a26b3514c58dfbbc67522ff07c79661fe8ddae31a446db30b18",
     "results/sleep_crcns/hc-23/pilot.json": "e1259ddc25da32fb3ee23e8446919d0427475bbd9ad23d95accaf29f354a6e80",
-    "results/sleep_crcns/hc-23/pilot.summary.json": "dca31a822ba729a198bfd4a7beb4e0cadac30f5149ce32ad876ac5d174422aa3"
+    "results/sleep_crcns/hc-23/pilot.summary.json": "dca31a822ba729a198bfd4a7beb4e0cadac30f5149ce32ad876ac5d174422aa3",
+    "results/sleep_crcns/hc-24/audit.json": "ae5cfac49b52674d0ec1a3ddf7909a97b583f5a7bf781b54247a1f637b6fb139",
+    "results/sleep_crcns/hc-24/colab_rebin.json": "8d1171bba5026f49626699e73430e7d0645615f0bfe366e630da1a215be5e2a8",
+    "results/sleep_crcns/hc-24/pilot.json": "a170621ed908749a89d5436e807e3d104358688cffd5bf2800a4595c26975232",
+    "results/sleep_crcns/hc-24/post-run.json": "cf87eb40a9e060634b0243c394c1836158fa421fc6a1321e5df7cd4db7b4121a",
+    "results/sleep_crcns/hc-24/summary.json": "dbfe5e67338268c2d80105045d3a1d154a53337a29f73b21f299201dbfb0148d"
   }
 }

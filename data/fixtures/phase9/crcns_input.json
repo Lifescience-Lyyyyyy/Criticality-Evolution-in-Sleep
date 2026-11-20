@@ -1,15 +1,16 @@
 {
-  "records": 2,
+  "records": 6,
   "asset_ids": [
-    "hc-24:Session3_SleepAfterRun"
+    "hc-23:Rat-109:Session7"
   ],
-  "mode": "nrem",
+  "mode": "states",
   "source_sha256": {
-    "archive": "187e25461f9c2cb118eec825957ed2938e34809ce4211442d9229b249061d738"
+    "author_mat": "e6c335643b74ad60bc65c984d3046d52711ecc82ca10a2086f64c6ba581b87f7",
+    "sorted_t_cache": "d2bd82bfa92e5c7f596bf8efb68b2d257051d1ebaa8454b0e87eee8c2b54e032"
   },
-  "reference_fits": 1,
+  "reference_fits": 2,
   "swr_windows": 0,
   "fixture": "crcns_input.mat",
-  "sha256": "08a9c7e3c6c2d2f2007684254392d4b78b628a0da92748614316e01466fe7b0c",
-  "bytes": 16100
+  "sha256": "3c6f5bd5e1e5943534dc9c4635b3cad258c0799f5012fbc606122897787e4f0c",
+  "bytes": 148529
 }

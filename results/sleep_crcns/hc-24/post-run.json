@@ -1,0 +1,541 @@
+{
+  "schema_version": 1,
+  "experiment": "sleep-crcns",
+  "input": {
+    "records": 2,
+    "asset_ids": [
+      "hc-24:Session3_SleepAfterRun"
+    ],
+    "mode": "nrem",
+    "source_sha256": {
+      "archive": "187e25461f9c2cb118eec825957ed2938e34809ce4211442d9229b249061d738"
+    },
+    "reference_fits": 1,
+    "swr_windows": 0,
+    "fixture": "crcns_input.mat",
+    "sha256": "08a9c7e3c6c2d2f2007684254392d4b78b628a0da92748614316e01466fe7b0c",
+    "bytes": 16100
+  },
+  "settings": {
+    "versions": {
+      "x000041": "0.261104.0300",
+      "x000061": "0.250624.0426",
+      "x000552": "0.261113.1035"
+    },
+    "bin_seconds": 0.04,
+    "ar_order": 5,
+    "long_ar_order": 10,
+    "beta": 2,
+    "fit_method": "YuleWalker",
+    "min_segment_seconds": 1,
+    "min_state_seconds": 120,
+    "min_units": 5,
+    "edge_trim_seconds": 5,
+    "opto_guard_seconds": 60,
+    "refractory_seconds": 0.0015,
+    "max_refractory_fraction": 0.01,
+    "window_seconds": 60,
+    "repetitions": 100,
+    "seed": 2026
+  },
+  "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+  "project_commit": "9177741a4055da019a28429ea61543ff56936310",
+  "matlab": "24.2.0.3361896 (R2024b) Update 10",
+  "run_id": "44712586860",
+  "elapsed_seconds": 3.100647,
+  "timestamp_utc": "2026-11-20T09:42:13Z",
+  "pilot_original_replay_max_error": 0,
+  "records": [
+    {
+      "record": {
+        "dandiset": "hc-24",
+        "subject": "Rat-3",
+        "session": "Session3_SleepAfterRun",
+        "region": "CA1",
+        "context": "POST_RUN",
+        "asset_id": "hc-24:Session3_SleepAfterRun",
+        "path": "data/Session3_SleepAfterRun",
+        "digest": "187e25461f9c2cb118eec825957ed2938e34809ce4211442d9229b249061d738",
+        "clock": {
+          "units": "seconds",
+          "lfp_hz": 600
+        },
+        "state_path": "data/Session3_SleepAfterRun/DerivedData/SleepTimes.mat:nremSleep",
+        "unit_ids": [
+          "Spikes/CA1_UnitsInRun/E1cl-1PeakAmpTimeInRun.mat",
+          "Spikes/CA1_UnitsInRun/E1cl-2PeakAmpTimeInRun.mat",
+          "Spikes/CA1_UnitsInRun/E2cl-2PeakAmpTimeInRun.mat",
+          "Spikes/CA1_UnitsNotInRun/E1cl-3PeakAmpTime.mat",
+          "Spikes/CA1_UnitsNotInRun/E1cl-4PeakAmpTime.mat",
+          "Spikes/CA1_UnitsNotInRun/E2cl-3PeakAmpTime.mat",
+          "Spikes/CA1_UnitsNotInRun/E3cl-2PeakAmpTime.mat"
+        ],
+        "strict_unit_ids": [
+          "Spikes/CA1_UnitsInRun/E1cl-1PeakAmpTimeInRun.mat",
+          "Spikes/CA1_UnitsInRun/E1cl-2PeakAmpTimeInRun.mat",
+          "Spikes/CA1_UnitsInRun/E2cl-2PeakAmpTimeInRun.mat",
+          "Spikes/CA1_UnitsNotInRun/E1cl-3PeakAmpTime.mat",
+          "Spikes/CA1_UnitsNotInRun/E1cl-4PeakAmpTime.mat",
+          "Spikes/CA1_UnitsNotInRun/E2cl-3PeakAmpTime.mat",
+          "Spikes/CA1_UnitsNotInRun/E3cl-2PeakAmpTime.mat"
+        ],
+        "bin_seconds": 0.04,
+        "state": "NREM",
+        "variant": "reference",
+        "intervals_s": [
+          [
+            13200.04,
+            13500
+          ],
+          [
+            13725.04,
+            14508
+          ],
+          [
+            14742.04,
+            16129
+          ],
+          [
+            16344.04,
+            18275
+          ],
+          [
+            18476.04,
+            18752
+          ]
+        ]
+      },
+      "fit": {
+        "d2": 2.74185967352994,
+        "ar_order": 5,
+        "ar_coefficients": [
+          0.15889121301419143,
+          0.02791689611562119,
+          0.022215272602947891,
+          0.014713802845203414,
+          0.014927991891296736
+        ],
+        "innovation_variance": 0.97032028063514253,
+        "exit_status": 0,
+        "solver_flag": 1,
+        "solver_output": {
+          "iterations": 6,
+          "funcCount": 37,
+          "algorithm": "sqp",
+          "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 6.956980e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 3.330669e-16, is less than options.ConstraintTolerance = 1.000000e-02.",
+          "constrviolation": 3.3306690738754696E-16,
+          "stepsize": 7.5842577551344891E-6,
+          "lssteplength": 1,
+          "firstorderopt": 6.9569796323776245E-7,
+          "bestfeasible": {
+            "x": [
+              0.32555092366571253,
+              0.17090039454468148,
+              0.16426258584045106,
+              0.157698921681288
+            ],
+            "fval": 0.076020492087931615,
+            "constrviolation": 3.3306690738754696E-16,
+            "firstorderopt": 6.9569796323776245E-7
+          }
+        },
+        "min_ar_root": 1.8348544039095853,
+        "segment_bins": [
+          7499,
+          19574,
+          34674,
+          48274,
+          6899
+        ],
+        "duration_s": 4676.8,
+        "rate_hz": 1.3179952104002737,
+        "count_variance": 0.11314604089055487,
+        "fano": 2.1461770118305767,
+        "zero_fraction": 0.96722545330140264,
+        "observed_acf": [
+          0.16585601421802204,
+          0.05942039861360076,
+          0.039614426863794863,
+          0.028827579927905397,
+          0.024374893599096632,
+          0.022409007194914121,
+          0.020896636228801245,
+          0.011898035774185097,
+          0.0086498030582857852,
+          0.0019942416144009471,
+          0.0069846499306505244,
+          0.002672981247116069,
+          0.00993284617194371,
+          0.007738759073583088,
+          0.004939365612136799,
+          0.0050141688419199056,
+          0.0035760525289538067,
+          0.0072819814816629368,
+          0.00683131357030191,
+          0.0024425059673225469
+        ],
+        "residual_acf": [
+          -9.182943219846566E-5,
+          -0.00040232684796161959,
+          -0.00060476757404350867,
+          -0.000878264401620432,
+          -0.0028138044938334147,
+          0.011181657869858206,
+          0.013741084141804539,
+          0.0055490458153353624,
+          0.0047851100243464046,
+          -0.0021646587813836837,
+          0.005065527904391594,
+          -0.00094135188043168079,
+          0.007996071639342758,
+          0.005093671878459302,
+          0.0024462844853740122,
+          0.0030464929735650342,
+          0.0010765845087166623,
+          0.0053540827114499706,
+          0.0050700852631613705,
+          0.00035403139235567615
+        ],
+        "model_acf": [
+          0.165854595675432,
+          0.059419890399421506,
+          0.039614088047255212,
+          0.028827333369723596,
+          0.024374685124106558,
+          0.0089078993338659977,
+          0.00420615307573555,
+          0.0024740104241875948,
+          0.0014973911779130405,
+          0.00089536400625255083,
+          0.00043389435911438004,
+          0.00022639425882511281,
+          0.00012694012375570452,
+          7.1656229541793159E-5,
+          3.9708952336005093E-5,
+          2.0938124538008346E-5,
+          1.1274680990345678E-5,
+          6.207417159623352E-6,
+          3.4201575939505824E-6,
+          1.8680492753901828E-6
+        ],
+        "acf_rmse": 0.0069750545907260163,
+        "residual_excess_kurtosis": 87.472278951980471,
+        "residual_abs_tail_over_3sd": 0.011942341417511443,
+        "silent_run_counts": 3047,
+        "max_silence_s": 55.28,
+        "silence_p95_s": 4.92
+      },
+      "long_reach": {
+        "d2": 1.4922549047622289,
+        "ar_order": 10,
+        "ar_coefficients": [
+          0.15845190683515636,
+          0.027472007733823054,
+          0.021665941075443122,
+          0.013979226499540757,
+          0.01226304183421862,
+          0.011741868358036317,
+          0.012138662006533123,
+          0.0033785208793909055,
+          0.0036611819254375754,
+          -0.0023954327188261812
+        ],
+        "innovation_variance": 0.96994360624963782,
+        "exit_status": 0,
+        "solver_flag": 1,
+        "solver_output": {
+          "iterations": 12,
+          "funcCount": 133,
+          "algorithm": "sqp",
+          "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 9.271316e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 3.330669e-16, is less than options.ConstraintTolerance = 1.000000e-02.",
+          "constrviolation": 3.3306690738754696E-16,
+          "stepsize": 2.8539486115845545E-6,
+          "lssteplength": 1,
+          "firstorderopt": 9.2713162302970886E-7,
+          "bestfeasible": {
+            "x": [
+              0.24451382392631293,
+              0.10018001974709696,
+              0.092296088699011986,
+              0.0837867779597581,
+              0.08187717752436105,
+              0.081357300022049689,
+              0.081946188295648356,
+              0.074007167805162186,
+              0.076369638001188359
+            ],
+            "fval": 0.041374091196507548,
+            "constrviolation": 3.3306690738754696E-16,
+            "firstorderopt": 9.2713162302970886E-7
+          }
+        },
+        "min_ar_root": 1.5117393735334315,
+        "segment_bins": [
+          7499,
+          19574,
+          34674,
+          48274,
+          6899
+        ],
+        "duration_s": 4676.8,
+        "rate_hz": 1.3179952104002737,
+        "count_variance": 0.11314604089055487,
+        "fano": 2.1461770118305767,
+        "zero_fraction": 0.96722545330140264,
+        "observed_acf": [
+          0.16585601421802204,
+          0.05942039861360076,
+          0.039614426863794863,
+          0.028827579927905397,
+          0.024374893599096632,
+          0.022409007194914121,
+          0.020896636228801245,
+          0.011898035774185097,
+          0.0086498030582857852,
+          0.0019942416144009471,
+          0.0069846499306505244,
+          0.002672981247116069,
+          0.00993284617194371,
+          0.007738759073583088,
+          0.004939365612136799,
+          0.0050141688419199056,
+          0.0035760525289538067,
+          0.0072819814816629368,
+          0.00683131357030191,
+          0.0024425059673225469
+        ],
+        "residual_acf": [
+          0.00013983566293045968,
+          9.7866293908387876E-6,
+          2.7308078600894002E-5,
+          -7.0539474075867427E-5,
+          -8.6521997858450065E-5,
+          -0.000172089885461876,
+          -0.00024135675123588819,
+          -0.0003164480663725987,
+          -0.00042813922219830111,
+          -0.0012369349964205258,
+          0.0045756052433585416,
+          -0.0015536100807631936,
+          0.0074424068755899438,
+          0.0046556597348367161,
+          0.0020829504104859253,
+          0.0028294470979092867,
+          0.0009572001516462566,
+          0.0052494114558326258,
+          0.0049071051514612491,
+          7.6914608458659653E-5
+        ],
+        "model_acf": [
+          0.165854595675432,
+          0.059419890399421471,
+          0.039614088047255205,
+          0.0288273333697236,
+          0.024374685124106558,
+          0.022408815533862751,
+          0.020896457502854248,
+          0.011897934011981524,
+          0.0086497290777588463,
+          0.0019942245579417503,
+          0.0019685307276230903,
+          0.0016357745749476279,
+          0.0012336753309148093,
+          0.00090626987733436642,
+          0.00060514904988552174,
+          0.00038595624996387763,
+          0.00020476993159434015,
+          0.00013696530646448943,
+          8.2836966592845251E-5,
+          6.7714344879907844E-5
+        ],
+        "acf_rmse": 0.0038884437328653553,
+        "residual_excess_kurtosis": 87.468135715068044,
+        "residual_abs_tail_over_3sd": 0.011944896038333191,
+        "silent_run_counts": 3047,
+        "max_silence_s": 55.28,
+        "silence_p95_s": 4.92
+      }
+    },
+    {
+      "record": {
+        "dandiset": "hc-24",
+        "subject": "Rat-3",
+        "session": "Session3_SleepAfterRun",
+        "region": "CA1",
+        "context": "POST_RUN",
+        "asset_id": "hc-24:Session3_SleepAfterRun",
+        "path": "data/Session3_SleepAfterRun",
+        "digest": "187e25461f9c2cb118eec825957ed2938e34809ce4211442d9229b249061d738",
+        "clock": {
+          "units": "seconds",
+          "lfp_hz": 600
+        },
+        "state_path": "data/Session3_SleepAfterRun/DerivedData/SleepTimes.mat:nremSleep",
+        "unit_ids": [
+          "Spikes/CA1_UnitsInRun/E1cl-1PeakAmpTimeInRun.mat",
+          "Spikes/CA1_UnitsInRun/E1cl-2PeakAmpTimeInRun.mat",
+          "Spikes/CA1_UnitsInRun/E2cl-2PeakAmpTimeInRun.mat",
+          "Spikes/CA1_UnitsNotInRun/E1cl-3PeakAmpTime.mat",
+          "Spikes/CA1_UnitsNotInRun/E1cl-4PeakAmpTime.mat",
+          "Spikes/CA1_UnitsNotInRun/E2cl-3PeakAmpTime.mat",
+          "Spikes/CA1_UnitsNotInRun/E3cl-2PeakAmpTime.mat"
+        ],
+        "strict_unit_ids": [
+          "Spikes/CA1_UnitsInRun/E1cl-1PeakAmpTimeInRun.mat",
+          "Spikes/CA1_UnitsInRun/E1cl-2PeakAmpTimeInRun.mat",
+          "Spikes/CA1_UnitsInRun/E2cl-2PeakAmpTimeInRun.mat",
+          "Spikes/CA1_UnitsNotInRun/E1cl-3PeakAmpTime.mat",
+          "Spikes/CA1_UnitsNotInRun/E1cl-4PeakAmpTime.mat",
+          "Spikes/CA1_UnitsNotInRun/E2cl-3PeakAmpTime.mat",
+          "Spikes/CA1_UnitsNotInRun/E3cl-2PeakAmpTime.mat"
+        ],
+        "bin_seconds": 0.04,
+        "state": "NREM",
+        "variant": "edge_trim",
+        "intervals_s": [
+          [
+            13205.04,
+            13495
+          ],
+          [
+            13730.04,
+            14503
+          ],
+          [
+            14747.04,
+            16124
+          ],
+          [
+            16349.04,
+            18270
+          ],
+          [
+            18481.04,
+            18747
+          ]
+        ]
+      },
+      "fit": {
+        "d2": 2.7380894269367837,
+        "ar_order": 5,
+        "ar_coefficients": [
+          0.15977901059073085,
+          0.02808501435162563,
+          0.021962022046129064,
+          0.01486606021247275,
+          0.01526008210571351
+        ],
+        "innovation_variance": 0.9699837134789514,
+        "exit_status": 0,
+        "solver_flag": 1,
+        "solver_output": {
+          "iterations": 11,
+          "funcCount": 60,
+          "algorithm": "sqp",
+          "message": "Local minimum found that satisfies the constraints.\n\nOptimization completed because the objective function is non-decreasing in \nfeasible directions, to within the value of the optimality tolerance,\nand constraints are satisfied to within the value of the constraint tolerance.\n\n<stopping criteria details>\n\nOptimization completed: The relative first-order optimality measure, 2.458692e-07,\nis less than options.OptimalityTolerance = 1.000000e-06, and the relative maximum constraint\nviolation, 2.220446e-16, is less than options.ConstraintTolerance = 1.000000e-02.",
+          "constrviolation": 2.2204460492503131E-16,
+          "stepsize": 3.8101171716300971E-6,
+          "lssteplength": 1,
+          "firstorderopt": 2.4586915969848633E-7,
+          "bestfeasible": {
+            "x": [
+              0.32624570415625,
+              0.17079125763257288,
+              0.16366382036911373,
+              0.1575724625624674
+            ],
+            "fval": 0.075915958656089133,
+            "constrviolation": 2.2204460492503131E-16,
+            "firstorderopt": 2.4586915969848633E-7
+          }
+        },
+        "min_ar_root": 1.8294352850151174,
+        "segment_bins": [
+          7249,
+          19324,
+          34424,
+          48024,
+          6649
+        ],
+        "duration_s": 4626.8,
+        "rate_hz": 1.3181896775309068,
+        "count_variance": 0.11336919206595823,
+        "fano": 2.1500925473470058,
+        "zero_fraction": 0.96726030950116715,
+        "observed_acf": [
+          0.16681354134137136,
+          0.059897027755805854,
+          0.039611354161764888,
+          0.029086611604988433,
+          0.024815449502368466,
+          0.022832245235515962,
+          0.020776610698338183,
+          0.012156337522825003,
+          0.0088754415928507663,
+          0.0020126184584697013,
+          0.0070470533390835982,
+          0.0028539653331603851,
+          0.010101591410583956,
+          0.0078118486354167467,
+          0.00498775690828399,
+          0.0049106013000311376,
+          0.0033071616406018908,
+          0.0075840293724534083,
+          0.0071253737114507013,
+          0.0021635757165429457
+        ],
+        "residual_acf": [
+          -0.00022437767449697192,
+          -0.00044145392800305349,
+          -0.000640466944394945,
+          -0.000908186893987162,
+          -0.0028971148804579462,
+          0.011433356671843578,
+          0.013412758293753156,
+          0.0057280766260680831,
+          0.0049261992606324644,
+          -0.0022428532753213846,
+          0.0050594042028941086,
+          -0.00081929840135919522,
+          0.0081008152918748341,
+          0.0051022053073840551,
+          0.0024747333843892928,
+          0.0029436768138070431,
+          0.00073152066423711175,
+          0.0056661200563247558,
+          0.0053915377430492056,
+          1.1410023204369416E-5
+        ],
+        "model_acf": [
+          0.16681209919118861,
+          0.059896509929067372,
+          0.039611011710351106,
+          0.029086360142902563,
+          0.024815234965693326,
+          0.0090877738979036182,
+          0.00429065237925614,
+          0.002522646061926087,
+          0.0015359198373140969,
+          0.00092426962196411457,
+          0.00044868289727798992,
+          0.00023435765616774685,
+          0.00013167439266205952,
+          7.4653236676189272E-5,
+          4.15476427988384E-5,
+          2.1957827276511648E-5,
+          1.1848598615919496E-5,
+          6.5414750597696482E-6,
+          3.617061042430283E-6,
+          1.9823138623956077E-6
+        ],
+        "acf_rmse": 0.0070365326021983119,
+        "residual_excess_kurtosis": 87.5096265238924,
+        "residual_abs_tail_over_3sd": 0.011993601106835575,
+        "silent_run_counts": 3007,
+        "max_silence_s": 55.28,
+        "silence_p95_s": 4.92
+      },
+      "long_reach": []
+    }
+  ]
+}

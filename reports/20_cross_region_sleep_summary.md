@@ -23,7 +23,7 @@
 
 ### 同时记录的区域
 
-同时间 CA1–BLA 图复用 Phase 8 的 DANDI 000061 验证。同一动物、会话和时段比较同一状态区间的 40 ms 箱，两区有 107 组已验证的共同状态时间。各动物的区域差值按会话平均，PRE／POST 单独绘制。排序随模型时间跨度和三态等时长子集变化，跨区解释依赖状态与分析规格。MEC 数据只含本区单元。hc-24 的第一场提供 CA1 与 mPFC 同时间 NREM 的描述性比较。[同时间 CA1–BLA 图](../figures/sleep_crcns/phase8_same_time_ca1_bla.pdf) · [Phase 8 区域核验](14_sleep_cross_region.md)
+同时间 CA1–BLA 图复用 Phase 8 的 DANDI 000061 验证。同一动物、会话和时段比较同一状态区间的 40 ms 箱，两区有 107 组已验证的共同状态时间。各动物的区域差值按会话平均，PRE／POST 单独绘制。排序随模型时间跨度和三态等时长子集变化，跨区解释依赖状态与分析规格。MEC 数据只含本区单元。hc-24 的第一场在同一只大鼠的同时间 NREM 片段中，mPFC 比 CA1 高 0.248 bits/s。第三场给出跑后 CA1 的绝对估计。该档案缺 Wake 与 REM 分期，三个会话的丘脑排序单元数均不足。[hc-24 NREM 结果](21_hc24_nrem.md)[同时间 CA1–BLA 图](../figures/sleep_crcns/phase8_same_time_ca1_bla.pdf) · [Phase 8 区域核验](14_sleep_cross_region.md)
 
 ### 模型和统计约束
 
