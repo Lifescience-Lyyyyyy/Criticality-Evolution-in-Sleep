@@ -1,0 +1,20 @@
+{
+  "records": 24,
+  "asset_ids": [
+    "0fd7c13c-8c95-4afc-a5fa-6cc5562cddef",
+    "25b0f421-e8d7-43ce-8358-a95cb4e192c0",
+    "3837008a-ba8a-407d-a5a2-b64287f3e26e"
+  ],
+  "mode": "states",
+  "source_sha256": {
+    "000939_cohort_counts": "911528a1029065521fdf275b0a0041ad1889c8a73857d8d81543164c2d0b4356",
+    "sorting_source_counts": "a32b2147d31a3112e39ec52217f2e2c9507db243b5485b67ed51ae2e3b4b5bf7",
+    "selection": "8ba64dd53676ee7d37a9bbe9b194ea98ed8762d3710c8fb6f2dd716d703e8844",
+    "remote_receipt": "7473ab79ba1a05ec2040d8d83e9c1169b5afe0205ed5e703eafa1b009f6a6003"
+  },
+  "reference_fits": 0,
+  "swr_windows": 0,
+  "fixture": "validation_input.mat",
+  "sha256": "f27a6f735b786b4b7aaab09da33ae6e90870a3d0a82031e0ed661066f24a2cf9",
+  "bytes": 2026364
+}

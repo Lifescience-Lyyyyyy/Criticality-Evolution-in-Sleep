@@ -2,6 +2,12 @@ name: Phase 11 targeted MATLAB validation
 
 on:
   workflow_dispatch:
+    inputs:
+      scenario:
+        description: 'Targeted count fixture'
+        type: choice
+        options: [v1, qc]
+        default: v1
   push:
     tags: ['matlab-phase11-*']
 
@@ -12,10 +18,12 @@ jobs:
   fit:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    env:
+      ATLAS_SCENARIO: ${{ inputs.scenario || (startsWith(github.ref_name, 'matlab-phase11-qc-') && 'qc') || 'v1' }}
     steps:
       - uses: actions/checkout@v4
       - name: Verify Phase 11 counts
-        run: sha256sum -c data/fixtures/phase11/validation_input.sha256
+        run: sha256sum -c "data/fixtures/phase11/$ATLAS_SCENARIO/validation_input.sha256"
       - name: Fetch pinned Sooter toolkit
         uses: actions/checkout@v4
         with:
