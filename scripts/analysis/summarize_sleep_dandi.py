@@ -184,7 +184,8 @@ def controls_summary(rows):
         ref="matched_controls_reference"
         baseline={state:group[state,ref,0]["fit"] for state in ("Wake","NREM")}
         row["reference_effect"]=baseline["NREM"]["d2"]-baseline["Wake"]["d2"] if all(map(valid,baseline.values())) else None
-        for variant in ("unit_count","rate_thinning"):
+        variants = ("unit_count","rate_thinning") if ("Wake","rate_thinning",1) in group else ("unit_count",)
+        for variant in variants:
             states={state:{i:r for (s,v,i),r in group.items() if s==state and v==variant}
                     for state in ("Wake","NREM")}
             fits=[]

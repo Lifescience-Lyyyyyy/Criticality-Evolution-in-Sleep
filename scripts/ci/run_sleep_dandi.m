@@ -40,7 +40,11 @@ end
 
 cleanup = trace_solver(src);
 if controls_mode
-    rows = controls(cohort,ids,config);
+    within_region = isfield(receipt,'subsample_fraction');
+    if within_region
+        assert(receipt.subsample_fraction==0.5);
+    end
+    rows = controls(cohort,ids,config,within_region);
 else
     rows = struct([]);
     for i = 1:numel(ids)
@@ -173,7 +177,7 @@ end
 acf = num./den/v;
 end
 
-function rows = controls(cohort,ids,config)
+function rows = controls(cohort,ids,config,within_region)
 % Equal-exposure sensitivity cohorts, prespecified from audit metadata.
 meta = cell(numel(ids),1);
 spike_matrices = cell(size(meta));
@@ -196,6 +200,10 @@ for i = 1:numel(ids)
     source = cellfun(@(x)sum(double(x),1),cells,'UniformOutput',false);
     target = min(means(index == index(i)));
     if target <= 0, continue, end
+    n = size(cells{1},1);
+    if within_region
+        m.target_units = max(config.min_units,floor(n/2));
+    end
     baseline = light_fit(source,config);
     r = m;
     r.variant = 'matched_controls_reference';
@@ -204,7 +212,6 @@ for i = 1:numel(ids)
     rows = [rows,struct('record',r,'fit',baseline,'long_reach',[])]; %#ok<AGROW>
     for k = 1:config.repetitions
         seed = config.seed + 1000*index(i)+k;
-        n = size(cells{1},1);
         stream = RandStream('mt19937ar','Seed',seed);
         selected = randperm(stream,n,m.target_units);
         fitted = baseline;
@@ -219,6 +226,7 @@ for i = 1:numel(ids)
         r.seed = seed;
         rows = [rows,struct('record',r,'fit',fitted,'long_reach',[])]; %#ok<AGROW>
 
+        if within_region, continue, end
         r = m;
         r.variant = 'rate_thinning';
         r.unit_count = n;

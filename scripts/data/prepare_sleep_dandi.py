@@ -8,7 +8,7 @@ import argparse
 import json
 
 import numpy as np
-from scipy.io import savemat
+from scipy.io import loadmat, savemat
 
 from extract_sleep_spikes import fetch_json, open_asset, read_units, ripple_times
 
@@ -142,6 +142,60 @@ def prepare(job):
     return data
 
 
+def match_rem(source_dirs, cfg, path):
+    width = cfg["bin_seconds"]
+    n = round(cfg["window_seconds"]/width)
+    groups = defaultdict(dict)
+    parents = []
+    for directory in source_dirs:
+        receipt = json.loads((directory/"sleep_dandi_input.json").read_text())
+        if receipt.get("mode", "states") != "states":
+            raise ValueError(f"Expected a state-fit fixture in {directory}")
+        parts = receipt.get("parts") or [{"name":receipt["fixture"],"sha256":receipt["sha256"]}]
+        for part in parts:
+            source = directory/part["name"]
+            with source.open("rb") as stream:
+                if file_digest(stream,"sha256").hexdigest() != part["sha256"]:
+                    raise ValueError(f"Parent fixture checksum mismatch: {source}")
+            parents.append(part["sha256"])
+            cohort = loadmat(source,squeeze_me=True,struct_as_record=False)["cohort"]
+            for name in cohort._fieldnames:
+                record = getattr(cohort,name)
+                m = json.loads(record.metadata)
+                if m["variant"] != "reference":
+                    continue
+                key = tuple(m[k] for k in ("dandiset","asset_id","context","region"))
+                counts = np.atleast_1d(record.counts)
+                if counts.dtype != object:
+                    counts = [counts]
+                candidates = []
+                for (start,stop), bins in zip(m["intervals_s"],counts,strict=True):
+                    a,b = round(start/width),round(stop/width)
+                    if bins.dtype != np.uint16 or bins.size != b-a:
+                        raise ValueError(f"Reference count lengths changed for {key}")
+                    candidates.extend(((a+i)*width,(a+i+n)*width,bins[i:i+n])
+                                      for i in range(0,b-a-n+1,n))
+                if m["state"] in groups[key]:
+                    raise ValueError(f"Duplicate reference state: {key} {m['state']}")
+                groups[key][m["state"]] = m,candidates
+    data = []
+    for key, states in sorted(groups.items()):
+        if set(states)!={"Wake","NREM","REM"}:
+            continue
+        smallest = min(len(items) for _,items in states.values())
+        if smallest<3:
+            continue
+        for m, origins in states.values():
+            selected = [origins[i] for i in np.linspace(0,len(origins)-1,smallest,dtype=int)]
+            cells = np.empty((len(selected),1),dtype=object)
+            for j, (_,_,counts) in enumerate(selected):
+                cells[j,0] = counts
+            data.append(({**m,"variant":"rem_equal_duration",
+                          "intervals_s":[[lo,hi] for lo,hi,_ in selected]},cells))
+    return save_prepared(data,path,"rem_duration",sorted({m["asset_id"] for m,_ in data}),
+                         parent_fixture_sha256=parents)
+
+
 def save_counts(path, records):
     stage=path.with_suffix(".part")
     savemat(stage, {"cohort":records}, appendmat=False, do_compression=True, long_field_names=True)
@@ -155,13 +209,17 @@ def write_fixture(rows,cfg,path,workers,mode):
     jobs = ((r,cfg,mode) for r in rows)
     with ProcessPoolExecutor(max_workers=workers) as pool:
         data = [item for results in pool.map(prepare,jobs) for item in results]
+    return save_prepared(data,path,mode,[r["asset_id"] for r in rows])
+
+
+def save_prepared(data,path,mode,asset_ids,**provenance):
     if not data:
         raise ValueError("No eligible fits survived audited preparation")
     path.parent.mkdir(parents=True,exist_ok=True)
     saved = {f"r{i:05d}":{"metadata":json.dumps(meta,allow_nan=False),"counts":counts}
              for i,(meta,counts) in enumerate(data,1)}
     entry=save_counts(path,saved)
-    receipt = {"records":len(data),"asset_ids":[r["asset_id"] for r in rows],"mode":mode,
+    receipt = {"records":len(data),"asset_ids":asset_ids,"mode":mode,**provenance,
                "reference_fits":sum(m["variant"]=="reference" for m,_ in data),
                "swr_windows":sum(m["variant"]=="swr_window" for m,_ in data)}
     limit=25*2**20
@@ -191,9 +249,9 @@ def write_fixture(rows,cfg,path,workers,mode):
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--audit",type=Path,required=True)
+    p.add_argument("--audit",type=Path)
     p.add_argument("--out",type=Path,required=True)
-    p.add_argument("--dandiset",required=True,help="Dandiset ID, or comma-separated IDs for a shared analysis batch")
+    p.add_argument("--dandiset",help="Dandiset ID, or comma-separated IDs for a shared analysis batch")
     p.add_argument("--asset")
     p.add_argument("--config",type=Path,default=Path("config/sleep_dandi.json"))
     p.add_argument("--workers",type=int,default=4)
@@ -201,8 +259,15 @@ if __name__ == "__main__":
     group = p.add_mutually_exclusive_group()
     group.add_argument("--events",action="store_true")
     group.add_argument("--controls",action="store_true")
+    group.add_argument("--rem-from-fixtures",type=Path,nargs="+",metavar="DIR",
+                       help="Match all three stages using previously verified state count fixtures")
     a=p.parse_args()
     cfg=json.loads(a.config.read_text())
+    if a.rem_from_fixtures:
+        print(match_rem(a.rem_from_fixtures,cfg,a.out))
+        raise SystemExit()
+    if not a.audit or not a.dandiset:
+        p.error("--audit and --dandiset are required for remote preparation")
     rows=[json.loads(f.read_text()) for f in sorted((a.audit/"asset_receipts").glob("*.json"))]
     requested=set(a.dandiset.split(","))
     if not requested<=cfg["versions"].keys():
