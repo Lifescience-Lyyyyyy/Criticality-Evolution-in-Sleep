@@ -1,21 +1,16 @@
 {
-  "records": 12,
+  "records": 6,
   "asset_ids": [
-    "hc-23:Rat-109:Session7",
-    "hc-23:Rat-20:Session5",
-    "hc-23:Rat-26:Session3",
-    "hc-23:Rat-29:Session1",
-    "hc-23:Rat-74:Session7",
-    "hc-23:Rat-78:Session3"
+    "hc-23:Rat-109:Session7"
   ],
-  "mode": "controls",
+  "mode": "states",
   "source_sha256": {
     "author_mat": "e6c335643b74ad60bc65c984d3046d52711ecc82ca10a2086f64c6ba581b87f7",
     "sorted_t_cache": "d2bd82bfa92e5c7f596bf8efb68b2d257051d1ebaa8454b0e87eee8c2b54e032"
   },
-  "reference_fits": 0,
+  "reference_fits": 2,
   "swr_windows": 0,
   "fixture": "crcns_input.mat",
-  "sha256": "ac9307619ff1be39257793e8a763bb2c64778b28ab93f45aa1b0e20b2971fe52",
-  "bytes": 43739
+  "sha256": "3c6f5bd5e1e5943534dc9c4635b3cad258c0799f5012fbc606122897787e4f0c",
+  "bytes": 148529
 }

@@ -1,0 +1,1504 @@
+{
+  "schema_version": 1,
+  "run_id": "44707936456",
+  "session_contrasts": [
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session1",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": 0.25729719307618426,
+      "rate_difference_hz": 6.402028432231578,
+      "seconds": [
+        518.8,
+        10038.28
+      ],
+      "long_effect": -0.16682547693856642,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session1",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": 0.2813829893785562,
+      "rate_difference_hz": 6.937161904999716,
+      "seconds": [
+        458.8,
+        8438.28
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session1",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": 0.5896895254241192,
+      "rate_difference_hz": 6.123809523809525,
+      "seconds": [
+        420,
+        420
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session2",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.8151475286904589,
+      "rate_difference_hz": 23.551280270723126,
+      "seconds": [
+        933.2,
+        5039.76
+      ],
+      "long_effect": -0.48193410222003424,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session2",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.7765743280615918,
+      "rate_difference_hz": 24.88931785742788,
+      "seconds": [
+        863.2,
+        3839.76
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session2",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.7673512859102716,
+      "rate_difference_hz": 21.145833333333336,
+      "seconds": [
+        720,
+        720
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session3",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.009349809516907115,
+      "rate_difference_hz": 4.805194523883543,
+      "seconds": [
+        1335.48,
+        10182.32
+      ],
+      "long_effect": -0.180457248237595,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session3",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.06958726126259207,
+      "rate_difference_hz": 5.304255126536283,
+      "seconds": [
+        1195.48,
+        8532.32
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session3",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "strict_units",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.025897015084866748,
+      "rate_difference_hz": 4.710795191391544,
+      "seconds": [
+        1335.48,
+        10182.32
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session3",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.24220316529858454,
+      "rate_difference_hz": 5.336274509803921,
+      "seconds": [
+        1020,
+        1020
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session4",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.4602603108075747,
+      "rate_difference_hz": 2.105470667535478,
+      "seconds": [
+        474.8,
+        8667.8
+      ],
+      "long_effect": -0.3293796983525247,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session4",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.5518308576460991,
+      "rate_difference_hz": 2.2115510305436628,
+      "seconds": [
+        424.8,
+        7225.360000000001
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session4",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.5251285635021021,
+      "rate_difference_hz": 3.413333333333334,
+      "seconds": [
+        300,
+        300
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session5",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": 0.14062286860706807,
+      "rate_difference_hz": 0.8129497969778967,
+      "seconds": [
+        322.84000000000003,
+        7731
+      ],
+      "long_effect": -0.05405404081661347,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session5",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": 0.20971401076093654,
+      "rate_difference_hz": 0.8276658413729265,
+      "seconds": [
+        282.84000000000003,
+        6541
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session5",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.06351718437543807,
+      "rate_difference_hz": -0.7291666666666661,
+      "seconds": [
+        240,
+        240
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session6",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": 0.07940911200505552,
+      "rate_difference_hz": -1.6176733173297748,
+      "seconds": [
+        657.28,
+        7607.2
+      ],
+      "long_effect": -0.06337324230149866,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session6",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": 0.09292216367832751,
+      "rate_difference_hz": -1.3059483146476136,
+      "seconds": [
+        607.28,
+        6197.2
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session6",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": 0.14562025644216559,
+      "rate_difference_hz": -2.479166666666666,
+      "seconds": [
+        480,
+        480
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session7",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.06363390175083605,
+      "rate_difference_hz": 11.510871169376262,
+      "seconds": [
+        215.36,
+        8988.04
+      ],
+      "long_effect": -0.2181673632844141,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session7",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.05945246960357253,
+      "rate_difference_hz": 12.031745778652912,
+      "seconds": [
+        185.36,
+        7848.04
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session7",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.044501831874629305,
+      "rate_difference_hz": 8.422222222222217,
+      "seconds": [
+        180,
+        180
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-20",
+      "session": "Session2",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": 0.3192365901816605,
+      "rate_difference_hz": 0.4680528037999565,
+      "seconds": [
+        831.12,
+        9276.32
+      ],
+      "long_effect": 0.1963044257782074,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-20",
+      "session": "Session2",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": 0.3019339205098124,
+      "rate_difference_hz": 0.6574089287299727,
+      "seconds": [
+        731.12,
+        7316.32
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-20",
+      "session": "Session2",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.028094304023975614,
+      "rate_difference_hz": 0.4363636363636365,
+      "seconds": [
+        660,
+        660
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-20",
+      "session": "Session3",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.5724822617368279,
+      "rate_difference_hz": 4.352513009145678,
+      "seconds": [
+        3373.52,
+        7949.28
+      ],
+      "long_effect": -0.4478809949762109,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-20",
+      "session": "Session3",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.618953047362059,
+      "rate_difference_hz": 4.7739552994828856,
+      "seconds": [
+        3093.52,
+        5729.28
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-20",
+      "session": "Session3",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.633430559728861,
+      "rate_difference_hz": 4.4504761904761905,
+      "seconds": [
+        2100,
+        2100
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-20",
+      "session": "Session4",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.2775333193416669,
+      "rate_difference_hz": 4.819769546740241,
+      "seconds": [
+        2683.32,
+        7762.28
+      ],
+      "long_effect": -0.29892158568743776,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-20",
+      "session": "Session4",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.27347142312752615,
+      "rate_difference_hz": 5.220210188794483,
+      "seconds": [
+        2433.32,
+        5772.28
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-20",
+      "session": "Session4",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.2651661781888972,
+      "rate_difference_hz": 5.136936936936937,
+      "seconds": [
+        2220,
+        2220
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-20",
+      "session": "Session5",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6828657918244059,
+      "rate_difference_hz": 1.9886848537459718,
+      "seconds": [
+        2492.04,
+        12140.2
+      ],
+      "long_effect": -0.5742018691099494,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-20",
+      "session": "Session5",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6994947989946738,
+      "rate_difference_hz": 2.2240851723045507,
+      "seconds": [
+        2232.04,
+        10010.2
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-20",
+      "session": "Session5",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.7281410367775967,
+      "rate_difference_hz": 2.624731182795699,
+      "seconds": [
+        1860,
+        1860
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-26",
+      "session": "Session2",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.3758325605456896,
+      "rate_difference_hz": 4.077278525430526,
+      "seconds": [
+        2692.28,
+        10577.76
+      ],
+      "long_effect": -0.27861357294788114,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-26",
+      "session": "Session2",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.39116537011618413,
+      "rate_difference_hz": 4.250756592917675,
+      "seconds": [
+        2472.28,
+        8150.12
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-26",
+      "session": "Session2",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.4177363782958241,
+      "rate_difference_hz": 4.144791666666666,
+      "seconds": [
+        1920,
+        1920
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-26",
+      "session": "Session3",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6546535153457895,
+      "rate_difference_hz": 3.0350759171277173,
+      "seconds": [
+        2393.84,
+        18024.68
+      ],
+      "long_effect": -0.4622723954006278,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-26",
+      "session": "Session3",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6760650354172437,
+      "rate_difference_hz": 3.115247279164124,
+      "seconds": [
+        2123.84,
+        14940.44
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-26",
+      "session": "Session3",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.4791206673341468,
+      "rate_difference_hz": 2.755555555555556,
+      "seconds": [
+        1800,
+        1800
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-26",
+      "session": "Session4",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.38619661245422243,
+      "rate_difference_hz": 3.62212139718725,
+      "seconds": [
+        978.08,
+        17827.12
+      ],
+      "long_effect": -0.2681822432311486,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-26",
+      "session": "Session4",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.38362259802208754,
+      "rate_difference_hz": 3.842020234240355,
+      "seconds": [
+        868.08,
+        15437.12
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-26",
+      "session": "Session4",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.33714302629342097,
+      "rate_difference_hz": 3.3571428571428568,
+      "seconds": [
+        840,
+        840
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-29",
+      "session": "Session1",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.10549671730859655,
+      "rate_difference_hz": 1.6715069452549836,
+      "seconds": [
+        800.32,
+        4395.72
+      ],
+      "long_effect": -0.2748736613662437,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-29",
+      "session": "Session1",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.08808978859484728,
+      "rate_difference_hz": 1.830964235685367,
+      "seconds": [
+        710.32,
+        3255.7200000000003
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-29",
+      "session": "Session1",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": 0.044763702487150336,
+      "rate_difference_hz": 1.5555555555555562,
+      "seconds": [
+        540,
+        540
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-74",
+      "session": "Session7",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6346488353083748,
+      "rate_difference_hz": 1.437152762266987,
+      "seconds": [
+        1935.08,
+        8277.04
+      ],
+      "long_effect": -0.46598733747827425,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-74",
+      "session": "Session7",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6977698263838554,
+      "rate_difference_hz": 1.6079984745008562,
+      "seconds": [
+        1725.08,
+        5443.32
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-74",
+      "session": "Session7",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6750127984023782,
+      "rate_difference_hz": 1.4212121212121218,
+      "seconds": [
+        1320,
+        1320
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-78",
+      "session": "Session1",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.5843895696159769,
+      "rate_difference_hz": 17.556978049156665,
+      "seconds": [
+        1470.44,
+        5645.04
+      ],
+      "long_effect": -0.4080474440251808,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-78",
+      "session": "Session1",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.546482035342803,
+      "rate_difference_hz": 18.646622942565028,
+      "seconds": [
+        1330.44,
+        4565.04
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-78",
+      "session": "Session1",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6049301598511421,
+      "rate_difference_hz": 18.694444444444443,
+      "seconds": [
+        1080,
+        1080
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-78",
+      "session": "Session2",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.12879985058264176,
+      "rate_difference_hz": 1.9652016257926395,
+      "seconds": [
+        1154.08,
+        1856.92
+      ],
+      "long_effect": -0.04429252116991156,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-78",
+      "session": "Session2",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.1468848254796702,
+      "rate_difference_hz": 2.1988489493091077,
+      "seconds": [
+        1084.08,
+        1196.92
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-78",
+      "session": "Session2",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": 0.16160049998403192,
+      "rate_difference_hz": 2.8625000000000007,
+      "seconds": [
+        240,
+        240
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-78",
+      "session": "Session3",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.8969594899098305,
+      "rate_difference_hz": 10.713110318628743,
+      "seconds": [
+        2845.92,
+        9628.32
+      ],
+      "long_effect": -0.6208197884369523,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-78",
+      "session": "Session3",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.898273854122833,
+      "rate_difference_hz": 11.514877426886503,
+      "seconds": [
+        2595.92,
+        7698.32
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-78",
+      "session": "Session3",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.9657433213791429,
+      "rate_difference_hz": 11.434234234234232,
+      "seconds": [
+        2220,
+        2220
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-78",
+      "session": "Session4",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.9525900463488359,
+      "rate_difference_hz": 5.275385257859376,
+      "seconds": [
+        1146.1200000000001,
+        4849.84
+      ],
+      "long_effect": -0.5795074891585893,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-78",
+      "session": "Session4",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.9677318165060451,
+      "rate_difference_hz": 5.646241687997408,
+      "seconds": [
+        1046.1200000000001,
+        4069.84
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-78",
+      "session": "Session4",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.9261875730397335,
+      "rate_difference_hz": 5.448888888888889,
+      "seconds": [
+        900,
+        900
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-78",
+      "session": "Session5",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.7217168892097012,
+      "rate_difference_hz": 1.9450445334042907,
+      "seconds": [
+        2013.76,
+        11843.36
+      ],
+      "long_effect": -0.5276814372042538,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-78",
+      "session": "Session5",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.7439095994782678,
+      "rate_difference_hz": 2.1050679279052726,
+      "seconds": [
+        1833.76,
+        9837.800000000001
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-78",
+      "session": "Session5",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.7889851221980975,
+      "rate_difference_hz": 2.208666666666666,
+      "seconds": [
+        1500,
+        1500
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    }
+  ],
+  "per_animal_region": [
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-109",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.12477510753657646,
+      "sessions": 7
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-109",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.12962746415639154,
+      "sessions": 7
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-109",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.12443748243963844,
+      "sessions": 7
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-109",
+      "region": "MEC II/III",
+      "variant": "strict_units",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.025897015084866748,
+      "sessions": 1
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-20",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.32249633724361165,
+      "sessions": 4
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-20",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.4137080196798326,
+      "sessions": 4
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-20",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.30341119568031005,
+      "sessions": 4
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-26",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.48361766785183846,
+      "sessions": 3
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-26",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.4113333573077973,
+      "sessions": 3
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-26",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.47222756278190053,
+      "sessions": 3
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-29",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.08808978859484728,
+      "sessions": 1
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-29",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": 0.044763702487150336,
+      "sessions": 1
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-29",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.10549671730859655,
+      "sessions": 1
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-74",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6977698263838554,
+      "sessions": 1
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-74",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6750127984023782,
+      "sessions": 1
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-74",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6346488353083748,
+      "sessions": 1
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-78",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6606564261859238,
+      "sessions": 5
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-78",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6248491352968168,
+      "sessions": 5
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-78",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6568911691333973,
+      "sessions": 5
+    }
+  ],
+  "per_animal_dataset": [
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-109",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.12477510753657646,
+      "sessions": 7
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-109",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.12962746415639154,
+      "sessions": 7
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-109",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.12443748243963844,
+      "sessions": 7
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-109",
+      "variant": "strict_units",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.025897015084866748,
+      "sessions": 1
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-20",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.32249633724361165,
+      "sessions": 4
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-20",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.4137080196798326,
+      "sessions": 4
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-20",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.30341119568031005,
+      "sessions": 4
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-26",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.48361766785183846,
+      "sessions": 3
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-26",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.4113333573077973,
+      "sessions": 3
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-26",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.47222756278190053,
+      "sessions": 3
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-29",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.08808978859484728,
+      "sessions": 1
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-29",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": 0.044763702487150336,
+      "sessions": 1
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-29",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.10549671730859655,
+      "sessions": 1
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-74",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6977698263838554,
+      "sessions": 1
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-74",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6750127984023782,
+      "sessions": 1
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-74",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6346488353083748,
+      "sessions": 1
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-78",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6606564261859238,
+      "sessions": 5
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-78",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6248491352968168,
+      "sessions": 5
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-78",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.6568911691333973,
+      "sessions": 5
+    }
+  ],
+  "paired_cross_region_sessions": [],
+  "reference_model_diagnostics": [
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "state": "NREM",
+      "animals": 6,
+      "fits": 21,
+      "model_deviation_count": 21,
+      "diagnostic_medians": {
+        "duration_s": 8667.8,
+        "rate_hz": 6.568051729541593,
+        "count_variance": 0.36083047035190624,
+        "fano": 1.3734303763510776,
+        "zero_fraction": 0.7999109248964914,
+        "silence_p95_s": 0.76,
+        "residual_excess_kurtosis": 8.546627477086126,
+        "residual_abs_tail_over_3sd": 0.02106021235389721,
+        "acf_rmse": 0.02424421375840009,
+        "max_abs_residual_acf_20": 0.01836408441159549
+      }
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "state": "REM",
+      "animals": 6,
+      "fits": 21,
+      "model_deviation_count": 21,
+      "diagnostic_medians": {
+        "duration_s": 1154.08,
+        "rate_hz": 10.214553344874197,
+        "count_variance": 0.5411149631458952,
+        "fano": 1.3083411552914275,
+        "zero_fraction": 0.6938717707914076,
+        "silence_p95_s": 0.48,
+        "residual_excess_kurtosis": 5.109013570613884,
+        "residual_abs_tail_over_3sd": 0.015104840989925145,
+        "acf_rmse": 0.049986428149798326,
+        "max_abs_residual_acf_20": 0.04055293508934645
+      }
+    }
+  ]
+}

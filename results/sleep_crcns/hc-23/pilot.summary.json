@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "run_id": "44707169944",
+  "session_contrasts": [
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session7",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.06363390175083605,
+      "rate_difference_hz": 11.510871169376262,
+      "seconds": [
+        215.36,
+        8988.04
+      ],
+      "long_effect": -0.2181673632844141,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session7",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.05945246960357253,
+      "rate_difference_hz": 12.031745778652912,
+      "seconds": [
+        185.36,
+        7848.04
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    },
+    {
+      "dandiset": "hc-23",
+      "subject": "Rat-109",
+      "session": "Session7",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.044501831874629305,
+      "rate_difference_hz": 8.422222222222217,
+      "seconds": [
+        180,
+        180
+      ],
+      "long_effect": null,
+      "model_deviation": true
+    }
+  ],
+  "per_animal_region": [
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-109",
+      "region": "MEC II/III",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.05945246960357253,
+      "sessions": 1
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-109",
+      "region": "MEC II/III",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.044501831874629305,
+      "sessions": 1
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-109",
+      "region": "MEC II/III",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.06363390175083605,
+      "sessions": 1
+    }
+  ],
+  "per_animal_dataset": [
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-109",
+      "variant": "edge_trim",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.05945246960357253,
+      "sessions": 1
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-109",
+      "variant": "equal_duration",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.044501831874629305,
+      "sessions": 1
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "subject": "Rat-109",
+      "variant": "reference",
+      "contrast": "REM_minus_NREM",
+      "effect": -0.06363390175083605,
+      "sessions": 1
+    }
+  ],
+  "paired_cross_region_sessions": [],
+  "reference_model_diagnostics": [
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "state": "NREM",
+      "animals": 1,
+      "fits": 1,
+      "model_deviation_count": 1,
+      "diagnostic_medians": {
+        "duration_s": 8988.04,
+        "rate_hz": 17.60317043537857,
+        "count_variance": 1.0745767184045019,
+        "fano": 1.5261124726782664,
+        "zero_fraction": 0.5738603744531622,
+        "silence_p95_s": 0.36,
+        "residual_excess_kurtosis": 4.160363868905897,
+        "residual_abs_tail_over_3sd": 0.01803855780771067,
+        "acf_rmse": 0.0382097710442826,
+        "max_abs_residual_acf_20": 0.01998398839521648
+      }
+    },
+    {
+      "dandiset": "hc-23",
+      "context": "OVERNIGHT",
+      "region": "MEC II/III",
+      "state": "REM",
+      "animals": 1,
+      "fits": 1,
+      "model_deviation_count": 1,
+      "diagnostic_medians": {
+        "duration_s": 215.36,
+        "rate_hz": 29.11404160475483,
+        "count_variance": 1.7504083145482023,
+        "fano": 1.5030619402755216,
+        "zero_fraction": 0.3980312035661218,
+        "silence_p95_s": 0.16,
+        "residual_excess_kurtosis": 2.164248492236479,
+        "residual_abs_tail_over_3sd": 0.013969081765691935,
+        "acf_rmse": 0.046564708576588475,
+        "max_abs_residual_acf_20": 0.05291270173648747
+      }
+    }
+  ]
+}

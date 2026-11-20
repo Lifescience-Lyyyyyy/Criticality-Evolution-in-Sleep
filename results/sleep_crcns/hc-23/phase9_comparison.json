@@ -1,0 +1,405 @@
+[
+  {
+    "source": "results/pnas/mouse.json",
+    "dataset": "PNAS mouse V1",
+    "region": "V1",
+    "species": "Mouse",
+    "context": "HOME",
+    "contrast": "NREM_minus_Wake",
+    "replicate": "session",
+    "animals": null,
+    "sessions": 13,
+    "effect_by_replicate": {
+      "YMV02": 1.4623760327113278,
+      "YMV07": 0.701071233145223,
+      "YMV08": 1.529421836137265,
+      "YMV09": 1.349623474034096,
+      "YMV10": 1.7731139778109564,
+      "YMV11": 2.3480423238178902,
+      "YMV12": 2.553670632517972,
+      "YMV13": 1.190025443368151,
+      "YMV14": 1.8878999447722444,
+      "YMV15": 1.542133185639596,
+      "YMV16": 1.241314134885743,
+      "YMV17": 1.2504434231432333,
+      "YMV18": 1.9881425463861886
+    },
+    "effect_mean": 1.6013290914130682,
+    "positive": 13
+  },
+  {
+    "source": "results/sleep_dandi/000041/cortex.summary.json",
+    "dataset": "000041",
+    "region": "Frontal cortex",
+    "species": "Rat",
+    "context": "HOME",
+    "contrast": "NREM_minus_Wake",
+    "replicate": "animal",
+    "animals": 10,
+    "sessions": 21,
+    "effect_by_replicate": {
+      "BWRat17": 0.22910486474725578,
+      "BWRat18": 0.7052100464921149,
+      "BWRat19": 1.0558131996828608,
+      "BWRat20": 0.6297029647474771,
+      "BWRat21": 0.4625934170028738,
+      "Bogey": 0.5571976903529081,
+      "Dino": 0.3305725347016168,
+      "Rizzo": 0.8224596547858822,
+      "Splinter": 0.8929244742858423,
+      "Templeton": 0.14701786052080035
+    },
+    "effect_mean": 0.5832596707319633,
+    "positive": 10
+  },
+  {
+    "source": "results/sleep_dandi/000041/cortex.summary.json",
+    "dataset": "000041",
+    "region": "Frontal cortex",
+    "species": "Rat",
+    "context": "HOME",
+    "contrast": "REM_minus_NREM",
+    "replicate": "animal",
+    "animals": 10,
+    "sessions": 19,
+    "effect_by_replicate": {
+      "BWRat17": -0.15801786183501854,
+      "BWRat18": -1.1826556064480354,
+      "BWRat19": -0.8310016700700343,
+      "BWRat20": -0.750251022877372,
+      "BWRat21": -0.6195485943856275,
+      "Bogey": -0.6789930489764002,
+      "Dino": -0.26543597978363215,
+      "Rizzo": -0.5874811244318647,
+      "Splinter": -0.5838055131340648,
+      "Templeton": -0.0883295501459842
+    },
+    "effect_mean": -0.5745519972088033,
+    "positive": 0
+  },
+  {
+    "source": "results/sleep_dandi/000041/cortex.summary.json",
+    "dataset": "000041",
+    "region": "Frontal cortex",
+    "species": "Rat",
+    "context": "HOME",
+    "contrast": "REM_minus_Wake",
+    "replicate": "animal",
+    "animals": 10,
+    "sessions": 19,
+    "effect_by_replicate": {
+      "BWRat17": -0.07320140047280965,
+      "BWRat18": -0.47744555995592053,
+      "BWRat19": 0.18106998477644587,
+      "BWRat20": -0.12054805812989489,
+      "BWRat21": -0.1569551773827537,
+      "Bogey": -0.12179535862349211,
+      "Dino": 0.06513655491798467,
+      "Rizzo": 0.2349785303540175,
+      "Splinter": 0.3091189611517775,
+      "Templeton": 0.058688310374816144
+    },
+    "effect_mean": -0.010095321298982917,
+    "positive": 5
+  },
+  {
+    "source": "results/sleep_dandi/000552/mouse-ca1.summary.json",
+    "dataset": "000552",
+    "region": "CA1",
+    "species": "Mouse",
+    "context": "HOME",
+    "contrast": "NREM_minus_Wake",
+    "replicate": "animal",
+    "animals": 6,
+    "sessions": 36,
+    "effect_by_replicate": {
+      "e13_1f1": 0.5108956345919451,
+      "e13_1m1": 0.7121829861340423,
+      "e14_1m1": 0.8154212682015927,
+      "e15_4m1": 0.9042604301234555,
+      "e15_4m2": 1.0351470324373124,
+      "e15_5m1": 1.0413679634306894
+    },
+    "effect_mean": 0.8365458858198396,
+    "positive": 6
+  },
+  {
+    "source": "results/sleep_dandi/000552/mouse-ca1.summary.json",
+    "dataset": "000552",
+    "region": "CA1",
+    "species": "Mouse",
+    "context": "HOME",
+    "contrast": "REM_minus_NREM",
+    "replicate": "animal",
+    "animals": 6,
+    "sessions": 33,
+    "effect_by_replicate": {
+      "e13_1f1": -0.5988884359654489,
+      "e13_1m1": -1.0118915230973053,
+      "e14_1m1": -0.7912825985482481,
+      "e15_4m1": -0.8055606995681085,
+      "e15_4m2": -1.0517102983499065,
+      "e15_5m1": -0.6966358350980982
+    },
+    "effect_mean": -0.8259948984378526,
+    "positive": 0
+  },
+  {
+    "source": "results/sleep_dandi/000552/mouse-ca1.summary.json",
+    "dataset": "000552",
+    "region": "CA1",
+    "species": "Mouse",
+    "context": "HOME",
+    "contrast": "REM_minus_Wake",
+    "replicate": "animal",
+    "animals": 6,
+    "sessions": 33,
+    "effect_by_replicate": {
+      "e13_1f1": -0.08799280137350385,
+      "e13_1m1": -0.313419654140668,
+      "e14_1m1": 0.021542774307759447,
+      "e15_4m1": 0.0986997305553469,
+      "e15_4m2": -0.08430317537003433,
+      "e15_5m1": 0.3447321283325911
+    },
+    "effect_mean": -0.003456832948084793,
+    "positive": 3
+  },
+  {
+    "source": "results/sleep_dandi/000061/cross.summary.json",
+    "dataset": "000061",
+    "region": "BLA",
+    "species": "Rat",
+    "context": "POST",
+    "contrast": "NREM_minus_Wake",
+    "replicate": "animal",
+    "animals": 3,
+    "sessions": 18,
+    "effect_by_replicate": {
+      "Rat08": 0.3609828890551332,
+      "Rat10": 0.4063111556115658,
+      "Rat11": 0.4658294540845137
+    },
+    "effect_mean": 0.4110411662504042,
+    "positive": 3
+  },
+  {
+    "source": "results/sleep_dandi/000061/cross.summary.json",
+    "dataset": "000061",
+    "region": "BLA",
+    "species": "Rat",
+    "context": "POST",
+    "contrast": "REM_minus_NREM",
+    "replicate": "animal",
+    "animals": 3,
+    "sessions": 17,
+    "effect_by_replicate": {
+      "Rat08": -0.5958692029822309,
+      "Rat10": -0.6513657852663146,
+      "Rat11": -0.4946912925046673
+    },
+    "effect_mean": -0.5806420935844043,
+    "positive": 0
+  },
+  {
+    "source": "results/sleep_dandi/000061/cross.summary.json",
+    "dataset": "000061",
+    "region": "BLA",
+    "species": "Rat",
+    "context": "POST",
+    "contrast": "REM_minus_Wake",
+    "replicate": "animal",
+    "animals": 3,
+    "sessions": 17,
+    "effect_by_replicate": {
+      "Rat08": -0.23488631392709772,
+      "Rat10": -0.23858725893136662,
+      "Rat11": -0.028861838420153607
+    },
+    "effect_mean": -0.16744513709287265,
+    "positive": 0
+  },
+  {
+    "source": "results/sleep_dandi/000061/cross.summary.json",
+    "dataset": "000061",
+    "region": "BLA",
+    "species": "Rat",
+    "context": "PRE",
+    "contrast": "NREM_minus_Wake",
+    "replicate": "animal",
+    "animals": 3,
+    "sessions": 18,
+    "effect_by_replicate": {
+      "Rat08": 0.285182989820715,
+      "Rat10": 0.147082375314332,
+      "Rat11": 0.35598478621597146
+    },
+    "effect_mean": 0.2627500504503395,
+    "positive": 3
+  },
+  {
+    "source": "results/sleep_dandi/000061/cross.summary.json",
+    "dataset": "000061",
+    "region": "BLA",
+    "species": "Rat",
+    "context": "PRE",
+    "contrast": "REM_minus_NREM",
+    "replicate": "animal",
+    "animals": 3,
+    "sessions": 18,
+    "effect_by_replicate": {
+      "Rat08": -0.5104808803801223,
+      "Rat10": -0.41337202410336665,
+      "Rat11": -0.4166936306276644
+    },
+    "effect_mean": -0.44684884503705113,
+    "positive": 0
+  },
+  {
+    "source": "results/sleep_dandi/000061/cross.summary.json",
+    "dataset": "000061",
+    "region": "BLA",
+    "species": "Rat",
+    "context": "PRE",
+    "contrast": "REM_minus_Wake",
+    "replicate": "animal",
+    "animals": 3,
+    "sessions": 18,
+    "effect_by_replicate": {
+      "Rat08": -0.22529789055940727,
+      "Rat10": -0.26628964878903466,
+      "Rat11": -0.06070884441169294
+    },
+    "effect_mean": -0.18409879458671163,
+    "positive": 0
+  },
+  {
+    "source": "results/sleep_dandi/000061/cross.summary.json",
+    "dataset": "000061",
+    "region": "CA1",
+    "species": "Rat",
+    "context": "POST",
+    "contrast": "NREM_minus_Wake",
+    "replicate": "animal",
+    "animals": 3,
+    "sessions": 18,
+    "effect_by_replicate": {
+      "Rat08": 0.45052540149632225,
+      "Rat10": 0.22705165712437883,
+      "Rat11": 0.31347310272423423
+    },
+    "effect_mean": 0.3303500537816451,
+    "positive": 3
+  },
+  {
+    "source": "results/sleep_dandi/000061/cross.summary.json",
+    "dataset": "000061",
+    "region": "CA1",
+    "species": "Rat",
+    "context": "POST",
+    "contrast": "REM_minus_NREM",
+    "replicate": "animal",
+    "animals": 3,
+    "sessions": 17,
+    "effect_by_replicate": {
+      "Rat08": -0.5486068771110725,
+      "Rat10": -0.5284570306875598,
+      "Rat11": -0.45395219579286533
+    },
+    "effect_mean": -0.5103387011971658,
+    "positive": 0
+  },
+  {
+    "source": "results/sleep_dandi/000061/cross.summary.json",
+    "dataset": "000061",
+    "region": "CA1",
+    "species": "Rat",
+    "context": "POST",
+    "contrast": "REM_minus_Wake",
+    "replicate": "animal",
+    "animals": 3,
+    "sessions": 17,
+    "effect_by_replicate": {
+      "Rat08": -0.0980814756147502,
+      "Rat10": -0.26427171595745713,
+      "Rat11": -0.1404790930686311
+    },
+    "effect_mean": -0.16761076154694615,
+    "positive": 0
+  },
+  {
+    "source": "results/sleep_dandi/000061/cross.summary.json",
+    "dataset": "000061",
+    "region": "CA1",
+    "species": "Rat",
+    "context": "PRE",
+    "contrast": "NREM_minus_Wake",
+    "replicate": "animal",
+    "animals": 3,
+    "sessions": 18,
+    "effect_by_replicate": {
+      "Rat08": 0.37401884333209334,
+      "Rat10": 0.13089072303742813,
+      "Rat11": 0.36855849412915
+    },
+    "effect_mean": 0.29115602016622383,
+    "positive": 3
+  },
+  {
+    "source": "results/sleep_dandi/000061/cross.summary.json",
+    "dataset": "000061",
+    "region": "CA1",
+    "species": "Rat",
+    "context": "PRE",
+    "contrast": "REM_minus_NREM",
+    "replicate": "animal",
+    "animals": 3,
+    "sessions": 18,
+    "effect_by_replicate": {
+      "Rat08": -0.593257008529958,
+      "Rat10": -0.6209189865431378,
+      "Rat11": -0.44822124541147174
+    },
+    "effect_mean": -0.5541324134948559,
+    "positive": 0
+  },
+  {
+    "source": "results/sleep_dandi/000061/cross.summary.json",
+    "dataset": "000061",
+    "region": "CA1",
+    "species": "Rat",
+    "context": "PRE",
+    "contrast": "REM_minus_Wake",
+    "replicate": "animal",
+    "animals": 3,
+    "sessions": 18,
+    "effect_by_replicate": {
+      "Rat08": -0.21923816519786468,
+      "Rat10": -0.49002826350570966,
+      "Rat11": -0.07966275128232175
+    },
+    "effect_mean": -0.26297639332863204,
+    "positive": 0
+  },
+  {
+    "source": "results/sleep_crcns/hc-23/cohort.summary.json",
+    "dataset": "hc-23",
+    "region": "MEC II/III",
+    "species": "Rat",
+    "context": "OVERNIGHT",
+    "contrast": "REM_minus_NREM",
+    "replicate": "animal",
+    "animals": 6,
+    "sessions": 21,
+    "effect_by_replicate": {
+      "Rat-109": -0.12443748243963844,
+      "Rat-20": -0.30341119568031005,
+      "Rat-26": -0.47222756278190053,
+      "Rat-29": -0.10549671730859655,
+      "Rat-74": -0.6346488353083748,
+      "Rat-78": -0.6568911691333973
+    },
+    "effect_mean": -0.3828521604420363,
+    "positive": 0
+  }
+]

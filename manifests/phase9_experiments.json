@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "reference_commit": "ded7b3a75e229b17221768a53658dd9aa63b0acc",
+  "source_audit_status": {
+    "pnas_rat_v1": "ACCESS_REQUEST_REQUIRED",
+    "hc-24": "USER_DEFERRED_ACCESS_REQUIRED",
+    "pfc-8": "BLOCKED_STATE_SCORES_AND_DORSOMEDIAL_SITE_MAP",
+    "hc-23": "PASS_FOR_REM_NREM"
+  },
+  "eligibility_counts": {
+    "hc-23:BLOCKED": 8,
+    "hc-23:PARTIAL": 21,
+    "hc-24:ACCESS_REQUIRED": 3,
+    "pfc-8:BLOCKED": 16,
+    "pnas-rat-v1:ACCESS_REQUIRED": 1
+  },
+  "matlab_runs": [
+    {
+      "experiment_id": "phase9-crcns-hc23-pilot-20261120",
+      "run_id": 44707169944,
+      "job_id": 136189543664,
+      "run_url": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44707169944",
+      "timestamp_utc": "2026-11-20T09:03:25Z",
+      "elapsed_seconds": 5.277435,
+      "project_commit": "0f821a6ee960fee07048cdf44c9a462fb6bd18a9",
+      "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+      "matlab": "24.2.0.3361896 (R2024b) Update 10",
+      "settings": {
+        "versions": {
+          "x000041": "0.261104.0300",
+          "x000061": "0.250624.0426",
+          "x000552": "0.261113.1035"
+        },
+        "bin_seconds": 0.04,
+        "ar_order": 5,
+        "long_ar_order": 10,
+        "beta": 2,
+        "fit_method": "YuleWalker",
+        "min_segment_seconds": 1,
+        "min_state_seconds": 120,
+        "min_units": 5,
+        "edge_trim_seconds": 5,
+        "opto_guard_seconds": 60,
+        "refractory_seconds": 0.0015,
+        "max_refractory_fraction": 0.01,
+        "window_seconds": 60,
+        "repetitions": 100,
+        "seed": 2026
+      },
+      "input": {
+        "records": 6,
+        "asset_ids": [
+          "hc-23:Rat-109:Session7"
+        ],
+        "mode": "states",
+        "source_sha256": {
+          "author_mat": "e6c335643b74ad60bc65c984d3046d52711ecc82ca10a2086f64c6ba581b87f7",
+          "sorted_t_cache": "d2bd82bfa92e5c7f596bf8efb68b2d257051d1ebaa8454b0e87eee8c2b54e032"
+        },
+        "reference_fits": 2,
+        "swr_windows": 0,
+        "fixture": "crcns_input.mat",
+        "sha256": "3c6f5bd5e1e5943534dc9c4635b3cad258c0799f5012fbc606122897787e4f0c",
+        "bytes": 148529
+      },
+      "artifact_id": 14615103759,
+      "tag": "matlab-crcns-pilot-20261120",
+      "artifact_sha256": "60c8bcbc434e1e57aa97c36227875d077ba6853faf71cb75daac1c201ee240d0",
+      "fit_sha256": "e1259ddc25da32fb3ee23e8446919d0427475bbd9ad23d95accaf29f354a6e80",
+      "fit_count": 6,
+      "exit_solver_flags": {
+        "0:1": 6
+      },
+      "animal_count": 1
+    },
+    {
+      "experiment_id": "phase9-crcns-hc23-cohort-20261120",
+      "run_id": 44707936456,
+      "job_id": 136192085975,
+      "run_url": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44707936456",
+      "timestamp_utc": "2026-11-20T09:09:39Z",
+      "elapsed_seconds": 53.747882,
+      "project_commit": "ff32d190d1c3ec385288088f30886ab81b53d609",
+      "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+      "matlab": "24.2.0.3361896 (R2024b) Update 10",
+      "settings": {
+        "versions": {
+          "x000041": "0.261104.0300",
+          "x000061": "0.250624.0426",
+          "x000552": "0.261113.1035"
+        },
+        "bin_seconds": 0.04,
+        "ar_order": 5,
+        "long_ar_order": 10,
+        "beta": 2,
+        "fit_method": "YuleWalker",
+        "min_segment_seconds": 1,
+        "min_state_seconds": 120,
+        "min_units": 5,
+        "edge_trim_seconds": 5,
+        "opto_guard_seconds": 60,
+        "refractory_seconds": 0.0015,
+        "max_refractory_fraction": 0.01,
+        "window_seconds": 60,
+        "repetitions": 100,
+        "seed": 2026
+      },
+      "input": {
+        "records": 128,
+        "asset_ids": [
+          "hc-23:Rat-109:Session1",
+          "hc-23:Rat-109:Session2",
+          "hc-23:Rat-109:Session3",
+          "hc-23:Rat-109:Session4",
+          "hc-23:Rat-109:Session5",
+          "hc-23:Rat-109:Session6",
+          "hc-23:Rat-109:Session7",
+          "hc-23:Rat-20:Session2",
+          "hc-23:Rat-20:Session3",
+          "hc-23:Rat-20:Session4",
+          "hc-23:Rat-20:Session5",
+          "hc-23:Rat-26:Session2",
+          "hc-23:Rat-26:Session3",
+          "hc-23:Rat-26:Session4",
+          "hc-23:Rat-29:Session1",
+          "hc-23:Rat-74:Session7",
+          "hc-23:Rat-78:Session1",
+          "hc-23:Rat-78:Session2",
+          "hc-23:Rat-78:Session3",
+          "hc-23:Rat-78:Session4",
+          "hc-23:Rat-78:Session5"
+        ],
+        "mode": "states",
+        "source_sha256": {
+          "author_mat": "e6c335643b74ad60bc65c984d3046d52711ecc82ca10a2086f64c6ba581b87f7",
+          "sorted_t_cache": "d2bd82bfa92e5c7f596bf8efb68b2d257051d1ebaa8454b0e87eee8c2b54e032"
+        },
+        "reference_fits": 42,
+        "swr_windows": 0,
+        "fixture": "crcns_input.mat",
+        "sha256": "a3a28322ae9d40b5341879e147e98c57b4389f6997e00758246b869eee574424",
+        "bytes": 2783410
+      },
+      "artifact_id": 14615748564,
+      "tag": "matlab-crcns-cohort-20261120",
+      "artifact_sha256": "4063b6550488fe217964eef04c52423697f219e17dac3895f0fca3b93edaa90f",
+      "fit_sha256": "3a630960223ccde77b6e101f057c5b34dac92bc36a1121e3b7aba5c59161bea3",
+      "fit_count": 128,
+      "exit_solver_flags": {
+        "0:1": 128
+      },
+      "animal_count": 6
+    },
+    {
+      "experiment_id": "phase9-crcns-hc23-controls-20261120",
+      "run_id": 44708565160,
+      "job_id": 136194162687,
+      "run_url": "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/44708565160",
+      "timestamp_utc": "2026-11-20T09:16:03Z",
+      "elapsed_seconds": 187.752333,
+      "project_commit": "e24149e0d8c075f4f3ef382f03293ccf4e603e6e",
+      "toolkit_commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+      "matlab": "24.2.0.3361896 (R2024b) Update 10",
+      "settings": {
+        "versions": {
+          "x000041": "0.261104.0300",
+          "x000061": "0.250624.0426",
+          "x000552": "0.261113.1035"
+        },
+        "bin_seconds": 0.04,
+        "ar_order": 5,
+        "long_ar_order": 10,
+        "beta": 2,
+        "fit_method": "YuleWalker",
+        "min_segment_seconds": 1,
+        "min_state_seconds": 120,
+        "min_units": 5,
+        "edge_trim_seconds": 5,
+        "opto_guard_seconds": 60,
+        "refractory_seconds": 0.0015,
+        "max_refractory_fraction": 0.01,
+        "window_seconds": 60,
+        "repetitions": 100,
+        "seed": 2026
+      },
+      "input": {
+        "records": 12,
+        "asset_ids": [
+          "hc-23:Rat-109:Session7",
+          "hc-23:Rat-20:Session5",
+          "hc-23:Rat-26:Session3",
+          "hc-23:Rat-29:Session1",
+          "hc-23:Rat-74:Session7",
+          "hc-23:Rat-78:Session3"
+        ],
+        "mode": "controls",
+        "source_sha256": {
+          "author_mat": "e6c335643b74ad60bc65c984d3046d52711ecc82ca10a2086f64c6ba581b87f7",
+          "sorted_t_cache": "d2bd82bfa92e5c7f596bf8efb68b2d257051d1ebaa8454b0e87eee8c2b54e032"
+        },
+        "reference_fits": 0,
+        "swr_windows": 0,
+        "fixture": "crcns_input.mat",
+        "sha256": "ac9307619ff1be39257793e8a763bb2c64778b28ab93f45aa1b0e20b2971fe52",
+        "bytes": 43739
+      },
+      "artifact_id": 14616267547,
+      "tag": "matlab-crcns-controls-20261120",
+      "artifact_sha256": "b80add490f15c0cdcb7cd673406d366bad95361f07e6ea1823ba4ea7b5c768ed",
+      "fit_sha256": "b1407e653fd2c2d0b360571637fcf88b90f3c7480835e5fdafdb7e9bf3326bcf",
+      "fit_count": 2412,
+      "exit_solver_flags": {
+        "0:1": 2412
+      },
+      "animal_count": 6
+    }
+  ],
+  "drive": {
+    "archive_folder": "https://drive.google.com/drive/folders/1rOQ_Vv1Jj2x6SBVKmK76NRVPcWKR-j83",
+    "matlab_fixtures": {
+      "url": "https://drive.google.com/file/d/1CGRVdxl7ZNjO-uWPelGoZez0T0OGtafk/view?usp=drivesdk",
+      "sha256": "13908d5251ffd1088e9e347803fdbde141ca2c5e8cc58b3c7293f4d432ca2978"
+    },
+    "sorted_cache": {
+      "url": "https://drive.google.com/file/d/18kMbFA-5xpF7cJ9UkG8UWq8rK8vEQE6g/view?usp=drivesdk",
+      "sha256": "d2bd82bfa92e5c7f596bf8efb68b2d257051d1ebaa8454b0e87eee8c2b54e032"
+    },
+    "eligibility": "https://drive.google.com/file/d/16GvoHRg6OKydMkprElewUN3TYt8bDsGL/view?usp=drivesdk",
+    "sources": "https://drive.google.com/file/d/1IVBo0ZvTNUUP82ACMqEmO9Tng2JMteOZ/view?usp=drivesdk"
+  },
+  "validation": {
+    "nwb_acc_all_35_units": "All stored reference bin counts matched Phase 8 exactly",
+    "hc23_pilot_original_replay_error": 0,
+    "hc23_pipeline": "Colab CPU, SHA-256 input transfer, pinned MATLAB R2024b fitter",
+    "figures": "Colab Python PDF/SVG/600 dpi PNG, checked geometry, font sizes and visual panels"
+  },
+  "result_sha256": {
+    "manifests/phase9_sources.json": "bc9322218401db5dbdaecb057d0f2fc1a3f2e0b3c6fd59a04002df0763dabd0f",
+    "manifests/phase9_dataset_eligibility.csv": "ee942e697f20de90b4c7079102b0c2278b4170a18468db333aa8493b564294f9",
+    "reports/17_phase9_data_feasibility.md": "063b12065040d1f1307e6f9bc338ea97b97ba218c7d458d90c9750cd1e875eb3",
+    "reports/18_pnas_rat_v1_access.md": "6b8e0e2afb6797b6a02552ee011adaacacc62c31fa25476ca2e3aa84d6f0512f",
+    "reports/19_phase9_sleep_results.md": "58e3d714e75aad87c8b36ece65de91159693213ed24245d248f8d93ae79fab18",
+    "reports/20_cross_region_sleep_summary.md": "e4a6d405f283f52693826e2f9db2de3e346ad033b2bc487520ac6b018e5a119f",
+    "reports/pnas_rat_v1_data_request_email.md": "375e3b0269c92a2cadda4c6d6c4a6c1f4045c2038864bc20a8b8652c5e620161",
+    "figures/sleep_crcns/cross_region_sleep_effects.pdf": "1e50e6d9f47c797a070a073c7d74ab384f22d51531345838a52f44868695ff08",
+    "figures/sleep_crcns/cross_region_sleep_effects.png": "f2e135681f865ef3decc9c566f660706eba5fe24b37665e28a41a2c6fd063b38",
+    "figures/sleep_crcns/cross_region_sleep_effects.svg": "4cd89de6ec7549b1171a9ea48c270f3d3c11d358a24893d1f70f6e6ad03c1613",
+    "figures/sleep_crcns/mec_paired_nrem_rem.pdf": "fbdbb704dbc0cffbaee6b119128e69a2e3f672ce68a87aeb7ca3f0b163dac35d",
+    "figures/sleep_crcns/mec_paired_nrem_rem.png": "6fb55b7285b4e4082b26557bf3e7f56ceae3b0c4119c2bc98b0427b98683705e",
+    "figures/sleep_crcns/mec_paired_nrem_rem.svg": "94e9d333d5b998b0f6e3601b3420039031cf450d7e45d7c3706f46e741cd673d",
+    "figures/sleep_crcns/phase8_same_time_ca1_bla.pdf": "3aa97eefa40b0dd6e79e37fd65d3fb641d70a33fda4e94129630acef42321b8b",
+    "figures/sleep_crcns/phase8_same_time_ca1_bla.png": "d03805634c34d0924636c2ec2a0988f5bca4acd5f184b0d57cc74c7853f0a358",
+    "figures/sleep_crcns/phase8_same_time_ca1_bla.svg": "27cc45a67bec3edca97b1a966cf73bceca7f80a0168eb5ae7d82011bf11a59b9",
+    "results/sleep_crcns/hc-23/cohort.json": "3a630960223ccde77b6e101f057c5b34dac92bc36a1121e3b7aba5c59161bea3",
+    "results/sleep_crcns/hc-23/cohort.summary.json": "35fdd516e38d1452a4158fdc6814a3df1da418903c8cd7d0602fb3e313f2aba6",
+    "results/sleep_crcns/hc-23/controls.summary.json": "1863557f584964d9034f9c6963c9bc54aa5bc47b92434dbe4fea84a63ac55524",
+    "results/sleep_crcns/hc-23/phase9_comparison.json": "595bb2cb9d4a9a26b3514c58dfbbc67522ff07c79661fe8ddae31a446db30b18",
+    "results/sleep_crcns/hc-23/pilot.json": "e1259ddc25da32fb3ee23e8446919d0427475bbd9ad23d95accaf29f354a6e80",
+    "results/sleep_crcns/hc-23/pilot.summary.json": "dca31a822ba729a198bfd4a7beb4e0cadac30f5149ce32ad876ac5d174422aa3"
+  }
+}
