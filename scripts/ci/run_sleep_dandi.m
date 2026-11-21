@@ -1,4 +1,4 @@
-function run_sleep_dandi(input_receipt,out,experiment)
+function run_sleep_dandi(input_receipt,out,experiment,analysis_spec)
 % Run the pinned estimator on audited population counts without joining bouts.
 if nargin == 0
     input_receipt = fullfile('data','fixtures','sleep_dandi_input.json');
@@ -7,6 +7,13 @@ if nargin == 0
 end
 fixture_dir = fileparts(input_receipt);
 config = jsondecode(fileread('config/sleep_dandi.json'));
+if nargin >= 4
+    validateattributes(analysis_spec,{'double'},{'vector','numel',3,'finite','positive'});
+    validateattributes(analysis_spec(2:3),{'double'},{'integer'});
+    config.bin_seconds = analysis_spec(1);
+    config.ar_order = analysis_spec(2);
+    config.long_ar_order = analysis_spec(3);
+end
 manifest = jsondecode(fileread('manifests/sources.json'));
 receipt = jsondecode(fileread(input_receipt));
 src = fullfile(pwd,'external','prox_crit_toolkit','src');
