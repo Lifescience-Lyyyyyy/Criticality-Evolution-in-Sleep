@@ -38,16 +38,37 @@ def quality_sets(record, cfg):
     return keep
 
 
+
+EQUAL_DURATION_STATES = {
+    "equal_duration_NW": ("Wake", "NREM"),
+    "equal_duration_RN": ("NREM", "REM"),
+    "equal_duration_RW": ("Wake", "REM"),
+    "equal_duration_WNR": ("Wake", "NREM", "REM"),
+}
+
+
+def equal_duration_controls(windows):
+    """Select first, lower median and last complete 60 s windows per eligible state."""
+    for variant, states in EQUAL_DURATION_STATES.items():
+        if any(len(windows.get(state, ())) < 3 for state in states):
+            continue
+        for state in states:
+            candidates = windows[state]
+            yield variant, state, [candidates[i] for i in (0, (len(candidates)-1)//2, -1)]
+
+
 def prepare_group(group, cfg, mode):
     states = paired_intervals(group)
     if mode == "nrem":
         states = {"NREM": states["NREM"]} if "NREM" in states else {}
     width = cfg["bin_seconds"]
+    if mode == "pairwise" and (width != .04 or cfg["window_seconds"] != 60):
+        raise ValueError("Pairwise controls require 40 ms bins and 60 s windows")
     n = round(cfg["window_seconds"] / width)
     effective = {s: clock_bins(ranges, width, cfg["min_segment_seconds"]) for s, ranges in states.items()}
     states = {s: states[s] for s in ("Wake", "NREM", "REM") if s in effective
               and width * sum(b - a for a, b in effective[s]) >= cfg["min_state_seconds"]}
-    if "NREM" not in states or (mode != "nrem" and len(states) < 2):
+    if (mode != "pairwise" and "NREM" not in states) or (mode != "nrem" and len(states) < 2):
         return []
     windows = {s: whole_windows(effective[s], n) for s in states}
     count = min(map(len, windows.values()))
@@ -64,6 +85,12 @@ def prepare_group(group, cfg, mode):
                 "clock": r.timebase, "state_path": r.provenance.get("state_source", "validated sidecar"),
                 "unit_ids": list(r.unit_ids), "strict_unit_ids": strict, "bin_seconds": width}
         pooled = np.sort(np.concatenate(r.spike_times))
+        if mode == "pairwise":
+            for variant, state, spans in equal_duration_controls(windows):
+                result.append(({**meta, "state": state, "variant": variant,
+                                "intervals_s": [[a*width,b*width] for a,b in spans]},
+                               matlab_segments(pooled,spans,width)))
+            continue
         strict_spikes = (np.sort(np.concatenate([t for u, t in zip(r.unit_ids, r.spike_times, strict=True)
                                                 if u in strict]))
                          if cfg["min_units"] <= len(strict) < len(r.unit_ids) else None)
@@ -143,7 +170,7 @@ if __name__ == "__main__":
     parser.add_argument("--hc23-mat", type=Path)
     parser.add_argument("--hc23-overnight", type=Path)
     parser.add_argument("--asset")
-    parser.add_argument("--mode", choices=("states","controls"), default="states")
+    parser.add_argument("--mode", choices=("states","controls","pairwise"), default="states")
     parser.add_argument("--config", type=Path, default=Path("config/sleep_dandi.json"))
     parser.add_argument("--out", type=Path, required=True)
     args = parser.parse_args()

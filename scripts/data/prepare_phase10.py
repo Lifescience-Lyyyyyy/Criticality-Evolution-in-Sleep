@@ -370,7 +370,7 @@ def run_stage(candidates,worker,cfg,mode,output,workers):
         row,regions=worker(asset,cfg)
         save_json(output/"audit"/(asset["asset_id"]+".json"),row)
         print(row["dandiset"],row.get("session",row["path"]),row["gate"],row.get("units_by_region",{}),flush=True)
-        return (row, prepared(regions,cfg,"states") if mode!="audit" else [],
+        return (row, prepared(regions,cfg,"pairwise" if mode=="pairwise" else "states") if mode!="audit" else [],
                 prepared(regions,cfg,"controls") if mode=="cohort" else [])
     if mode=="pilot":
         fallback=None
@@ -397,7 +397,7 @@ def run_stage(candidates,worker,cfg,mode,output,workers):
             controls.extend(sensitivity)
     save_json(output/"audit.json",audit)
     if fits:
-        save_prepared(fits,output/"cohort"/"phase10_input.mat","states",sorted({m["asset_id"] for m,_ in fits}))
+        save_prepared(fits,output/("pairwise_equal_duration" if mode=="pairwise" else "cohort")/"phase10_input.mat","states",sorted({m["asset_id"] for m,_ in fits}))
     if controls:
         strongest={}
         for m,_ in controls:
@@ -414,7 +414,7 @@ def main():
     parser.add_argument("--meta",type=Path,required=True)
     parser.add_argument("--config",type=Path,default=Path("config/sleep_dandi.json"))
     parser.add_argument("--output",type=Path,required=True)
-    parser.add_argument("--mode",choices=("pilot","audit","cohort"),required=True)
+    parser.add_argument("--mode",choices=("pilot","audit","cohort","pairwise"),required=True)
     parser.add_argument("--workers",type=int,default=4)
     parser.add_argument("--asset",action="append")
     args=parser.parse_args()

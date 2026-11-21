@@ -60,7 +60,9 @@ def summarize(files):
             if not {a,b}<=states.keys():
                 continue
             left,right=states[a],states[b]
-            if left[1]!=right[1] and variant in ("reference","AR10","edge_trim","equal_duration","strict_units"):
+            if variant.startswith("equal_duration_") and variant not in ("equal_duration_WNR", f"equal_duration_{contrast}"):
+                continue
+            if left[1]!=right[1] and (variant in ("reference","AR10","edge_trim","strict_units") or variant.startswith("equal_duration")):
                 raise ValueError(f"{asset} {variant}: state unit identities differ")
             value=left[0]-right[0]
             by_session.append({"dataset":dataset,"region":region,"context":context,"subject":subject,

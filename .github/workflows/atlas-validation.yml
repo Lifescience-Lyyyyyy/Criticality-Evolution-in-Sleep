@@ -6,7 +6,7 @@ on:
       scenario:
         description: 'Targeted count fixture'
         type: choice
-        options: [v1, qc, shorter]
+        options: [v1, qc, shorter, pairwise, extension]
         default: v1
   push:
     tags: ['matlab-phase11-*']
@@ -19,11 +19,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
-      ATLAS_SCENARIO: ${{ inputs.scenario || (startsWith(github.ref_name, 'matlab-phase11-shorter-') && 'shorter') || (startsWith(github.ref_name, 'matlab-phase11-qc-') && 'qc') || 'v1' }}
+      ATLAS_SCENARIO: ${{ inputs.scenario || (startsWith(github.ref_name, 'matlab-phase11-pairwise-') && 'pairwise') || (startsWith(github.ref_name, 'matlab-phase11-extension-') && 'extension') || (startsWith(github.ref_name, 'matlab-phase11-shorter-') && 'shorter') || (startsWith(github.ref_name, 'matlab-phase11-qc-') && 'qc') || 'v1' }}
     steps:
       - uses: actions/checkout@v4
       - name: Verify Phase 11 counts
-        run: sha256sum -c "data/fixtures/phase11/$ATLAS_SCENARIO/validation_input.sha256"
+        run: |
+          case "$ATLAS_SCENARIO" in
+            pairwise|extension) batch=phase11_1 ;;
+            *) batch=phase11 ;;
+          esac
+          sha256sum -c "data/fixtures/$batch/$ATLAS_SCENARIO/validation_input.sha256"
       - name: Fetch pinned Sooter toolkit
         uses: actions/checkout@v4
         with:
