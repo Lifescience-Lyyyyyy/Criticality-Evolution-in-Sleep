@@ -1,0 +1,592 @@
+{
+  "schema": 1,
+  "source_audit_date": "2026-11-21",
+  "baseline": "0bab15b171c540761ec8d00a604cd9cf75d790e5",
+  "score_weights": {
+    "relevance": 2,
+    "source_access": 2,
+    "physiological_validation": 3,
+    "spike_compatibility": 3,
+    "cost": 2,
+    "states": 2,
+    "interpretable_parameters": 1,
+    "counterfactuals": 1
+  },
+  "rubric": "各维度 0=缺失或受阻，1=部分满足，2=直接满足；cost 为当前环境的可运行性；状态维度 0=NREM 单态或无生理状态，1=验证两态/近似，2=作者神经状态参数三态。此分数不等于已复现。",
+  "models": [
+    {
+      "id": "A",
+      "paper": "Levenstein D, Buzsáki G, Rinzel J (2019). NREM sleep in the rodent neocortex and hippocampus reflects excitable dynamics. Nature Communications 10:2478.",
+      "doi": "10.1038/s41467-019-10327-5",
+      "paper_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6554409/",
+      "source_url": "https://github.com/dlevenstein/Levensteinetal2019",
+      "exact_commit": "989d16ad8fa157d1f0bda7a8b29199c1aa8f9292",
+      "license": "MIT",
+      "equations_and_structure": "单兴奋率群加适应；τr·dr/dt=−r+logistic(wr−ba+I+ξ−5)；τa·da/dt=−a+logistic(15(r−0.5))；ξ 为 OU。扩展模型有快速抑制群。",
+      "supported_states": [
+        "NREM cortex",
+        "NREM CA1"
+      ],
+      "original_dataset": "大鼠额叶 fcx-1 和海马 hc-11 睡眠 LFP 与排序尖峰，分别提取 UP/DOWN 及 SWR/inter-SWR。",
+      "original_validation_metrics": "Fig. 4；额叶 UP 1.70±0.92 s、DOWN 0.21±0.05 s、CV 1.10±0.27/0.38±0.06；CA1 SWR 0.060±0.005 s、间隔 2.0±0.22 s、CV 0.33±0.04/1.30±0.10。原文亦比较 CDF 的 KS 相似度。",
+      "output_types": [
+        "dimensionless mean rate"
+      ],
+      "runtime_environment": "作者 MATLAB 绘图依赖 buzcode、私有路径和未随包分发的 BatchSimulate_WCadapt；独立重现采用 C++17/NumPy/SciPy。",
+      "original_data_requirement": "已公开的汇总可做有限验证；相关原始事件分布和每会话时间因子需要原作者数据或公开数据重提取。",
+      "long_run_feasibility": "独立实现已运行 60,000 AU/seed，每种状态模型 3 个验证种子；额叶 240 s，CA1 120 s，上游绘图工程未完全复现。",
+      "spike_d2_compatibility": "需明确 AU→s、无量纲率→Hz、单位数与条件独立抽样。",
+      "parameter_provenance": "I 外驱动；w 递归兴奋；b 适应增益；τa 适应；σ、θ 驱动波动。",
+      "scores": {
+        "relevance": 2,
+        "source_access": 1,
+        "physiological_validation": 2,
+        "spike_compatibility": 1,
+        "cost": 2,
+        "states": 0,
+        "interpretable_parameters": 2,
+        "counterfactuals": 2
+      },
+      "reproduction_status": "summary_reproduced_frontal_Ca1_failed",
+      "qc_status": "frontal_summary_pass_official_MATLAB_primary_pass_ca1_failed",
+      "weighted_score": 23,
+      "verified_on": "2026-11-21",
+      "result_hashes": {
+        "results/original_validation.json": "f4b1b39abbc3d0b5fb8bd7a7fb417c2dfc612918b4be272c57efabc88f59a548",
+        "results/matlab_benchmark.json": "4ae9c882a595bd515ba30cb59b3e3e9a255693092e88d355511fd934e0fa0520",
+        "results/pulse_response.json": "7d891c3def524ef2ce80595c1c3099f85dfc414ea17ceb4cb6c7af29f5c23a48",
+        "results/empirical_240s.json": "3e9071192239388a7fd1ba591f42913d0555f562903d46254b566e601b45c966"
+      },
+      "original_validation_result": "results/original_validation.json"
+    },
+    {
+      "id": "B",
+      "paper": "González J, Cavelli M, Tort ABL, Torterolo P, Rubido N (2023). Sleep disrupts complex spiking dynamics in the neocortex and hippocampus. PLOS ONE 18:e0290146.",
+      "doi": "10.1371/journal.pone.0290146",
+      "paper_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0290146",
+      "source_url": null,
+      "exact_commit": null,
+      "license": null,
+      "equations_and_structure": "50 单元 ER 图、连边概率 0.03；1 ms 静息→放电→不应期→静息；连接上传播概率 σ/平均度；Poisson 驱动事件概率 1−exp(−0.014)。",
+      "supported_states": [
+        "ungated Wake/REM-like shared regime",
+        "gated SWS-like"
+      ],
+      "original_dataset": "15 只大鼠 31 场 fcx-1/hc-11 皮层和 CA1，LFP/群体放电。",
+      "original_validation_metrics": "Fig. 6 未门控的 σ=1 RR≈0.02、DET≈0.2、LAM≈0.4、DIV≈0.3、TT≈2.5；外驱动门控改变 RQA，涉及与实际 SWS 的对照。",
+      "output_types": [
+        "spikes",
+        "synthetic LFP"
+      ],
+      "runtime_environment": "论文和补充材料提供公式/参数；未核实原作者模拟仓库，论文 CC BY 不能代替代码许可证。",
+      "original_data_requirement": "独立复现模型可用论文汇总；动物 RQA 复核需要作者评分和原始数据。",
+      "long_run_feasibility": "独立实现已完成 1,000 s/seed（3 个种子；50 单元，1 ms）。原作 4 Hz 与 250 ms 同时应用到固定子集会给出 100% 占空比，作者实现未核实，两个有间歇的替代门控仅为反事实。",
+      "spike_d2_compatibility": "原生时间步可输出每单位尖峰；未门控活动仅为两种生理状态共用的代理。",
+      "parameter_provenance": "σ 基础传播；λ 自发输入；关闭比例、时长、频率和作用位置可分别操纵。",
+      "scores": {
+        "relevance": 2,
+        "source_access": 0,
+        "physiological_validation": 2,
+        "spike_compatibility": 2,
+        "cost": 2,
+        "states": 1,
+        "interpretable_parameters": 2,
+        "counterfactuals": 2
+      },
+      "reproduction_status": "independent_ungated_reimplementation_failed_RQA",
+      "qc_status": "FAIL_UNGATED_RQA_PILOT",
+      "weighted_score": 26,
+      "verified_on": "2026-11-21",
+      "result_hashes": {
+        "results/branching_validation.json": "9e03530a1491d2036cba2bb6b1d9fb5dc1dc25eda482d9a1e6f1b3a0d4006ed3"
+      },
+      "original_validation_result": "results/branching_validation.json"
+    },
+    {
+      "id": "C",
+      "paper": "Bugnon T, Mayner WGP, Cirelli C, Tononi G (2024). Sleep and wake in a model of the thalamocortical system with Martinotti cells. European Journal of Neuroscience 59:703–736.",
+      "doi": "10.1111/ejn.15836",
+      "paper_url": "https://onlinelibrary.wiley.com/doi/full/10.1111/ejn.15836",
+      "source_url": "https://github.com/TomBugnon/deNEST/tree/MC_sleep/example_networks/MC_sleep",
+      "exact_commit": "d8facf6323aa95151398ee4945623147e33491a8",
+      "license": "GPL-3.0",
+      "equations_and_structure": "扩展 Hill–Tononi：电导膜方程加 MaC、时间依赖微小 EPSP 及突触前 GABA-B1a；有皮层层级、丘脑中继和网状核。",
+      "supported_states": [
+        "Wake",
+        "NREM-like slow waves"
+      ],
+      "original_dataset": "与在体皮层放电、LFP 和突触前抑制/慢波文献比较；不是新动物队列的联合独立拟合。",
+      "original_validation_metrics": "Fig. 2–5；稀疏发放、光栅响应、慢波与 DOWN 期沉默、MaC 发放先于局部失促进。",
+      "output_types": [
+        "spikes",
+        "membrane voltage",
+        "LFP proxy"
+      ],
+      "runtime_environment": "deNEST，NEST 2.20.0、C++ 扩展 HTNeuronModule、CMake 和作者 YAML。",
+      "original_data_requirement": "模拟无需另取动物数据；原生理统计核验需对应记录或论文图。",
+      "long_run_feasibility": "当前 WSL 无 NEST 2.20、兼容扩展或 Docker；完整配置发表示例 20 s，120 s 需另测。",
+      "spike_d2_compatibility": "可记录同一区同细胞的 spike recorder 时间戳。",
+      "parameter_provenance": "ACh 相关漏钾、背景输入、突触强度、MaC GABA-B1a 抑制。",
+      "scores": {
+        "relevance": 2,
+        "source_access": 2,
+        "physiological_validation": 1,
+        "spike_compatibility": 2,
+        "cost": 0,
+        "states": 1,
+        "interpretable_parameters": 2,
+        "counterfactuals": 2
+      },
+      "reproduction_status": "blocked_nest2_extension",
+      "qc_status": "not_run",
+      "weighted_score": 23,
+      "verified_on": "2026-11-21",
+      "result_hashes": {},
+      "publication_note": "First published online October 2022 per Wiley; 2024 volume 59.",
+      "original_validation_result": null
+    },
+    {
+      "id": "D",
+      "paper": "Krishnan GP, Chauvette S, Shamie I, Soltani S, Timofeev I, Cash SS, Halgren E, Bazhenov M (2016). Cellular and neurochemical basis of sleep stages in the thalamocortical network. eLife 5:e18607. Fink CG et al. (2024). Python/NEURON code for simulating biophysically realistic thalamocortical dynamics during sleep. Software Impacts 21:100667.",
+      "doi": "10.7554/eLife.18607",
+      "paper_url": "https://elifesciences.org/articles/18607",
+      "source_url": "https://github.com/bazhlab-ucsd/sleep-stage-transition",
+      "exact_commit": "f672f122a07a57a8c8d54fca81d8309431e7b848",
+      "license": "原 C++ 无明确 LICENSE；Fink NEURON 移植 GPL-2.0（LICENSE.GPLv2 与论文）",
+      "equations_and_structure": "Hodgkin–Huxley 型多电流膜电压及门控；PY/IN、TC/RE；ACh、组胺、GABA 与单胺调控漏电导和突触。",
+      "supported_states": [
+        "Wake",
+        "NREM N2",
+        "NREM N3",
+        "REM"
+      ],
+      "original_dataset": "原文对照猫和小鼠皮层 LFP，并以人体睡眠 N2/N3 的频谱统计作物种间参照；细胞与突触靶点来自生理实验。",
+      "original_validation_metrics": "Fig. 2 raster/仿 LFP/时频；N2 纺锤、N3 δ、REM 快活动；Fig. 6/7 中 δ–纺锤关系受 ACh 调节。",
+      "output_types": [
+        "membrane voltage",
+        "spikes in Fink port",
+        "LFP"
+      ],
+      "runtime_environment": "原 C++ GNU g++ OpenMP；Fink Python + NEURON 8.2.2、MOD、可选 MPI，移植含 0.75 皮层突触强度等差异。",
+      "original_data_requirement": "原作者参数可模拟；原真实 EEG 与协议用于精确复核。",
+      "long_run_feasibility": "已跑原 C++ REM 编译态 1 s，102.56 s 墙时、峰 RSS 15616 KiB；350 s 线性粗估 10 h/seed，尚无稳定态验证。Fink README 报告串行约 14 h。",
+      "spike_d2_compatibility": "Fink 原生 raster 可用；本次 C++ 电压样本不得直接当计数。",
+      "parameter_provenance": "NE/ACh/组胺/GABA、钾漏电导、感受体突触强度。",
+      "scores": {
+        "relevance": 2,
+        "source_access": 2,
+        "physiological_validation": 2,
+        "spike_compatibility": 2,
+        "cost": 0,
+        "states": 2,
+        "interpretable_parameters": 2,
+        "counterfactuals": 2
+      },
+      "reproduction_status": "source_smoke_only_full_blocked_compute",
+      "qc_status": "smoke_pass_original_validation_not_run",
+      "weighted_score": 28,
+      "verified_on": "2026-11-21",
+      "result_hashes": {
+        "results/krishnan_smoke.json": "2e034e663701b17572750db709f56c8b76847b8bc04ad1187315c06382e30222"
+      },
+      "ported_source": {
+        "doi": "10.1016/j.simpa.2024.100667",
+        "source_url": "https://github.com/SoftwareImpacts/SIMPAC-2024-84",
+        "exact_commit": "7416ba3ad0ef634db89df655c7dde15a36ba9461",
+        "license": "GPL-2.0",
+        "status": "source inspected; NEURON port not run"
+      },
+      "original_validation_result": "results/krishnan_smoke.json"
+    },
+    {
+      "id": "E",
+      "paper": "Bazhenov M, Timofeev I, Steriade M, Sejnowski TJ (2002). Model of thalamocortical slow-wave sleep oscillations and transitions to activated states. Journal of Neuroscience 22:8691–8704.",
+      "doi": "10.1523/JNEUROSCI.22-19-08691.2002",
+      "paper_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6757797/",
+      "source_url": "https://github.com/ModelDBRepository/28189",
+      "exact_commit": "f2d2d2b6d37287bb7ace9e3eeebc63eb90833b64",
+      "license": "未发现具体许可证文本；ModelDB 下载入口公开。",
+      "equations_and_structure": "电导型 PY/IN、TC/RE 网络；膜电压由 Na/K/Ca 与 AMPA/NMDA/GABA 调控；包括递归、短期抑制、钾漏。",
+      "supported_states": [
+        "SWS-like",
+        "activated"
+      ],
+      "original_dataset": "猫的皮层/丘脑胞内记录，部分比较来自引文的睡眠/麻醉实验。",
+      "original_validation_metrics": "Fig. 6 型 UP/DOWN 慢波、传播、膜电位和活跃态变化；向激活态的调质转变。",
+      "output_types": [
+        "neuron voltage",
+        "spikes derivable with validated detection"
+      ],
+      "runtime_environment": "原 C/C++、RK；ModelDB 指定 g++ 和 input27。",
+      "original_data_requirement": "模拟无必需读取的数据，独立原图比较需猫记录或公开图。",
+      "long_run_feasibility": "作者旧机 30 s 模拟约 7.5 小时；当前尚未验证长时。",
+      "spike_d2_compatibility": "发布产物为电压，先核验采样和阈值能否复原尖峰。",
+      "parameter_provenance": "漏钾、AMPA/NMDA、GABA、Ca 依赖适应。",
+      "scores": {
+        "relevance": 2,
+        "source_access": 2,
+        "physiological_validation": 2,
+        "spike_compatibility": 1,
+        "cost": 0,
+        "states": 1,
+        "interpretable_parameters": 2,
+        "counterfactuals": 2
+      },
+      "reproduction_status": "audited_not_run",
+      "qc_status": "not_run",
+      "weighted_score": 23,
+      "verified_on": "2026-11-21",
+      "result_hashes": {},
+      "original_validation_result": null
+    },
+    {
+      "id": "F",
+      "paper": "Overwiening J, Tesler F, Guarino D, Destexhe A (2024). A multi-scale study of thalamic state-dependent responsiveness. PLOS Computational Biology 20:e1012262.",
+      "doi": "10.1371/journal.pcbi.1012262",
+      "paper_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11676947/",
+      "source_url": "https://github.com/joverwiening/thalamic-mean-field",
+      "exact_commit": "d9428ab53b74e1eda15663f352ecc14e0cb2ff6b",
+      "license": "仓库根未发现 LICENSE，不把文章许可证移植到代码。",
+      "equations_and_structure": "TC/RE AdEx，dV/dt 含漏电导、指数 Na 近似、Gsyn 与适应；均场把输入驱动过拟合阈值的 transfer function，含方差/相关。",
+      "supported_states": [
+        "ACh awake-like",
+        "ACh sleep-like"
+      ],
+      "original_dataset": "外部生理文献约束丘脑 tonic/burst 和纺锤；主要验证是单细胞/尖峰网络≈均场，独立睡眠数据拟合缺失。",
+      "original_validation_metrics": "Table 2 转移函数；Fig. 2–4 吞吐率、10 Hz 刺激响应、纺锤。",
+      "output_types": [
+        "spikes",
+        "mean-field rates"
+      ],
+      "runtime_environment": "Python3、Brian2、NumPy、SciPy、Matplotlib；numpy 仿真分支默认 2 s，另外有拟合 notebook 与参数 NPY。",
+      "original_data_requirement": "作者存档的网络参数与拟合系数已在代码包。",
+      "long_run_feasibility": "2 s 作者脚本明确，延长和内存成本尚未实测。",
+      "spike_d2_compatibility": "尖峰与群体率双支路适合直接检验观测映射偏差，分析必须分开。",
+      "parameter_provenance": "ACh 等效漏电势、传递突触权重、皮层驱动和噪声。",
+      "scores": {
+        "relevance": 2,
+        "source_access": 2,
+        "physiological_validation": 1,
+        "spike_compatibility": 2,
+        "cost": 1,
+        "states": 1,
+        "interpretable_parameters": 2,
+        "counterfactuals": 2
+      },
+      "reproduction_status": "audited_not_run",
+      "qc_status": "not_run",
+      "weighted_score": 25,
+      "verified_on": "2026-11-21",
+      "result_hashes": {},
+      "original_validation_result": null
+    },
+    {
+      "id": "G",
+      "paper": "Cakan C, Dimulescu C, Khakimova L, Obst D, Flöel A, Obermayer K (2022). Spatiotemporal Patterns of Adaptation-Induced Slow Oscillations in a Whole-Brain Model of Slow-Wave Sleep. Frontiers in Computational Neuroscience 15:800101.",
+      "doi": "10.3389/fncom.2021.800101",
+      "paper_url": "https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2021.800101/full",
+      "source_url": "https://github.com/caglarcakan/sleeping_brain",
+      "exact_commit": "12272f49bee1a8ad9eb30f47067abc1f252cded6",
+      "license": "MIT（代码）；随附人数据适用独立许可与用途。",
+      "equations_and_structure": "结构连接耦合的皮层 E/I 自适应线性非线性型均场，适应慢方程加多区域反馈，模拟 BOLD 映射。",
+      "supported_states": [
+        "resting Wake fitting target",
+        "NREM slow oscillations"
+      ],
+      "original_dataset": "人群 rs-fMRI FC/FCD、午睡 EEG N3 功率，与人颅内和动物慢波在范围/传播统计上对照。",
+      "original_validation_metrics": "FC/FCD 相似度、N3 谱、慢波频率/幅度/持续时间、范围与传播。",
+      "output_types": [
+        "mean-field rates",
+        "BOLD",
+        "EEG-like signals"
+      ],
+      "runtime_environment": "Python/neurolib 和作者 notebook，需核实兼容版本；数据/优化档另有固定。",
+      "original_data_requirement": "完整论文拟合需要随库的 EEG 统计及结构/功能数据。",
+      "long_run_feasibility": "不重复做演化拟合，使用冻结已发表最优点后才估时；当前未跑。",
+      "spike_d2_compatibility": "速率须观测校准，BOLD/EEG 与 spike 分开。",
+      "parameter_provenance": "适应强度、时间常数、结构连接全局耦合、驱动。",
+      "scores": {
+        "relevance": 2,
+        "source_access": 2,
+        "physiological_validation": 2,
+        "spike_compatibility": 1,
+        "cost": 0,
+        "states": 1,
+        "interpretable_parameters": 2,
+        "counterfactuals": 2
+      },
+      "reproduction_status": "audited_not_run",
+      "qc_status": "not_run",
+      "weighted_score": 23,
+      "verified_on": "2026-11-21",
+      "result_hashes": {},
+      "original_validation_result": null
+    },
+    {
+      "id": "H",
+      "paper": "Yoshida K, Toyoizumi T (2023). Information maximization explains state-dependent synaptic plasticity and memory reorganization during non-rapid eye movement sleep. PNAS Nexus 2:pgac286.",
+      "doi": "10.1093/pnasnexus/pgac286",
+      "paper_url": "https://academic.oup.com/pnasnexus/article/2/1/pgac286/6887287",
+      "source_url": "https://github.com/kkyoshida/SleepInfomax",
+      "exact_commit": "2496e36a48e60ca950e2148cb1c42ebb5c7a5aa0",
+      "license": "MIT",
+      "equations_and_structure": "随机放电响应由膜电位/近期输入决定，慢波模型含兴奋与抑制小群、适应及互信息最优化的可塑性规则；分别分析单元和网络。",
+      "supported_states": [
+        "Wake-learning-like",
+        "NREM slow waves",
+        "REM-like protocol only"
+      ],
+      "original_dataset": "与大鼠体内 UP/DOWN 放电、膜电位与可塑性研究对照，NREM 主要用于记忆/可塑性机制。",
+      "original_validation_metrics": "Fig. 1–3：状态依赖 STDP 与 firing rates、UP/DOWN 时序；记忆权重保留变化。",
+      "output_types": [
+        "spikes",
+        "voltage",
+        "plasticity trajectories"
+      ],
+      "runtime_environment": "Python3.6.13、NumPy1.19.2、SciPy1.5.2、Matplotlib3.3.2（作者）。",
+      "original_data_requirement": "代码参数已给出；独立复核生理分布需原各实验公开数据。",
+      "long_run_feasibility": "Fig. 3 官方波形脚本 30 s，可扩窗口，但三态只是程序协议，不能视作三态验证。",
+      "spike_d2_compatibility": "NREM 可对时间分辨的原生 spikes 分箱；长期权重学习需单独检查非平稳。",
+      "parameter_provenance": "突触学习率、信息惩罚、适应与跨群 E/I 连边。",
+      "scores": {
+        "relevance": 1,
+        "source_access": 2,
+        "physiological_validation": 1,
+        "spike_compatibility": 2,
+        "cost": 1,
+        "states": 1,
+        "interpretable_parameters": 2,
+        "counterfactuals": 2
+      },
+      "reproduction_status": "audited_not_run",
+      "qc_status": "not_run",
+      "weighted_score": 23,
+      "verified_on": "2026-11-21",
+      "result_hashes": {},
+      "original_validation_result": null
+    },
+    {
+      "id": "I",
+      "paper": "Schellenberger Costa M, Weigenand A, Ngo HV, Marshall L, Born J, Martinetz T, Claussen JC (2016). A Thalamocortical Neural Mass Model of the EEG during NREM Sleep and Its Response to Auditory Stimulation. PLOS Computational Biology 12:e1005022.",
+      "doi": "10.1371/journal.pcbi.1005022",
+      "paper_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005022",
+      "source_url": "https://github.com/ModelDBRepository/226474",
+      "exact_commit": "eb9fad3bf9e19e3e7f3018ec471c93cfb0f31ebe",
+      "license": "模型核心 C++ 文件载 MIT 字样的许可通知；附工具分别核对。",
+      "equations_and_structure": "皮层锥体/抑制均场与丘脑中继/网状核均场互连；群体电压、突触二阶滤波、Na 依赖适应、T 型 Ca 和 h 电流。",
+      "supported_states": [
+        "NREM N2",
+        "NREM N3"
+      ],
+      "original_dataset": "Ngo 等人体睡眠闭环听觉刺激的头皮 EEG 和 ERP，代码包内有参考数据参数矩阵。",
+      "original_validation_metrics": "Fig. 4–8：慢波 <1 Hz、快速纺锤 12–15 Hz、N2 K-complex、点击 ERP 与慢波相位。",
+      "output_types": [
+        "EEG-like voltage",
+        "latent population rates"
+      ],
+      "runtime_environment": "C++11 及 MATLAB MEX、作者绘图使用 FieldTrip；作者无刺激轨迹规格 3,600 s。",
+      "original_data_requirement": "模型用自带 N2/N3 参数；原图需要包内 Experimental_Data.mat 和 FieldTrip。",
+      "long_run_feasibility": "实际运行 N2/N3 各 3 个种子，20 s 预热后各 180 s。未全长复画 ERP 或复算事件级纺锤。",
+      "spike_d2_compatibility": "原始验证对象是 EEG；只有额外定义观测才可研究潜在率，不混入正式 spike 表。",
+      "parameter_provenance": "丘脑 T-Ca、h 电流、皮丘耦合、皮层 Na 依赖适应。",
+      "scores": {
+        "relevance": 1,
+        "source_access": 2,
+        "physiological_validation": 2,
+        "spike_compatibility": 0,
+        "cost": 1,
+        "states": 0,
+        "interpretable_parameters": 2,
+        "counterfactuals": 2
+      },
+      "reproduction_status": "author_equations_executed_and_spectral_signatures_reproduced",
+      "qc_status": "PASS_SPECTRAL_SIGNATURE_CONTINUOUS_ONLY",
+      "weighted_score": 18,
+      "verified_on": "2026-11-21",
+      "result_hashes": {
+        "results/costa_continuous.json": "492e0746dbc40053f48d41883b49a58874291562ae750bd20dbaf6012df7cf24"
+      },
+      "original_validation_result": "results/costa_continuous.json"
+    },
+    {
+      "id": "J",
+      "paper": "Goldman JS, Kusch L, Aquilue D, Yalçınkaya BH, Depannemaecker D, Ancourt K, Nghiem T-AE, Jirsa V, Destexhe A (2023). A comprehensive neural simulation of slow-wave sleep and highly responsive wakefulness dynamics. Frontiers in Computational Neuroscience 16:1058957.",
+      "doi": "10.3389/fncom.2022.1058957",
+      "paper_url": "https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2022.1058957/full",
+      "source_url": "https://gitlab.ebrains.eu/kancourt/tvb-adex-showcase3-git",
+      "exact_commit": "e4b991ea7a167922458c40207377ae01b7387d87",
+      "license": "GitLab tree 未见仓库级许可；TVB 本体许可证不能自动覆盖作者 notebook。",
+      "equations_and_structure": "TVB 结构连接上的 AdEx/Zerlaut E/I 均场，慢适应和有效耦合决定同步；可把区域活动投影到 EEG。",
+      "supported_states": [
+        "asynchronous Wake-like",
+        "synchronous SWS-like"
+      ],
+      "original_dataset": "真实人类连接组约束结构；比较已发表的睡眠/觉醒自发及类似 TMS 诱发活动、传播复杂度。",
+      "original_validation_metrics": "自发慢波/异步活动、局部复归 vs 广泛唤起、扰动复杂性与结构拓扑依赖。",
+      "output_types": [
+        "mean-field rates",
+        "EEG projections"
+      ],
+      "runtime_environment": "Python、The Virtual Brain、Jupyter、NumPy/SciPy 和作者 connectivity/projection 文件；未验证确切复跑版本。",
+      "original_data_requirement": "已绑示例连接组；跨人复现实验需要原连接组和刺激约束。",
+      "long_run_feasibility": "GitLab 浅克隆读取 tree，尚未运行 notebook，完整时长和成本未实测。",
+      "spike_d2_compatibility": "率需显式观测，EEG/PCI 支路独立。",
+      "parameter_provenance": "适应、结构耦合、输入/扰动幅度。",
+      "scores": {
+        "relevance": 2,
+        "source_access": 2,
+        "physiological_validation": 1,
+        "spike_compatibility": 1,
+        "cost": 0,
+        "states": 1,
+        "interpretable_parameters": 2,
+        "counterfactuals": 2
+      },
+      "reproduction_status": "audited_not_run",
+      "qc_status": "not_run",
+      "weighted_score": 20,
+      "verified_on": "2026-11-21",
+      "result_hashes": {},
+      "original_validation_result": null
+    },
+    {
+      "id": "K",
+      "paper": "Malerba P, Krishnan GP, Fellous J-M, Bazhenov M (2016). Hippocampal CA1 Ripples as Inhibitory Transients. PLOS Computational Biology 12:e1004880.",
+      "doi": "10.1371/journal.pcbi.1004880",
+      "paper_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004880",
+      "source_url": "https://github.com/ModelDBRepository/188977",
+      "exact_commit": "95df907a46c04f41f329a1b91f4ffdd74d8ff2a1",
+      "license": "仓库未找到单列许可；论文指向 ModelDB 供使用。",
+      "equations_and_structure": "CA1 AdEx 式 E/I 兴奋及抑制电导网络（作者示例 800/160）；CA3 短输入引发抑制同步暂态；噪声终止同步。",
+      "supported_states": [
+        "CA1 ripple events with background"
+      ],
+      "original_dataset": "大鼠 CA1 在体 ripple 频率分布、持续时间、间隔数据，以及抑制细胞生理资料。",
+      "original_validation_metrics": "Fig. 1/2 与原 CountRipples：100–300 Hz 检测带、频率、持续时间变异和 CA1 E/I 参与率。",
+      "output_types": [
+        "spikes",
+        "LFP"
+      ],
+      "runtime_environment": "MATLAB、Statistics Toolbox random、Signal Processing Toolbox butter/filtfilt/pwelch；示例默认 T=1 s 而输入从 1.1 s 起，需按说明延长明确。",
+      "original_data_requirement": "原始模型参数独立于额外数据；完整事件统计验证需真实记录/图。",
+      "long_run_feasibility": "单个诱发片段可跑；模型输入排程决定长时间事件间隔，不能当作实测自发三态。",
+      "spike_d2_compatibility": "适合事件内/外有独立分段的原生尖峰分析，需足够自发背景曝光。",
+      "parameter_provenance": "CA3 驱动、抑制强度、噪声、短时暂态。",
+      "scores": {
+        "relevance": 1,
+        "source_access": 2,
+        "physiological_validation": 2,
+        "spike_compatibility": 2,
+        "cost": 1,
+        "states": 0,
+        "interpretable_parameters": 2,
+        "counterfactuals": 2
+      },
+      "reproduction_status": "audited_not_run",
+      "qc_status": "not_run",
+      "weighted_score": 24,
+      "verified_on": "2026-11-21",
+      "result_hashes": {},
+      "original_validation_result": null
+    },
+    {
+      "id": "L",
+      "paper": "Compte A, Sanchez-Vives MV, McCormick DA, Wang X-J (2003). Cellular and network mechanisms of slow oscillatory activity (<1 Hz) and wave propagations in a cortical network model. Journal of Neurophysiology 89:2707–2725.",
+      "doi": "10.1152/jn.00845.2002",
+      "paper_url": "https://journals.physiology.org/doi/full/10.1152/jn.00845.2002",
+      "source_url": null,
+      "exact_commit": null,
+      "license": null,
+      "equations_and_structure": "空间电导型锥体/中间神经元，AMPA/NMDA 与 GABA；慢 Na 依赖 K 电流终止 UP，递归兴奋支撑传播。",
+      "supported_states": [
+        "slice-like UP/DOWN",
+        "tonic activated analogy"
+      ],
+      "original_dataset": "雪貂视觉皮层切片的慢波/药理阻断，与部分在体膜性质文献比较。",
+      "original_validation_metrics": "慢振荡 <1 Hz，波速约 3–8 mm/s 及阻断抑制 20–50 mm/s，UP/DOWN 膜性质。",
+      "output_types": [
+        "simulated spikes",
+        "membrane voltage"
+      ],
+      "runtime_environment": "原论文提供方程和参数，无已核实原作者可下载代码；不借用后续模型冒称。",
+      "original_data_requirement": "复算原始现象需切片发表曲线；无自然三态标签。",
+      "long_run_feasibility": "原始实现与长时成本均未核实。",
+      "spike_d2_compatibility": "若获原代码可从电压/尖峰分箱；仅适合切片/模型对照。",
+      "parameter_provenance": "递归 E/I、KNa 适应、长程兴奋、药理阻断。",
+      "scores": {
+        "relevance": 1,
+        "source_access": 0,
+        "physiological_validation": 2,
+        "spike_compatibility": 2,
+        "cost": 0,
+        "states": 0,
+        "interpretable_parameters": 2,
+        "counterfactuals": 2
+      },
+      "reproduction_status": "blocked_original_code_unverified",
+      "qc_status": "not_run",
+      "weighted_score": 18,
+      "verified_on": "2026-11-21",
+      "result_hashes": {},
+      "original_validation_result": null
+    },
+    {
+      "id": "M",
+      "paper": "Hill S, Tononi G (2005). Modeling sleep and wakefulness in the thalamocortical system. Journal of Neurophysiology 93:1671–1698.",
+      "doi": "10.1152/jn.00915.2004",
+      "paper_url": "https://journals.physiology.org/doi/full/10.1152/jn.00915.2004",
+      "source_url": "https://nest-simulator.readthedocs.io/en/stable/models/ht_neuron.html",
+      "exact_commit": null,
+      "license": "原 Synthesis 网络许可未核实；链接是现代 NEST 细胞实现，不能代为认定旧模型。",
+      "equations_and_structure": "猫三层视皮层与丘脑中继和网状核；电导膜模型含 I_KL、I_h、I_DK、I_NaP，突触 E/I 与拓扑相依。",
+      "supported_states": [
+        "Wake",
+        "SWS-like"
+      ],
+      "original_dataset": "猫视觉功能和睡眠胞内、脑电及慢波传播的已发表数据；模型与文献比较。",
+      "original_validation_metrics": "醒时取向选择/低率发放/快 LFP，睡眠 <1 Hz、双峰膜电位与波传播。",
+      "output_types": [
+        "spikes",
+        "membrane voltage",
+        "LFP proxy"
+      ],
+      "runtime_environment": "原 Synthesis/Mac OS 10.3；NEST ht_neuron 是可查的后续细胞实现，原全网工程未核实。",
+      "original_data_requirement": "原模型复核需要原 Synthesis 网络及验证文献。",
+      "long_run_feasibility": "无原网络构建和现代环境的已验证路径。",
+      "spike_d2_compatibility": "原尖峰若可导出则适用；不能只移植细胞后声称全网复现。",
+      "parameter_provenance": "漏 K、T 型电流、AMPA、空间拓扑与丘脑反馈。",
+      "scores": {
+        "relevance": 2,
+        "source_access": 0,
+        "physiological_validation": 1,
+        "spike_compatibility": 2,
+        "cost": 0,
+        "states": 1,
+        "interpretable_parameters": 2,
+        "counterfactuals": 2
+      },
+      "reproduction_status": "blocked_original_synthesis_model_unverified",
+      "qc_status": "not_run",
+      "weighted_score": 19,
+      "verified_on": "2026-11-21",
+      "result_hashes": {},
+      "original_validation_result": null
+    }
+  ],
+  "release_checks": {
+    "output_sha256": {
+      "results/branching_validation.json": "9e03530a1491d2036cba2bb6b1d9fb5dc1dc25eda482d9a1e6f1b3a0d4006ed3",
+      "results/costa_continuous.json": "492e0746dbc40053f48d41883b49a58874291562ae750bd20dbaf6012df7cf24",
+      "results/empirical_240s.json": "3e9071192239388a7fd1ba591f42913d0555f562903d46254b566e601b45c966",
+      "results/krishnan_smoke.json": "2e034e663701b17572750db709f56c8b76847b8bc04ad1187315c06382e30222",
+      "results/matlab_benchmark.json": "4ae9c882a595bd515ba30cb59b3e3e9a255693092e88d355511fd934e0fa0520",
+      "results/original_validation.json": "f4b1b39abbc3d0b5fb8bd7a7fb417c2dfc612918b4be272c57efabc88f59a548",
+      "results/pulse_response.json": "7d891c3def524ef2ce80595c1c3099f85dfc414ea17ceb4cb6c7af29f5c23a48"
+    },
+    "figure_pdf_sha256": {
+      "figures/multiscale_sensitivity.pdf": "ac2c553438aa16aaa9b9089c5696b112dd123847102b2afb30f7309ab7332f0b",
+      "figures/observation_sensitivity.pdf": "a4a61795ec4e17c0be8989669d047a8d8aa58ccb038791f3921633dd1e6ea2d6",
+      "figures/physiological_validation.pdf": "ff4b894f84cd07fbd0bcc6f8ed0567a781ff513e2e9c1ce86b8bb65840c8a691"
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "steady_r": 0.9167686276127415,
+  "steady_adaptation": 0.9980762041950765,
+  "matched_initial_effective_drive": true,
+  "mode": "deterministic fixed-point perturbation, OU disabled only for this causal check",
+  "perturbations": [
+    {
+      "mode": "external_drive",
+      "initial_effective_drive": 0.25,
+      "pulse_s": 0.02,
+      "peak_abs_delta": 0.02586785362230637,
+      "last_above_10pct_s": 0.017200000000000003,
+      "absolute_auc_rate_s": 0.0005719764646101007
+    },
+    {
+      "mode": "recurrent_gain",
+      "initial_effective_drive": 0.25,
+      "pulse_s": 0.02,
+      "peak_abs_delta": 0.02637631972097898,
+      "last_above_10pct_s": 0.017200000000000003,
+      "absolute_auc_rate_s": 0.0005812587088203819
+    },
+    {
+      "mode": "external_drive",
+      "initial_effective_drive": 0.75,
+      "pulse_s": 0.02,
+      "peak_abs_delta": 0.0525649759597665,
+      "last_above_10pct_s": 0.016800000000000006,
+      "absolute_auc_rate_s": 0.0011897377846146642
+    },
+    {
+      "mode": "recurrent_gain",
+      "initial_effective_drive": 0.75,
+      "pulse_s": 0.02,
+      "peak_abs_delta": 0.053999636124175465,
+      "last_above_10pct_s": 0.016800000000000006,
+      "absolute_auc_rate_s": 0.0012171908450010957
+    },
+    {
+      "mode": "external_drive",
+      "initial_effective_drive": 0.25,
+      "pulse_s": 0.1,
+      "peak_abs_delta": 0.026850623174723864,
+      "last_above_10pct_s": 0.016800000000000013,
+      "absolute_auc_rate_s": 0.002722461097366204
+    },
+    {
+      "mode": "recurrent_gain",
+      "initial_effective_drive": 0.25,
+      "pulse_s": 0.1,
+      "peak_abs_delta": 0.02744348971925903,
+      "last_above_10pct_s": 0.016800000000000013,
+      "absolute_auc_rate_s": 0.0027792047047966125
+    },
+    {
+      "mode": "external_drive",
+      "initial_effective_drive": 0.75,
+      "pulse_s": 0.1,
+      "peak_abs_delta": 0.05348003945933033,
+      "last_above_10pct_s": 0.016400000000000005,
+      "absolute_auc_rate_s": 0.005471892981818237
+    },
+    {
+      "mode": "recurrent_gain",
+      "initial_effective_drive": 0.75,
+      "pulse_s": 0.1,
+      "peak_abs_delta": 0.05501772515256309,
+      "last_above_10pct_s": 0.016400000000000005,
+      "absolute_auc_rate_s": 0.005622523843183678
+    }
+  ]
+}

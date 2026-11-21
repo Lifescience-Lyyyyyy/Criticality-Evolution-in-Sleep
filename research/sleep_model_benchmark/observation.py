@@ -63,8 +63,10 @@ def spike_counts(segments, bin_s=.04):
         n = _whole(stop - start, bin_s)
         if not n or not len(by_unit) or (blocks and len(by_unit) != blocks[0].shape[1]):
             raise ValueError("Each segment needs complete bins and the same nonempty unit set")
-        # Searchsorted gives half-open bins. The final partial bin is discarded.
+        # Searchsorted gives half-open bins. Two ULPs align mathematically equal decimal clocks.
+        # The final partial bin is discarded.
         edges = start + np.arange(n + 1) * bin_s
+        edges = np.nextafter(np.nextafter(edges, -np.inf), -np.inf)
         cols = []
         for train in by_unit:
             t = np.asarray(train, dtype=float)

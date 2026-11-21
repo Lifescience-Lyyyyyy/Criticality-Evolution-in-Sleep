@@ -1,0 +1,342 @@
+{
+  "paper": "10.1371/journal.pcbi.1005022",
+  "source_commit": "eb9fad3bf9e19e3e7f3018ec471c93cfb0f31ebe",
+  "sampling_hz": 100.0,
+  "burn_s": 20,
+  "simulated_seconds_per_seed": 180,
+  "seeds": [
+    1441,
+    1442,
+    1443
+  ],
+  "modality": "continuous_EEG_proxy",
+  "spike_counts_created": false,
+  "seed_deviation_from_MEX": "explicit std::srand seeds instead of wall time",
+  "spectra": "Welch 10 s Hann, 50% overlap, peaks are band-limited",
+  "estimator": "continuous spectral validation, no Sooter estimates",
+  "reference": {
+    "figure": "Fig. 4\u20135",
+    "slow_oscillation_hz": [
+      0.2,
+      1.0
+    ],
+    "fast_spindle_hz": [
+      12,
+      15
+    ],
+    "validation_scope": "band signatures, not full ERP or spindle detector"
+  },
+  "results": {
+    "N2": {
+      "parameter_sha256": "a8dcc3a387636c8c1328273d359456a72d3f44cc2325e4d6fc93eb6264697e27",
+      "parameters": {
+        "cortex": [
+          4.7,
+          1.33,
+          2.0
+        ],
+        "thalamus": [
+          0.03,
+          0.049
+        ],
+        "connections": [
+          2.6,
+          2.6,
+          5.0,
+          10.0
+        ]
+      },
+      "runs": [
+        {
+          "seed": 1441,
+          "wall_s": 2.648,
+          "output_sha256": "e39b93534676258b5ead81f247cf3cfa940797c9744073360d98d56f86c9ee2c",
+          "cortical": {
+            "slow": {
+              "peak_hz": 0.7000000000000001,
+              "bin_edges_hz": [
+                0.2,
+                1.0
+              ],
+              "band_power_mV2": 3.497347496670181
+            },
+            "spindle": {
+              "peak_hz": 12.600000000000001,
+              "bin_edges_hz": [
+                10,
+                16
+              ],
+              "band_power_mV2": 0.11500514866042166
+            }
+          },
+          "thalamic": {
+            "slow": {
+              "peak_hz": 0.2,
+              "bin_edges_hz": [
+                0.2,
+                1.0
+              ],
+              "band_power_mV2": 0.37824824903208815
+            },
+            "spindle": {
+              "peak_hz": 12.600000000000001,
+              "bin_edges_hz": [
+                10,
+                16
+              ],
+              "band_power_mV2": 5.4198072510231405
+            }
+          }
+        },
+        {
+          "seed": 1442,
+          "wall_s": 2.636,
+          "output_sha256": "6ddc9df761b959f3d59f4c005f5a73cd1c914ab0411274b83cc20e6ba0a091d0",
+          "cortical": {
+            "slow": {
+              "peak_hz": 0.6000000000000001,
+              "bin_edges_hz": [
+                0.2,
+                1.0
+              ],
+              "band_power_mV2": 3.9814980744666877
+            },
+            "spindle": {
+              "peak_hz": 12.600000000000001,
+              "bin_edges_hz": [
+                10,
+                16
+              ],
+              "band_power_mV2": 0.10805399322718248
+            }
+          },
+          "thalamic": {
+            "slow": {
+              "peak_hz": 0.2,
+              "bin_edges_hz": [
+                0.2,
+                1.0
+              ],
+              "band_power_mV2": 0.37948396805938767
+            },
+            "spindle": {
+              "peak_hz": 12.700000000000001,
+              "bin_edges_hz": [
+                10,
+                16
+              ],
+              "band_power_mV2": 5.148378857796215
+            }
+          }
+        },
+        {
+          "seed": 1443,
+          "wall_s": 2.776,
+          "output_sha256": "2e489b0d14a9b12ce4eac1ae0c2a4d5f59231d6af449e8597543ac5ce91b6a01",
+          "cortical": {
+            "slow": {
+              "peak_hz": 0.7000000000000001,
+              "bin_edges_hz": [
+                0.2,
+                1.0
+              ],
+              "band_power_mV2": 2.659826183041453
+            },
+            "spindle": {
+              "peak_hz": 12.600000000000001,
+              "bin_edges_hz": [
+                10,
+                16
+              ],
+              "band_power_mV2": 0.10710906237112892
+            }
+          },
+          "thalamic": {
+            "slow": {
+              "peak_hz": 0.2,
+              "bin_edges_hz": [
+                0.2,
+                1.0
+              ],
+              "band_power_mV2": 0.3545108530596594
+            },
+            "spindle": {
+              "peak_hz": 12.700000000000001,
+              "bin_edges_hz": [
+                10,
+                16
+              ],
+              "band_power_mV2": 4.971435959298782
+            }
+          }
+        }
+      ]
+    },
+    "N3": {
+      "parameter_sha256": "e2c2cc942a0028f57abddb0dae5de125c433a2b48fb3b5201fed9dd2915523dd",
+      "parameters": {
+        "cortex": [
+          6,
+          2,
+          2
+        ],
+        "thalamus": [
+          0.026,
+          0.049
+        ],
+        "connections": [
+          2.6,
+          2.6,
+          5.0,
+          10.0
+        ]
+      },
+      "runs": [
+        {
+          "seed": 1441,
+          "wall_s": 2.632,
+          "output_sha256": "c999d1d54838de6ee362c535ee05b126f442617835dc6b94be37d94b8fe9133f",
+          "cortical": {
+            "slow": {
+              "peak_hz": 1.0,
+              "bin_edges_hz": [
+                0.2,
+                1.0
+              ],
+              "band_power_mV2": 12.363650774143949
+            },
+            "spindle": {
+              "peak_hz": 13.100000000000001,
+              "bin_edges_hz": [
+                10,
+                16
+              ],
+              "band_power_mV2": 0.1202173220284331
+            }
+          },
+          "thalamic": {
+            "slow": {
+              "peak_hz": 0.2,
+              "bin_edges_hz": [
+                0.2,
+                1.0
+              ],
+              "band_power_mV2": 0.4499582516153406
+            },
+            "spindle": {
+              "peak_hz": 13.100000000000001,
+              "bin_edges_hz": [
+                10,
+                16
+              ],
+              "band_power_mV2": 4.9911510036268165
+            }
+          }
+        },
+        {
+          "seed": 1442,
+          "wall_s": 3.342,
+          "output_sha256": "349dbe22dcda2e6a0f683861efc499ad05c9d719dc6d9be34b6e071e54bff1c2",
+          "cortical": {
+            "slow": {
+              "peak_hz": 1.0,
+              "bin_edges_hz": [
+                0.2,
+                1.0
+              ],
+              "band_power_mV2": 12.251280336330808
+            },
+            "spindle": {
+              "peak_hz": 13.100000000000001,
+              "bin_edges_hz": [
+                10,
+                16
+              ],
+              "band_power_mV2": 0.11195355886337549
+            }
+          },
+          "thalamic": {
+            "slow": {
+              "peak_hz": 0.2,
+              "bin_edges_hz": [
+                0.2,
+                1.0
+              ],
+              "band_power_mV2": 0.44204298600075786
+            },
+            "spindle": {
+              "peak_hz": 13.100000000000001,
+              "bin_edges_hz": [
+                10,
+                16
+              ],
+              "band_power_mV2": 4.442344321779802
+            }
+          }
+        },
+        {
+          "seed": 1443,
+          "wall_s": 3.318,
+          "output_sha256": "94a1dc461244bb842f5002b69786de349ec560e0c66fe0fd2f6ac3267bc55dac",
+          "cortical": {
+            "slow": {
+              "peak_hz": 1.0,
+              "bin_edges_hz": [
+                0.2,
+                1.0
+              ],
+              "band_power_mV2": 14.166983500614402
+            },
+            "spindle": {
+              "peak_hz": 13.100000000000001,
+              "bin_edges_hz": [
+                10,
+                16
+              ],
+              "band_power_mV2": 0.11149049846486454
+            }
+          },
+          "thalamic": {
+            "slow": {
+              "peak_hz": 0.2,
+              "bin_edges_hz": [
+                0.2,
+                1.0
+              ],
+              "band_power_mV2": 0.4566583027256691
+            },
+            "spindle": {
+              "peak_hz": 13.100000000000001,
+              "bin_edges_hz": [
+                10,
+                16
+              ],
+              "band_power_mV2": 4.4153745983858945
+            }
+          }
+        }
+      ]
+    }
+  },
+  "spectral_checks": [
+    {
+      "seed": 1441,
+      "n3_to_n2_cortical_slow_power": 3.5351507923977703,
+      "n2_thalamic_spindle_candidate_hz": 12.600000000000001,
+      "joint_direction": true
+    },
+    {
+      "seed": 1442,
+      "n3_to_n2_cortical_slow_power": 3.0770529351497524,
+      "n2_thalamic_spindle_candidate_hz": 12.700000000000001,
+      "joint_direction": true
+    },
+    {
+      "seed": 1443,
+      "n3_to_n2_cortical_slow_power": 5.326281691239977,
+      "n2_thalamic_spindle_candidate_hz": 12.700000000000001,
+      "joint_direction": true
+    }
+  ],
+  "gate": "PASS_SPECTRAL_SIGNATURE"
+}

@@ -1,0 +1,26 @@
+{
+  "source_commit": "f672f122a07a57a8c8d54fca81d8309431e7b848",
+  "source_url": "https://github.com/bazhlab-ucsd/sleep-stage-transition",
+  "status": "SMOKE_PASS_ONLY",
+  "source_one_state_h": 4,
+  "model_clock": "REM from author one_state.h; first 1 s contains startup and forced transition",
+  "duration_ms": 1000,
+  "author_integration_dt_ms": 0.02,
+  "threads": 3,
+  "toolchain": "GNU g++ 13.3.0 Ubuntu 24.04, OpenMP",
+  "command": "make -j2 mindcurrent; make network network_config=network.cfg; timeout 120 ./mindcurrent smoke-params.txt out connection_info2",
+  "run_exit_status": 0,
+  "wall_seconds": 102.56,
+  "maximum_rss_KiB": 15616,
+  "single_seed_350s_linear_projection_hours": 9.971111111111112,
+  "output": {
+    "filename": "time_cx",
+    "columns": 502,
+    "rows": 1000,
+    "sha256": "99fa85cc605267d8c9ffc6ff89e72dbe2f6f31661811598239704316c9ce09dc"
+  },
+  "notes": [
+    "Only tmax and OpenMP threads changed in a copied params file.",
+    "No steady-state physiology or d2 estimated. Local runtime is a sizing observation, not a benchmark of HPC."
+  ]
+}

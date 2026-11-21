@@ -11,6 +11,8 @@ class ObservationTest(unittest.TestCase):
                           (1, 1.08, ([1., 1.04], [1.04]))])
         np.testing.assert_array_equal(a.population(), [[2, 1], [1, 2]])
         np.testing.assert_array_equal(a.rebin(2).population(), [[3], [3]])
+        exact = spike_counts([(0, .5, ([.1, .2, .3, .4],))], bin_s=.1)
+        np.testing.assert_array_equal(exact.population()[0],[0,1,1,1,1])
         with self.assertRaises(ValueError):
             spike_counts([(0, .08, ([.08],))])
         with self.assertRaises(ValueError):
