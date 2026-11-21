@@ -15,10 +15,10 @@ def digest(path):
         return hashlib.file_digest(f, "sha256").hexdigest()
 
 
-def brainstem_tasks(directory, chosen, original):
+def brainstem_tasks(directory, chosen, original, *, target_cases=("F","G"), percentiles=(75,50)):
     refs = refs_by_asset()
     output, receipt = [], []
-    for case in (c for c in chosen if c["case"] in ("F", "G")):
+    for case in (c for c in chosen if c["case"] in target_cases):
         asset, region = case["asset_id"], case["regions"][0]
         audit = original[asset]
         base = directory / audit["NP_PATH"]
@@ -32,12 +32,12 @@ def brainstem_tasks(directory, chosen, original):
         assert len(original_fits) == 3
         cells = original_fits[0]["unit_ids"]
         original_regions = {c["cluster_id"] + "_good": (c.get("group") or c["KSLabel"],
-                            loc.get("channel_" + c["ch"], {}).get("brain_region"), float(c["ContamPct"]))
+                            loc.get("channel_" + c["ch"], {}).get("brain_region"), float(c["ContamPct"].strip() or "nan"))
                             for c in clusters}
         assert all(original_regions[x][0:2] == ("good", region) for x in cells)
         expected_spikes = audit["clock"]["seconds"][1] * 1000
-        assert expected_spikes.is_integer()
-        source_end = int(expected_spikes)
+        assert abs(expected_spikes-round(expected_spikes))<1e-7
+        source_end = round(expected_spikes)
         unit_bins = {}
         same = hashlib.sha256()
         with np.load(arrays, allow_pickle=False) as z:
@@ -50,8 +50,11 @@ def brainstem_tasks(directory, chosen, original):
                 same.update(np.asarray(t, dtype="<f8").tobytes())
         assert same.hexdigest() == original_fits[0]["extracted_unit_sha256"]
         cuts = []
-        for name, q in (("contamination_q75", .75), ("contamination_q50", .50)):
-            cutoff = float(np.quantile([original_regions[x][2] for x in cells], q))
+        for percentile in percentiles:
+            name = f"contamination_q{percentile}"
+            finite_contamination = [original_regions[x][2] for x in cells if np.isfinite(original_regions[x][2])]
+            assert len(finite_contamination) >= 5, case["session"]
+            cutoff = float(np.quantile(finite_contamination, percentile/100))
             accept = [x for x in cells if original_regions[x][2] <= cutoff]
             assert len(accept) >= 5
             cuts.append(dict(variant=name, cutoff_pct=cutoff, retained=len(accept)))
@@ -69,5 +72,5 @@ def brainstem_tasks(directory, chosen, original):
                             sorting_sha256=digest(sorting), locations_sha256=digest(locs),
                             high_resolution_sha256=audit["digest"]["extracted_sha256"],
                             unit_count_by_sort_label=types, accepted_original=len(cells), subsets=cuts))
-    assert len(output) == 12
+    assert len(output) == 3*len(target_cases)*len(percentiles)
     return output, receipt
