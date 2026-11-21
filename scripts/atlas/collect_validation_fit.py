@@ -11,7 +11,7 @@ from build_atlas_data import ROOT, write
 from catalog import BASE, PIN
 import json
 
-run, stem, artifact, expected, url = argv[1:]
+run, stem, artifact, expected, url, *destination = argv[1:]
 assert Path(stem).name == stem
 for attempt in range(3):
     try:
@@ -33,7 +33,8 @@ assert len(records) == doc["input"]["records"]
 for row in records:
     for f in [row["fit"], *([row["long_reach"]] if row["long_reach"] else [])]:
         assert f["exit_status"] == 0 and f["solver_flag"] > 0 and f["min_ar_root"] > 1 and f["d2"] >= 0
-out = ROOT / "results/validation"
+out = (ROOT / destination[0]) if destination else ROOT / "results/validation"
+out.mkdir(parents=True,exist_ok=True)
 (out / (stem + ".json")).write_bytes(raw)
 write(out / (stem + ".receipt.json"), dict(
     action=f"{BASE}/actions/runs/{run}", artifact=artifact, artifact_sha256=expected,

@@ -75,6 +75,22 @@ def split_rows(archives,targets):
     return result,hashes
 
 
+def compare_nwb_context(rows):
+    old=read("manifests/sleep_sources.json")["assets"]
+    for row in rows:
+        if row["dandiset"]=="000939":
+            acquisition=next(x for x in row["published_clock_observations"] if x["path"]=="/acquisition/ElectricalSeries")
+            assert [acquisition["start"],acquisition["end"]]==row["independent_clock"]["seconds"]
+            row["acquisition_and_lfp_support_agree"]=True
+        if row["dandiset"]=="000552":
+            saved=next(x for x in old if x["asset_id"]==row["asset_id"])
+            assert "home cage" in saved["description"].lower()
+            assert set(saved["digest"].values())<=set(row["digest"].values())
+            row["published_session_description"]=saved["description"]
+            row["published_intervention_table"]=saved.get("opto_excluded_table")
+    return rows
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("nwb",type=Path)
@@ -106,9 +122,14 @@ def main():
     assert len(quality)==len(nwbtiming)==7
     sorting=ROOT/(OUT+"sorting_checks")
     write(sorting/"source_metrics.json",{"NWB":quality,"brainstem":receipt})
-    write(ROOT/(OUT+"temporal_checks/source_clock.json"),nwbtiming+[clock])
+    path=ROOT/(OUT+"temporal_checks/source_clock.json")
+    write(path,compare_nwb_context(nwbtiming)+[clock])
     source_sha.update(nwb_fixture=receipt_nwb["sha256"],
-                      source_metrics=sha256((sorting/"source_metrics.json").read_bytes()).hexdigest())
+                      source_metrics=sha256((sorting/"source_metrics.json").read_bytes()).hexdigest(),
+                      source_clock=sha256(path.read_bytes()).hexdigest())
+    write(sorting/"colab_receipt.json",dict(runtime="CPU",records=receipt_nwb["records"],
+               unit_count_inputs_sha256=receipt_nwb["sha256"],source_cases=len(nwbtiming),
+               state_receipt_sha256=source_sha["source_clock"]))
     data=nwbrecs+extra+split
     a.out.mkdir(parents=True,exist_ok=True)
     out=a.out.resolve()/"validation_input.mat"

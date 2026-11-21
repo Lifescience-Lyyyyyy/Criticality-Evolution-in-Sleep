@@ -58,7 +58,24 @@ export type Audit = {
   inference: string; evidence?: string; category?: string;
   original?: Partial<Record<Contrast, number>>; audited?: Partial<Record<Contrast, number>>;
 };
+export type SortingExample = {
+  cohort: string; session: string; run: string; source: string;
+  reference: {units: number; effects: Partial<Record<Contrast, number>>};
+  variants: {id: string; units: number; effects: Partial<Record<Contrast, number>>}[];
+};
+export type PreliminaryAtlas = {
+  evidence: Record<string, {category: string; reason: string}>;
+  sorting: SortingExample[];
+  pairwise: {
+    cohort: string; source: string; provenance: {action: string; commit: string};
+    contrasts: Record<Contrast, {
+      legacy: Stats; corrected: Stats & {bootstrap95: number[] | null};
+      three_state_fixed: Stats; matched_animals: number; corrected_minus_legacy_same_animals: number;
+    }>;
+  };
+};
 export type Atlas = {
+  preliminary?: PreliminaryAtlas;
   schema: number; baseline: string; datasets: Record<string, Dataset>;
   provenance: Record<string, Provenance>; audit: Audit[];
 };

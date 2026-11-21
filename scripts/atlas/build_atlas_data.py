@@ -281,9 +281,13 @@ def export(out):
             contents.append({**meta, "path": path, "cohorts": summary})
         write(out / f"{species}.json", contents)
     audit = ROOT / "results/validation/impact_assessment.json"
+    preliminary = {}
+    if (ROOT / "results/validation/phase11_1/evidence_assessment.json").exists():
+        from preliminary_atlas_data import export_preliminary
+        preliminary["preliminary"] = export_preliminary(read)
     write(out / "atlas.json", dict(
         schema=1, baseline=SOURCE_COMMIT, datasets=datasets, provenance=provenance, states=STATES, pairs=PAIRS,
-        audit=read(audit) if audit.exists() else [],
+        audit=read(audit) if audit.exists() else [], **preliminary,
     ))
     return regions, datasets, provenance, index
 

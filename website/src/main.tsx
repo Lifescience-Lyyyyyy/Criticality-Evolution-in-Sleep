@@ -1,3 +1,4 @@
+import { EVIDENCE_LABELS } from "./components/PreliminaryDetails";
 import { StrictMode, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import OverviewPlot from "./components/OverviewPlot";
@@ -47,6 +48,7 @@ function RegionResult({ region, atlas, cohort, isLoading, failure, view, setView
   setView: (v: View) => void; selectDataset: (id: string) => void; selectContext: (id: string) => void;
 }) {
   const [selected, choose] = useState<string | null>(null);
+  const evidence = cohort ? atlas.preliminary?.evidence[cohort.id] : undefined;
   const contrast = view === "all" ? "NW" : view;
   const states = view === "all" ? STATES : PAIRS[view];
   const rows = cohort ? paired(cohort.records, "reference", states) : [];
@@ -85,6 +87,10 @@ function RegionResult({ region, atlas, cohort, isLoading, failure, view, setView
       {choices.length > 1 && <label><span>记录场景</span><select aria-label="记录场景" value={cohort?.id ?? choices[0].id} onChange={e => selectContext(e.target.value)}>
         {choices.map(c => <option key={c.id} value={c.id}>{c.contextLabel}</option>)}
       </select></label>}
+    </div>}
+    {evidence && <div>
+      <p className="evidence-tag">{EVIDENCE_LABELS[evidence.category]}</p>
+      <p className="muted evidence-note">{evidence.reason}</p>
     </div>}
     {cohort && <dl className="region-metrics">
       <div><dt>数据来源</dt><dd>{groups.length}</dd></div>
@@ -155,7 +161,8 @@ function Method() {
     </div>
     <div className="links">
       <a href={REPO + "/blob/main/reports/27_sleep_criticality_atlas_data.md"}>图谱数据说明</a>
-      <a href={REPO + "/blob/main/reports/28_research_consolidation.md"}>研究汇总</a>
+      <a href={REPO + "/blob/main/reports/30_preliminary_research_summary.md"}>初步研究汇总</a>
+      <a href={REPO + "/blob/main/reports/29_preliminary_validation.md"}>本轮验证</a>
       <a href={REPO}>项目仓库</a>
     </div>
   </section>;

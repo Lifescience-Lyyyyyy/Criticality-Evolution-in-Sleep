@@ -94,8 +94,85 @@ def validate(out):
                                     id_, r["id"], variant, state)
                             checked(f["root"] > 1 and f["exit"] == 0 and f["solver"] > 0, id_, r["id"])
                 contains[id_] = cohort
+    validate_preliminary(atlas, contains)
     return contains
 
+
+
+def validate_preliminary(atlas, contains):
+    """Cross-check displayed supplementary controls against the verified MATLAB fits."""
+    extra=atlas.get("preliminary")
+    if extra is None:
+        return
+    from preliminary_atlas_data import P111
+    from collections import defaultdict
+    from statistics import median
+    checked(set(contains)<=set(extra["evidence"]), "cohort evidence coverage")
+    fit_path=P111+"pairwise_equal_duration/matlab-fits.json"
+    raw=read(fit_path)
+    receipt=read(P111+"pairwise_equal_duration/matlab-fits.receipt.json")
+    checked(receipt["fit_sha256"]==hashlib.sha256((ROOT/fit_path).read_bytes()).hexdigest(), "MATLAB receipt")
+    checked(receipt["action"]==extra["pairwise"]["provenance"]["action"], "MATLAB link")
+    checked(raw["toolkit_commit"]==PIN and raw["settings"]["beta"]==2, "estimator pin")
+    qualified=read(P111+"pairwise_equal_duration/eligibility.json")
+    by_case=defaultdict(dict)
+    for row in raw["records"]:
+        m,f=row["record"],row["fit"]
+        checked(m["dandiset"]=="000939" and m["region"]=="PoSub" and m["context"]=="REST", m["asset_id"])
+        checked(m["state"] not in by_case[m["variant"], m["asset_id"]],m["asset_id"],m["variant"])
+        checked(f["segment_bins"]==[1500,1500,1500] and f["ar_order"]==5 and f["min_ar_root"]>1
+                and f["solver_flag"]>0, m["asset_id"])
+        by_case[m["variant"],m["asset_id"]][m["state"]]=(f["d2"],tuple(m["unit_ids"]),m["subject"])
+    for name,(a,b) in PAIRS.items():
+        comparison=extra["pairwise"]["contrasts"][name]
+        cohort=contains[extra["pairwise"]["cohort"]]
+        checked(comparison["legacy"]["n"]==cohort["effects"]["equal_duration"][name]["n"],name,"legacy")
+        for variant,view,states in (("equal_duration_"+name,"corrected",{a,b}),
+                                    ("equal_duration_WNR","three_state_fixed",set(STATES))):
+            stats=comparison[view]
+            animals=defaultdict(list)
+            for case in qualified:
+                computed=all(case["candidates"].get(s,0)>=3 for s in states)
+                available=by_case.get((variant,case["asset_id"]),{})
+                checked(set(available)==(states if computed else set()),name,variant,case["asset_id"])
+                checked(computed==(not case["exclusions"][variant]),name,case["asset_id"])
+                if available:
+                    checked(available[a][1:]==available[b][1:],name,case["asset_id"])
+                    animals[available[a][2]].append(available[b][0]-available[a][0])
+            effects=[mean(v) for v in animals.values()]
+            checked(stats["n"]==len(effects) and stats["sessions"]==sum(map(len,animals.values())),name,view)
+            checked(close(stats["mean"],mean(effects)) and close(stats["median"],median(effects)),name,view)
+            checked(stats["positive"]==sum(x>0 for x in effects) and stats["negative"]==sum(x<0 for x in effects),name,view)
+    additional=P111+"sorting_checks/matlab-fits.json"
+    ext=read(additional)
+    ext_receipt=read(P111+"sorting_checks/matlab-fits.receipt.json")
+    checked(ext_receipt["fit_sha256"]==hashlib.sha256((ROOT/additional).read_bytes()).hexdigest(),
+            "sorting/temporal MATLAB receipt")
+    checked(ext["toolkit_commit"]==PIN and len(ext["records"])==ext_receipt["count"],"sorting/temporal provenance")
+    extensions={(r["record"]["dandiset"],r["record"]["region"],r["record"]["session"],
+                 r["record"]["variant"],r["record"]["state"]): r
+                for r in ext["records"]}
+    examples={(s["cohort"],s["session"]):s for s in extra["sorting"]}
+    checked(len(examples)==len(extra["sorting"]), "duplicate sorting cases")
+    for example in extra["sorting"]:
+        if example["run"]!=ext_receipt["action"]:
+            continue
+        _,region,dataset,_=example["cohort"].split("|")
+        for variant in example["variants"]:
+            for name,(a,b) in PAIRS.items():
+                left,right=[extensions[dataset,region,example["session"],variant["id"],state] for state in (a,b)]
+                checked(left["record"]["unit_ids"]==right["record"]["unit_ids"],"subset units",example["session"])
+                checked(variant["units"]==len(left["record"]["unit_ids"]), "subset count",example["session"])
+                checked(close(variant["effects"][name],right["fit"]["d2"]-left["fit"]["d2"]),
+                        "subset effect",example["session"],name)
+    for cohort,session in (("mouse|PoSub|000056|REST","Mouse28-140313"),
+                           ("mouse|LDT|zenodo:19462601|REST","DL108_122320n1")):
+        case=examples[cohort,session]
+        checked(len(case["variants"])>=2 and case["run"].startswith(BASE+"/actions/runs/"),cohort,session)
+        source=next(s for s in contains[cohort]["records"] if s["session"]==session)
+        for k,(a,b) in PAIRS.items():
+            ref=source["fits"]["reference"]
+            checked(close(case["reference"]["effects"][k],ref[b]["value"]-ref[a]["value"]),session,k)
 
 def verify_summaries(cohorts, out):
     by_session, by_animal = {}, {}

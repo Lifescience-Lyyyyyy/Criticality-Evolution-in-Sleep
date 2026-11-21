@@ -9,6 +9,7 @@ test.beforeEach(async ({page}) => {
   await page.goto("/");
   await expect(results(page).getByRole("heading", { name: "丘脑前背核" })).toBeVisible();
   await expect(results(page).locator(".big-effect")).toContainText("+0.908");
+  await expect(results(page).locator(".chart-intro")).toContainText("7 动物 · 37 场");
 });
 
 test("mouse atlas switches decoded regions through SVG, keyboard and synchronized views", async ({page}) => {
@@ -121,4 +122,39 @@ test("audit sensitivity is visible and the single-state rat source keeps AR meth
   await expect(qc.locator(".method-comparison").getByText("AR(10)", {exact:true})).toBeVisible();
   await page.getByRole("button", {name:"三态",exact:true}).click();
   await expect(results(page).locator(".chart-replicate circle")).toHaveCount(1);
+});
+
+test("paired equal-duration denominators follow the viewed contrast and preserve the reference", async ({page}) => {
+  await select(page, "PoSub").click();
+  const panel=page.getByRole("region", {name:"成对等时对照"});
+  await expect(results(page).locator(".evidence-tag")).toHaveText("较稳健的初步证据");
+  await expect(panel.locator(".prelim-stat").filter({hasText:"原等时规则"})).toContainText("15 只 · 15 场");
+  await expect(panel.locator(".prelim-stat").filter({hasText:"新成对规则"})).toContainText("29 只 · 29 场 · 27 正 / 2 负");
+  await expect(panel.locator(".prelim-stat").filter({hasText:"三态固定等时"})).toContainText("11 只 · 11 场");
+  await expect(panel.getByRole("link",{name:"MATLAB 运行"})).toHaveAttribute("href",/\/actions\/runs\/44857949759$/);
+  await expect(results(page).locator(".big-effect")).toContainText("+1.319");
+  await results(page).getByRole("button",{name:"NREM / REM",exact:true}).click();
+  await expect(panel.locator(".prelim-stat").filter({hasText:"新成对规则"})).toContainText("11 只 · 11 场 · 0 正 / 11 负");
+  await results(page).getByRole("button",{name:"三态",exact:true}).click();
+  await expect(page.locator(".map-contrast")).toHaveText("脑图着色 REM − NREM · 参考 AR(5)");
+  await expect(page.locator(".source-error")).toContainText("已核实的数据排除");
+});
+
+test("Mouse28 PoSub and DL108 LDT expose true selectable sorting comparisons", async ({page}) => {
+  await select(page, "PoSub").click();
+  await results(page).getByLabel("数据来源").selectOption("000056");
+  const sort=page.getByRole("region",{name:"排序敏感性对比"});
+  await sort.getByLabel("会话",{exact:true}).selectOption("Mouse28-140313");
+  await sort.getByLabel("排序子集").selectOption("lratio_q50");
+  await expect(sort).toContainText("+0.03872 bits/s");
+  await expect(sort).toContainText("−0.02888 bits/s");
+  await expect(sort).toContainText("符号改变");
+  await sort.getByLabel("排序子集").selectOption("lratio_q75");
+  await expect(sort).toContainText("−0.00010 bits/s");
+  await select(page,"LDT").click();
+  await expect(results(page).locator(".evidence-tag")).toHaveText("对分析规格敏感");
+  await expect(sort.getByLabel("会话",{exact:true})).toHaveValue("DL108_122320n1");
+  await sort.getByLabel("排序子集").selectOption("contamination_q50");
+  await expect(sort).toContainText("+0.23273 bits/s");
+  await expect(sort).toContainText("−0.14774 bits/s");
 });

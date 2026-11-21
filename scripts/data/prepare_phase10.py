@@ -216,7 +216,7 @@ def finish(row, state_contexts, regional, cfg):
             row["contexts"][context][state]={"intervals":ranges,"segments":len(bins),
                                              "seconds":round(width*sum(y-x for x,y in bins),8)}
         states={s:ranges for s,ranges in times.items() if row["contexts"][context][s]["seconds"]>=cfg["min_state_seconds"]}
-        if "NREM" not in states or len(states)<2:
+        if len(states)<2 or ("NREM" not in states and not cfg.get("allow_rw_only")):
             continue
         row["eligible"][context]=list(states)
         for r,units in good.items():
@@ -419,6 +419,8 @@ def main():
     parser.add_argument("--asset",action="append")
     args=parser.parse_args()
     cfg=json.loads(args.config.read_text())
+    if args.mode=="pairwise":
+        cfg["allow_rw_only"]=True
     records=catalog(args.dataset,args.meta)
     if args.asset:
         records=[a for a in records if a["asset_id"] in args.asset]

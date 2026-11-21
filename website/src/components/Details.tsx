@@ -1,3 +1,4 @@
+import { PairedDuration, SortingCompare } from "./PreliminaryDetails";
 import { useState } from "react";
 import {
   type Atlas, type Cohort, type Contrast, type Dataset, type Replicate, type Region, type State,
@@ -113,6 +114,9 @@ export function Robustness({ cohort, atlas, region, contrast }: { cohort: Cohort
   const audit = atlas.audit.filter(r => r.dataset === cohort.dataset && (!r.region || r.region === region.id));
   const modelsWarn = fits.filter(f => f.warnings.length);
   const diagnosticsMissing = fits.filter(f => f.kurtosis == null || f.residual == null);
+  const preliminary = atlas.preliminary;
+  const sortCases = preliminary?.sorting.filter(c => c.cohort === cohort.id) ?? [];
+  const sourceErrors = audit.filter(r => r.category === "exclusion");
   const warnings = [...new Set(modelsWarn.flatMap(f => f.warnings.map(w => WARNING[w])))];
   return <section className="card lower-card" id="quality">
     <header><h2>质量与稳健性</h2><p className="muted">{descriptive ? descriptive + " d₂ · 同记录对照" : DELTA[contrast] + " · 同记录对照"}</p></header>
@@ -136,7 +140,13 @@ export function Robustness({ cohort, atlas, region, contrast }: { cohort: Cohort
         {repeat.length > 0 && <div className="links"><a href={repeat[0].run}>对照 Actions</a><a href={repeat[0].source}>对照输出</a></div>}
       </details>
     </> : <p className="muted">这个状态对比缺少可并排比较的对照。</p>}
+    {preliminary?.pairwise.cohort === cohort.id && <PairedDuration data={preliminary.pairwise} contrast={contrast} />}
+    {sortCases.length > 0 && <SortingCompare cases={sortCases} contrast={contrast} />}
     <div className="qc-notes">
+      {sourceErrors.length > 0 && <div className="source-error">
+        <strong>已核实的数据排除</strong>
+        {sourceErrors.map(r => <p key={r.session}>{r.session} · {r.inference}</p>)}
+      </div>}
       {fits.length > 0 && <div><b>模型诊断</b><p>{modelsWarn.length}/{fits.length} 项参考拟合有模型充分性提示。
         {warnings.join("，")}{warnings.length > 0 ? "。这些提示未用于排除。" : ""}
         {diagnosticsMissing.length > 0 && " 部分先前输出未保存完整残差诊断。"}</p></div>}

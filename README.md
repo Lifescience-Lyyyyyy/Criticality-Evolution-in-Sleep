@@ -62,3 +62,7 @@ RA 的 OSF 发布含四只斑胸草雀的双侧排序脉冲。睡眠时段、鸣
 中文交互图谱位于 `website/`。小鼠版使用 Allen CCFv3 实际矢状和冠状切片，大鼠有独立数据入口。数据从原 MATLAB 拟合和来源清单导出。Phase 11 针对性核验保留原参考值并独立发布敏感性结果。
 
 [图谱运行与 GitHub Pages 配置](reports/27_sleep_criticality_atlas_data.md) · [针对性验证](reports/26_targeted_validation.md) · [研究汇总](reports/28_research_consolidation.md)
+
+## Phase 11.1 初步证据与图谱发布
+
+[成对等时与科学审计](reports/29_preliminary_validation.md) · [跨脑区初步证据](reports/30_preliminary_research_summary.md) · [图谱发布说明](reports/31_atlas_release_notes.md) · [运行及校验清单](manifests/phase11_1_release.json)

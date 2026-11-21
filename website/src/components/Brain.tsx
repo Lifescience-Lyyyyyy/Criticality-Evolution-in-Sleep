@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { type Anatomy, type Plane, type Region, type CohortSummary, type Contrast, effectColor, signed } from "../data";
+import { type Anatomy, type Plane, type Region, type CohortSummary, type Contrast, effectColor, signed, DELTA } from "../data";
 
 export function Chip({children}: {children: React.ReactNode}) {
   return <span className="chip">{children}</span>;
@@ -68,6 +68,7 @@ export default function Brain({ data, loadingError, regions, region, current, co
         <span>背侧 ↑</span>
       </div>
     </div>
+    <p className="map-contrast">脑图着色 {DELTA[contrast]} · 参考 AR(5)</p>
     <div className="map-legend">
       <div><span className="scale-swatches" aria-hidden="true">{[-1.5, -.75, 0, .75, 1.5].map(x => <i key={x} style={{background: effectColor(x)}} />)}</span>
         <span>≤−1.5　0　≥+1.5 bits/s</span></div>
