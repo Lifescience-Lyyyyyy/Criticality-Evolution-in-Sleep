@@ -2,7 +2,8 @@ import { useState } from "react";
 import { type Anatomy, type Plane, type Region, type CohortSummary, type Contrast, effectColor, signed, DELTA } from "../data";
 
 export function Chip({children}: {children: React.ReactNode}) {
-  return <span className="chip">{children}</span>;
+  const state = typeof children === "string" ? children : undefined;
+  return <span className="chip" data-state={state}>{children}</span>;
 }
 
 export default function Brain({ data, loadingError, regions, region, current, contrast, select }: {

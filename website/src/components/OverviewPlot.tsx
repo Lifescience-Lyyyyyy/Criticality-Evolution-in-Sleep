@@ -13,6 +13,7 @@ export default function OverviewPlot({ regions, active, select }: {
   const y = (v: number) => 28 + ((lim - v) / (2 * lim)) * 168;
   return <figure className="coverage-plot">
     <svg className="overview-chart" viewBox="0 0 615 246" aria-label="各区域 NREM 减 Wake 与 REM 减 NREM">
+      <rect x="74" y="28" width="512" height="168" rx="6" className="plot-surface" />
       <text x="75" y="16" className="plot-axis-title">REM − NREM (bits/s)</text>
       {[-lim, -lim/2, 0, lim/2, lim].map(v => <g key={v}>
         <line x1="74" x2="586" y1={y(v)} y2={y(v)} className={v === 0 ? "zero-line" : "plot-grid"} />

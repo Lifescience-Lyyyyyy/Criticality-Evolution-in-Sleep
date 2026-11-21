@@ -31,11 +31,12 @@ function RegionIndex({ regions, region, contrast, select }: {
       {list.map(r => {
         const c = r.cohorts[0];
         const status = c == null ? "无估计" : c.animals == null || c.animals < 5 ? "有限证据" : "已分析";
+        const statusKey = c == null ? "empty" : c.animals == null || c.animals < 5 ? "limited" : "ready";
         return <button type="button" key={r.id} className="region-item" aria-label={r.name + " " + r.id + "，" + status}
           aria-pressed={r.id === region.id} onClick={() => select(r.id)}>
           <span className="index-dot" style={{background: effectColor(c?.effects.reference[contrast].mean)}} />
-          <span><b>{r.id}</b><span>{r.name}</span></span>
-          <small>{status}</small>
+          <span className="region-label"><b>{r.id}</b><span>{r.name}</span></span>
+          <small data-status={statusKey}>{status}</small>
         </button>;
       })}
       {list.length === 0 && <p className="muted">没有匹配的脑区。</p>}
@@ -88,8 +89,8 @@ function RegionResult({ region, atlas, cohort, isLoading, failure, view, setView
         {choices.map(c => <option key={c.id} value={c.id}>{c.contextLabel}</option>)}
       </select></label>}
     </div>}
-    {evidence && <div>
-      <p className="evidence-tag">{EVIDENCE_LABELS[evidence.category]}</p>
+    {evidence && <div className="evidence-box">
+      <p className="evidence-tag" data-category={evidence.category}>{EVIDENCE_LABELS[evidence.category]}</p>
       <p className="muted evidence-note">{evidence.reason}</p>
     </div>}
     {cohort && <dl className="region-metrics">
@@ -111,7 +112,7 @@ function RegionResult({ region, atlas, cohort, isLoading, failure, view, setView
           <div><h3>{view === "all" ? "三态 d₂" : DELTA[contrast]}</h3>
             <p>{connect ? "同场记录配对" : "各可用状态的描述分布"} · {distribution.length} {groupLabel}{connect ? " · " + rows.reduce((total, row) => total + row.count, 0) + " 场" : ""}</p>
           </div>
-          {view !== "all" && <div className="big-effect"><strong>{signed(summary?.mean)}</strong><span>bits/s</span></div>}
+          {view !== "all" && <div className="big-effect" data-sign={summary?.mean == null ? "none" : summary.mean > 0 ? "pos" : summary.mean < 0 ? "neg" : "zero"}><strong>{signed(summary?.mean)}</strong><span>bits/s</span></div>}
         </div>
         {view === "all" && !connect && <p className="missing-states">{present.length < 3 ? "缺少可用状态：" + STATES.filter(s => !present.includes(s)).join("、") : "缺少同会话三态支持。"} {NO_PAIR}。</p>}
         <StatePlot rows={distribution} states={states} selected={selected} choose={choose} connect={connect} />
@@ -139,12 +140,13 @@ function Overview({ regions, region, contrast, select }: {
     <header><h2>跨脑区覆盖</h2><p className="muted">每行显示默认数据源。共享动物涉及多个脑区时分别呈现。</p></header>
     <OverviewPlot regions={regions} active={region.id} select={id => { select(id); document.getElementById("atlas")?.scrollIntoView(); }} />
     <div className="table-scroll"><table className="data-table">
-      <thead><tr><th>脑区</th><th>数据源</th><th>动物</th><th>会话</th><th>状态</th><th>{DELTA[contrast]}</th></tr></thead>
+      <thead><tr><th>脑区</th><th>数据源</th><th className="num">动物</th><th className="num">会话</th><th>状态</th><th className="num">{DELTA[contrast]}</th></tr></thead>
       <tbody>{regions.map(r => {
         const d = r.cohorts[0], result = d?.effects.reference[contrast];
+        const sign = result?.mean == null ? "none" : result.mean > 0 ? "pos" : result.mean < 0 ? "neg" : "zero";
         return <tr key={r.id} aria-selected={r.id === region.id}><th scope="row"><a href="#atlas" onClick={() => select(r.id)}>{r.id} · {r.name}</a></th>
-          <td>{d?.dataset ?? "—"}</td><td>{d?.animals ?? (d ? "未知" : "—")}</td><td>{d?.sessions ?? "—"}</td>
-          <td>{d?.states.join(" / ") ?? "—"}</td><td>{result?.mean != null ? signed(result.mean) + " bits/s" : "—"}</td>
+          <td>{d?.dataset ?? "—"}</td><td className="num">{d?.animals ?? (d ? "未知" : "—")}</td><td className="num">{d?.sessions ?? "—"}</td>
+          <td>{d?.states.join(" / ") ?? "—"}</td><td className="num effect-cell" data-sign={sign}>{result?.mean != null ? signed(result.mean) + " bits/s" : "—"}</td>
         </tr>;
       })}</tbody>
     </table></div>
@@ -223,7 +225,8 @@ function App() {
     </header>
     <main>
       <div className="intro" id="atlas">
-        <div>
+        <div className="intro-copy">
+          <span className="eyebrow">Allen CCFv3 · AR(5) · β = 2</span>
           <h1>睡眠临界性脑图谱</h1>
           <p>Exploring Neural Proximity to Criticality Across Sleep States</p>
         </div>

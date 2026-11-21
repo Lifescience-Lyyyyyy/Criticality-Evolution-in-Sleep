@@ -26,7 +26,7 @@ export function StatePlot({ rows, states, selected, choose, connect }: Props & {
         onKeyDown={e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); choose(r.id); } }}>
         <title>{r.id} · {pairs.map(p => p.s + " " + String(r.values[p.s])).join(" / ")} · {r.count} 场</title>
         {connect && pairs.length > 1 && <polyline points={pairs.map(p => p.x + "," + p.y).join(" ")} />}
-        {pairs.map(p => <circle key={p.s} cx={p.x} cy={p.y} r={chosen ? 5 : 3.4} fill={STATE_COLOR[p.s]} />)}
+        {pairs.map(p => <circle key={p.s} cx={p.x} cy={p.y} r={chosen ? 5.2 : 3.7} fill={STATE_COLOR[p.s]} stroke="#ffffff" strokeWidth={chosen ? 1.5 : 0.9} />)}
       </g>;
     })}
     {states.map(s => {
