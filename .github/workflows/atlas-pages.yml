@@ -31,6 +31,8 @@ jobs:
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Verify source digests and atlas JSON
         run: python3 scripts/atlas/validate_atlas_data.py
       - uses: actions/setup-node@v4
