@@ -2,6 +2,12 @@ name: Sleep model benchmark MATLAB
 
 on:
   workflow_dispatch:
+    inputs:
+      mode:
+        description: Benchmark stage
+        type: choice
+        options: [model, empirical]
+        default: model
   push:
     tags: ['matlab-sleep-model-benchmark-*']
 
@@ -12,6 +18,8 @@ jobs:
   fit:
     runs-on: ubuntu-latest
     timeout-minutes: 35
+    env:
+      BENCHMARK_MODE: ${{ inputs.mode || (startsWith(github.ref_name, 'matlab-sleep-model-benchmark-reference-') && 'empirical') || 'model' }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -24,16 +32,34 @@ jobs:
           persist-credentials: false
           sparse-checkout: /src/
           sparse-checkout-cone-mode: false
+      - name: Fetch existing Phase 8 count archive
+        if: env.BENCHMARK_MODE == 'empirical'
+        uses: actions/checkout@v4
+        with:
+          ref: 5fe4ab5efbb4888dd63f7b2972d4195a628c83b0
+          path: benchmark_work/archive
+          persist-credentials: false
+          sparse-checkout: /data/fixtures/sleep_dandi_input.mat
+          sparse-checkout-cone-mode: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Validate original physiology and prepare synthetic count inputs
+      - name: Install fixture preparation dependencies
         run: |
           python -m pip install numpy==2.2.6 scipy==1.15.3 h5py==3.13.0 remfile==0.1.16
+      - name: Validate original physiology and prepare synthetic counts
+        if: env.BENCHMARK_MODE == 'model'
+        run: |
           export PYTHONPATH=research/sleep_model_benchmark
           python -m unittest discover -s research/sleep_model_benchmark/tests
           python research/sleep_model_benchmark/validate_original.py --out benchmark_work/original
           python research/sleep_model_benchmark/prepare_fits.py --simulation benchmark_work/original --out benchmark_work/inputs
+      - name: Match empirical 240-second continuous windows
+        if: env.BENCHMARK_MODE == 'empirical'
+        run: |
+          python research/sleep_model_benchmark/prepare_empirical.py --archive benchmark_work/archive/data/fixtures/sleep_dandi_input.mat --out benchmark_work/inputs
+      - name: Verify count fixture digests
+        run: |
           python - <<'PY'
           import hashlib, json, pathlib
           for spec in json.loads(pathlib.Path('benchmark_work/inputs/fit_plan.json').read_text()):
@@ -58,5 +84,6 @@ jobs:
             benchmark_work/original/original_validation.json
             benchmark_work/inputs/fit_plan.json
             benchmark_work/inputs/observation_qc.json
+            benchmark_work/inputs/empirical_selection.json
             benchmark_work/fits/*/matlab_fits.json
           if-no-files-found: error
