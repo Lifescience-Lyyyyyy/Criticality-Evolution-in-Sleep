@@ -1,0 +1,53 @@
+name: Neuron-level criticality MATLAB
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ['matlab-neuron-rnn-*']
+
+permissions:
+  contents: read
+
+jobs:
+  fit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          repository: sam-sooter/prox_crit_toolkit
+          ref: f26c782dca3b1c9ab18cc92c6449591c44e0d507
+          path: external/prox_crit_toolkit
+          persist-credentials: false
+          sparse-checkout: /src/
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify physiology gate and build count fixture
+        run: |
+          python -m pip install numpy==2.2.6 scipy==1.15.3 h5py==3.13.0 remfile==0.1.16
+          cd research/neuron_rnn_criticality/results
+          sha256sum -c matlab_counts.sha256
+          cd ../../..
+          python research/neuron_rnn_criticality/analyse_snn.py fixture research/neuron_rnn_criticality/results/matlab_counts.json.gz fit_input
+      - uses: matlab-actions/setup-matlab@v3
+        with:
+          release: R2024b
+          products: Optimization_Toolbox
+      - uses: matlab-actions/run-command@v3
+        with:
+          command: addpath('scripts/ci'); run_sleep_dandi('fit_input/snn_matlab/counts.json','fit_output','neuron-rnn-criticality',[.04 5 10])
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: neuron-rnn-fits
+          path: |
+            fit_output/matlab_fits.json
+            fit_input/plan.json
+          if-no-files-found: warn
