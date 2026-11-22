@@ -55,4 +55,7 @@ jobs:
           path: |
             atlas_work/*.fits.json
             atlas_work/plan.json
+            atlas_work/unit.json
+            atlas_work/sensitivities.json
+            atlas_work/theory.json
           if-no-files-found: error
