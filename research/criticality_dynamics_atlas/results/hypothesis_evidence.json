@@ -1,0 +1,37 @@
+[
+  {
+    "hypothesis": "H1",
+    "judgment": "Partially supported",
+    "evidence": "PoSub: Δ population τ −0.405 s, Δ d₂ +1.249 bits/s (29 animals)."
+  },
+  {
+    "hypothesis": "H2",
+    "judgment": "Partially supported",
+    "evidence": "PoSub: neuron shifting changes the d₂ contrast by −0.176 bits/s (29 animals)."
+  },
+  {
+    "hypothesis": "H3",
+    "judgment": "Partially supported",
+    "evidence": "Known m=0.80: MR=0.804 at 10% sampling. With no recurrence, slow drive gives MR=0.966."
+  },
+  {
+    "hypothesis": "H4",
+    "judgment": "No general rule",
+    "evidence": "Correlation PR/N falls in mouse CA1 (−0.086) and rises in PAG (+0.058), 6 animals each."
+  },
+  {
+    "hypothesis": "H5",
+    "judgment": "Partially supported",
+    "evidence": "Fixed m=0.80: changing the gate moves d₂ from 1.017 to 1.984 bits/s."
+  },
+  {
+    "hypothesis": "H6",
+    "judgment": "Hierarchy unresolved",
+    "evidence": "Same-time P−PAG, state interaction in integrated τ: −0.009 s (6 animals)."
+  },
+  {
+    "hypothesis": "H7",
+    "judgment": "Supported",
+    "evidence": "PoSub Wake: d₂ 0.426 vs 0.420 bits/s, with integrated τ 0.308 vs 1.120 s."
+  }
+]

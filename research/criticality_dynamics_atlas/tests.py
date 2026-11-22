@@ -4,6 +4,7 @@ import numpy as np
 
 from metrics import ar_modes, lag_cov, mr, pr, shift, unit_metrics
 from theory import ar, branch
+from analyse import fold, selected
 
 
 class ScientificChecks(unittest.TestCase):
@@ -32,6 +33,23 @@ class ScientificChecks(unittest.TestCase):
         np.testing.assert_allclose(np.add(r["cov_auto"],r["cov_cross"]),r["cov_total"],atol=1e-12)
         self.assertAlmostEqual(pr(np.eye(7)),7)
         self.assertAlmostEqual(pr(np.ones((7,7))),1)
+
+    def test_separate_windows_and_time(self):
+        a=np.arange(1510)
+        b=np.arange(1515)+100000
+        self.assertEqual([len(x) for x in fold([a,b],5)],[302,303])
+        self.assertEqual(fold([a,b],5)[1][0],500010)
+        windows=list(selected([a,b],.04))
+        self.assertEqual([(s,k,start) for s,k,start,_ in windows],[(60,0,0),(60,1,0)])
+        np.testing.assert_equal(windows[1][-1],b[:1500])
+
+    def test_animal_is_unit(self):
+        from summarize import aggregate_deltas
+        ds=[dict(animal="a",contrast="NREM_Wake",d2=i) for i in (2,4,6)]
+        ds.append(dict(animal="b",contrast="NREM_Wake",d2=-2))
+        g=aggregate_deltas(ds,["d2"])
+        self.assertEqual([(r["session_n"],r["d2"]) for r in g],[(3,4),(1,-2)])
+        self.assertEqual(np.mean([r["d2"] for r in g]),1)
 
     def test_shift(self):
         rng=np.random.default_rng(84)
