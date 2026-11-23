@@ -61,6 +61,11 @@ python "$A/describe_neurons.py" "$A/results/analysis.json" "$A/results/matlab_co
   "$A/results/rate_and_events.json"
 ```
 
+项目私有 Google Drive 保存了 12 次参数运行和 36 次脉冲运行的原始输出。再次对照原始尖峰，36 对脉冲与各自的无刺激对照在刺激前逐事件吻合。两个归档均已完整回读并核对 SHA-256。
+
+- `jercog-parameter-runs-11603e5.zip` 的 SHA-256 为 `4cfc509d8e4add52ba4cac0f8e1a479958feb707d952b1932eddefbf3d7cea62`。
+- `jercog-pulse-runs-11603e5.zip` 的 SHA-256 为 `e92e88fb9b145f509a4342066286e5fe94f965cc169ea074679ee1fe49038a9e`。
+
 ## 发放率敏感性
 
 等率稀释使用原有的 10 单元、60 s 计数，并保持原始时窗。84 条输入在 [MATLAB 批次 45101132727](https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/45101132727) 以 AR(5) 和 AR(10) 拟合。群体平均率和三次技术重复的结果见 [等率敏感性摘要](results/rate_sensitivity.json)，求解、残差和完整回执见 [拟合数据](results/rate_fits.json) 和 [回执](results/rate_matlab_receipt.json)。
