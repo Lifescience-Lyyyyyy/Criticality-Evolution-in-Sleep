@@ -11,21 +11,25 @@ from physiology import digest, write
 from metrics import events as count_events
 
 
+def describe_cells(rate, tau, tau_integrated):
+    mask = np.isfinite(tau)
+    valid_rates, valid_tau = rate[mask], tau[mask]
+    rho = (spearmanr(valid_rates, valid_tau).statistic
+           if len(valid_tau) > 2 and np.ptp(valid_rates) and np.ptp(valid_tau) else None)
+    return dict(
+        n=len(rate), n_fit=int(mask.sum()),
+        rate_hz_p10_p50_p90=np.percentile(rate, [10, 50, 90]).tolist(),
+        fit_rate_hz_p10_p50_p90=np.percentile(valid_rates, [10, 50, 90]).tolist() if mask.any() else None,
+        tau_s_p10_p50_p90=np.percentile(valid_tau, [10, 50, 90]).tolist() if mask.any() else None,
+        integrated_tau_s_median=float(np.nanmedian(tau_integrated)) if np.isfinite(tau_integrated).any() else None,
+        spearman_rate_tau=rho,
+    )
+
+
 def describe(run, counts):
     cells = np.asarray(run["individual"], dtype=float)
-    metrics = {}
-    for name, rows in (("E", cells[:4000]), ("I", cells[4000:])):
-        rate, tau, tau_integrated = rows.T
-        mask = np.isfinite(tau)
-        rho = spearmanr(rate[mask], tau[mask]).statistic if mask.sum() > 2 else None
-        metrics[name] = dict(
-            n=len(rows), n_fit=int(mask.sum()),
-            rate_hz_p10_p50_p90=np.percentile(rate, [10, 50, 90]).tolist(),
-            fit_rate_hz_p10_p50_p90=np.percentile(rate[mask], [10, 50, 90]).tolist() if mask.any() else None,
-            tau_s_p10_p50_p90=np.percentile(tau[mask], [10, 50, 90]).tolist() if mask.any() else None,
-            integrated_tau_s_median=float(np.nanmedian(tau_integrated)) if np.isfinite(tau_integrated).any() else None,
-            spearman_rate_tau=rho,
-        )
+    metrics = {name:describe_cells(*rows.T)
+               for name, rows in (("E", cells[:4000]), ("I", cells[4000:]))}
     events = []
     dt = counts[run["id"]]["bin_seconds"]
     original = np.asarray(counts[run["id"]]["counts"][0])

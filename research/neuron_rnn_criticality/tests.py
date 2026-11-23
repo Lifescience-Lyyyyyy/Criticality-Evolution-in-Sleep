@@ -4,7 +4,7 @@ from tempfile import TemporaryDirectory
 import unittest
 import numpy as np
 
-from analyse_bugnon import archive_wave_stats, phase_spike_counts
+from analyse_bugnon import archive_wave_stats, paired_timescales, phase_spike_counts
 from join_fits import verify_fit_input
 from physiology import hmm,merge_short,periods
 from analyse_snn import components, pure_episodes, shifted
@@ -27,6 +27,17 @@ class ScientificChecks(unittest.TestCase):
         self.assertEqual(strict["above_threshold"],1)
         self.assertEqual(strict["median_down_half_slope_s"],.2)
         self.assertEqual(result["threshold_sensitivity"]["lower_threshold"]["largest_quartile"],1)
+
+    def test_paired_timescales_require_a_valid_estimate_in_both_windows(self):
+        a=np.array([[.2,.4],[np.nan,.2],[.1,np.nan]])
+        b=np.array([[.4,.6],[.3,.1],[.2,.4]])
+        results=paired_timescales(a,b,np.array(["PC","PC","BC"]))
+        pc=results["PC"]
+        self.assertEqual(pc["exponential"]["n_paired"],1)
+        np.testing.assert_allclose(pc["exponential"]["change_s_p10_p50_p90"],[.2,.2,.2])
+        self.assertEqual(pc["integrated"]["n_paired"],2)
+        self.assertAlmostEqual(pc["integrated"]["change_s_p10_p50_p90"][1],.05)
+        self.assertIsNone(results["BC"]["integrated"]["change_s_p10_p50_p90"])
 
     def test_bugnon_sessions_exclude_the_transition_from_stable_counts(self):
         times=np.array([2500,2999.8,3000,4999.8,5000,5000.2,125000])

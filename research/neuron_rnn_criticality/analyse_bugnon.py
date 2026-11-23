@@ -11,6 +11,7 @@ from scipy.signal import butter, find_peaks, sosfiltfilt, welch
 import yaml
 
 from analyse_snn import BIN, cell_profiles, components, entry, profile, slim
+from describe_neurons import describe_cells
 from metrics import population_metrics
 from physiology import digest, episode_stats, hmm, merge_short, write
 from run_bugnon import CASES, DENEST, NEST, REPLICATE
@@ -150,6 +151,31 @@ def phase_spike_counts(times,sessions):
             for name,(start,stop) in sessions.items()}
 
 
+def paired_timescales(a,b,types):
+    out={}
+    for kind in ("PC","BC","MC"):
+        estimates={}
+        for i,name in enumerate(("exponential","integrated")):
+            use=(types==kind)&np.isfinite(a[:,i])&np.isfinite(b[:,i])
+            difference=b[use,i]-a[use,i]
+            estimates[name]=dict(
+                n_paired=len(difference),
+                change_s_p10_p50_p90=np.percentile(difference,[10,50,90]).tolist() if len(difference) else None,
+                median_absolute_change_s=float(np.median(np.abs(difference))) if len(difference) else None)
+        out[kind]=estimates
+    return out
+
+
+def split_timescales(counts,types):
+    first,last=np.split(counts,2)
+    use=(first.sum(0)>=100)&(last.sum(0)>=100)
+    if not use.any():
+        empty=np.empty((0,2))
+        return paired_timescales(empty,empty,types[use])
+    a,b=(cell_profiles(piece,components(piece)[0])[2] for piece in (first[:,use],last[:,use]))
+    return paired_timescales(a,b,types[use])
+
+
 def audit(root,authors,condition,thresholds):
     rec=json.loads((root/"run_receipt.json").read_text())
     assert rec["model_commit"]==REPLICATE and rec["condition"]==condition and rec["resolution_ms"]==.2
@@ -224,17 +250,18 @@ def audit(root,authors,condition,thresholds):
     np.save(count_path,counts.astype(np.uint16),allow_pickle=False)
     pop=counts.sum(1)
     cells,u,v,t=components(counts)
-    _,_,tau=cell_profiles(counts,cells)
+    rates,acf,tau=cell_profiles(counts,cells)
+    dynamics_path=root/"cortical_neuron_dynamics_40ms.npz"
+    np.savez_compressed(dynamics_path,neuron_ids=id_all,neuron_types=types,neuron_layers=layers,
+                        lags_seconds=np.arange(len(acf))*BIN,acf=acf.astype(np.float32),
+                        firing_rate_hz=rates,tau_s=tau[:,0],integrated_tau_s=tau[:,1])
     by_type={}
     type_counts={}
     for typ in ("PC","BC","MC"):
-        xx=counts[:,types==typ]
-        type_counts[typ]=xx.sum(1)
-        q=tau[types==typ,0]
-        q=q[np.isfinite(q)]
-        by_type[typ]={"n":xx.shape[1],"median_tau_s":float(np.median(q)) if len(q) else None,
-                      "estimated":len(q),"rate_hz":float(xx.mean()/BIN),
-                      "population_dynamics":slim(population_metrics([type_counts[typ]],BIN))}
+        use=types==typ
+        type_counts[typ]=counts[:,use].sum(1)
+        by_type[typ]=describe_cells(rates[use],*tau[use].T)
+        by_type[typ]["population_dynamics"]=slim(population_metrics([type_counts[typ]],BIN))
     pc=type_counts["PC"].astype(float)
     inh=(type_counts["BC"]+type_counts["MC"]).astype(float)
     lag=np.arange(-12,13)
@@ -256,12 +283,14 @@ def audit(root,authors,condition,thresholds):
     rec.update(session_intervals_ms=sessions,stable_session=STABLE[condition],
                duration_seconds=(stop-start)/1000,burn_in_seconds=start/1000,
                neuron_count_recorded=len(id_all),neuron_types=by_type,
-               spike_record_sha256=digest(receipt_ref), spike_count_sha256=digest(count_path))
+               spike_record_sha256=digest(receipt_ref),spike_count_sha256=digest(count_path),
+               neuron_dynamics_sha256=digest(dynamics_path))
     voltage,lfp=cortical_vm(root,start,stop)
     lfp["archive_full_network_candidates"]=archive_wave_stats(reference,start,stop,thresholds)
     return dict(receipt=rec,populations=stats,episode_proxy=phases,dynamics=slim(population_metrics([pop],BIN)),
                 decomposition=profile(u,v,t),ei_synchrony=ei,voltage=voltage,lfp_proxy=lfp,
-                median_absolute_log_rate_error=float(np.median(np.abs(np.log(ratios)))),rate_ratios=ratios),pop
+                split_half_timescales=split_timescales(counts,types),
+                median_absolute_log_rate_error=float(np.median(np.abs(np.log(ratios)))),rate_ratios=ratios),pop,tau
 
 
 def fixed_subsamples(types):
@@ -295,8 +324,9 @@ def main():
     thresholds=dict(fig4_p99=float(np.quantile(amplitudes,.99)),methods_maximum=float(amplitudes.max()))
     rows={}
     series={}
+    timescales={}
     for label in ("wake","sleep"):
-        rows[label],series[label]=audit(getattr(a,label),a.authors,label,thresholds)
+        rows[label],series[label],timescales[label]=audit(getattr(a,label),a.authors,label,thresholds)
     with np.load(a.wake/"cortical_spike_record.npz") as wake, np.load(a.sleep/"cortical_spike_record.npz") as sleep:
         ids,types=wake["neuron_ids"],wake["neuron_types"]
         for field in ("neuron_ids","neuron_types","neuron_layers"):
@@ -320,6 +350,7 @@ def main():
     write(a.out/"bugnon_physiology.json",
           dict(conditions=rows,physiology_pass=gates,slow_band_voltage_ratios=ratios,
                paired_cell_rate_correlations=rate_corr,
+               paired_timescale_change_sleep_minus_wake=paired_timescales(timescales["wake"],timescales["sleep"],types),
                archive_stimulus_thresholds=dict(source_sha256=digest(stimulus_path),
                                                 stimulus_window_ms=[stimulus_start,stimulus_stop],
                                                 candidate_waves=len(amplitudes),thresholds=thresholds)))
