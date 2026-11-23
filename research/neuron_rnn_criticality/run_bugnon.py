@@ -34,7 +34,8 @@ def main():
     source=a.upstream.resolve()/"simulations"/CASES[a.condition]/"parameter_tree.yml"
     raw=source.read_bytes()
     params=denest.ParamsTree.read(source)
-    out=a.out.resolve()
+    # Legacy SLI parses ASCII paths; preserve any runtime symlink in the data path.
+    out=a.out.absolute()
     if out.exists() and list(out.iterdir()):
         raise FileExistsError(out)
     # The two author reference cases use no grating-array inputs.

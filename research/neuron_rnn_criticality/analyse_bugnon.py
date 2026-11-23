@@ -33,9 +33,10 @@ def source_files(root,recorder):
 
 
 def events(root,r):
-    a=np.concatenate([np.loadtxt(p,ndmin=2) for p in source_files(root,r)],axis=0)
-    assert r["colnames"][:2]==["gid","time"] and a.shape[1]==len(r["colnames"])
-    return a
+    cols=r["colnames"]
+    assert cols==["gid","time"]
+    rows=[np.loadtxt(p,ndmin=2) for p in source_files(root,r) if p.stat().st_size]
+    return np.concatenate([a for a in rows if a.size],axis=0) if any(a.size for a in rows) else np.empty((0,2))
 
 
 def cortical_vm(root,t0,t1):
@@ -72,6 +73,7 @@ def cortical_vm(root,t0,t1):
 def audit(root,authors,condition):
     rec=json.loads((root/"run_receipt.json").read_text())
     assert rec["model_commit"]==REPLICATE and rec["condition"]==condition and rec["resolution_ms"]==.2
+    assert digest(authors/rec["parameter_source"])==rec["parameter_sha256"]
     times_path,=root.rglob("session_times.yml")
     sessions=yaml.full_load(times_path.read_text())
     start,stop=sessions[STABLE[condition]]
@@ -115,16 +117,31 @@ def audit(root,authors,condition):
     k=native_step[short]//200
     assert np.all(k<1500)
     counts=np.bincount(k*len(id_all)+lookup[short],minlength=1500*len(id_all)).reshape(1500,len(id_all))
+    assert counts.max()<=np.iinfo(np.uint16).max and counts.sum()==short.sum()
+    count_path=root/"cortical_counts_40ms.npy"
+    np.save(count_path,counts.astype(np.uint16),allow_pickle=False)
     pop=counts.sum(1)
     cells,u,v,t=components(counts)
     _,_,tau=cell_profiles(counts,cells)
     by_type={}
+    type_counts={}
     for typ in ("PC","BC","MC"):
         xx=counts[:,types==typ]
+        type_counts[typ]=xx.sum(1)
         q=tau[types==typ,0]
         q=q[np.isfinite(q)]
         by_type[typ]={"n":xx.shape[1],"median_tau_s":float(np.median(q)) if len(q) else None,
-                      "estimated":len(q),"rate_hz":float(xx.mean()/BIN)}
+                      "estimated":len(q),"rate_hz":float(xx.mean()/BIN),
+                      "population_dynamics":slim(population_metrics([type_counts[typ]],BIN))}
+    pc=type_counts["PC"].astype(float)
+    inh=(type_counts["BC"]+type_counts["MC"]).astype(float)
+    lag=np.arange(-12,13)
+    # Positive lag reports I counts occurring later than E counts.
+    corr=[]
+    for k in lag:
+        e,i=(pc[:-k],inh[k:]) if k>0 else ((pc[-k:],inh[:k]) if k<0 else (pc,inh))
+        corr.append(float(np.corrcoef(e,i)[0,1]) if e.std() and i.std() else None)
+    ei=dict(lag_s=(lag*BIN).tolist(),correlation=corr)
     k10=native_step//50
     bins=round((stop-start)/10)
     k10=np.minimum(k10,bins-1)
@@ -136,9 +153,9 @@ def audit(root,authors,condition):
     ratios=[x["mean_rate"]/x["reference_mean"] for x in stats if x["reference_mean"]>0]
     rec.update(duration_seconds=(stop-start)/1000,burn_in_seconds=start/1000,
                neuron_count_recorded=len(id_all),neuron_types=by_type,
-               spike_record_sha256=digest(receipt_ref))
+               spike_record_sha256=digest(receipt_ref), spike_count_sha256=digest(count_path))
     return dict(receipt=rec,populations=stats,episode_proxy=phases,dynamics=slim(population_metrics([pop],BIN)),
-                decomposition=profile(u,v,t),voltage=cortical_vm(root,start,stop),
+                decomposition=profile(u,v,t),ei_synchrony=ei,voltage=cortical_vm(root,start,stop),
                 median_absolute_log_rate_error=float(np.median(np.abs(np.log(ratios)))),rate_ratios=ratios),pop
 
 
@@ -154,6 +171,9 @@ def main():
     series={}
     for label in ("wake","sleep"):
         rows[label],series[label]=audit(getattr(a,label),a.authors,label)
+    with np.load(a.wake/"cortical_spike_record.npz") as wake, np.load(a.sleep/"cortical_spike_record.npz") as sleep:
+        for field in ("neuron_ids","neuron_types","neuron_layers"):
+            np.testing.assert_array_equal(wake[field],sleep[field])
     overlap=set(rows["wake"]["voltage"])&set(rows["sleep"]["voltage"])
     ratios={k:rows["sleep"]["voltage"][k]["band_power_mv2"]/rows["wake"]["voltage"][k]["band_power_mv2"]
             for k in sorted(overlap) if rows["wake"]["voltage"][k]["band_power_mv2"]>0}

@@ -27,10 +27,12 @@ def stimulus_time(up, requested, m, kicks):
             return round(t,2)
 
 
-def pulse(out, original_raw, native, exe, info, workers):
+def pulse(out, original_raw, native, exe, info, workers,
+          conditions=CONDITIONS, factors=(1.,1.,0.,1.)):
     tasks=[]
+    unavailable=[]
     for c,n in SEEDS:
-        for cond in CONDITIONS:
+        for cond in conditions:
             name=f"{cond}-c{c}-n{n}"
             k=native/name
             ref=json.loads((k/"manifest.json").read_text())
@@ -40,10 +42,12 @@ def pulse(out, original_raw, native, exe, info, workers):
                     if t is not None:
                         stop=int(np.ceil((t+1.25)/5)*5)
                         tasks.append((name,cond,c,n,label,t,stop))
+                    else:
+                        unavailable.append(dict(condition=cond,connectivity_seed=c,noise_seed=n,pre_state=label))
 
     def one(case):
         name,cond,c,n,label,t,stop=case
-        setting=(1.,1.,0.,1.,t,stop)
+        setting=(*factors,t,stop)
         p=simulate(exe,info,out/f"pulse_{label}",cond,(c,n),100,setting=setting)
         m,b=read_record(p)
         _,a=read_record(original_raw/name)
@@ -78,8 +82,12 @@ def pulse(out, original_raw, native, exe, info, workers):
 
     with ThreadPoolExecutor(max_workers=workers) as pool:
         rows=list(pool.map(one,tasks))
-    write(out/"pulses.json",spread(rows,original_raw,out))
-    print("Pulse pairs verified",len(rows),flush=True)
+    spread(rows,original_raw,out)
+    write(out/"pulses.json",rows)
+    if unavailable:
+        write(out/"unavailable.json",unavailable)
+    print("Pulse pairs verified",len(rows),"unavailable",len(unavailable),flush=True)
+    return dict(pulses=rows,unavailable=unavailable)
 
 
 def spread(pulses, original_raw, pulse_raw):
@@ -156,7 +164,7 @@ def perturb(out, exe, info, workers):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument("mode",choices=("pulse","parameter"))
+    p.add_argument("mode",choices=("pulse","parameter","parameter-pulse"))
     p.add_argument("--upstream",type=Path,required=True)
     p.add_argument("--raw",type=Path,required=True)
     p.add_argument("--native",type=Path,required=True)
@@ -171,8 +179,15 @@ def main():
     exe,info=compile_simulator(a.upstream.resolve(),root/"build",interventions=True)
     if a.mode=="pulse":
         pulse(root,a.raw,a.native,exe,info,a.workers)
-    else:
+    elif a.mode=="parameter":
         perturb(root,exe,info,a.workers)
+    else:
+        responses={}
+        for label,factors in PARAMETERS.items():
+            responses[label]=pulse(root/"response"/label,root/"raw"/label,root/"native"/label,exe,info,
+                                   a.workers,conditions=("figure7",),factors=factors)
+        write(root/"parameter_pulses.json",responses)
+
 
 
 if __name__=="__main__":

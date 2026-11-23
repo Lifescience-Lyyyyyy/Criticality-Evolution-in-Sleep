@@ -39,14 +39,57 @@ python "$A/plot_snn.py" "$A/results" "$A/figures"
 完成作者条件的生理验收和 MATLAB 回执之后，使用相同拓扑与噪声种子运行配对脉冲和预先登记的四种参数扰动。
 
 ```sh
-for mode in pulse parameter; do
+for mode in pulse parameter parameter-pulse; do
+  folder=parameter
+  if [ "$mode" = pulse ]; then folder=pulse; fi
   python "$A/intervene.py" "$mode" --upstream "$UPSTREAM" --raw "$CACHE/baseline" \
     --native "$CACHE/native" --matlab-receipt "$A/results/baseline_matlab_receipt.json" \
-    --out "$CACHE/interventions-$mode" --workers 5
+    --out "$CACHE/interventions-$folder" --workers 5
 done
 ```
 
-参数批次续跑时，按模拟命令、生成器源码和文件哈希验证已完成的原生输出。中断输出移至同批次的 `interrupted/` 留存。
+参数批次和对应参数脉冲使用同一输出根。汇总的 `parameter_pulses.json` 记录 24 个配对脉冲和未能找到预态窗口的案例。参数批次续跑时，按模拟命令、生成器源码和文件哈希验证已完成的原生输出。中断输出移至同批次的 `interrupted/` 留存。
+
+使用 [参数 MATLAB 批次 45097945176](https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/45097945176) 的 ZIP 和回执关联拟合。
+
+```sh
+python "$A/join_fits.py" "$A/results/perturb_counts.json.gz" \
+  "$CACHE/perturb-matlab.zip" "$A/results/perturb_matlab_receipt.json" "$A/results" --prefix perturb
+python "$A/describe_neurons.py" "$A/results/analysis.json" "$A/results/matlab_counts.json.gz" \
+  "$A/results/rate_and_events.json"
+```
+
+## Bugnon 原版运行与生理门槛
+
+[模型登记](registry.json)中的复现资料、deNEST 和 NEST 分别独立固定。有效的独立环境为 Python 3.8.20、NumPy 1.23.5、Cython 0.29.37、GSL 2.7、pandas 1.5.3、PyYAML、docopt、tqdm、setuptools 58.0.4 与 libtool。用 NEST 提交的归档树构建，使旧 PyNEST 包名不带 Git 后缀。说明生成器中的 `cgi.escape` 改为 `html.escape`。这项兼容修改只影响文档生成。
+
+```sh
+# P 为独立的 ASCII 路径 Python 前缀，NEST_SOURCE 为上述提交的无 Git 归档树。
+cmake -S "$NEST_SOURCE" -B "$CACHE/nest-build" \
+  -DCMAKE_INSTALL_PREFIX="$P" -DCMAKE_PREFIX_PATH="$P" -DCMAKE_BUILD_TYPE=Release \
+  -Dwith-gsl="$P" -Dwith-ltdl=ON -Dwith-openmp=ON -Dwith-mpi=OFF \
+  -Dwith-python=ON -DPYTHON_EXECUTABLE="$P/bin/python"
+cmake --build "$CACHE/nest-build" -j 4
+cmake --install "$CACHE/nest-build"
+cmake -S "$BUGNON/extension_module/HTNeuronModule" -B "$CACHE/ht-build" \
+  -Dwith-nest="$P/bin/nest-config" -DCMAKE_INSTALL_PREFIX="$P" -DCMAKE_BUILD_TYPE=Release
+cmake --build "$CACHE/ht-build" -j 4
+cmake --install "$CACHE/ht-build"
+
+source "$P/bin/nest_vars.sh"
+export NEST_INSTALL_DIR="$P" NEST_DATA_DIR="$P/share/nest"
+export NEST_DOC_DIR="$P/share/doc/nest" NEST_MODULE_PATH="$P/lib/nest"
+export LD_LIBRARY_PATH="$P/lib/nest:$P/lib:${LD_LIBRARY_PATH:-}"
+export PYTHONPATH="$P/lib/python3.8/site-packages:$DENEST"
+for state in wake sleep; do
+  "$P/bin/python" "$A/run_bugnon.py" "$state" --upstream "$BUGNON" \
+    --denest "$DENEST" --nest-source "$NEST_GIT_CHECKOUT" --out "$CACHE/bugnon-$state-native"
+done
+python "$A/analyse_bugnon.py" --wake "$CACHE/bugnon-wake-native" \
+  --sleep "$CACHE/bugnon-sleep-native" --authors "$BUGNON" --out "$CACHE/bugnon-analysis"
+```
+
+旧 SLI 启动脚本需要 ASCII 路径。如果 NEST 已安装在含中文的目录，通过 ASCII 软链接加载，并将 `NEST_INSTALL_DIR`、`NEST_DATA_DIR`、`NEST_DOC_DIR`、`NEST_MODULE_PATH`、`LD_LIBRARY_PATH` 与 `PYTHONPATH` 指到别名。每态稳定段的原生尖峰按照原单元 ID、类型和层保存。Wake 与 Sleep-like 首个稳定 60 s 使用同一组记录单元。只有三项生理检查全部通过后，分析才写出该批次的 MATLAB 输入。
 
 ## 交付
 
@@ -58,6 +101,8 @@ done
 | [图 1 原生尖峰和 UP/DOWN](figures/01_original_rasters.pdf) · [图 2 时间尺度](figures/02_timescales.pdf) | 两种原作者条件的 E/I 活动和逐单元／群体比较 |
 | [图 3 协方差分解](figures/03_covariance_decomposition.pdf) · [图 4 窗内循环移位](figures/04_circular_shift.pdf) | 自项、跨单元项、群体 ACF 与配对 d₂ |
 | [片段内动力学](results/episode_conditioned.json) · [图 6 配对脉冲](figures/06_paired_pulse_response.pdf) | 连续状态段的 ACF 与协方差，12 个脉冲与对照的传播、峰值和恢复 |
+| [参数扰动](results/perturbations.json) · [参数拟合](results/perturb_fits.json) · [单元率与事件](results/rate_and_events.json) | 12 个配对参数实例的状态、估计器与事件细节 |
+| [参数脉冲](results/parameter_pulses.json) · [图 8](figures/08_parameter_sensitivity.pdf) | 24 个配对脉冲及其恢复、传播和每个网络的参数敏感性 |
 | [实测采样敏感性](results/empirical_sensitivity.json) · [图 7](figures/07_empirical_sampling.pdf) | 4 只大鼠在固定单元数、全部单元和不同连续时长的同动物对照 |
 
 图中阴影范围在有多个网络时是跨实例最小值至最大值。Figure 7 条件示例 raster 为第一个预先固定的实例和第 12–18 秒。相同实例各条件使用配对的拓扑和噪声设计。多个窗及代理种子嵌套于同一网络，群体图表以网络实例为单位。实测以动物为单位。

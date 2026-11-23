@@ -1,0 +1,39 @@
+{
+  "status": "running_at_checkpoint",
+  "checkpoint_utc": "2026-11-23T02:16:28.154016+00:00",
+  "nest_version": "2.20.0",
+  "denest_version": "1.0.1",
+  "python_version": "3.8.20",
+  "extension_smoke_ms": 1.0,
+  "legacy_unicode_launch": "SLI syntax error before creating any model",
+  "working_path": "ASCII alias to the same installed prefix and cached files",
+  "extension_binary_sha256": "4d68ed9e0eca96e5d2c77d0873be11b5038c3930ae381dcd69a89fd3f0eb7699",
+  "parameters_sha256": {
+    "wake": "ba4b64f6d9fcdbeecf25243c9e2b7c1adcacd0f8ddc98463e6b730c25c0ec156",
+    "sleep": "828f31f0736f86f361f752c9c2d2ea2cbef183966cf8566c9dd30c5c5dea2822"
+  },
+  "author_wake_network_nodes_including_recorders": 38416,
+  "integration_step_ms": 0.2,
+  "threads": 5,
+  "projected_populations": 189,
+  "wake_network_time_ms": 2420.8,
+  "current_realtime_factor": 0.0092,
+  "d2_ready": false,
+  "recorded_cortical_population_sizes": {
+    "spike_detector_Vp_L23_BC_P00_Vp_BC": 625,
+    "spike_detector_Vp_L23_BC_P90_Vp_BC": 625,
+    "spike_detector_Vp_L23_PC_P00_Vp_PC": 3136,
+    "spike_detector_Vp_L23_PC_P90_Vp_PC": 3136,
+    "spike_detector_Vp_L4_BC_P00_Vp_BC": 625,
+    "spike_detector_Vp_L4_BC_P90_Vp_BC": 625,
+    "spike_detector_Vp_L4_PC_P00_Vp_PC": 3136,
+    "spike_detector_Vp_L4_PC_P90_Vp_PC": 3136,
+    "spike_detector_Vp_L56_BC_P00_Vp_BC": 625,
+    "spike_detector_Vp_L56_BC_P90_Vp_BC": 625,
+    "spike_detector_Vp_L56_MC_P00_Vp_MC": 625,
+    "spike_detector_Vp_L56_MC_P90_Vp_MC": 625,
+    "spike_detector_Vp_L56_PC_P00_Vp_PC": 3136,
+    "spike_detector_Vp_L56_PC_P90_Vp_PC": 3136
+  },
+  "reference_layer_rate_sample_checked": true
+}

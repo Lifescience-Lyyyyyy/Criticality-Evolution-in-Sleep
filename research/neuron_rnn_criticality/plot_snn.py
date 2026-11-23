@@ -229,6 +229,55 @@ def empirical_plot(fit, paired, out):
     save(fig,out,7,"empirical_sampling")
 
 
+def parameter_plot(data, baseline, estimates, cases, pulses, out):
+    short={"exc_recurrence_up10":"E recur. +10%", "adaptation_up10":"Adapt. +10%",
+           "drive_up_point2":"Drive +0.2", "inhib_recurrence_up5":"I output +5%"}
+    fitted={x["id"]:x for x in estimates["records"]}
+    origin={x["connectivity_seed"]:x for x in baseline["records"]
+            if x["category"]=="original" and x["context"]=="figure7"}
+    observed={x["manifest"]["connectivity_seed"]:x for x in data["runs"]
+              if x["manifest"]["condition"]=="figure7"}
+    fig,axes=grid(2,2,(9.3,6.05))
+    keys=list(short)
+    for i,key in enumerate(keys):
+        group=[z for z in cases if z["setting"]==key]
+        for j,z in enumerate(group):
+            seed=z["manifest"]["connectivity_seed"]
+            old=observed[seed]
+            x=i+(j-1)*.075
+            for fit,offset,col in (("fit",-.15,"#007884"),("ar10",.15,"#8C4A1C")):
+                left,right=origin[seed][fit]["d2"],fitted[z["id"]][fit]["d2"]
+                if left is not None and right is not None:
+                    axes[0].scatter(x+offset,right-left,c=col,s=25)
+            delta_t=1000*(z["population"]["tau_integrated"]-old["population"]["tau_integrated"])
+            axes[1].scatter(x,delta_t,c="#007884",s=25)
+            delta_cov=z["decomposition"]["cross"][0]/old["decomposition"]["cross"][0]-1
+            axes[2].scatter(x,100*delta_cov,c="#007884",s=25)
+        for j,state in enumerate(("up","down")):
+            rows=[r for r in pulses[key]["pulses"] if r["pre_state"]==state]
+            for n,r in enumerate(rows):
+                y=r["groups"]["untargeted_E"]["integrated_250ms_spikes_per_cell"]
+                axes[3].scatter(i+(j-.5)*.30+(n-1)*.065,y,s=25,
+                                c=("#B56B19","#366C8B")[j],marker=("o","s")[j])
+    for ax,y in zip(axes,("Paired Δd₂ (bits/s)","Paired Δintegrated τ (ms)",
+                          "Paired Δcross covariance at lag zero (%)","Untargeted E pulse response (spikes/cell)")):
+        ax.axhline(0,c="#88979F",lw=.8,zorder=0)
+        ax.set(ylabel=y,xticks=range(len(keys)),xticklabels=list(short.values()))
+        ax.margins(y=.18)
+    axes[0].legend(handles=[Line2D([],[],color=c,marker="o",ls="",label=l) for c,l in
+                            (("#007884","AR(5)"),("#8C4A1C","AR(10)"))],
+                   frameon=False,loc="upper right")
+    axes[3].legend(handles=[Line2D([],[],color=c,marker=m,ls="",label=l) for c,m,l in
+                            (("#B56B19","o","UP"),("#366C8B","s","DOWN"))],
+                   frameon=False,loc="lower right")
+    # Preserve space for limit-case responses around the legend.
+    lo,hi=axes[3].get_ylim()
+    axes[3].set_ylim(lo-.24*(hi-lo),hi)
+    scope(fig,"Exploratory Jercog Fig. 7 perturbations · N=5,000 · 90 s of each 100 s network run\n"
+          "Delay seeds 1729, 2718, 3141 · drive in mV-equivalent units · pulse response in the first 250 ms")
+    save(fig,out,8,"parameter_sensitivity")
+
+
 def main():
     global PREVIEWS
     p=argparse.ArgumentParser(description=__doc__)
@@ -246,6 +295,10 @@ def main():
     plot(read(r/"analysis.json"),read(r/"physiology.json"),f,a.out,pulses)
     if (r/"empirical_sensitivity.json").exists():
         empirical_plot(f,read(r/"empirical_sensitivity.json"),a.out)
+    if (r/"parameter_pulses.json").exists():
+        parameter_plot(read(r/"analysis.json"),f,read(r/"perturb_fits.json"),
+                       read(r/"perturbations.json"),read(r/"parameter_pulses.json"),a.out)
+
 
 
 if __name__=="__main__":
