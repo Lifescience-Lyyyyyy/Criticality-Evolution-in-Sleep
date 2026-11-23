@@ -98,9 +98,19 @@ Bugnon 的公开复现资料固定了自发 Wake 和 Sleep-like 参数树、deNE
 
 论文链接的 deNEST `MC_sleep` 分支在提交 `d8facf6` 提供了另一套包含 mGluR 的网络。该参数树中的 PyC 和 BaC AMPA 倍率为 1.5 和 1.9，钾漏电导的倍率分别为 1.5、1.4 和 2.0（PyC、BaC、MaC）。它还将 PyC 和 BaC 的 mGluR 背景输入设为 200 Hz，并将峰值 mGluR 电导翻倍。这些设置与论文方法 2.17 一致。已在独立目录编译该扩展并完成 12 ms 的 NEST 2.20.0 单细胞响应测试。mGluR 电导峰值绝对值从 0.002186 升至 0.004372，无刺激的对照细胞为 0。全网络短程测试构建了 31,880 个 NEST 节点（含记录器等设备）和 10,799,093 条连接，14 个皮层尖峰记录器对应 23,816 个单元。依次运行了各 1 ms 的预热、Wake 输入、状态转换和 Sleep。实际读取的 PyC 和 BaC 代表单元电导变化符合作者倍率，两类 mGluR 背景发生器均从 100 Hz 变为 200 Hz。该全网络测试只检查构建与状态切换。
 
-论文版两态正式运行保留这一分支的动力学配置，省略视觉刺激会话，并把示例的 3 s Wake、6 s Sleep 稳定段延长至论文方法 2.18 所述的 120 s。Wake 和 Sleep-like 的正式运行已迁至两台 Colab CPU 主机。每台可见 8 核，NEST 仍按原配置使用 5 个线程，两台使用相同的扩展二进制、网络配置和初始随机种子。两份启动日志均记录了 31,880 个节点和 10,799,093 条连接，逐边身份尚未核验。两态均已进入正式记录段。Wake 的分析区间为 2–122 s，Sleep-like 为 8–128 s，后者的 5–8 s 转换段关闭记录。完整生理验收和 d₂ 待两态完成。[云端启动回执](results/bugnon_paper_colab_launch.json) · [源配置](https://github.com/TomBugnon/deNEST/blob/d8facf6323aa95151398ee4945623147e33491a8/example_networks/MC_sleep/params/sim/sessions.yml) · [单细胞回执](results/bugnon_paper_smoke.json) · [全网络回执](results/bugnon_paper_network_check.json)
+论文版两态正式运行保留这一分支的动力学配置，省略视觉刺激会话，并把示例的 3 s Wake、6 s Sleep 稳定段延长至论文方法 2.18 所述的 120 s。Wake 和 Sleep-like 的正式运行已迁至两台 Colab CPU 主机。每台可见 8 核，NEST 仍按原配置使用 5 个线程，两台使用相同的扩展二进制、网络配置和初始随机种子。两份启动日志均记录了 31,880 个节点和 10,799,093 条连接，逐边身份尚未核验。两态均已进入正式记录段。Wake 的分析区间为 2–122 s，Sleep-like 为 8–128 s，后者的 5–8 s 转换段关闭记录。两态均已完成 120 s 的稳定记录，并通过预登记的三项生理验收。[云端启动回执](results/bugnon_paper_colab_launch.json) · [源配置](https://github.com/TomBugnon/deNEST/blob/d8facf6323aa95151398ee4945623147e33491a8/example_networks/MC_sleep/params/sim/sessions.yml) · [单细胞回执](results/bugnon_paper_smoke.json) · [全网络回执](results/bugnon_paper_network_check.json)
 
-原作者图 4a 报告跨态逐细胞放电率 Pearson 相关，PyC 为 0.90、BaC 为 0.80。对冻结资料的全网络候选波，按稳定段边界筛选得到 Wake 142 个、Sleep-like 188 个，波长中位数分别为 0.33 和 0.56 s。这些数字来自作者归档。新增分析会从本次电导和膜电位输出重建电流代理，同时对照跨态发放率相关。在同一作者归档中，从有视觉刺激的 Wake 取首个刺激至模拟结束之间的 29 个完整全网络候选波。方法 2.20 所述的最大值给出 Wake 0 个、Sleep-like 132 个阈上波。图 4b 所述的第 99 百分位给出 0 和 133 个。按 Sleep-like 阈上波的幅值取上四分位数，以归档中的两侧半坡时间计算，DOWN 时长中位数分别为 0.250 和 0.255 s。对应于作者归档的任意幅值尺度，阈值无法直接用于本次重建的电流代理。作者公开的参数仓库没有图 7 检测代码，附录 S1 的参数尚未核实。现有同步性汇总采用 E/I 群体计数相关。论文版另外登记了 L4 中央局部 PyC 的膜电位半幅转折比较。该对照从自发候选波取幅值较大的一半，并单列两方向成功检测的同一细胞数。其正式结果待完整 Sleep-like 轨迹。[Bugnon 等的方法、图 4 和图 7](https://onlinelibrary.wiley.com/doi/10.1111/ejn.15836) · [冻结的作者参考数据](https://github.com/TomBugnon/MC_sleep_replicate/tree/028ce0aad1b9a9fa002341a43728c2be79bbfc48/simulations)
+原作者图 4a 报告跨态逐细胞放电率 Pearson 相关，PyC 为 0.90、BaC 为 0.80。对冻结资料的全网络候选波，按稳定段边界筛选得到 Wake 142 个、Sleep-like 188 个，波长中位数分别为 0.33 和 0.56 s。这些数字来自作者归档。论文版运行使用本次记录的电导和膜电位重建电流代理，并以配对 GID 检查跨态发放率。在同一作者归档中，从有视觉刺激的 Wake 取首个刺激至模拟结束之间的 29 个完整全网络候选波。方法 2.20 所述的最大值给出 Wake 0 个、Sleep-like 132 个阈上波。图 4b 所述的第 99 百分位给出 0 和 133 个。按 Sleep-like 阈上波的幅值取上四分位数，以归档中的两侧半坡时间计算，DOWN 时长中位数分别为 0.250 和 0.255 s。对应于作者归档的任意幅值尺度，阈值无法直接用于本次重建的电流代理。作者公开的参数仓库没有图 7 检测代码，附录 S1 的参数尚未核实。现有同步性汇总采用 E/I 群体计数相关。论文版另外登记了 L4 中央局部 PyC 的膜电位半幅转折比较。该对照从自发候选波取幅值较大的一半，并单列两方向成功检测的同一细胞数。下文报告这一独立对照的结果。[Bugnon 等的方法、图 4 和图 7](https://onlinelibrary.wiley.com/doi/10.1111/ejn.15836) · [冻结的作者参考数据](https://github.com/TomBugnon/MC_sleep_replicate/tree/028ce0aad1b9a9fa002341a43728c2be79bbfc48/simulations)
+
+论文版两态各记录了 23,816 个配对皮层单元。跨态发放率的 Pearson r 为 PyC 0.896、BaC 0.807，对照论文图 4a 的 0.90 和 0.80。两态的 PyC 发放率中位数均低于 BaC，且 PyC 均值大于中位数。L56 MaC 群体均值由清醒时低于 0.001 Hz/细胞，升至睡眠样的 0.710–0.767 Hz/细胞。[两态生理验收](results/bugnon_physiology.json)
+
+| 论文版生理指标 | Wake | Sleep-like |
+|---|---:|---:|
+| 0.5–2 Hz 皮层电流代理功率，a.u.² | 0.00138 | 4.005 |
+| 全网候选波周期中位数，s | 0.330 | 0.885 |
+| 群体尖峰 HMM 的 UP／DOWN 均长，s | 0.128／0.247 | 0.325／0.720 |
+
+候选波以相邻负谷的间隔计时。HMM 用 10 ms 尖峰计数作分段，睡眠样条件有 114 个完整 UP 和 114 个完整 DOWN，E/I 发放率及 PyC 膜电位都随分段表现出预登记的状态差异。清醒条件的 HMM 指标只用于描述该计数序列。局部同步性对照覆盖中央 L4 的 72 个 PyC。56 个候选波有至少两个细胞可检测到成对转折，跨细胞时间标准差的逐波中位数为 UP→DOWN 45.8 ms、DOWN→UP 139.3 ms，同波差值中位数为 94.2 ms。附录 S1 的精确阈值仍缺少核验，这些量属于使用 10 ms 膜电位的独立复现对照。[Bugnon 等图 4、图 7 与方法 2.19–2.21](https://onlinelibrary.wiley.com/doi/10.1111/ejn.15836)
 
 Krishnan/Fink 三态分析沿用上一阶段的可行性审计，候选的正式三态比较在后续进行。[Bugnon 论文](https://doi.org/10.1111/ejn.15836) · [作者复现资料](https://github.com/TomBugnon/MC_sleep_replicate) · [三态可行性审计](../sleep_model_benchmark/reports/)
 

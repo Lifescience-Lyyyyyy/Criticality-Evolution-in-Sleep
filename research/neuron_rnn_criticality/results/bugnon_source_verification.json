@@ -1,0 +1,22 @@
+{
+  "wake": {
+    "sha256": "feebae2a97fba9cb377477fa2cacde6306164e56f2ecf6026d00c7ab17259f65",
+    "neurons": 23816,
+    "stable_window_spikes": 3308967,
+    "compared_series": 7,
+    "condition": "wake",
+    "analysis_commit": "3e49282a86b10b420f155bf757b9f0711c13ec05",
+    "transfer_bundle_sha256": "f3721ce1c7c47bd70ae81997db2c40bd1dcb7c855f3078fe0c2d4de2e60a84f0",
+    "nest_run_receipt_sha256": "4d0c0d96dfc88b6408346ebb8debf0f6c39095a6fcbe075dc788df994d3f59c7"
+  },
+  "sleep": {
+    "sha256": "ba6fbd8831aae6fd8496cb54c50c2766ff60b315ae7958acb7d49e9b85f94621",
+    "neurons": 23816,
+    "stable_window_spikes": 4243342,
+    "compared_series": 7,
+    "condition": "sleep",
+    "analysis_commit": "3e49282a86b10b420f155bf757b9f0711c13ec05",
+    "transfer_bundle_sha256": "cad047de5fe42ced61a0971090e6d3cbd14f95d05975ab7e5f7cf345d1d2a491",
+    "nest_run_receipt_sha256": "e24a4798ef8639367384b715e4e23403490fff9420f426d1ea084460da04c357"
+  }
+}
