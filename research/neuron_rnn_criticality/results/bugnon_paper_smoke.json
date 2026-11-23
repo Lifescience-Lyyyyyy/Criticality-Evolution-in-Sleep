@@ -1,0 +1,62 @@
+{
+  "status": "single_cell_compatibility_pass",
+  "source_commit": "d8facf6323aa95151398ee4945623147e33491a8",
+  "nest": "NEST nest-2.20.0",
+  "extension_sha256": "9ce8bf99740fed27e96922d52fe095a2e953d5f43d740a03c67450ade53522b9",
+  "model": "ht_neuron_minis_GABA_B1a_soft_gap_noprelimspike_mGluR",
+  "mglur_receptor": 5,
+  "simulation_ms": 12.0,
+  "samples_per_cell": 59,
+  "parsed_network": {
+    "layers": 20,
+    "projections": 273,
+    "population_recorders": 34
+  },
+  "peak_absolute_mglur": [
+    0.0021859664477935662,
+    0.0043719328955871325,
+    0.0
+  ],
+  "example_session_ms": {
+    "warmup": 2000.0,
+    "noise": 3000.0,
+    "grating": 3000.0,
+    "sleep_transition": 3000.0,
+    "sleep": 6000.0
+  },
+  "transition_parameters": {
+    "retina_nrn": {
+      "rate": 60.0,
+      "amplitude": 0.0
+    },
+    "poisson_nrn_to_cortex_mGluR_to_PC": {
+      "rate": 200.0
+    },
+    "poisson_nrn_to_cortex_mGluR_to_BC": {
+      "rate": 200.0
+    },
+    "Vp_PC": {
+      "g_KL": 1.5,
+      "g_peak_AMPA": 1.5,
+      "g_peak_mGluR": 2.0
+    },
+    "Vp_BC": {
+      "g_KL": 1.4,
+      "g_peak_AMPA": 1.9,
+      "g_peak_mGluR": 2.0
+    },
+    "Vp_MC": {
+      "g_peak_AMPA": 1.0,
+      "g_KL": 2.0
+    },
+    "Tp_exc": {
+      "g_KL": 1.5
+    },
+    "Tp_inh": {
+      "g_KL": 1.5
+    },
+    "Rp_inh": {
+      "g_KL": 0.95
+    }
+  }
+}

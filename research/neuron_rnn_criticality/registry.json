@@ -90,6 +90,11 @@
     "nest_release": "2.20.0",
     "nest_commit": "37722d5e35a19bcd2103025b7a581cc76f6dd5fc",
     "extension": "ht_neuron_minis_GABA_B1a_soft_gap_noprelimspike",
+    "paper_linked_example": {
+      "source": "example_networks/MC_sleep",
+      "extension": "ht_neuron_minis_GABA_B1a_soft_gap_noprelimspike_mGluR",
+      "compatibility_receipt": "results/bugnon_paper_smoke.json"
+    },
     "kernel_base_seed": 94,
     "author_cases": {
       "wake": "fig0_wake_mode_spontaneous (02_noise)",
