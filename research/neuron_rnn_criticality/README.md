@@ -34,6 +34,8 @@ python "$A/plot_snn.py" "$A/results" "$A/figures"
 
 原始 Spike 文件由模型导出并私有缓存。运行目录的 `simulation_record.npz` 保存排序后的 `neuron_ids`、`neuron_types`、原生 `spike_times_seconds` 和 ragged `spike_times_offsets`。第 i 个单元的尖峰坐标位于 offsets[i] 至 offsets[i+1] 的半开区间。相邻的 `manifest.json` 包含模型、原提交、参数、条件、种子、初始化、实际记录数、仿真时步、原文件和派生文件校验。模型内部状态的附加统计可用 python "$A/analyse_snn.py" epochs "$CACHE/native" "$CACHE/episode_conditioned.json" 重建。另一个缓存 `neuron_dynamics_40ms.npz` 保留全部逐单元计数、逐单元 ACF、发放率、指数 τ 和积分 τ。复现时选用与原运行不同的输出目录。
 
+六份基准模拟的原始 C++ 输出、逐单元数据及 MATLAB 基准产物归档于项目私有 Google Drive。归档文件为 `jercog-native-baseline-11603e5.zip`，内附逐文件哈希。已从 Drive 完整回读并核对 SHA-256 `7bd38de14853defc8cb2cc290e82b38b1a8669cdceba2608173fb98886f3dae8`。
+
 ## 反事实与参数敏感性
 
 完成作者条件的生理验收和 MATLAB 回执之后，使用相同拓扑与噪声种子运行配对脉冲和预先登记的四种参数扰动。
