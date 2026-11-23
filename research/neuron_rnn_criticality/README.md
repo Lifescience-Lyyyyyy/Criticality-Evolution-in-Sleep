@@ -102,7 +102,7 @@ python "$A/analyse_bugnon.py" --wake "$CACHE/bugnon-wake-native" \
   --sleep "$CACHE/bugnon-sleep-native" --authors "$BUGNON" --out "$CACHE/bugnon-analysis"
 ```
 
-旧 SLI 启动脚本需要 ASCII 路径。如果 NEST 已安装在含中文的目录，通过 ASCII 软链接加载，并将 `NEST_INSTALL_DIR`、`NEST_DATA_DIR`、`NEST_DOC_DIR`、`NEST_MODULE_PATH`、`LD_LIBRARY_PATH` 与 `PYTHONPATH` 指到别名。每态稳定段的原生尖峰按照原单元 ID、类型和层保存。逐细胞 ACF 和时间尺度写入本地运行目录的 `cortical_neuron_dynamics_40ms.npz`，并在生理回执中记录校验值。Wake 与 Sleep-like 首个稳定 60 s 使用同一组记录单元。 本轮两态分别独立运行，开始正式生理检查以前，两份输出都必须写入完成回执。生理汇总首先核对作者归档的完整会话边界，随后按皮层记录器报告各会话的尖峰数。Sleep-like 的 3–5 s 转换段单列。40 ms 计数从 5 s 开始。主输入使用 23,816 个单元，另固定 500 和 10 单元各三组配对采样。另计算至少 10 个尖峰的单元的 ISI CV，并在作者提供的六个皮层群体内对照中位数。只有三项预登记的生理检查全部通过后，分析才写出该批次的 MATLAB 输入。回执归档同时复核 AR(5) 与 AR(10) 的分段长度、总曝光、均值、方差和前 20 个滞后的观测自相关，并核对拟合设置和下载文件的 SHA-256。
+旧 SLI 启动脚本需要 ASCII 路径。如果 NEST 已安装在含中文的目录，通过 ASCII 软链接加载，并将 `NEST_INSTALL_DIR`、`NEST_DATA_DIR`、`NEST_DOC_DIR`、`NEST_MODULE_PATH`、`LD_LIBRARY_PATH` 与 `PYTHONPATH` 指到别名。每态稳定段的原生尖峰按照原单元 ID、类型和层保存。逐细胞 ACF 和时间尺度写入本地运行目录的 `cortical_neuron_dynamics_40ms.npz`，并在生理回执中记录校验值。Wake 与 Sleep-like 首个稳定 60 s 使用同一组记录单元。 本轮两态分别独立运行，开始正式生理检查以前，两份输出都必须写入完成回执。生理汇总核对执行时的参数树与作者归档，以及所有会话的边界和记录标志。作者在 Sleep-like 的 3–5 s 转换段关闭了记录器，该段单列为缺测。正式的 40 ms 计数从 5 s 开始。主输入使用 23,816 个单元，另固定 500 和 10 单元各三组配对采样。另计算至少 10 个尖峰的单元的 ISI CV，并在作者提供的六个皮层群体内对照中位数。只有三项预登记的生理检查全部通过后，分析才写出该批次的 MATLAB 输入。回执归档同时复核 AR(5) 与 AR(10) 的分段长度、总曝光、均值、方差和前 20 个滞后的观测自相关，并核对拟合设置和下载文件的 SHA-256。
 
 ## 交付
 

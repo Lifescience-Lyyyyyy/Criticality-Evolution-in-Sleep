@@ -153,5 +153,110 @@
         "sleep": 8.093471391213937
       }
     }
+  },
+  "parameter_tree_audit": {
+    "audited_utc": "2026-11-23T03:14:30.465984+00:00",
+    "author_commit": "028ce0aad1b9a9fa002341a43728c2be79bbfc48",
+    "parameter_differences_ignored": [
+      "simulation.params.input_dir",
+      "simulation.params.output_dir"
+    ],
+    "verified_edge_identity": false,
+    "by_condition": {
+      "wake": {
+        "executed_parameter_sha256": "bc8c734fb7882afdb622ffada213147746241450ea1de412dc3ea1358acfc07c",
+        "topology_and_kernel_spec_sha256": "7fbfcac4d2e26260acd16ce8f7bdc540f6ee6d1263e0f0431ab458dd41c381e2",
+        "session_recorded": {
+          "00_init_silent": false,
+          "01_warmup": false,
+          "02_noise": true
+        },
+        "connections_at_initialization": 10775805,
+        "projection_weight_recorders": 0,
+        "global_seed": 99,
+        "vp_initial_seeds": [
+          100,
+          101,
+          102,
+          103,
+          104
+        ],
+        "configured_sleep_transition": []
+      },
+      "sleep": {
+        "executed_parameter_sha256": "e4a82f997be462cacf88826d61d432ae7b5271dabbfc638e3ec1af19c4f84684",
+        "topology_and_kernel_spec_sha256": "7fbfcac4d2e26260acd16ce8f7bdc540f6ee6d1263e0f0431ab458dd41c381e2",
+        "session_recorded": {
+          "00_warmup": false,
+          "01_noise": true,
+          "02_sleep_transition": false,
+          "03_sleep": true
+        },
+        "connections_at_initialization": 10775805,
+        "projection_weight_recorders": 24,
+        "global_seed": 99,
+        "vp_initial_seeds": [
+          100,
+          101,
+          102,
+          103,
+          104
+        ],
+        "configured_sleep_transition": [
+          {
+            "population": "retina_nrn",
+            "mode": "constant",
+            "change": {
+              "rate": 60.0,
+              "amplitude": 0.0
+            }
+          },
+          {
+            "population": "Vp_PC",
+            "mode": "multiplicative",
+            "change": {
+              "g_KL": 1.2,
+              "g_peak_AMPA": 1.875
+            }
+          },
+          {
+            "population": "Vp_BC",
+            "mode": "multiplicative",
+            "change": {
+              "g_KL": 1.2,
+              "g_peak_AMPA": 1.875
+            }
+          },
+          {
+            "population": "Vp_MC",
+            "mode": "multiplicative",
+            "change": {
+              "g_KL": 1.2
+            }
+          },
+          {
+            "population": "Tp_exc",
+            "mode": "multiplicative",
+            "change": {
+              "g_KL": 1.5
+            }
+          },
+          {
+            "population": "Tp_inh",
+            "mode": "multiplicative",
+            "change": {
+              "g_KL": 1.5
+            }
+          },
+          {
+            "population": "Rp_inh",
+            "mode": "multiplicative",
+            "change": {
+              "g_KL": 0.95
+            }
+          }
+        ]
+      }
+    }
   }
 }

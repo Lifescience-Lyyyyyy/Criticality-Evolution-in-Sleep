@@ -1,10 +1,11 @@
 """Small scientific checks for the spike adapter, covariance and surrogate."""
+import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
 import numpy as np
 
-from analyse_bugnon import archive_wave_stats, paired_timescales, phase_spike_counts
+from analyse_bugnon import archive_wave_stats, paired_timescales, parameter_evidence, phase_spike_counts
 from join_fits import verify_fit_input
 from physiology import hmm,merge_short,periods
 from analyse_snn import components, pure_episodes, shifted
@@ -38,6 +39,22 @@ class ScientificChecks(unittest.TestCase):
         self.assertEqual(pc["integrated"]["n_paired"],2)
         self.assertAlmostEqual(pc["integrated"]["change_s_p10_p50_p90"][1],.05)
         self.assertIsNone(results["BC"]["integrated"]["change_s_p10_p50_p90"])
+
+    def test_bugnon_recording_flags_come_from_verified_parameters(self):
+        tree=dict(simulation={"params":{"sessions":["transition","sleep"],"output_dir":"original"}},
+                  session_models={"transition":{"params":{"record":False}},"sleep":{"params":{}}},
+                  network={k:{} for k in ("layers","projection_models","synapse_models","topology")},kernel={})
+        with TemporaryDirectory() as temp:
+            frozen,executed=(Path(temp)/f"{name}.yml" for name in ("frozen","executed"))
+            frozen.write_text(json.dumps(tree))
+            tree["simulation"]["params"]["output_dir"]="local"
+            executed.write_text(json.dumps(tree))
+            result=parameter_evidence(frozen,executed)
+            self.assertEqual(result["session_recorded"],{"00_transition":False,"01_sleep":True})
+            tree["session_models"]["transition"]["params"]["record"]=True
+            executed.write_text(json.dumps(tree))
+            with self.assertRaises(ValueError):
+                parameter_evidence(frozen,executed)
 
     def test_bugnon_sessions_exclude_the_transition_from_stable_counts(self):
         times=np.array([2500,2999.8,3000,4999.8,5000,5000.2,125000])

@@ -2,6 +2,7 @@
 import argparse
 import csv
 import gzip
+from hashlib import sha256
 import json
 from itertools import chain, islice
 from pathlib import Path
@@ -146,6 +147,24 @@ def archive_wave_stats(reference,start,stop,thresholds):
                 candidate_wave_median_s=float(np.median(waves[:,1])/1000) if len(waves) else None)
 
 
+def parameter_evidence(author_path,runtime_path):
+    author=yaml.full_load(author_path.read_text())
+    runtime=yaml.full_load(runtime_path.read_text())
+    for tree in (author,runtime):
+        for key in ("input_dir","output_dir"):
+            tree["simulation"]["params"].pop(key,None)
+    if author!=runtime:
+        raise ValueError(f"Executed parameter tree differs from the author archive: {runtime_path}")
+    stages=runtime["simulation"]["params"]["sessions"]
+    recorded={f"{i:02d}_{name}":runtime["session_models"][name]["params"].get("record",True)
+              for i,name in enumerate(stages)}
+    topology={k:runtime["network"][k] for k in ("layers","projection_models","synapse_models","topology")}
+    topology["kernel"]=runtime["kernel"]
+    normalized=json.dumps(topology,sort_keys=True,separators=(",",":")).encode()
+    return dict(executed_parameter_sha256=digest(runtime_path),
+                topology_and_kernel_spec_sha256=sha256(normalized).hexdigest(),session_recorded=recorded)
+
+
 def phase_spike_counts(times,sessions):
     return {name:int(np.count_nonzero((times>=start)&(times<stop)))
             for name,(start,stop) in sessions.items()}
@@ -183,11 +202,15 @@ def audit(root,authors,condition,thresholds):
     author_dir=authors/"simulations"/CASES[condition]
     param=author_dir/"parameter_tree.yml"
     assert rec["parameter_source"]==str(param.relative_to(authors)) and digest(param)==rec["parameter_sha256"]
+    evidence=parameter_evidence(param,root/"parameter_tree.yml")
+    recording=evidence["session_recorded"]
     times_path,=root.rglob("session_times.yml")
     sessions=yaml.full_load(times_path.read_text())
     author_sessions=yaml.full_load((author_dir/"session_times.yml").read_text())
-    if sessions!=author_sessions:
+    if sessions!=author_sessions or sessions.keys()!=recording.keys():
         raise ValueError(f"Session boundaries differ from the {condition} author archive: {sessions}")
+    if not recording[STABLE[condition]]:
+        raise ValueError(f"The {condition} stable session was not recorded")
     start,stop=sessions[STABLE[condition]]
     reference=author_dir/"analysis"
     with (reference/"df_rate_stats.csv").open() as f:
@@ -216,7 +239,9 @@ def audit(root,authors,condition,thresholds):
             quantiles=np.quantile(rates,[.25,.5,.75]).tolist(),
             reference_quantiles=[float(ref[c]) for c in ("25%","50%","75%")],
             zero_rate_fraction=float(np.mean(rates==0)),
-            spike_counts_by_session=by_session,spikes_outside_sessions=len(times)-sum(by_session.values())))
+            spike_counts_by_session={name:n if recording[name] else None for name,n in by_session.items()},
+            spikes_in_unrecorded_intervals=sum(n for name,n in by_session.items() if not recording[name]),
+            spikes_outside_sessions=len(times)-sum(by_session.values())))
         corpus.append((ids,typ,r["layer_name"],a[use,1]-start,which[use]))
     assert stats and {x["type"] for x in stats}=={"PC","BC","MC"}
     id_all=np.concatenate([x[0] for x in corpus])
@@ -280,7 +305,7 @@ def audit(root,authors,condition,thresholds):
     state=merge_short(state,5)
     phases=episode_stats(state,q,0)
     ratios=[x["mean_rate"]/x["reference_mean"] for x in stats if x["reference_mean"]>0]
-    rec.update(session_intervals_ms=sessions,stable_session=STABLE[condition],
+    rec.update(**evidence,session_intervals_ms=sessions,stable_session=STABLE[condition],
                duration_seconds=(stop-start)/1000,burn_in_seconds=start/1000,
                neuron_count_recorded=len(id_all),neuron_types=by_type,
                spike_record_sha256=digest(receipt_ref),spike_count_sha256=digest(count_path),
@@ -327,6 +352,10 @@ def main():
     timescales={}
     for label in ("wake","sleep"):
         rows[label],series[label],timescales[label]=audit(getattr(a,label),a.authors,label,thresholds)
+    wake_receipt,sleep_receipt=(rows[k]["receipt"] for k in ("wake","sleep"))
+    for field in ("global_seed","vp_seeds","topology_and_kernel_spec_sha256"):
+        if wake_receipt[field]!=sleep_receipt[field]:
+            raise ValueError(f"The two Bugnon conditions differ in {field}")
     with np.load(a.wake/"cortical_spike_record.npz") as wake, np.load(a.sleep/"cortical_spike_record.npz") as sleep:
         ids,types=wake["neuron_ids"],wake["neuron_types"]
         for field in ("neuron_ids","neuron_types","neuron_layers"):
