@@ -184,6 +184,18 @@ def audit(root,authors,condition):
                 median_absolute_log_rate_error=float(np.median(np.abs(np.log(ratios)))),rate_ratios=ratios),pop
 
 
+def fixed_subsamples(types):
+    """Keep the same cell indices and subset seeds in both author conditions."""
+    for seed in (2401,2402,2403):
+        rng=np.random.default_rng(seed)
+        masks=[(types=="PC",8),(types!="PC",2)]
+        large=[(types==kind,n) for kind,n in (("PC",395),("BC",79),("MC",26))]
+        for n,groups in ((10,masks),(500,large)):
+            cols=np.concatenate([rng.choice(np.flatnonzero(mask),size,replace=False)
+                                 for mask,size in groups])
+            yield seed,n,np.sort(cols)
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--wake",type=Path,required=True)
@@ -197,6 +209,7 @@ def main():
     for label in ("wake","sleep"):
         rows[label],series[label]=audit(getattr(a,label),a.authors,label)
     with np.load(a.wake/"cortical_spike_record.npz") as wake, np.load(a.sleep/"cortical_spike_record.npz") as sleep:
+        ids,types=wake["neuron_ids"],wake["neuron_types"]
         for field in ("neuron_ids","neuron_types","neuron_layers"):
             np.testing.assert_array_equal(wake[field],sleep[field])
     overlap=set(rows["wake"]["voltage"])&set(rows["sleep"]["voltage"])
@@ -212,11 +225,21 @@ def main():
     if not all(gates.values()):
         raise SystemExit("Author-model data retained. No Sooter stage until its gate passes.")
     cases=[]
+    subsets=list(fixed_subsamples(types))
     for cond,pop in series.items():
         m=rows[cond]["receipt"]
-        entry(cases,"bugnon_"+cond,cond,cond,"bugnon_original",[pop],model="BugnonEtAl2024",
-              n_units=m["neuron_count_recorded"],connectivity_seed=m["global_seed"],noise_seeds=m["vp_seeds"],
-              provenance_sha256=m["spike_record_sha256"])
+        run=dict(model="BugnonEtAl2024",connectivity_seed=m["global_seed"],noise_seeds=m["vp_seeds"],
+                 provenance_sha256=m["spike_record_sha256"])
+        entry(cases,"bugnon_"+cond,cond,cond,"bugnon_original",[pop],
+              n_units=m["neuron_count_recorded"],**run)
+        counts=np.load(getattr(a,cond)/"cortical_counts_40ms.npy",mmap_mode="r",allow_pickle=False)
+        for seed,n,cols in subsets:
+            name=f"bugnon_{cond}_n{n}_s{seed}"
+            selection=dict(sample_seed=seed,sampled_gids=ids[cols].tolist(),
+                           population_counts={kind:int(np.sum(types[cols]==kind))
+                                              for kind in ("PC","BC","MC")})
+            entry(cases,name,cond,name,"bugnon_subsample",[counts[:,cols].sum(1)],
+                  n_units=n,**selection,**run)
     raw=json.dumps(dict(physiology_pass=gates,cases=cases),separators=(",",":")).encode()
     (a.out/"bugnon_counts.json.gz").write_bytes(gzip.compress(raw,mtime=0))
 

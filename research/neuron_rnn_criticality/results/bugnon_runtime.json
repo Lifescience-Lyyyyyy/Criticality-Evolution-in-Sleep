@@ -1,6 +1,6 @@
 {
   "status": "running_at_checkpoint",
-  "checkpoint_utc": "2026-11-23T02:16:28.154016+00:00",
+  "checkpoint_utc": "2026-11-23T02:30:26.450172+00:00",
   "nest_version": "2.20.0",
   "denest_version": "1.0.1",
   "python_version": "3.8.20",
@@ -16,8 +16,6 @@
   "integration_step_ms": 0.2,
   "threads": 5,
   "projected_populations": 189,
-  "wake_network_time_ms": 2420.8,
-  "current_realtime_factor": 0.0092,
   "d2_ready": false,
   "recorded_cortical_population_sizes": {
     "spike_detector_Vp_L23_BC_P00_Vp_BC": 625,
@@ -35,5 +33,78 @@
     "spike_detector_Vp_L56_PC_P00_Vp_PC": 3136,
     "spike_detector_Vp_L56_PC_P90_Vp_PC": 3136
   },
-  "reference_layer_rate_sample_checked": true
+  "reference_layer_rate_sample_checked": true,
+  "conditions": {
+    "wake": {
+      "network_nodes_including_recorders": 38416,
+      "session": "02_noise",
+      "network_time_ms": 7378.4,
+      "realtime_factor": 0.0065
+    },
+    "sleep": {
+      "network_nodes_including_recorders": 38536,
+      "session": "00_warmup",
+      "network_time_ms": 917.8,
+      "realtime_factor": 0.0034
+    }
+  },
+  "matching_cortical_gids": {
+    "spike_detector_Vp_L23_BC_P00_Vp_BC": {
+      "count": 625,
+      "ids_sha256": "e931c9c1defbef5db7ce507f727dcec487e57f7a5d10d8526f7cb0d509d48819"
+    },
+    "spike_detector_Vp_L23_BC_P90_Vp_BC": {
+      "count": 625,
+      "ids_sha256": "abb47bc8b928d6015dac7e2d61ae3c6eb0e374374b24145ceda3164d84eaf763"
+    },
+    "spike_detector_Vp_L23_PC_P00_Vp_PC": {
+      "count": 3136,
+      "ids_sha256": "3cd5576e2dbb962f539b66d2b16c6a19949c5c167bffafba9fd9e28e39de30c0"
+    },
+    "spike_detector_Vp_L23_PC_P90_Vp_PC": {
+      "count": 3136,
+      "ids_sha256": "23a1c10b304e0ba451d73ed93ebb92e9bc76c701b29b9730025cf5ed15cc6093"
+    },
+    "spike_detector_Vp_L4_BC_P00_Vp_BC": {
+      "count": 625,
+      "ids_sha256": "21bc6b676944fc7beac78018893194e3a189da48258d6ae72ed7fa420eecadfa"
+    },
+    "spike_detector_Vp_L4_BC_P90_Vp_BC": {
+      "count": 625,
+      "ids_sha256": "2fd5bbdbd0a5d432d09b2516b7e5e8b5948569d8c51a0621e368ab153cd7456a"
+    },
+    "spike_detector_Vp_L4_PC_P00_Vp_PC": {
+      "count": 3136,
+      "ids_sha256": "0aa7e9d544a47a1f615819391742c8ad96e0ed31c6ba906c462eef92ebd75299"
+    },
+    "spike_detector_Vp_L4_PC_P90_Vp_PC": {
+      "count": 3136,
+      "ids_sha256": "9f782bb0c70fa15413a81672586abce26e2ab1268fd57c92d1971b1289122993"
+    },
+    "spike_detector_Vp_L56_BC_P00_Vp_BC": {
+      "count": 625,
+      "ids_sha256": "90707ceb0a9a495a5869aecd05d3e63b1e085a8bff9251daa9515a7b3b92d7c0"
+    },
+    "spike_detector_Vp_L56_BC_P90_Vp_BC": {
+      "count": 625,
+      "ids_sha256": "abfd2904c7d1d9f652fd6ad67cd5b83f5cc3763db8c0339efeb51aabac24715f"
+    },
+    "spike_detector_Vp_L56_MC_P00_Vp_MC": {
+      "count": 625,
+      "ids_sha256": "bb574593ca58d2976bbb705fa4cff6c15249ce8bcc2ad4b936f1660698f95786"
+    },
+    "spike_detector_Vp_L56_MC_P90_Vp_MC": {
+      "count": 625,
+      "ids_sha256": "a279068925698767557a098f1d7cd5208ccf40ac4b154023d0f90d0f96654925"
+    },
+    "spike_detector_Vp_L56_PC_P00_Vp_PC": {
+      "count": 3136,
+      "ids_sha256": "4a83eb45f919384beda64c4004732983ba9f29fe91fe50f264f3df148aa541df"
+    },
+    "spike_detector_Vp_L56_PC_P90_Vp_PC": {
+      "count": 3136,
+      "ids_sha256": "6a5a34b3f99ac0b63c1407660f8c4a3bb5e5e7e5933ae7a3f7a82be2b278b79a"
+    }
+  },
+  "execution": "Concurrent native conditions in separate processes with independent output directories."
 }

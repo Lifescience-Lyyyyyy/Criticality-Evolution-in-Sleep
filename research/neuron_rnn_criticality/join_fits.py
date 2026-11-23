@@ -58,12 +58,15 @@ def read_artifact(path,receipt):
 
 def paired(records):
     by=defaultdict(dict)
+    bugnon=defaultdict(dict)
     for row in records:
         key=row["id"]
         if row["category"]=="original":
             by[row["connectivity_seed"]][row["context"]]=row["fit"]["d2"]
         elif row["category"]=="within_episode_shift":
             by[(row["connectivity_seed"],row["context"])].setdefault("shift",[]).append(row["fit"]["d2"])
+        elif row["category"] in ("bugnon_original","bugnon_subsample"):
+            bugnon[(row["n_units"],row.get("sample_seed"))][row["context"]]=row
         elif row["category"]=="empirical":
             by[(row["animal"],row["session"])][row["state"]]=row["fit"]["d2"]
     model=[]
@@ -85,8 +88,22 @@ def paired(records):
             a,b=v.get("Wake"),v.get("NREM")
             if a is not None and b is not None:
                 observed[key[0]].append(b-a)
-    return dict(author_conditions=model,within_episode_shift=surrogate,
+    result=dict(author_conditions=model,within_episode_shift=surrogate,
                 empirical_nrem_minus_wake={k:float(np.mean(y)) for k,y in observed.items()})
+    if bugnon:
+        pairs=[]
+        for (n,seed),conditions in bugnon.items():
+            wake,sleep=conditions["wake"],conditions["sleep"]
+            for field in ("connectivity_seed","noise_seeds","sampled_gids","duration_seconds"):
+                if wake.get(field)!=sleep.get(field):
+                    raise ValueError(f"Bugnon pair mismatch for {field} at N={n}, subset seed {seed}")
+            deltas={}
+            for key in ("fit","ar10"):
+                w,s=wake[key]["d2"],sleep[key]["d2"]
+                deltas[key]=s-w if w is not None and s is not None else None
+            pairs.append(dict(n_units=n,sample_seed=seed,delta_sleep_minus_wake=deltas))
+        result["bugnon_sleep_minus_wake"]=pairs
+    return result
 
 
 def main():

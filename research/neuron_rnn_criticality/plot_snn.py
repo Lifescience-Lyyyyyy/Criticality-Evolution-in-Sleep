@@ -278,6 +278,51 @@ def parameter_plot(data, baseline, estimates, cases, pulses, out):
     save(fig,out,8,"parameter_sensitivity")
 
 
+def bugnon_plot(physiology, fits, out):
+    if not all(physiology["physiology_pass"].values()):
+        raise ValueError("Bugnon physiology gate did not pass")
+    conditions=physiology["conditions"]
+    labels={"wake":"Wake","sleep":"Sleep-like"}
+    colors={"wake":"#007884","sleep":"#8C4A1C"}
+    original={r["context"]:r for r in fits["records"] if r["category"]=="bugnon_original"}
+    if original.keys()!=labels.keys():
+        raise ValueError("Both original Bugnon conditions are required")
+    matched_labels=sorted(set(conditions["wake"]["voltage"])&set(conditions["sleep"]["voltage"]))
+    fig,(rates,power,acf,distance)=grid(2,2,(9.3,6.0))
+    for state,name in labels.items():
+        q=conditions[state]
+        color=colors[state]
+        groups=q["populations"]
+        rates.scatter([r["reference_mean"] for r in groups],[r["mean_rate"] for r in groups],
+                      color=color,s=26,label=name,alpha=.8)
+        rows=[q["voltage"][key] for key in matched_labels]
+        frequency=np.asarray(rows[0]["f"])
+        keep=(frequency>=.25)&(frequency<=15)
+        lineband(power,frequency[keep],[np.asarray(r["psd"])[keep] for r in rows],color,name)
+        rho=q["dynamics"]["acf"][:76]
+        acf.plot(np.arange(len(rho))*.04,rho,color=color,label=name)
+        y=[original[state][order]["d2"] for order in ("fit","ar10")]
+        distance.plot([0,1],y,marker="o",color=color,label=name)
+    bounds=max(rates.get_xlim()[1],rates.get_ylim()[1])
+    rates.plot([0,bounds],[0,bounds],ls=":",c="#607580",lw=1)
+    rates.set(title="Cortical rates by recorded population",xlabel="Author archive rate (Hz/cell)",
+              ylabel="Replayed rate (Hz/cell)",xlim=(0,bounds),ylim=(0,bounds))
+    power.axvspan(.5,2,color="#D3E7DB",alpha=.4)
+    power.set(title="Cortical membrane voltage",xscale="log",yscale="log",xlabel="Frequency (Hz)",
+              ylabel="Power spectral density (mV²/Hz)")
+    acf.set(title="Population temporal persistence",xlabel="Lag (s)",ylabel="Population normalized ACF")
+    acf.axhline(0,c="#87959E",lw=.7)
+    distance.set(title="Critical-distance order sensitivity",ylabel="d₂ (bits/s)",xlim=(-.2,1.2),
+                 xticks=[0,1],xticklabels=["AR(5)","AR(10)"])
+    rates.legend(frameon=False,loc="upper left")
+    distance.legend(frameon=False)
+    w,s=(conditions[key]["receipt"] for key in labels)
+    seed=w["global_seed"]
+    scope(fig,f"Bugnon author conditions · {w['neuron_count_recorded']:,} matched cortical cells · NEST global seed {seed}\n"
+          f"Stable exposure {w['duration_seconds']:g}/{s['duration_seconds']:g} s · ACF and d₂ from matched 60 s · voltage bands span recording groups")
+    save(fig,out,5,"bugnon_author_conditions")
+
+
 def main():
     global PREVIEWS
     p=argparse.ArgumentParser(description=__doc__)
@@ -295,6 +340,8 @@ def main():
     plot(read(r/"analysis.json"),read(r/"physiology.json"),f,a.out,pulses)
     if (r/"empirical_sensitivity.json").exists():
         empirical_plot(f,read(r/"empirical_sensitivity.json"),a.out)
+    if (r/"bugnon_physiology.json").exists() and (r/"bugnon_fits.json").exists():
+        bugnon_plot(read(r/"bugnon_physiology.json"),read(r/"bugnon_fits.json"),a.out)
     if (r/"parameter_pulses.json").exists():
         parameter_plot(read(r/"analysis.json"),f,read(r/"perturb_fits.json"),
                        read(r/"perturbations.json"),read(r/"parameter_pulses.json"),a.out)
