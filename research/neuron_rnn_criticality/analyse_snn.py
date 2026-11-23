@@ -249,7 +249,10 @@ def pack_input(bundle_path,dst):
     with gzip.open(bundle_path,"rt",encoding="utf-8") as f:
         doc=json.load(f)
     cases=doc["cases"]
-    assert doc["physiology_pass"] and len(set(z["id"] for z in cases))==len(cases)
+    gates=doc["physiology_pass"]
+    if not gates or any(passed is not True for passed in gates.values()):
+        raise ValueError(f"MATLAB input requires the passed gates for the included cases: {gates}")
+    assert len(set(z["id"] for z in cases))==len(cases)
     data=[({k:v for k,v in z.items() if k!="counts"},[np.asarray(c,np.float64) for c in z["counts"]])
           for z in cases]
     export(dst,[("snn_matlab",BIN,5,10,data)])
@@ -276,7 +279,8 @@ def main():
     emp=empirical(cases)
     a.out.mkdir(parents=True,exist_ok=True)
     write(a.out/"analysis.json",dict(runs=rs,empirical=emp))
-    raw=json.dumps(dict(physiology_pass=phys["passes"],cases=cases),separators=(",",":")).encode()
+    gates={condition:True for condition, passed in phys["passes"].items() if passed}
+    raw=json.dumps(dict(physiology_pass=gates,cases=cases),separators=(",",":")).encode()
     (a.out/"matlab_counts.json.gz").write_bytes(gzip.compress(raw,mtime=0))
     print("Official MATLAB input rows",len(cases))
 

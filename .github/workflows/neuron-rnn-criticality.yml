@@ -5,7 +5,7 @@ on:
     inputs:
       batch:
         type: choice
-        options: [baseline, empirical, perturb, bugnon]
+        options: [baseline, empirical, perturb, rate, bugnon]
         default: baseline
   push:
     tags: ['matlab-neuron-rnn-*']
@@ -42,6 +42,7 @@ jobs:
           case "$GITHUB_REF_NAME" in
             *-empirical-*) selected=empirical ;;
             *-perturb-*) selected=perturb ;;
+            *-rate-*) selected=rate ;;
             *-bugnon-*) selected=bugnon ;;
           esac
           bundle=matlab_counts
