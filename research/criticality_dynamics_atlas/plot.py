@@ -356,15 +356,29 @@ def main():
     axs[3].set(xticks=range(4),xticklabels=["20","40","80","200"],xlabel="Native bin (ms)",ylabel="Integrated τ (s)")
     points(axs[4],gs[example],"d2","d2_AR10",True)
     axs[4].set(xlabel="40 ms AR(5) d₂",ylabel="40 ms AR(10) d₂",xscale="log",yscale="log")
-    q=[z for z in sens if z["kind"]=="multiscale" and z["meta"]["dandiset"]==example[1]
-       and z["meta"]["region"]==example[2] and z["meta"]["context"]==example[3]]
-    for i,width in enumerate((.04,.08,.20)):
-        items0=gr[example] if width==.04 else [z for z in q if z["bin_seconds"]==width]
-        for j,s in enumerate(STATES[:2]):
-            yy=values([z for z in items0 if z["meta"]["state"]==s],"d2")
-            if yy:
-                axs[5].scatter(np.full(len(yy),i+(j-.5)*.22),yy,s=12,c=COL[s],alpha=.54)
-    axs[5].set(xticks=range(3),xticklabels=["40","80","200"],xlabel="Archive-derived bin (ms)",ylabel="AR(5) d₂ (bits/s)",yscale="log")
+    if (r/"native_d2.json").is_file():
+        rows=read(r,"native_d2.json")["rows"]
+        native=[z for z in rows if group_id(z)==anchor]
+        for i,width in enumerate((20,40,80,200)):
+            for j,state in enumerate(STATES):
+                q=[z for z in native if z["width_ms"]==width and z["meta"]["state"]==state]
+                vals=animal_rows(q,"d2")
+                if vals:
+                    pos=i+(j-1)*.22
+                    axs[5].scatter(np.full(len(vals),pos),vals,s=12,c=COL[state],alpha=.52)
+                    axs[5].plot(pos,np.median(vals),marker="D",ms=5,c=COL[state])
+        axs[5].set(xticks=range(4),xticklabels=["20","40","80","200"],xlabel="Native bin (ms)",
+                   ylabel="AR(5) d₂ (bits/s)",yscale="log",title=tag(anchor))
+    else:
+        q=[z for z in sens if z["kind"]=="multiscale" and z["meta"]["dandiset"]==example[1]
+           and z["meta"]["region"]==example[2] and z["meta"]["context"]==example[3]]
+        for i,width in enumerate((.04,.08,.20)):
+            items0=gr[example] if width==.04 else [z for z in q if z["bin_seconds"]==width]
+            for j,s in enumerate(STATES[:2]):
+                yy=values([z for z in items0 if z["meta"]["state"]==s],"d2")
+                if yy:
+                    axs[5].scatter(np.full(len(yy),i+(j-.5)*.22),yy,s=12,c=COL[s],alpha=.54)
+        axs[5].set(xticks=range(3),xticklabels=["40","80","200"],xlabel="Archive-derived bin (ms)",ylabel="AR(5) d₂ (bits/s)",yscale="log")
     save(f,a.out,8,"multiscale")
 
     f,axs=layout(1,3,(13.5,6.5))

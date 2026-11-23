@@ -34,6 +34,14 @@ class ScientificChecks(unittest.TestCase):
         self.assertAlmostEqual(pr(np.eye(7)),7)
         self.assertAlmostEqual(pr(np.ones((7,7))),1)
 
+    def test_yule_walker_moments_keep_boundaries(self):
+        from native_d2 import moments
+        blocks = [np.array([1, 2, 3, 4]), np.array([10, 11, 12])]
+        sample = np.concatenate(blocks)
+        z = [(b - sample.mean()) / sample.std(ddof=1) for b in blocks]
+        expected = (sum(a * b for row in z for a, b in zip(row[:-1], row[1:]))) / 5
+        self.assertAlmostEqual(moments(blocks, 1)[0], expected)
+
     def test_separate_windows_and_time(self):
         a=np.arange(1510)
         b=np.arange(1515)+100000

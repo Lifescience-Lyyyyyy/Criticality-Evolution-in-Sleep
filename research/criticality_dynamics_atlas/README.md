@@ -31,15 +31,29 @@ python "$A/native.py" plan --out "$CACHE/plan-all.json"
 
    ```sh
    python "$A/summarize.py" "$CACHE" --artifact "$CACHE/actions-45037956569.zip" \
-     --receipt "$A/results/matlab_receipt.json" --out "$A/results"
+     --receipt "$A/results/matlab_receipt.json" --native-fits "$A/results/native_d2.json" \
+     --out "$A/results"
    python "$A/plot.py"
    python scripts/atlas/validate_atlas_data.py
    ```
+
+## 原生分箱及 PAG 三态复算
+
+使用相同的 NWB／PAG 连续窗口生成 20、40、80、200 ms 的 Yule–Walker 输入。每个窗口只导出低阶自协方差、来源校验值和窗口元数据。MATLAB 沿用固定工具箱的目标函数和优化器。群体计数时序和逐单元矩阵保存在缓存。
+
+```sh
+python "$A/native_d2.py" prepare "$CACHE" "$BRAINSTEM_CACHE" "$CACHE/native_d2_input.json"
+python "$A/native_d2.py" summarize "$A/native_d2_input.json" "$CACHE/actions-45096650326.zip" \
+  "$CACHE/receipt-45096650326.json" "$A/results/native_d2.json"
+```
+
+[运行 45096650326](https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/45096650326) 由 `matlab-dynamics-atlas-native-*` 标签触发。产物 ID、摘要和 114 条历史拟合的重放误差见结果的 `receipt` 字段。复算通过后，`summarize.py` 将 PAG 同窗 40 ms 的 d₂ 合入主表。NWB 的历史 40 ms 值继续用原来的拟合来源。
 
 ## 数据文件
 
 | 文件 | 内容 |
 |---|---|
+| [native_d2.json](results/native_d2.json) | 原生同窗四箱宽拟合、求解器质控、动物配对区间及运行回执 |
 | [atlas.csv](results/atlas.csv) | 数据层、动物、会话、区域、状态、曝光、细胞数和主指标。空值表示缺失 |
 | [inventory.json.gz](results/inventory.json.gz) | 每项来源、注释、原计数与可进行的分析 |
 | [observations.json.gz](results/observations.json.gz) | 会话统计、单位指标、谱／ACF、AR 模态、采样质控和窗口来源 |
@@ -69,4 +83,4 @@ python "$A/native.py" plan --out "$CACHE/plan-all.json"
 11. [关联区间及分母](figures/11_association_matrix.pdf)
 12. [七个假说的判断与证据](figures/12_hypothesis_evaluation.pdf)
 
-图 1 的右侧数字以 Wake／NREM／REM 的顺序给出有效动物数，并用状态颜色标出。图 2 上两幅以小提琴展示可估计单元，菱形为动物群体 τ，下面的配对差为动物级估计。图 6 的实线为真实观测，虚线为逐细胞移位。图 9 左两幅的暖／冷色对应配对正／非正效应比例，数字为独立动物数，第三幅仅用同录同窗。图 11 的灰／青／橙色分别对应 A／B／C 类统计依赖。图 10 全部点来自实际运行的有限样本对照。
+图 1 的右侧数字以 Wake／NREM／REM 的顺序给出有效动物数，并用状态颜色标出。图 2 上两幅以小提琴展示可估计单元，菱形为动物群体 τ，下面的配对差为动物级估计。图 6 的实线为真实观测，虚线为逐细胞移位。图 8F 使用同一批 PoSub 三态窗口，圆点为动物，菱形为中位数。图 9 左两幅的暖／冷色对应配对正／非正效应比例，数字为独立动物数，第三幅仅用同录同窗。图 11 的灰／青／橙色分别对应 A／B／C 类统计依赖。图 10 全部点来自实际运行的有限样本对照。

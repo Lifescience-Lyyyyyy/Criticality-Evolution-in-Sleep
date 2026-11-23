@@ -370,6 +370,7 @@ def main():
     p.add_argument("--out",type=Path,required=True)
     p.add_argument("--artifact",type=Path,required=True)
     p.add_argument("--receipt",type=Path,required=True)
+    p.add_argument("--native-fits",type=Path)
     a=p.parse_args()
     a.out.mkdir(parents=True,exist_ok=True)
     fits,receipt=read_fits(a.artifact,read(a.receipt))
@@ -385,6 +386,22 @@ def main():
             assert all(local[b["name"]]["records"]==b["n"] for b in receipt["batches"])
 
     native=read(a.cache/"native.json") if (a.cache/"native.json").exists() else []
+    if a.native_fits:
+        fitted = {key(r["meta"]): r for r in read(a.native_fits)["rows"]
+                  if r["layer"] == "PAG_1ms" and r["width_ms"] == 40}
+        for r in native:
+            if r["layer"] != "PAG_1ms":
+                continue
+            f = fitted.pop(key(r["meta"]))
+            np.testing.assert_allclose(f["meta"]["intervals_s"], r["meta"]["intervals_s"],
+                                       rtol=0, atol=6e-9)
+            assert f["fit"]["duration"] == r["duration"] and f["units"] == r["units"]
+            assert f["source_sha256"] == r["raw_receipt"]["fixture_sha256"]
+            modes = ar_modes(f["fit"]["ar_coefficients"], .04) if f["d2"] is not None else []
+            r.update(d2=f["d2"], d2_AR10=f["d2_alt"], modes=modes,
+                     tau_AR_longest=modes[0]["tau"] if modes else None,
+                     fit=f["fit"], alternate=f["alternate"])
+        assert not fitted
     for group in (unit,sens,theory):
         for r in group:
             r.update(fits.pop(r["id"]))
