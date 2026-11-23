@@ -8,6 +8,7 @@ from itertools import chain, islice
 from pathlib import Path
 
 import numpy as np
+from scipy.ndimage import median_filter
 from scipy.signal import butter, find_peaks, sosfiltfilt, welch
 import yaml
 
@@ -55,30 +56,79 @@ def isi_cv(times, cells, n):
                      out=np.full(n,np.nan),where=(counts>=9)&(mu>0))
 
 
-def lfp_statistics(ampa,gaba):
+def lfp_proxy(ampa,gaba):
     # 10 ms recorded samples. Orient the current proxy like the authors' LFP.
     samples=np.arange(len(ampa))
     delayed=np.interp(samples-.6,samples,ampa)
-    lfp=1.65*gaba[1:]-delayed[1:]
-    f,p=welch(lfp,fs=100,nperseg=800)
-    slow=(f>=.5)&(f<=2)
+    return 1.65*gaba[1:]-delayed[1:]
+
+
+def positive_waves(lfp):
     filtered=sosfiltfilt(butter(4,[.5,4],btype="bandpass",fs=100,output="sos"),lfp)
     troughs=find_peaks(-filtered,height=0)[0]
-    durations=[]
+    waves=[]
     for a,b in zip(troughs[:-1],troughs[1:]):
-        if np.max(filtered[a:b+1])>0:
-            durations.append((b-a)*.01)
+        peak=a+np.argmax(filtered[a:b+1])
+        if filtered[peak]>0:
+            waves.append((int(a),int(peak),int(b),float(filtered[peak])))
+    return waves
+
+
+def lfp_statistics(ampa,gaba):
+    lfp=lfp_proxy(ampa,gaba)
+    f,p=welch(lfp,fs=100,nperseg=800)
+    slow=(f>=.5)&(f<=2)
+    durations=[(b-a)*.01 for a,_,b,_ in positive_waves(lfp)]
     return dict(band_power=float(p[slow].sum()*(f[1]-f[0])),f=f.tolist(),psd=p.tolist(),
                 candidate_waves=len(durations),
                 candidate_wave_median_s=float(np.median(durations)) if durations else None)
 
 
-def cortical_vm(root,t0,t1,up=None):
+def transition_crossings(voltage,peak):
+    """Last downward and first upward halfway crossings within a single wave."""
+    finite=np.all(np.isfinite(voltage),axis=0)
+    v=median_filter(voltage[:,finite],size=(3,1),mode="nearest")
+    first,low,last=v[0],v[peak],v[-1]
+    down,up=(first+low)/2,(last+low)/2
+    down_steps=(v[:peak]>=down)&(v[1:peak+1]<down)
+    up_steps=(v[peak:-1]<=up)&(v[peak+1:]>up)
+    use=(first>low)&(last>low)&down_steps.any(0)&up_steps.any(0)
+    down_index=peak-np.argmax(down_steps[:,use][::-1],axis=0)
+    up_index=peak+1+np.argmax(up_steps[:,use],axis=0)
+    return down_index,up_index
+
+
+def local_transition_synchrony(currents,coverage,traces,gids,t0):
+    if len(traces)!=2 or not np.any(coverage):
+        return {"status":"missing_L4_pyramidal_recordings"}
+    ok=coverage>0
+    means=[np.interp(np.arange(len(x)),np.flatnonzero(ok),x[ok]/coverage[ok]) for x in currents]
+    voltage=np.concatenate(traces,axis=1)[1:]
+    waves=positive_waves(lfp_proxy(*means))
+    selected=sorted(sorted(waves,key=lambda row:-row[3])[:(len(waves)+1)//2])
+    rows=[]
+    for a,p,b,amp in selected:
+        down,up=transition_crossings(voltage[a:b+1],p-a)
+        n=len(down)
+        rows.append(dict(peak_time_ms=t0+(p+1)*10,lfp_peak=amp,n_paired_cells=n,
+                         up_to_down_sd_ms=float(down.std(ddof=1)*10) if n>1 else None,
+                         down_to_up_sd_ms=float(up.std(ddof=1)*10) if n>1 else None))
+    both=[x["down_to_up_sd_ms"]-x["up_to_down_sd_ms"] for x in rows if x["n_paired_cells"]>1]
+    return dict(status="measured" if both else "no_valid_paired_events",selected_neuron_ids=gids,
+                sampling_ms=10,unthresholded_candidates=len(waves),selected_events=rows,
+                n_valid_paired_waves=len(both),
+                paired_sd_change_ms_p25_p50_p75=np.percentile(both,[25,50,75]).tolist() if both else None)
+
+
+def cortical_vm(root,t0,t1,up=None,local=False):
     # Mean Vm by recorder plus a global pyramidal-cell current proxy.
     out={}
     nbins=round((t1-t0)/10)
     currents=np.zeros((2,nbins))
     coverage=np.zeros(nbins)
+    local_currents=np.zeros((2,nbins))
+    local_coverage=np.zeros(nbins)
+    local_traces,local_gids=[],[]
     total_pc=valid_pc=0
     for r in metadata(root,"multimeter"):
         cols=r["colnames"]
@@ -89,6 +139,15 @@ def cortical_vm(root,t0,t1,up=None):
         cols_read=(1,cols.index("V_m"))
         if is_pc:
             cols_read+=tuple(cols.index(k) for k in ("g_AMPA","g_GABA_A"))
+        local_group=local and is_pc and r["layer_name"].startswith("Vp_L4_")
+        if local_group:
+            nx,ny=r["layer_shape"]
+            gids=[gid for gid,(x,y,_) in sorted(r["locations"].items())
+                  if abs((x+.5)/nx-.5)<.05 and abs((y+.5)/ny-.5)<.05]
+            lookup=np.full(max(r["gids"])+1,-1,dtype=int)
+            lookup[gids]=np.arange(len(gids))
+            trace=np.full((nbins,len(gids)),np.nan,dtype=np.float32)
+            cols_read+=(cols.index("gid"),)
         sums=np.zeros(nbins)
         counts=np.zeros(nbins)
         for file in source_files(root,r):
@@ -104,9 +163,21 @@ def cortical_vm(root,t0,t1,up=None):
                     counts+=count
                     if is_pc:
                         # Vp_PC inherits E_AMPA=0 and E_GABA_A=-70 mV in both conditions.
-                        currents[0]+=np.bincount(j,weights=selected[:,2]*(-vm),minlength=nbins)
-                        currents[1]+=np.bincount(j,weights=selected[:,3]*(-70-vm),minlength=nbins)
+                        ampa,gaba=selected[:,2]*(-vm),selected[:,3]*(-70-vm)
+                        currents[0]+=np.bincount(j,weights=ampa,minlength=nbins)
+                        currents[1]+=np.bincount(j,weights=gaba,minlength=nbins)
                         coverage+=count
+                    if local_group:
+                        index=lookup[selected[:,-1].astype(int)]
+                        inside=index>=0
+                        bins=j[inside]
+                        trace[bins,index[inside]]=vm[inside]
+                        local_currents[0]+=np.bincount(bins,weights=ampa[inside],minlength=nbins)
+                        local_currents[1]+=np.bincount(bins,weights=gaba[inside],minlength=nbins)
+                        local_coverage+=np.bincount(bins,minlength=nbins)
+        if local_group:
+            local_traces.append(trace)
+            local_gids.extend(gids)
         ok=counts>0
         if ok.mean()<.98:
             continue
@@ -127,6 +198,9 @@ def cortical_vm(root,t0,t1,up=None):
         ok=coverage>0
         means=[np.interp(np.arange(nbins),np.flatnonzero(ok),x[ok]/coverage[ok]) for x in currents]
         lfp["statistics"]=lfp_statistics(*means)
+    if local:
+        lfp["local_transition_proxy"]=local_transition_synchrony(
+            local_currents,local_coverage,local_traces,local_gids,t0)
     return out,lfp
 
 
@@ -345,7 +419,7 @@ def audit(root,rec,authors,condition,thresholds):
                neuron_count_recorded=len(id_all),neuron_types=by_type,
                spike_record_sha256=digest(receipt_ref),spike_count_sha256=digest(count_path),
                neuron_dynamics_sha256=digest(dynamics_path))
-    voltage,lfp=cortical_vm(root,start,stop,state)
+    voltage,lfp=cortical_vm(root,start,stop,state,local=not authors and condition=="sleep")
     if authors:
         lfp["archive_full_network_candidates"]=archive_wave_stats(reference,start,stop,thresholds)
     return dict(receipt=rec,populations=stats,episode_proxy=phases,dynamics=slim(population_metrics([pop],BIN)),

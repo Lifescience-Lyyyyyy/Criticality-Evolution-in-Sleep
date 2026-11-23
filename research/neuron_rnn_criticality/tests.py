@@ -6,7 +6,7 @@ import unittest
 import numpy as np
 
 from analyse_bugnon import (archive_wave_stats, paired_timescales, paper_physiology_gates,
-                            paper_run_evidence, parameter_evidence, phase_spike_counts)
+                            paper_run_evidence, parameter_evidence, phase_spike_counts, transition_crossings)
 from run_bugnon_paper import session_overrides
 from join_fits import verify_fit_input
 from physiology import hmm,merge_short,periods
@@ -77,6 +77,16 @@ class ScientificChecks(unittest.TestCase):
             self.assertNotIn("grating",plan["simulation"]["params"]["sessions"])
         with self.assertRaises(ValueError):
             paper_run_evidence({"condition":"network-check"},"sleep",None,None)
+
+    def test_voltage_halfway_crossings_pair_the_same_cells(self):
+        traces=np.array([[4,4,3,2,0,0,1,3,4],
+                         [4,3,1,0,0,1,3,4,4],
+                         [0,0,0,0,0,0,0,0,0],
+                         [4,4,3,2,np.nan,1,2,3,4]]).T
+        down,up=transition_crossings(traces,4)
+        np.testing.assert_array_equal(down,[4,2])
+        np.testing.assert_array_equal(up,[7,6])
+        self.assertEqual(transition_crossings(traces[:,2:],4)[0].size,0)
 
     def test_bugnon_sessions_exclude_the_transition_from_stable_counts(self):
         times=np.array([2500,2999.8,3000,4999.8,5000,5000.2,125000])
