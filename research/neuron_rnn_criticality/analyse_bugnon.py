@@ -39,6 +39,18 @@ def events(root,r):
     return np.concatenate([a for a in rows if a.size],axis=0) if any(a.size for a in rows) else np.empty((0,2))
 
 
+def isi_cv(times, cells, n):
+    """CV of ISIs, with at least ten spikes in the stable session."""
+    same=cells[1:]==cells[:-1]
+    intervals=np.diff(times)[same]
+    who=cells[1:][same]
+    counts=np.bincount(who,minlength=n)
+    mu=np.bincount(who,weights=intervals,minlength=n)/np.maximum(counts,1)
+    second=np.bincount(who,weights=intervals**2,minlength=n)/np.maximum(counts,1)
+    return np.divide(np.sqrt(np.maximum(second-mu**2,0)),mu,
+                     out=np.full(n,np.nan),where=(counts>=9)&(mu>0))
+
+
 def cortical_vm(root,t0,t1):
     # Retain each author's cortical recorder as a separate voltage series.
     out={}
@@ -78,8 +90,13 @@ def audit(root,authors,condition):
     sessions=yaml.full_load(times_path.read_text())
     start,stop=sessions[STABLE[condition]]
     assert stop-start==(60000 if condition=="wake" else 120000)
-    with (authors/"simulations"/CASES[condition]/"analysis"/"df_rate_stats.csv").open() as f:
+    reference=authors/"simulations"/CASES[condition]/"analysis"
+    with (reference/"df_rate_stats.csv").open() as f:
         refs={r["metadata_filename"]:r for r in csv.DictReader(f) if r["session"]==STABLE[condition]}
+    with (reference/"df_cv_stats.csv").open() as f:
+        cv_refs={r["metadata_filename"]:r for r in csv.DictReader(f)
+                 if r["session"]==STABLE[condition] and r["min_n_spikes"]=="10"
+                 and r["duration"]=="0" and r["t_min"]=="0"}
     stats=[]
     corpus=[]
     for r in metadata(root,"spike_detector"):
@@ -107,6 +124,14 @@ def audit(root,authors,condition):
     start_cols=np.r_[0,np.cumsum([len(x[0]) for x in corpus])]
     lookup=np.concatenate([x[4]+n for n,x in zip(start_cols,corpus)])
     idx=np.lexsort((spike_time,lookup))
+    cvs=isi_cv(spike_time[idx],lookup[idx],len(id_all))
+    for j,info in enumerate(stats):
+        q=cvs[start_cols[j]:start_cols[j+1]]
+        q=q[np.isfinite(q)]
+        ref=cv_refs.get(info["label"],{})
+        info.update(isi_cv_n=len(q),isi_cv_median=float(np.median(q)) if len(q) else None,
+                    reference_isi_cv_n=int(float(ref["count"])) if ref.get("count") else None,
+                    reference_isi_cv_median=float(ref["50%"]) if ref.get("50%") else None)
     receipt_ref=root/"cortical_spike_record.npz"
     np.savez_compressed(receipt_ref,neuron_ids=id_all,neuron_types=types,neuron_layers=layers,
                         spike_times_seconds=spike_time[idx],

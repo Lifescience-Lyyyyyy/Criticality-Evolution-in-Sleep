@@ -89,7 +89,7 @@ python "$A/analyse_bugnon.py" --wake "$CACHE/bugnon-wake-native" \
   --sleep "$CACHE/bugnon-sleep-native" --authors "$BUGNON" --out "$CACHE/bugnon-analysis"
 ```
 
-旧 SLI 启动脚本需要 ASCII 路径。如果 NEST 已安装在含中文的目录，通过 ASCII 软链接加载，并将 `NEST_INSTALL_DIR`、`NEST_DATA_DIR`、`NEST_DOC_DIR`、`NEST_MODULE_PATH`、`LD_LIBRARY_PATH` 与 `PYTHONPATH` 指到别名。每态稳定段的原生尖峰按照原单元 ID、类型和层保存。Wake 与 Sleep-like 首个稳定 60 s 使用同一组记录单元。只有三项生理检查全部通过后，分析才写出该批次的 MATLAB 输入。
+旧 SLI 启动脚本需要 ASCII 路径。如果 NEST 已安装在含中文的目录，通过 ASCII 软链接加载，并将 `NEST_INSTALL_DIR`、`NEST_DATA_DIR`、`NEST_DOC_DIR`、`NEST_MODULE_PATH`、`LD_LIBRARY_PATH` 与 `PYTHONPATH` 指到别名。每态稳定段的原生尖峰按照原单元 ID、类型和层保存。Wake 与 Sleep-like 首个稳定 60 s 使用同一组记录单元。另计算至少 10 个尖峰的单元的 ISI CV，并在作者提供的六个皮层群体内对照中位数。只有三项预登记的生理检查全部通过后，分析才写出该批次的 MATLAB 输入。
 
 ## 交付
 
