@@ -14,6 +14,7 @@ import yaml
 
 from analyse_snn import BIN, cell_profiles, components, entry, profile, slim
 from describe_neurons import describe_cells
+from inputs import shrink
 from metrics import population_metrics
 from physiology import digest, episode_stats, hmm, merge_short, write
 from run_bugnon import CASES, DENEST, NEST, REPLICATE
@@ -441,6 +442,49 @@ def fixed_subsamples(types):
             yield seed,n,np.sort(cols)
 
 
+def prepare_condition(root,receipt,authors,condition,thresholds):
+    summary,pop,timescales=audit(root,receipt,authors,condition,thresholds)
+    with np.load(root/"cortical_spike_record.npz",allow_pickle=False) as spikes:
+        info={field:spikes[field] for field in ("neuron_ids","neuron_types","neuron_layers")}
+        info["rates_hz"]=np.diff(spikes["spike_times_offsets"])/summary["receipt"]["duration_seconds"]
+    counts=np.load(root/"cortical_counts_40ms.npy",mmap_mode="r",allow_pickle=False)
+    sampled=[counts[:,cols].sum(1) for _,_,cols in fixed_subsamples(info["neuron_types"])]
+    return dict(summary=summary,timescales=timescales,counts=np.stack([pop,*sampled]),**info)
+
+
+def save_prepared_condition(path,prepared):
+    checksum=path.with_suffix(".sha256")
+    if path.exists() or checksum.exists():
+        raise FileExistsError(path)
+    tmp=path.with_suffix(".tmp.npz")
+    arrays={k:v for k,v in prepared.items() if k!="summary"}
+    summary=json.dumps(shrink(prepared["summary"]),allow_nan=False,separators=(",",":"))
+    np.savez_compressed(tmp,summary=summary,**arrays)
+    tmp.replace(path)
+    checksum.write_text(digest(path)+"\n")
+
+
+def load_prepared_condition(path,condition):
+    checksum=digest(path)
+    if checksum!=path.with_suffix(".sha256").read_text().strip():
+        raise ValueError(f"Checksum mismatch for {path}")
+    with np.load(path,allow_pickle=False) as archive:
+        data={k:archive[k] for k in archive.files if k!="summary"}
+        data["summary"]=json.loads(archive["summary"].item())
+    receipt=data["summary"]["receipt"]
+    if receipt.get("source_commit")!=PAPER_COMMIT or receipt.get("condition")!=condition or receipt.get("duration_seconds")!=120:
+        raise ValueError(f"Expected a completed 120 s paper-linked {condition} recording in {path}")
+    n=receipt["neuron_count_recorded"]
+    assert all(data[k].shape==(n,) for k in ("neuron_ids","neuron_types","neuron_layers","rates_hz"))
+    assert data["timescales"].shape==(n,2)
+    counts=data["counts"]
+    assert counts.shape==(7,1500) and np.issubdtype(counts.dtype,np.integer) and counts.min()>=0
+    assert (counts[1:]<=counts[0]).all()
+    np.testing.assert_allclose(counts[0].var(),data["summary"]["decomposition"]["total"][0],atol=1e-7)
+    receipt["transfer_bundle_sha256"]=checksum
+    return data
+
+
 def paper_physiology_gates(rows,rates,types,rate_corr):
     # Directional checks follow the reported regime without a numeric tolerance for Figure 4.
     pc,bc=types=="PC",types=="BC"
@@ -460,19 +504,39 @@ def paper_physiology_gates(rows,rates,types,rate_corr):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument("--wake",type=Path,required=True)
-    p.add_argument("--sleep",type=Path,required=True)
+    p.add_argument("--wake",type=Path)
+    p.add_argument("--sleep",type=Path)
     source=p.add_mutually_exclusive_group(required=True)
     source.add_argument("--authors",type=Path,help="Archives for the legacy release")
     source.add_argument("--paper",action="store_true",help="Completed paper-linked mGluR runs")
+    source.add_argument("--prepare",choices=("wake","sleep"),help="Audit one completed paper-linked run for transfer")
+    source.add_argument("--prepared",action="store_true",help="Combine two checked condition .npz files")
     p.add_argument("--out",type=Path,required=True)
     a=p.parse_args()
-    receipts={}
-    for condition,root in (("wake",a.wake),("sleep",a.sleep)):
+    def read_receipt(condition,root):
         path=root/"run_receipt.json"
         if not path.is_file():
             p.error(f"Awaiting the completed {condition} NEST receipt: {path}")
-        receipts[condition]=json.loads(path.read_text())
+        return json.loads(path.read_text())
+
+    if a.prepare:
+        condition=a.prepare
+        root=getattr(a,condition)
+        if root is None:
+            p.error(f"--prepare {condition} needs --{condition} with the completed native directory")
+        a.out.mkdir(exist_ok=True,parents=True)
+        path=a.out/f"bugnon-{condition}-prepared.npz"
+        if path.exists() or path.with_suffix(".sha256").exists():
+            raise FileExistsError(path)
+        prepared=prepare_condition(root,read_receipt(condition,root),None,condition,None)
+        save_prepared_condition(path,prepared)
+        print("Condition audit archived:",path,flush=True)
+        return
+    if a.wake is None or a.sleep is None:
+        p.error("Both --wake and --sleep are required for a paired analysis")
+    roots={"wake":a.wake,"sleep":a.sleep}
+    paper=a.paper or a.prepared
+    receipts={} if a.prepared else {k:read_receipt(k,r) for k,r in roots.items()}
     a.out.mkdir(exist_ok=True,parents=True)
     bundle=a.out/"bugnon_counts.json.gz"
     if bundle.exists():
@@ -491,24 +555,23 @@ def main():
         thresholds=dict(fig4_p99=float(np.quantile(amplitudes,.99)),methods_maximum=float(amplitudes.max()))
         archive_info=dict(source_sha256=digest(stimulus_path),stimulus_window_ms=[stimulus_start,stimulus_stop],
                           candidate_waves=len(amplitudes),thresholds=thresholds)
-    rows={}
-    series={}
-    timescales={}
-    for label in ("wake","sleep"):
-        rows[label],series[label],timescales[label]=audit(getattr(a,label),receipts[label],a.authors,label,thresholds)
+    if a.prepared:
+        data={k:load_prepared_condition(path,k) for k,path in roots.items()}
+    else:
+        data={k:prepare_condition(path,receipts[k],a.authors,k,thresholds) for k,path in roots.items()}
+    rows={k:v["summary"] for k,v in data.items()}
     wake_receipt,sleep_receipt=(rows[k]["receipt"] for k in ("wake","sleep"))
     fields=("global_seed","vp_seeds","topology_and_kernel_spec_sha256")
-    if a.paper:
+    if paper:
         fields+=("extension_sha256","initialization")
     for field in fields:
         if wake_receipt[field]!=sleep_receipt[field]:
             raise ValueError(f"The two Bugnon conditions differ in {field}")
-    with np.load(a.wake/"cortical_spike_record.npz") as wake, np.load(a.sleep/"cortical_spike_record.npz") as sleep:
-        ids,types=wake["neuron_ids"],wake["neuron_types"]
-        for field in ("neuron_ids","neuron_types","neuron_layers"):
-            np.testing.assert_array_equal(wake[field],sleep[field])
-        wake_rates=np.diff(wake["spike_times_offsets"])/rows["wake"]["receipt"]["duration_seconds"]
-        sleep_rates=np.diff(sleep["spike_times_offsets"])/rows["sleep"]["receipt"]["duration_seconds"]
+    wake,sleep=(data[k] for k in ("wake","sleep"))
+    ids,types=wake["neuron_ids"],wake["neuron_types"]
+    for field in ("neuron_ids","neuron_types","neuron_layers"):
+        np.testing.assert_array_equal(wake[field],sleep[field])
+    wake_rates,sleep_rates=wake["rates_hz"],sleep["rates_hz"]
     rate_corr={}
     for kind,reference in (("PC",.90),("BC",.80),("MC",None)):
         mask=types==kind
@@ -519,7 +582,7 @@ def main():
     overlap=set(rows["wake"]["voltage"])&set(rows["sleep"]["voltage"])
     ratios={k:rows["sleep"]["voltage"][k]["band_power_mv2"]/rows["wake"]["voltage"][k]["band_power_mv2"]
             for k in sorted(overlap) if rows["wake"]["voltage"][k]["band_power_mv2"]>0}
-    if a.paper:
+    if paper:
         gates=paper_physiology_gates(rows,(wake_rates,sleep_rates),types,rate_corr)
     else:
         gates={"layer_rate":all(rows[s]["median_absolute_log_rate_error"] is not None and
@@ -528,30 +591,30 @@ def main():
                                        (np.asarray(rows[s]["rate_ratios"])<=2))>=.70 for s in rows),
                "slow_modulation":bool(ratios and np.median(list(ratios.values()))>=1.2),
                "sleep_bouts":min(rows["sleep"]["episode_proxy"][k] for k in ("up_n","down_n"))>=10}
-    case="paper_mglur" if a.paper else "legacy_archive"
+    case="paper_mglur" if paper else "legacy_archive"
     write(a.out/"bugnon_physiology.json",
           dict(parameter_case=case,conditions=rows,physiology_pass=gates,slow_band_voltage_ratios=ratios,
                paired_cell_rate_correlations=rate_corr,
-               paired_timescale_change_sleep_minus_wake=paired_timescales(timescales["wake"],timescales["sleep"],types),
+               paired_timescale_change_sleep_minus_wake=paired_timescales(wake["timescales"],sleep["timescales"],types),
                archive_stimulus_thresholds=archive_info))
     print("Bugnon physiology gate:",gates,flush=True)
     if not all(gates.values()):
         raise SystemExit("Author-model data retained. No Sooter stage until its gate passes.")
     cases=[]
     subsets=list(fixed_subsamples(types))
-    for cond,pop in series.items():
+    for cond,condition_data in data.items():
         m=rows[cond]["receipt"]
+        pop,*sample_counts=condition_data["counts"]
         run=dict(model="BugnonEtAl2024",parameter_case=case,connectivity_seed=m["global_seed"],noise_seeds=m["vp_seeds"],
                  provenance_sha256=m["spike_record_sha256"])
         entry(cases,"bugnon_"+cond,cond,cond,"bugnon_original",[pop],
               n_units=m["neuron_count_recorded"],**run)
-        counts=np.load(getattr(a,cond)/"cortical_counts_40ms.npy",mmap_mode="r",allow_pickle=False)
-        for seed,n,cols in subsets:
+        for (seed,n,cols),counts in zip(subsets,sample_counts,strict=True):
             name=f"bugnon_{cond}_n{n}_s{seed}"
             selection=dict(sample_seed=seed,sampled_gids=ids[cols].tolist(),
                            population_counts={kind:int(np.sum(types[cols]==kind))
                                               for kind in ("PC","BC","MC")})
-            entry(cases,name,cond,name,"bugnon_subsample",[counts[:,cols].sum(1)],
+            entry(cases,name,cond,name,"bugnon_subsample",[counts],
                   n_units=n,**selection,**run)
     raw=json.dumps(dict(physiology_pass=gates,cases=cases),separators=(",",":")).encode()
     temp=bundle.with_suffix(".tmp")

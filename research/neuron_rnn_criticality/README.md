@@ -137,6 +137,15 @@ python "$A/analyse_bugnon.py" --paper --wake "$CACHE/bugnon-paper-wake-120s" \
   --sleep "$CACHE/bugnon-paper-sleep-120s" --out "$CACHE/bugnon-paper-analysis"
 ```
 
+分配到不同远程 CPU 时，各自在 NEST 写出完成回执后生成该态的摘要和 SHA-256。摘要保留发放率、时间尺度、全体及固定抽样的群体计数。膜电位和原生逐细胞尖峰留在执行端。将两个 NPZ 和同名 SHA-256 文件传回后，用同一套门槛配对两态。
+
+```sh
+python "$A/analyse_bugnon.py" --prepare wake --wake "$WAKE_NATIVE" --out "$TRANSFER"
+python "$A/analyse_bugnon.py" --prepare sleep --sleep "$SLEEP_NATIVE" --out "$TRANSFER"
+python "$A/analyse_bugnon.py" --prepared --wake "$TRANSFER/bugnon-wake-prepared.npz" \
+  --sleep "$TRANSFER/bugnon-sleep-prepared.npz" --out "$CACHE/bugnon-paper-analysis"
+```
+
 ## 交付
 
 | 文件 | 内容 |

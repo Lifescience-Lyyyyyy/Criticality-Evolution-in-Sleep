@@ -5,9 +5,10 @@ from tempfile import TemporaryDirectory
 import unittest
 import numpy as np
 
-from analyse_bugnon import (archive_wave_stats, paired_timescales, paper_physiology_gates,
-                            paper_run_evidence, parameter_evidence, phase_spike_counts, transition_crossings)
-from run_bugnon_paper import session_overrides
+from analyse_bugnon import (archive_wave_stats, load_prepared_condition, paired_timescales,
+                            paper_physiology_gates, paper_run_evidence, parameter_evidence,
+                            phase_spike_counts, save_prepared_condition, transition_crossings)
+from run_bugnon_paper import COMMIT as PAPER_COMMIT, session_overrides
 from join_fits import verify_fit_input
 from physiology import hmm,merge_short,periods
 from analyse_snn import components, pure_episodes, shifted
@@ -57,6 +58,26 @@ class ScientificChecks(unittest.TestCase):
             executed.write_text(json.dumps(tree))
             with self.assertRaises(ValueError):
                 parameter_evidence(frozen,executed)
+
+    def test_prepared_condition_roundtrip_requires_its_checksum_and_condition(self):
+        counts=np.tile(np.arange(1500)%5,(7,1))
+        summary={"receipt":{"source_commit":PAPER_COMMIT,"condition":"wake",
+                            "duration_seconds":120,"neuron_count_recorded":2},
+                 "decomposition":{"total":[counts[0].var()]}}
+        prepared=dict(summary=summary,counts=counts,neuron_ids=np.array([11,12]),
+                      neuron_types=np.array(["PC","BC"]),neuron_layers=np.array(["L4","L4"]),
+                      rates_hz=np.array([.5,2.]),timescales=np.full((2,2),np.nan))
+        with TemporaryDirectory() as tmp:
+            path=Path(tmp)/"wake.npz"
+            save_prepared_condition(path,prepared)
+            out=load_prepared_condition(path,"wake")
+            np.testing.assert_array_equal(out["counts"],counts)
+            np.testing.assert_array_equal(out["timescales"],prepared["timescales"])
+            with self.assertRaisesRegex(ValueError,"completed 120 s paper-linked sleep"):
+                load_prepared_condition(path,"sleep")
+            path.with_suffix(".sha256").write_text("0"*64)
+            with self.assertRaisesRegex(ValueError,"Checksum mismatch"):
+                load_prepared_condition(path,"wake")
 
     def test_paper_fit_gate_requires_sleep_specific_physiology(self):
         types=np.array(["PC","PC","PC","BC","BC","MC"])
