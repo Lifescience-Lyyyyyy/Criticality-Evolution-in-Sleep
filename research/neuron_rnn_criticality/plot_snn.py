@@ -288,6 +288,7 @@ def bugnon_plot(physiology, fits, out):
     if original.keys()!=labels.keys():
         raise ValueError("Both original Bugnon conditions are required")
     matched_labels=sorted(set(conditions["wake"]["voltage"])&set(conditions["sleep"]["voltage"]))
+    show_lfp=all(q.get("lfp_proxy",{}).get("statistics") for q in conditions.values())
     fig,(rates,power,acf,distance)=grid(2,2,(9.3,6.0))
     for state,name in labels.items():
         q=conditions[state]
@@ -295,7 +296,7 @@ def bugnon_plot(physiology, fits, out):
         groups=q["populations"]
         rates.scatter([r["reference_mean"] for r in groups],[r["mean_rate"] for r in groups],
                       color=color,s=26,label=name,alpha=.8)
-        rows=[q["voltage"][key] for key in matched_labels]
+        rows=[q["lfp_proxy"]["statistics"]] if show_lfp else [q["voltage"][key] for key in matched_labels]
         frequency=np.asarray(rows[0]["f"])
         keep=(frequency>=.25)&(frequency<=15)
         lineband(power,frequency[keep],[np.asarray(r["psd"])[keep] for r in rows],color,name)
@@ -308,8 +309,9 @@ def bugnon_plot(physiology, fits, out):
     rates.set(title="Cortical rates by recorded population",xlabel="Author archive rate (Hz/cell)",
               ylabel="Replayed rate (Hz/cell)",xlim=(0,bounds),ylim=(0,bounds))
     power.axvspan(.5,2,color="#D3E7DB",alpha=.4)
-    power.set(title="Cortical membrane voltage",xscale="log",yscale="log",xlabel="Frequency (Hz)",
-              ylabel="Power spectral density (mV²/Hz)")
+    power.set(title="Pyramidal LFP proxy" if show_lfp else "Cortical membrane voltage",
+              xscale="log",yscale="log",xlabel="Frequency (Hz)",
+              ylabel="Proxy power (a.u.²/Hz)" if show_lfp else "Power spectral density (mV²/Hz)")
     acf.set(title="Population temporal persistence",xlabel="Lag (s)",ylabel="Population normalized ACF")
     acf.axhline(0,c="#87959E",lw=.7)
     distance.set(title="Critical-distance order sensitivity",ylabel="d₂ (bits/s)",xlim=(-.2,1.2),
@@ -318,8 +320,9 @@ def bugnon_plot(physiology, fits, out):
     distance.legend(frameon=False)
     w,s=(conditions[key]["receipt"] for key in labels)
     seed=w["global_seed"]
+    detail="Shaded band: 0.5–2 Hz" if show_lfp else "Voltage bands span recording groups"
     scope(fig,f"Bugnon author conditions · {w['neuron_count_recorded']:,} matched cortical cells · NEST global seed {seed}\n"
-          f"Stable exposure {w['duration_seconds']:g}/{s['duration_seconds']:g} s · ACF and d₂ from matched 60 s · voltage bands span recording groups")
+          f"Stable exposure {w['duration_seconds']:g}/{s['duration_seconds']:g} s · ACF and d₂ from matched 60 s · {detail}")
     save(fig,out,5,"bugnon_author_conditions")
 
 

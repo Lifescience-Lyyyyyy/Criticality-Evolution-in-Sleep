@@ -3,10 +3,11 @@ import argparse
 import csv
 import gzip
 import json
+from itertools import chain, islice
 from pathlib import Path
 
 import numpy as np
-from scipy.signal import welch
+from scipy.signal import butter, find_peaks, sosfiltfilt, welch
 import yaml
 
 from analyse_snn import BIN, cell_profiles, components, entry, profile, slim
@@ -51,35 +52,82 @@ def isi_cv(times, cells, n):
                      out=np.full(n,np.nan),where=(counts>=9)&(mu>0))
 
 
+def lfp_statistics(ampa,gaba):
+    # 10 ms recorded samples. Orient the current proxy like the authors' LFP.
+    samples=np.arange(len(ampa))
+    delayed=np.interp(samples-.6,samples,ampa)
+    lfp=1.65*gaba[1:]-delayed[1:]
+    f,p=welch(lfp,fs=100,nperseg=800)
+    slow=(f>=.5)&(f<=2)
+    filtered=sosfiltfilt(butter(4,[.5,4],btype="bandpass",fs=100,output="sos"),lfp)
+    troughs=find_peaks(-filtered,height=0)[0]
+    durations=[]
+    for a,b in zip(troughs[:-1],troughs[1:]):
+        if np.max(filtered[a:b+1])>0:
+            durations.append((b-a)*.01)
+    return dict(band_power=float(p[slow].sum()*(f[1]-f[0])),f=f.tolist(),psd=p.tolist(),
+                candidate_waves=len(durations),
+                candidate_wave_median_s=float(np.median(durations)) if durations else None)
+
+
 def cortical_vm(root,t0,t1):
-    # Retain each author's cortical recorder as a separate voltage series.
+    # Mean Vm by recorder plus a global pyramidal-cell current proxy.
     out={}
+    nbins=round((t1-t0)/10)
+    currents=np.zeros((2,nbins))
+    coverage=np.zeros(nbins)
+    total_pc=valid_pc=0
     for r in metadata(root,"multimeter"):
         cols=r["colnames"]
         if "V_m" not in cols:
             continue
-        sums=np.zeros(round((t1-t0)/10))
-        counts=np.zeros_like(sums)
-        xv=cols.index("V_m")
+        is_pc=r["population_name"].endswith("_PC")
+        total_pc+=int(is_pc)
+        cols_read=(1,cols.index("V_m"))
+        if is_pc:
+            cols_read+=tuple(cols.index(k) for k in ("g_AMPA","g_GABA_A"))
+        sums=np.zeros(nbins)
+        counts=np.zeros(nbins)
         for file in source_files(root,r):
             with file.open() as stream:
-                while True:
-                    a=np.loadtxt(stream,usecols=(1,xv),max_rows=400000,ndmin=2)
-                    if not len(a):
-                        break
+                while (first:=next(stream,None)) is not None:
+                    a=np.loadtxt(chain((first,),islice(stream,399999)),usecols=cols_read,ndmin=2)
                     use=(a[:,0]>=t0)&(a[:,0]<t1)
-                    j=np.floor((a[use,0]-t0)/10).astype(int)
-                    sums+=np.bincount(j,weights=a[use,1],minlength=len(sums))
-                    counts+=np.bincount(j,minlength=len(counts))
+                    selected=a[use]
+                    j=np.floor((selected[:,0]-t0)/10).astype(int)
+                    vm=selected[:,1]
+                    sums+=np.bincount(j,weights=vm,minlength=nbins)
+                    count=np.bincount(j,minlength=nbins)
+                    counts+=count
+                    if is_pc:
+                        # Vp_PC inherits E_AMPA=0 and E_GABA_A=-70 mV in both conditions.
+                        currents[0]+=np.bincount(j,weights=selected[:,2]*(-vm),minlength=nbins)
+                        currents[1]+=np.bincount(j,weights=selected[:,3]*(-70-vm),minlength=nbins)
+                        coverage+=count
         ok=counts>0
         if ok.mean()<.98:
             continue
-        v=np.interp(np.arange(len(sums)),np.flatnonzero(ok),sums[ok]/counts[ok])
+        valid_pc+=int(is_pc)
+        v=np.interp(np.arange(nbins),np.flatnonzero(ok),sums[ok]/counts[ok])
         f,p=welch(v,fs=100,nperseg=800)
         band=(f>=.5)&(f<=2)
-        out[r["label"]]={"band_power_mv2":float(p[band].sum()*(f[1]-f[0])),
-                         "sample_fraction":float(ok.mean()),"f":f.tolist(),"psd":p.tolist()}
-    return out
+        out[r["label"]]=dict(band_power_mv2=float(p[band].sum()*(f[1]-f[0])),
+                             sample_fraction=float(ok.mean()),f=f.tolist(),psd=p.tolist())
+    lfp=dict(pyramidal_recorders=total_pc,covered_recorders=valid_pc,statistics=None)
+    if total_pc and valid_pc==total_pc:
+        ok=coverage>0
+        means=[np.interp(np.arange(nbins),np.flatnonzero(ok),x[ok]/coverage[ok]) for x in currents]
+        lfp["statistics"]=lfp_statistics(*means)
+    return out,lfp
+
+
+def archive_wave_stats(reference,start,stop):
+    with (reference/"df_sw.csv").open() as stream:
+        durations=[float(z["duration"])/1000 for z in csv.DictReader(stream)
+                   if z["subnet"]=="full" and start<=float(z["startTime"])
+                   and float(z["endTime"])<=stop]
+    return dict(candidate_waves=len(durations),
+                candidate_wave_median_s=float(np.median(durations)) if durations else None)
 
 
 def audit(root,authors,condition):
@@ -179,8 +227,10 @@ def audit(root,authors,condition):
     rec.update(duration_seconds=(stop-start)/1000,burn_in_seconds=start/1000,
                neuron_count_recorded=len(id_all),neuron_types=by_type,
                spike_record_sha256=digest(receipt_ref), spike_count_sha256=digest(count_path))
+    voltage,lfp=cortical_vm(root,start,stop)
+    lfp["archive_full_network_candidates"]=archive_wave_stats(reference,start,stop)
     return dict(receipt=rec,populations=stats,episode_proxy=phases,dynamics=slim(population_metrics([pop],BIN)),
-                decomposition=profile(u,v,t),ei_synchrony=ei,voltage=cortical_vm(root,start,stop),
+                decomposition=profile(u,v,t),ei_synchrony=ei,voltage=voltage,lfp_proxy=lfp,
                 median_absolute_log_rate_error=float(np.median(np.abs(np.log(ratios)))),rate_ratios=ratios),pop
 
 
@@ -212,6 +262,14 @@ def main():
         ids,types=wake["neuron_ids"],wake["neuron_types"]
         for field in ("neuron_ids","neuron_types","neuron_layers"):
             np.testing.assert_array_equal(wake[field],sleep[field])
+        wake_rates=np.diff(wake["spike_times_offsets"])/rows["wake"]["receipt"]["duration_seconds"]
+        sleep_rates=np.diff(sleep["spike_times_offsets"])/rows["sleep"]["receipt"]["duration_seconds"]
+    rate_corr={}
+    for kind,reference in (("PC",.90),("BC",.80),("MC",None)):
+        mask=types==kind
+        w,s=wake_rates[mask],sleep_rates[mask]
+        pearson=float(np.corrcoef(w,s)[0,1]) if w.std() and s.std() else None
+        rate_corr[kind]=dict(n=len(w),pearson=pearson,published_fig4a_r=reference)
     overlap=set(rows["wake"]["voltage"])&set(rows["sleep"]["voltage"])
     ratios={k:rows["sleep"]["voltage"][k]["band_power_mv2"]/rows["wake"]["voltage"][k]["band_power_mv2"]
             for k in sorted(overlap) if rows["wake"]["voltage"][k]["band_power_mv2"]>0}
@@ -220,7 +278,9 @@ def main():
                                   (np.asarray(rows[s]["rate_ratios"])<=2))>=.70 for s in rows),
            "slow_modulation":bool(ratios) and np.median(list(ratios.values()))>=1.2,
            "sleep_bouts":min(rows["sleep"]["episode_proxy"][k] for k in ("up_n","down_n"))>=10}
-    write(a.out/"bugnon_physiology.json",dict(conditions=rows,physiology_pass=gates,slow_band_voltage_ratios=ratios))
+    write(a.out/"bugnon_physiology.json",
+          dict(conditions=rows,physiology_pass=gates,slow_band_voltage_ratios=ratios,
+               paired_cell_rate_correlations=rate_corr))
     print("Bugnon physiology gate:",gates,flush=True)
     if not all(gates.values()):
         raise SystemExit("Author-model data retained. No Sooter stage until its gate passes.")
