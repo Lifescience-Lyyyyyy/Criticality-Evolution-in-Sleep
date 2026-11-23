@@ -5,10 +5,10 @@ from tempfile import TemporaryDirectory
 import unittest
 import numpy as np
 
-from analyse_bugnon import (archive_wave_stats, fixed_subsamples, load_prepared_condition, paired_timescales,
-                            paper_physiology_gates, paper_run_evidence, parameter_evidence,
-                            phase_spike_counts, save_prepared_condition, transition_crossings,
-                            verify_prepared_spikes)
+from analyse_bugnon import (archive_wave_stats, fixed_subsamples, load_prepared_condition,
+                            local_transition_synchrony, paired_timescales, paper_physiology_gates,
+                            paper_run_evidence, parameter_evidence, phase_spike_counts,
+                            save_prepared_condition, transition_crossings, verify_prepared_spikes)
 from run_bugnon_paper import COMMIT as PAPER_COMMIT, session_overrides
 from join_fits import matching_directions, verify_fit_input
 from physiology import digest,hmm,merge_short,periods
@@ -131,6 +131,25 @@ class ScientificChecks(unittest.TestCase):
         np.testing.assert_array_equal(down,[4,2])
         np.testing.assert_array_equal(up,[7,6])
         self.assertEqual(transition_crossings(traces[:,2:],4)[0].size,0)
+
+    def test_bugnon_synchrony_inputs_survive_archival(self):
+        timeline=10*np.arange(400)
+        wave=np.cos(2*np.pi*timeline/1000)
+        voltage=[(-65-wave)[:,None],(-65-np.roll(wave,1))[:,None]]
+        currents=np.vstack((np.zeros_like(wave),2*wave))
+        coverage=np.full(len(wave),2.)
+        with TemporaryDirectory() as tmp:
+            path=Path(tmp)/"local_cortical_voltage_10ms.npz"
+            result=local_transition_synchrony(currents,coverage,voltage,[11,12],8000,path)
+            self.assertEqual(result["input_archive_sha256"],digest(path))
+            self.assertGreater(result["n_valid_paired_waves"],0)
+            with np.load(path,allow_pickle=False) as saved:
+                np.testing.assert_array_equal(saved["voltage_mv"],np.column_stack(voltage))
+                np.testing.assert_array_equal(saved["neuron_ids"],[11,12])
+                np.testing.assert_array_equal(saved["time_ms"],timeline+8000)
+                np.testing.assert_array_equal(saved["ampa_current_sum"],currents[0])
+                np.testing.assert_array_equal(saved["gaba_current_sum"],currents[1])
+                np.testing.assert_array_equal(saved["sample_counts"],coverage)
 
     def test_bugnon_sessions_exclude_the_transition_from_stable_counts(self):
         times=np.array([2500,2999.8,3000,4999.8,5000,5000.2,125000])

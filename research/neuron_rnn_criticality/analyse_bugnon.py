@@ -99,23 +99,30 @@ def transition_crossings(voltage,peak):
     return down_index,up_index
 
 
-def local_transition_synchrony(currents,coverage,traces,gids,t0):
+def local_transition_synchrony(currents,coverage,traces,gids,t0,input_archive):
     if len(traces)!=2 or not np.any(coverage):
         return {"status":"missing_L4_pyramidal_recordings"}
     ok=coverage>0
     means=[np.interp(np.arange(len(x)),np.flatnonzero(ok),x[ok]/coverage[ok]) for x in currents]
-    voltage=np.concatenate(traces,axis=1)[1:]
+    voltage=np.concatenate(traces,axis=1)
     waves=positive_waves(lfp_proxy(*means))
     selected=sorted(sorted(waves,key=lambda row:-row[3])[:(len(waves)+1)//2])
     rows=[]
+    # The delayed current proxy starts at sample 1 of the voltage recording.
     for a,p,b,amp in selected:
-        down,up=transition_crossings(voltage[a:b+1],p-a)
+        down,up=transition_crossings(voltage[a+1:b+2],p-a)
         n=len(down)
         rows.append(dict(peak_time_ms=t0+(p+1)*10,lfp_peak=amp,n_paired_cells=n,
                          up_to_down_sd_ms=float(down.std(ddof=1)*10) if n>1 else None,
                          down_to_up_sd_ms=float(up.std(ddof=1)*10) if n>1 else None))
     both=[x["down_to_up_sd_ms"]-x["up_to_down_sd_ms"] for x in rows if x["n_paired_cells"]>1]
+    pending=input_archive.with_suffix(".tmp.npz")
+    np.savez_compressed(pending,neuron_ids=gids,time_ms=t0+10*np.arange(len(voltage)),
+                        voltage_mv=voltage,ampa_current_sum=currents[0],
+                        gaba_current_sum=currents[1],sample_counts=coverage)
+    pending.replace(input_archive)
     return dict(status="measured" if both else "no_valid_paired_events",selected_neuron_ids=gids,
+                input_archive_sha256=digest(input_archive),
                 sampling_ms=10,unthresholded_candidates=len(waves),selected_events=rows,
                 n_valid_paired_waves=len(both),
                 paired_sd_change_ms_p25_p50_p75=np.percentile(both,[25,50,75]).tolist() if both else None)
@@ -201,7 +208,8 @@ def cortical_vm(root,t0,t1,up=None,local=False):
         lfp["statistics"]=lfp_statistics(*means)
     if local:
         lfp["local_transition_proxy"]=local_transition_synchrony(
-            local_currents,local_coverage,local_traces,local_gids,t0)
+            local_currents,local_coverage,local_traces,local_gids,t0,
+            root/"local_cortical_voltage_10ms.npz")
     return out,lfp
 
 
