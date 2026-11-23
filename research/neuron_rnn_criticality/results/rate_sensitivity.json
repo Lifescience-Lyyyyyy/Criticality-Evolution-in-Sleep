@@ -1,0 +1,1252 @@
+{
+  "observations": [
+    {
+      "source_id": "figure7-c1729-n3401_N10_60s",
+      "model": "JercogEtAl2017",
+      "condition": "figure7",
+      "rate_control": "paired_rate",
+      "original_hz": 14.266666666666667,
+      "retained_hz": 5.55,
+      "observed": {
+        "fit": 1.07241458,
+        "ar10": 0.87898058
+      },
+      "thinned": {
+        "fit": {
+          "median": 1.48173047,
+          "range": [
+            1.37549451,
+            1.72811438
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 1.05979096,
+          "range": [
+            0.99414488,
+            1.06433471
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "figure7-c1729-n3401_N10_60s",
+      "model": "JercogEtAl2017",
+      "condition": "figure7",
+      "rate_control": "common_rate",
+      "original_hz": 14.266666666666667,
+      "retained_hz": 5.05,
+      "observed": {
+        "fit": 1.07241458,
+        "ar10": 0.87898058
+      },
+      "thinned": {
+        "fit": {
+          "median": 1.81275349,
+          "range": [
+            1.74953921,
+            1.96936318
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 0.97234049,
+          "range": [
+            0.91729709,
+            1.0307322
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "figure7_supp2-c1729-n3401_N10_60s",
+      "model": "JercogEtAl2017",
+      "condition": "figure7_supp2",
+      "rate_control": "paired_rate",
+      "original_hz": 5.55,
+      "retained_hz": 5.55,
+      "observed": {
+        "fit": 1.50308049,
+        "ar10": 0.85809264
+      },
+      "thinned": {
+        "fit": {
+          "median": 1.50308049,
+          "range": [
+            1.50308049,
+            1.50308049
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 0.85809264,
+          "range": [
+            0.85809264,
+            0.85809264
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "figure7_supp2-c1729-n3401_N10_60s",
+      "model": "JercogEtAl2017",
+      "condition": "figure7_supp2",
+      "rate_control": "common_rate",
+      "original_hz": 5.55,
+      "retained_hz": 5.05,
+      "observed": {
+        "fit": 1.50308049,
+        "ar10": 0.85809264
+      },
+      "thinned": {
+        "fit": {
+          "median": 1.53686805,
+          "range": [
+            1.50888794,
+            1.59266676
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 0.85931147,
+          "range": [
+            0.83893473,
+            0.87181539
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "figure7-c2718-n3402_N10_60s",
+      "model": "JercogEtAl2017",
+      "condition": "figure7",
+      "rate_control": "paired_rate",
+      "original_hz": 14.266666666666667,
+      "retained_hz": 5.233333333333333,
+      "observed": {
+        "fit": 1.08174996,
+        "ar10": 1.20540724
+      },
+      "thinned": {
+        "fit": {
+          "median": 1.76857718,
+          "range": [
+            1.57595449,
+            1.80523501
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 1.16433427,
+          "range": [
+            1.09546543,
+            1.17802423
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "figure7-c2718-n3402_N10_60s",
+      "model": "JercogEtAl2017",
+      "condition": "figure7",
+      "rate_control": "common_rate",
+      "original_hz": 14.266666666666667,
+      "retained_hz": 5.05,
+      "observed": {
+        "fit": 1.08174996,
+        "ar10": 1.20540724
+      },
+      "thinned": {
+        "fit": {
+          "median": 1.83504924,
+          "range": [
+            1.7087341,
+            2.11340398
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 1.19034063,
+          "range": [
+            1.0506848,
+            1.24349812
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "figure7_supp2-c2718-n3402_N10_60s",
+      "model": "JercogEtAl2017",
+      "condition": "figure7_supp2",
+      "rate_control": "paired_rate",
+      "original_hz": 5.233333333333333,
+      "retained_hz": 5.233333333333333,
+      "observed": {
+        "fit": 1.5717695,
+        "ar10": 0.77077678
+      },
+      "thinned": {
+        "fit": {
+          "median": 1.5717695,
+          "range": [
+            1.5717695,
+            1.5717695
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 0.77077678,
+          "range": [
+            0.77077678,
+            0.77077678
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "figure7_supp2-c2718-n3402_N10_60s",
+      "model": "JercogEtAl2017",
+      "condition": "figure7_supp2",
+      "rate_control": "common_rate",
+      "original_hz": 5.233333333333333,
+      "retained_hz": 5.05,
+      "observed": {
+        "fit": 1.5717695,
+        "ar10": 0.77077678
+      },
+      "thinned": {
+        "fit": {
+          "median": 1.62369526,
+          "range": [
+            1.54749208,
+            1.70690363
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 0.7832916,
+          "range": [
+            0.75657242,
+            0.79470116
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "figure7-c3141-n3403_N10_60s",
+      "model": "JercogEtAl2017",
+      "condition": "figure7",
+      "rate_control": "paired_rate",
+      "original_hz": 14.216666666666667,
+      "retained_hz": 6.183333333333334,
+      "observed": {
+        "fit": 1.08639482,
+        "ar10": 0.7736847
+      },
+      "thinned": {
+        "fit": {
+          "median": 1.50678414,
+          "range": [
+            1.46544602,
+            1.64208204
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 0.90513979,
+          "range": [
+            0.90405757,
+            0.91295426
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "figure7-c3141-n3403_N10_60s",
+      "model": "JercogEtAl2017",
+      "condition": "figure7",
+      "rate_control": "common_rate",
+      "original_hz": 14.216666666666667,
+      "retained_hz": 5.05,
+      "observed": {
+        "fit": 1.08639482,
+        "ar10": 0.7736847
+      },
+      "thinned": {
+        "fit": {
+          "median": 1.67213243,
+          "range": [
+            1.52597077,
+            1.79901809
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 0.91854118,
+          "range": [
+            0.79359921,
+            0.98008172
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "figure7_supp2-c3141-n3403_N10_60s",
+      "model": "JercogEtAl2017",
+      "condition": "figure7_supp2",
+      "rate_control": "paired_rate",
+      "original_hz": 6.183333333333334,
+      "retained_hz": 6.183333333333334,
+      "observed": {
+        "fit": 1.37973615,
+        "ar10": 0.87530682
+      },
+      "thinned": {
+        "fit": {
+          "median": 1.37973615,
+          "range": [
+            1.37973615,
+            1.37973615
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 0.87530682,
+          "range": [
+            0.87530682,
+            0.87530682
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "figure7_supp2-c3141-n3403_N10_60s",
+      "model": "JercogEtAl2017",
+      "condition": "figure7_supp2",
+      "rate_control": "common_rate",
+      "original_hz": 6.183333333333334,
+      "retained_hz": 5.05,
+      "observed": {
+        "fit": 1.37973615,
+        "ar10": 0.87530682
+      },
+      "thinned": {
+        "fit": {
+          "median": 1.51097948,
+          "range": [
+            1.50689677,
+            1.58532042
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 0.93534752,
+          "range": [
+            0.91792136,
+            1.0038624
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "emp_BWRat21_121113_Wake",
+      "model": "DANDI-000041",
+      "condition": "Wake",
+      "rate_control": "paired_rate",
+      "original_hz": 11.016666666666667,
+      "retained_hz": 8.883333333333333,
+      "observed": {
+        "fit": 2.97362764,
+        "ar10": 1.50946845
+      },
+      "thinned": {
+        "fit": {
+          "median": 3.02565451,
+          "range": [
+            2.99141541,
+            3.19602557
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 1.62568015,
+          "range": [
+            1.492409,
+            1.63084345
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "emp_BWRat21_121113_Wake",
+      "model": "DANDI-000041",
+      "condition": "Wake",
+      "rate_control": "common_rate",
+      "original_hz": 11.016666666666667,
+      "retained_hz": 5.05,
+      "observed": {
+        "fit": 2.97362764,
+        "ar10": 1.50946845
+      },
+      "thinned": {
+        "fit": {
+          "median": 3.31366573,
+          "range": [
+            3.14832376,
+            3.43123048
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 1.61030294,
+          "range": [
+            1.3721764,
+            1.61357419
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "emp_BWRat21_121113_NREM",
+      "model": "DANDI-000041",
+      "condition": "NREM",
+      "rate_control": "paired_rate",
+      "original_hz": 8.883333333333333,
+      "retained_hz": 8.883333333333333,
+      "observed": {
+        "fit": 2.63725902,
+        "ar10": 1.25053142
+      },
+      "thinned": {
+        "fit": {
+          "median": 2.63725902,
+          "range": [
+            2.63725902,
+            2.63725902
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 1.25053142,
+          "range": [
+            1.25053142,
+            1.25053142
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "emp_BWRat21_121113_NREM",
+      "model": "DANDI-000041",
+      "condition": "NREM",
+      "rate_control": "common_rate",
+      "original_hz": 8.883333333333333,
+      "retained_hz": 5.05,
+      "observed": {
+        "fit": 2.63725902,
+        "ar10": 1.25053142
+      },
+      "thinned": {
+        "fit": {
+          "median": 3.04900952,
+          "range": [
+            2.96794044,
+            3.38262342
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 1.47478246,
+          "range": [
+            1.23486069,
+            1.6363664
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "emp_Bogey_012615_Wake",
+      "model": "DANDI-000041",
+      "condition": "Wake",
+      "rate_control": "paired_rate",
+      "original_hz": 39.55,
+      "retained_hz": 34.06666666666667,
+      "observed": {
+        "fit": 2.45674307,
+        "ar10": 1.34000212
+      },
+      "thinned": {
+        "fit": {
+          "median": 2.55936711,
+          "range": [
+            2.52420199,
+            2.62345991
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 1.3241445,
+          "range": [
+            1.31664355,
+            1.44058732
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "emp_Bogey_012615_Wake",
+      "model": "DANDI-000041",
+      "condition": "Wake",
+      "rate_control": "common_rate",
+      "original_hz": 39.55,
+      "retained_hz": 5.05,
+      "observed": {
+        "fit": 2.45674307,
+        "ar10": 1.34000212
+      },
+      "thinned": {
+        "fit": {
+          "median": 3.22250082,
+          "range": [
+            3.06918867,
+            3.29855755
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 1.69907912,
+          "range": [
+            1.65618666,
+            1.82019813
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "emp_Bogey_012615_NREM",
+      "model": "DANDI-000041",
+      "condition": "NREM",
+      "rate_control": "paired_rate",
+      "original_hz": 34.06666666666667,
+      "retained_hz": 34.06666666666667,
+      "observed": {
+        "fit": 2.35431749,
+        "ar10": 1.22607804
+      },
+      "thinned": {
+        "fit": {
+          "median": 2.35431749,
+          "range": [
+            2.35431749,
+            2.35431749
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 1.22607804,
+          "range": [
+            1.22607804,
+            1.22607804
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "emp_Bogey_012615_NREM",
+      "model": "DANDI-000041",
+      "condition": "NREM",
+      "rate_control": "common_rate",
+      "original_hz": 34.06666666666667,
+      "retained_hz": 5.05,
+      "observed": {
+        "fit": 2.35431749,
+        "ar10": 1.22607804
+      },
+      "thinned": {
+        "fit": {
+          "median": 2.98422721,
+          "range": [
+            2.88289601,
+            3.25026794
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 1.35579656,
+          "range": [
+            1.27111071,
+            1.4640202
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "emp_Dino_061814_Wake",
+      "model": "DANDI-000041",
+      "condition": "Wake",
+      "rate_control": "paired_rate",
+      "original_hz": 16.933333333333334,
+      "retained_hz": 14.85,
+      "observed": {
+        "fit": 2.10837774,
+        "ar10": 0.91788263
+      },
+      "thinned": {
+        "fit": {
+          "median": 2.1459231,
+          "range": [
+            2.14536903,
+            2.29664323
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 0.98459278,
+          "range": [
+            0.92533833,
+            1.00160196
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "emp_Dino_061814_Wake",
+      "model": "DANDI-000041",
+      "condition": "Wake",
+      "rate_control": "common_rate",
+      "original_hz": 16.933333333333334,
+      "retained_hz": 5.05,
+      "observed": {
+        "fit": 2.10837774,
+        "ar10": 0.91788263
+      },
+      "thinned": {
+        "fit": {
+          "median": 2.80732769,
+          "range": [
+            2.64289776,
+            3.04200537
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 1.30413648,
+          "range": [
+            1.20029898,
+            1.71986424
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "emp_Dino_061814_NREM",
+      "model": "DANDI-000041",
+      "condition": "NREM",
+      "rate_control": "paired_rate",
+      "original_hz": 14.85,
+      "retained_hz": 14.85,
+      "observed": {
+        "fit": 2.20348096,
+        "ar10": 1.33206903
+      },
+      "thinned": {
+        "fit": {
+          "median": 2.20348096,
+          "range": [
+            2.20348096,
+            2.20348096
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 1.33206903,
+          "range": [
+            1.33206903,
+            1.33206903
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "emp_Dino_061814_NREM",
+      "model": "DANDI-000041",
+      "condition": "NREM",
+      "rate_control": "common_rate",
+      "original_hz": 14.85,
+      "retained_hz": 5.05,
+      "observed": {
+        "fit": 2.20348096,
+        "ar10": 1.33206903
+      },
+      "thinned": {
+        "fit": {
+          "median": 2.75646121,
+          "range": [
+            2.66048676,
+            2.79087467
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 1.44966401,
+          "range": [
+            1.42080921,
+            1.60930699
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "emp_Templeton_032415_Wake",
+      "model": "DANDI-000041",
+      "condition": "Wake",
+      "rate_control": "paired_rate",
+      "original_hz": 5.05,
+      "retained_hz": 5.05,
+      "observed": {
+        "fit": 2.68000956,
+        "ar10": 1.59424959
+      },
+      "thinned": {
+        "fit": {
+          "median": 2.68000956,
+          "range": [
+            2.68000956,
+            2.68000956
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 1.59424959,
+          "range": [
+            1.59424959,
+            1.59424959
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "emp_Templeton_032415_Wake",
+      "model": "DANDI-000041",
+      "condition": "Wake",
+      "rate_control": "common_rate",
+      "original_hz": 5.05,
+      "retained_hz": 5.05,
+      "observed": {
+        "fit": 2.68000956,
+        "ar10": 1.59424959
+      },
+      "thinned": {
+        "fit": {
+          "median": 2.68000956,
+          "range": [
+            2.68000956,
+            2.68000956
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 1.59424959,
+          "range": [
+            1.59424959,
+            1.59424959
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "emp_Templeton_032415_NREM",
+      "model": "DANDI-000041",
+      "condition": "NREM",
+      "rate_control": "paired_rate",
+      "original_hz": 6.4,
+      "retained_hz": 5.05,
+      "observed": {
+        "fit": 2.39669911,
+        "ar10": 1.58684089
+      },
+      "thinned": {
+        "fit": {
+          "median": 2.54645394,
+          "range": [
+            2.23574381,
+            2.59599539
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 1.56690742,
+          "range": [
+            1.48404661,
+            1.69906599
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "source_id": "emp_Templeton_032415_NREM",
+      "model": "DANDI-000041",
+      "condition": "NREM",
+      "rate_control": "common_rate",
+      "original_hz": 6.4,
+      "retained_hz": 5.05,
+      "observed": {
+        "fit": 2.39669911,
+        "ar10": 1.58684089
+      },
+      "thinned": {
+        "fit": {
+          "median": 2.39948474,
+          "range": [
+            2.34266663,
+            2.55256056
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 1.52913733,
+          "range": [
+            1.49349824,
+            1.69860412
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    }
+  ],
+  "contrasts": [
+    {
+      "model": "JercogEtAl2017",
+      "recording": "1729",
+      "rate_control": "paired_rate",
+      "delta": {
+        "fit": {
+          "median": 0.02135002000000008,
+          "range": [
+            -0.22503388999999996,
+            0.1275859800000001
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": -0.20169832,
+          "range": [
+            -0.20624207000000006,
+            -0.13605224000000005
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "model": "JercogEtAl2017",
+      "recording": "1729",
+      "rate_control": "common_rate",
+      "delta": {
+        "fit": {
+          "median": -0.24065127000000008,
+          "range": [
+            -0.43249512999999995,
+            -0.22008673
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": -0.11302902000000004,
+          "range": [
+            -0.15891681000000013,
+            -0.07836236000000008
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "model": "JercogEtAl2017",
+      "recording": "2718",
+      "rate_control": "paired_rate",
+      "delta": {
+        "fit": {
+          "median": -0.19680768000000004,
+          "range": [
+            -0.23346551000000004,
+            -0.004184989999999944
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": -0.39355748999999984,
+          "range": [
+            -0.40724744999999984,
+            -0.3246886499999999
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "model": "JercogEtAl2017",
+      "recording": "2718",
+      "rate_control": "common_rate",
+      "delta": {
+        "fit": {
+          "median": -0.28755716,
+          "range": [
+            -0.4065003500000002,
+            -0.08503883999999995
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": -0.4070490299999999,
+          "range": [
+            -0.4487969599999999,
+            -0.29411237999999995
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "model": "JercogEtAl2017",
+      "recording": "3141",
+      "rate_control": "paired_rate",
+      "delta": {
+        "fit": {
+          "median": -0.1270479899999999,
+          "range": [
+            -0.26234588999999997,
+            -0.08570986999999985
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": -0.02983296999999996,
+          "range": [
+            -0.037647439999999976,
+            -0.028750749999999936
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "model": "JercogEtAl2017",
+      "recording": "3141",
+      "rate_control": "common_rate",
+      "delta": {
+        "fit": {
+          "median": -0.16115294999999996,
+          "range": [
+            -0.2921213199999999,
+            0.05934964999999992
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 0.01680634000000003,
+          "range": [
+            -0.062160360000000026,
+            0.21026319000000004
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "model": "DANDI-000041",
+      "recording": "BWRat21",
+      "rate_control": "paired_rate",
+      "delta": {
+        "fit": {
+          "median": -0.38839548999999973,
+          "range": [
+            -0.5587665500000001,
+            -0.35415639
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": -0.37514873000000004,
+          "range": [
+            -0.38031203,
+            -0.24187758000000015
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "model": "DANDI-000041",
+      "recording": "BWRat21",
+      "rate_control": "common_rate",
+      "delta": {
+        "fit": {
+          "median": -0.1803833199999998,
+          "range": [
+            -0.26465621000000006,
+            -0.048607060000000146
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": -0.13552048000000005,
+          "range": [
+            -0.3787134999999999,
+            0.2641899999999999
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "model": "DANDI-000041",
+      "recording": "Bogey",
+      "rate_control": "paired_rate",
+      "delta": {
+        "fit": {
+          "median": -0.20504962000000004,
+          "range": [
+            -0.26914241999999966,
+            -0.16988449999999977
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": -0.09806646000000008,
+          "range": [
+            -0.2145092799999999,
+            -0.09056551000000002
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "model": "DANDI-000041",
+      "recording": "Bogey",
+      "rate_control": "common_rate",
+      "delta": {
+        "fit": {
+          "median": -0.1862926599999999,
+          "range": [
+            -0.31433034000000015,
+            0.027767120000000034
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": -0.3561779300000001,
+          "range": [
+            -0.38507594999999983,
+            -0.34328256
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "model": "DANDI-000041",
+      "recording": "Dino",
+      "rate_control": "paired_rate",
+      "delta": {
+        "fit": {
+          "median": 0.05755785999999974,
+          "range": [
+            -0.0931622700000001,
+            0.05811192999999992
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 0.34747625000000004,
+          "range": [
+            0.3304670700000001,
+            0.4067307
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "model": "DANDI-000041",
+      "recording": "Dino",
+      "rate_control": "common_rate",
+      "delta": {
+        "fit": {
+          "median": -0.05086648000000027,
+          "range": [
+            -0.3815186100000001,
+            0.14797691000000013
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": 0.22051023000000014,
+          "range": [
+            -0.27020022999999993,
+            0.3051705100000002
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "model": "DANDI-000041",
+      "recording": "Templeton",
+      "rate_control": "paired_rate",
+      "delta": {
+        "fit": {
+          "median": -0.13355561999999965,
+          "range": [
+            -0.44426574999999957,
+            -0.08401416999999967
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": -0.027342170000000054,
+          "range": [
+            -0.11020297999999995,
+            0.10481640000000003
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    },
+    {
+      "model": "DANDI-000041",
+      "recording": "Templeton",
+      "rate_control": "common_rate",
+      "delta": {
+        "fit": {
+          "median": -0.2805248199999997,
+          "range": [
+            -0.3373429299999997,
+            -0.12744899999999992
+          ],
+          "passed": 3,
+          "attempted": 3
+        },
+        "ar10": {
+          "median": -0.06511226000000003,
+          "range": [
+            -0.1007513499999999,
+            0.10435452999999995
+          ],
+          "passed": 3,
+          "attempted": 3
+        }
+      }
+    }
+  ]
+}

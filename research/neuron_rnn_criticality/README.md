@@ -59,6 +59,19 @@ python "$A/describe_neurons.py" "$A/results/analysis.json" "$A/results/matlab_co
   "$A/results/rate_and_events.json"
 ```
 
+## 发放率敏感性
+
+等率稀释使用原有的 10 单元、60 s 计数，并保持原始时窗。84 条输入在 [MATLAB 批次 45101132727](https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/45101132727) 以 AR(5) 和 AR(10) 拟合。群体平均率和三次技术重复的结果见 [等率敏感性摘要](results/rate_sensitivity.json)，求解、残差和完整回执见 [拟合数据](results/rate_fits.json) 和 [回执](results/rate_matlab_receipt.json)。
+
+```sh
+python "$A/rate_match.py" prepare "$A/results/matlab_counts.json.gz" \
+  "$A/results/baseline_matlab_receipt.json" "$CACHE/rate_counts.json.gz"
+python "$A/join_fits.py" "$CACHE/rate_counts.json.gz" \
+  "$CACHE/rate-matlab.zip" "$CACHE/rate-receipt.json" "$A/results" --prefix rate
+python "$A/rate_match.py" summarize "$A/results/baseline_fits.json" \
+  "$A/results/rate_fits.json" "$A/results/rate_sensitivity.json"
+```
+
 ## Bugnon 原版运行与生理门槛
 
 [模型登记](registry.json)中的复现资料、deNEST 和 NEST 分别独立固定。有效的独立环境为 Python 3.8.20、NumPy 1.23.5、Cython 0.29.37、GSL 2.7、pandas 1.5.3、PyYAML、docopt、tqdm、setuptools 58.0.4 与 libtool。用 NEST 提交的归档树构建，使旧 PyNEST 包名不带 Git 后缀。说明生成器中的 `cgi.escape` 改为 `html.escape`。这项兼容修改只影响文档生成。

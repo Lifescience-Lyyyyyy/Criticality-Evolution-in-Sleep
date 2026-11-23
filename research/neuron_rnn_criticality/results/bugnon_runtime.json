@@ -1,6 +1,6 @@
 {
   "status": "running_at_checkpoint",
-  "checkpoint_utc": "2026-11-23T02:30:26.450172+00:00",
+  "checkpoint_utc": "2026-11-23T02:41:16.710379+00:00",
   "nest_version": "2.20.0",
   "denest_version": "1.0.1",
   "python_version": "3.8.20",
@@ -38,14 +38,14 @@
     "wake": {
       "network_nodes_including_recorders": 38416,
       "session": "02_noise",
-      "network_time_ms": 7378.4,
-      "realtime_factor": 0.0065
+      "network_time_ms": 10150.4,
+      "realtime_factor": 0.0058
     },
     "sleep": {
       "network_nodes_including_recorders": 38536,
-      "session": "00_warmup",
-      "network_time_ms": 917.8,
-      "realtime_factor": 0.0034
+      "session": "01_noise",
+      "network_time_ms": 2481.2,
+      "realtime_factor": 0.0035
     }
   },
   "matching_cortical_gids": {
@@ -106,5 +106,52 @@
       "ids_sha256": "6a5a34b3f99ac0b63c1407660f8c4a3bb5e5e7e5933ae7a3f7a82be2b278b79a"
     }
   },
-  "execution": "Concurrent native conditions in separate processes with independent output directories."
+  "execution": "Wake runs with dedicated CPU time. Sleep keeps its initialized process and partial output, and is resumed by the scheduler when Wake exits.",
+  "scheduler_observation": {
+    "concurrent": {
+      "elapsed_s": 23.01170977000038,
+      "start_ms": {
+        "wake": 8581.4,
+        "sleep": 2102.4
+      },
+      "end_ms": {
+        "wake": 8647.8,
+        "sleep": 2166.6
+      },
+      "sim_ms_per_wall_s": {
+        "wake": 2.885487461108308,
+        "sleep": 2.7898839608908714
+      }
+    },
+    "wake_only": {
+      "elapsed_s": 23.006403741999748,
+      "start_ms": {
+        "wake": 8663.4,
+        "sleep": 2166.6
+      },
+      "end_ms": {
+        "wake": 8852.0,
+        "sleep": 2166.6
+      },
+      "sim_ms_per_wall_s": {
+        "wake": 8.197717562249778,
+        "sleep": 0.0
+      }
+    },
+    "sleep_only": {
+      "elapsed_s": 23.00619734099928,
+      "start_ms": {
+        "wake": 8852.0,
+        "sleep": 2183.8
+      },
+      "end_ms": {
+        "wake": 8852.0,
+        "sleep": 2370.0
+      },
+      "sim_ms_per_wall_s": {
+        "wake": 0.0,
+        "sleep": 8.093471391213937
+      }
+    }
+  }
 }
