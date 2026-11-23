@@ -118,7 +118,17 @@ PYTHONPATH="$P/lib/python3.8/site-packages:$PAPER" "$P/bin/python" \
   "$A/bugnon_paper_smoke.py" "$PAPER" "$PAPER_BUILD/htneuronmodule.so" "$CACHE/bugnon_paper_smoke.json"
 ```
 
-兼容测试按 mGluR 接收端口向细胞发送两个尖峰。电导参数翻倍的单元产生两倍的电导响应，无刺激单元的 mGluR 电导保持零。全网络生理统计和 d₂ 仍需完整运行。[兼容测试回执](results/bugnon_paper_smoke.json)
+兼容测试按 mGluR 接收端口向细胞发送两个尖峰。电导参数翻倍的单元产生两倍的电导响应，无刺激单元的 mGluR 电导保持零。全网络测试为预热、自发输入、切换和 Sleep 各运行 1 ms，用于核对 5 线程网络的构建和切换后的实际参数。[单细胞回执](results/bugnon_paper_smoke.json) · [全网络回执](results/bugnon_paper_network_check.json)
+
+正式运行保留作者的细胞、连接、外部自发输入和状态切换设置，省略示例中的视觉刺激，并将两态的稳定段分别延长至论文所述的 120 s。Sleep 在 2 s 预热和 3 s 自发输入之后执行 3 s 转换，随后进入稳定段。Wake 和 Sleep 分别从相同的作者种子初始化。
+
+```sh
+for state in wake sleep; do
+  PYTHONPATH="$P/lib/python3.8/site-packages:$PAPER" "$P/bin/python" \
+    "$A/run_bugnon_paper.py" "$state" "$PAPER" "$PAPER_BUILD/htneuronmodule.so" \
+    "$CACHE/bugnon-paper-$state-120s" || exit 1
+done
+```
 
 ## 交付
 

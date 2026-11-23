@@ -1,0 +1,225 @@
+{
+  "condition": "network-check",
+  "source_commit": "d8facf6323aa95151398ee4945623147e33491a8",
+  "nest": "NEST nest-2.20.0",
+  "extension_sha256": "9ce8bf99740fed27e96922d52fe095a2e953d5f43d740a03c67450ade53522b9",
+  "initialization": {
+    "network_size": 31880,
+    "num_connections": 10799093
+  },
+  "sessions": {
+    "00_warmup": [
+      0.0,
+      1.0
+    ],
+    "01_noise": [
+      1.0,
+      2.0
+    ],
+    "02_sleep_transition": [
+      2.0,
+      3.0
+    ],
+    "03_sleep": [
+      3.0,
+      4.0
+    ]
+  },
+  "runtime_parameter_sha256": "5333b526fe20eadd002b7badfd81cff629affe56c16b720941d9c72cee70796c",
+  "override": {
+    "simulation": {
+      "params": {
+        "sessions": [
+          "warmup",
+          "noise",
+          "sleep_transition",
+          "sleep"
+        ]
+      }
+    },
+    "session_models": {
+      "warmup": {
+        "params": {
+          "simulation_time": 1.0
+        }
+      },
+      "noise": {
+        "params": {
+          "simulation_time": 1.0
+        }
+      },
+      "sleep_transition": {
+        "params": {
+          "simulation_time": 1.0
+        }
+      },
+      "sleep": {
+        "params": {
+          "simulation_time": 1.0
+        }
+      }
+    }
+  },
+  "checked_transition": {
+    "retina_nrn": {
+      "gid": 14,
+      "before": {
+        "rate": 60.0,
+        "amplitude": 0.0
+      },
+      "mode": "constant",
+      "values": {
+        "rate": 60.0,
+        "amplitude": 0.0
+      },
+      "after": {
+        "rate": 60.0,
+        "amplitude": 0.0
+      }
+    },
+    "poisson_nrn_to_cortex_mGluR_to_PC": {
+      "gid": 10,
+      "before": {
+        "rate": 100.0
+      },
+      "mode": "constant",
+      "values": {
+        "rate": 200.0
+      },
+      "after": {
+        "rate": 200.0
+      }
+    },
+    "poisson_nrn_to_cortex_mGluR_to_BC": {
+      "gid": 11,
+      "before": {
+        "rate": 100.0
+      },
+      "mode": "constant",
+      "values": {
+        "rate": 200.0
+      },
+      "after": {
+        "rate": 200.0
+      }
+    },
+    "Vp_PC": {
+      "gid": 9269,
+      "before": {
+        "g_KL": 1.0,
+        "g_peak_AMPA": 0.14,
+        "g_peak_mGluR": -0.005
+      },
+      "mode": "multiplicative",
+      "values": {
+        "g_KL": 1.5,
+        "g_peak_AMPA": 1.5,
+        "g_peak_mGluR": 2.0
+      },
+      "after": {
+        "g_KL": 1.5,
+        "g_peak_AMPA": 0.21000000000000002,
+        "g_peak_mGluR": -0.01
+      }
+    },
+    "Vp_BC": {
+      "gid": 8017,
+      "before": {
+        "g_KL": 0.8,
+        "g_peak_AMPA": 0.11,
+        "g_peak_mGluR": -0.0025
+      },
+      "mode": "multiplicative",
+      "values": {
+        "g_KL": 1.4,
+        "g_peak_AMPA": 1.9,
+        "g_peak_mGluR": 2.0
+      },
+      "after": {
+        "g_KL": 1.1199999999999999,
+        "g_peak_AMPA": 0.209,
+        "g_peak_mGluR": -0.005
+      }
+    },
+    "Vp_MC": {
+      "gid": 24321,
+      "before": {
+        "g_peak_AMPA": 0.1575,
+        "g_KL": 0.4
+      },
+      "mode": "multiplicative",
+      "values": {
+        "g_peak_AMPA": 1.0,
+        "g_KL": 2.0
+      },
+      "after": {
+        "g_peak_AMPA": 0.1575,
+        "g_KL": 0.8
+      }
+    },
+    "Tp_exc": {
+      "gid": 4816,
+      "before": {
+        "g_KL": 1.0
+      },
+      "mode": "multiplicative",
+      "values": {
+        "g_KL": 1.5
+      },
+      "after": {
+        "g_KL": 1.5
+      }
+    },
+    "Tp_inh": {
+      "gid": 6416,
+      "before": {
+        "g_KL": 1.0
+      },
+      "mode": "multiplicative",
+      "values": {
+        "g_KL": 1.5
+      },
+      "after": {
+        "g_KL": 1.5
+      }
+    },
+    "Rp_inh": {
+      "gid": 3215,
+      "before": {
+        "g_KL": 0.7
+      },
+      "mode": "multiplicative",
+      "values": {
+        "g_KL": 0.95
+      },
+      "after": {
+        "g_KL": 0.6649999999999999
+      }
+    }
+  },
+  "global_seed": 99,
+  "vp_seeds": [
+    100,
+    101,
+    102,
+    103,
+    104
+  ],
+  "recorded_cortical_populations": {
+    "spike_detector_Vp_L23_BC_P00_Vp_BC": 625,
+    "spike_detector_Vp_L23_BC_P90_Vp_BC": 625,
+    "spike_detector_Vp_L23_PC_P00_Vp_PC": 3136,
+    "spike_detector_Vp_L23_PC_P90_Vp_PC": 3136,
+    "spike_detector_Vp_L4_BC_P00_Vp_BC": 625,
+    "spike_detector_Vp_L4_BC_P90_Vp_BC": 625,
+    "spike_detector_Vp_L4_PC_P00_Vp_PC": 3136,
+    "spike_detector_Vp_L4_PC_P90_Vp_PC": 3136,
+    "spike_detector_Vp_L56_BC_P00_Vp_BC": 625,
+    "spike_detector_Vp_L56_BC_P90_Vp_BC": 625,
+    "spike_detector_Vp_L56_MC_P00_Vp_MC": 625,
+    "spike_detector_Vp_L56_MC_P90_Vp_MC": 625,
+    "spike_detector_Vp_L56_PC_P00_Vp_PC": 3136,
+    "spike_detector_Vp_L56_PC_P90_Vp_PC": 3136
+  },
+  "scope": "Full author network initialization and parameter switch, 4 ms technical check"
+}

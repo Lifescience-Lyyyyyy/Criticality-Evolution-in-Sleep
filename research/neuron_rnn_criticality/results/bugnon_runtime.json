@@ -1,5 +1,5 @@
 {
-  "status": "running_at_checkpoint",
+  "status": "interrupted_after_checkpoint",
   "checkpoint_utc": "2026-11-23T02:41:16.710379+00:00",
   "nest_version": "2.20.0",
   "denest_version": "1.0.1",
@@ -256,6 +256,23 @@
             }
           }
         ]
+      }
+    }
+  },
+  "interruption": {
+    "observed_utc": "2026-11-23T07:00:08.281181+00:00",
+    "reason": "Previous WSL instance and both NEST processes were gone at recheck",
+    "partial_output_retained": true,
+    "conditions": {
+      "wake": {
+        "last_logged_ms": 55844.8,
+        "receipt_present": false,
+        "last_log_modified_utc": "2026-11-23T04:10:06.327821+00:00"
+      },
+      "sleep": {
+        "last_logged_ms": 2481.2,
+        "receipt_present": false,
+        "last_log_modified_utc": "2026-11-23T02:38:59.266186+00:00"
       }
     }
   }
