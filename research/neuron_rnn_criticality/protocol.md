@@ -22,7 +22,7 @@ Bugnon 的两态流程使用 `MC_sleep_replicate` 的 `fig0_wake_mode_spontaneou
 
 ### Bugnon 的原作者参考统计
 
-补充比较使用完整稳定段，按相同神经元 ID 计算 Wake 和 Sleep-like 的发放率 Pearson 相关，分别报告 PyC、BaC 与 MaC，使用原始率尺度。原论文图 4a 的抽样参考值为 PyC 0.90、BaC 0.80。按录得的 PyC 膜电位和 AMPA／GABA-A 电导重建平均电流，采用 Mazzoni 的 6 ms AMPA 延迟与 1.65 抑制权重，极性选择与原文波形一致。6 ms 延迟由 10 ms 记录线性插值。观察 0.5–2 Hz 功率，并在 0.5–4 Hz 滤波后统计两个负波谷间含正峰的完整候选波。论文的正式慢波阈值来自有视觉刺激的 Wake。这里只比较候选波形与归档 `df_sw.csv` 的完整稳定段记录，不据此判定阈上慢波个数。预先固定的基础验收门槛保持原规格。既有 E/I 群体协同指标报告群体时间关系，原文图 7 的逐 PyC 转折同步性使用局部子网的大幅慢波与膜电位交叉时间。[Bugnon 等，方法 2.20–2.21 和图 4、7](https://onlinelibrary.wiley.com/doi/10.1111/ejn.15836) · [Mazzoni 等，公式 4](https://pmc.ncbi.nlm.nih.gov/articles/PMC4682791/)
+补充比较使用完整稳定段，按相同神经元 ID 计算 Wake 和 Sleep-like 的发放率 Pearson 相关，分别报告 PyC、BaC 与 MaC，使用原始率尺度。原论文图 4a 的抽样参考值为 PyC 0.90、BaC 0.80。按录得的 PyC 膜电位和 AMPA／GABA-A 电导重建平均电流，采用 Mazzoni 的 6 ms AMPA 延迟与 1.65 抑制权重，极性选择与原文波形一致。6 ms 延迟由 10 ms 记录线性插值。观察 0.5–2 Hz 功率，并在 0.5–4 Hz 滤波后统计两个负波谷间含正峰的完整候选波。作者归档使用有视觉刺激的 Wake 作为正式慢波阈值的参照。从归档中首个刺激到最后一个会话结束，取边界内完整的全网络候选波。按图 4b 的第 99 百分位和方法 2.20 的最大值分别计算阈值。在作者自发 Wake 和 Sleep-like 归档中报告各自阈上数与时长。对每一阈值筛出的波，按峰值取上四分位，从归档两侧半坡时间计算 DOWN 时长。输出归档表的 SHA-256。这些阈值基于作者电流代理的任意幅值尺度，本次重建只报告未阈值化的候选波。预先固定的基础验收门槛保持原规格。既有 E/I 群体协同指标报告群体时间关系，原文图 7 的逐 PyC 转折同步性使用局部子网的大幅慢波与膜电位交叉时间。[Bugnon 等，方法 2.20–2.21 和图 4、7](https://onlinelibrary.wiley.com/doi/10.1111/ejn.15836) · [Mazzoni 等，公式 4](https://pmc.ncbi.nlm.nih.gov/articles/PMC4682791/)
 
 ## 发放率敏感性分析
 

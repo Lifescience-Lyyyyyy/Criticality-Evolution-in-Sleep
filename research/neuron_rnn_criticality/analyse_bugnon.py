@@ -121,16 +121,31 @@ def cortical_vm(root,t0,t1):
     return out,lfp
 
 
-def archive_wave_stats(reference,start,stop):
-    with (reference/"df_sw.csv").open() as stream:
-        durations=[float(z["duration"])/1000 for z in csv.DictReader(stream)
-                   if z["subnet"]=="full" and start<=float(z["startTime"])
-                   and float(z["endTime"])<=stop]
-    return dict(candidate_waves=len(durations),
-                candidate_wave_median_s=float(np.median(durations)) if durations else None)
+def archive_waves(path,start,stop):
+    fields=("maxPeak_Amp","duration","halfSlopetoFirstPeakTime","halfSlopefromLastPeakTime")
+    with path.open() as stream:
+        rows=[[float(row[key]) for key in fields] for row in csv.DictReader(stream)
+              if row["subnet"]=="full" and start<=float(row["startTime"])
+              and float(row["endTime"])<=stop]
+    return np.asarray(rows,dtype=float).reshape(-1,len(fields))
 
 
-def audit(root,authors,condition):
+def archive_wave_stats(reference,start,stop,thresholds):
+    path=reference/"df_sw.csv"
+    waves=archive_waves(path,start,stop)
+    results={}
+    for rule,threshold in thresholds.items():
+        above=waves[waves[:,0]>threshold]
+        largest=above[above[:,0]>=np.quantile(above[:,0],.75)] if len(above) else above
+        down_s=(largest[:,3]-largest[:,2])/1000
+        results[rule]=dict(above_threshold=len(above),largest_quartile=len(largest),
+                           median_wave_s=float(np.median(above[:,1])/1000) if len(above) else None,
+                           median_down_half_slope_s=float(np.median(down_s)) if len(down_s) else None)
+    return dict(source_sha256=digest(path),candidate_waves=len(waves),threshold_sensitivity=results,
+                candidate_wave_median_s=float(np.median(waves[:,1])/1000) if len(waves) else None)
+
+
+def audit(root,authors,condition,thresholds):
     rec=json.loads((root/"run_receipt.json").read_text())
     assert rec["model_commit"]==REPLICATE and rec["condition"]==condition and rec["resolution_ms"]==.2
     assert digest(authors/rec["parameter_source"])==rec["parameter_sha256"]
@@ -228,7 +243,7 @@ def audit(root,authors,condition):
                neuron_count_recorded=len(id_all),neuron_types=by_type,
                spike_record_sha256=digest(receipt_ref), spike_count_sha256=digest(count_path))
     voltage,lfp=cortical_vm(root,start,stop)
-    lfp["archive_full_network_candidates"]=archive_wave_stats(reference,start,stop)
+    lfp["archive_full_network_candidates"]=archive_wave_stats(reference,start,stop,thresholds)
     return dict(receipt=rec,populations=stats,episode_proxy=phases,dynamics=slim(population_metrics([pop],BIN)),
                 decomposition=profile(u,v,t),ei_synchrony=ei,voltage=voltage,lfp_proxy=lfp,
                 median_absolute_log_rate_error=float(np.median(np.abs(np.log(ratios)))),rate_ratios=ratios),pop
@@ -254,10 +269,19 @@ def main():
     p.add_argument("--out",type=Path,required=True)
     a=p.parse_args()
     a.out.mkdir(exist_ok=True,parents=True)
+    stimulus=a.authors/"simulations"/"fig0_wake_mode_stimuli"
+    stimulus_times=yaml.full_load((stimulus/"session_times.yml").read_text())
+    stimulus_start=stimulus_times["03_grating"][0]
+    stimulus_stop=max(end for _,end in stimulus_times.values())
+    stimulus_path=stimulus/"analysis"/"df_sw.csv"
+    amplitudes=archive_waves(stimulus_path,stimulus_start,stimulus_stop)[:,0]
+    if not len(amplitudes) or not np.all(np.isfinite(amplitudes)):
+        raise ValueError(f"Missing finite full-network stimulus wave amplitudes: {stimulus_path}")
+    thresholds=dict(fig4_p99=float(np.quantile(amplitudes,.99)),methods_maximum=float(amplitudes.max()))
     rows={}
     series={}
     for label in ("wake","sleep"):
-        rows[label],series[label]=audit(getattr(a,label),a.authors,label)
+        rows[label],series[label]=audit(getattr(a,label),a.authors,label,thresholds)
     with np.load(a.wake/"cortical_spike_record.npz") as wake, np.load(a.sleep/"cortical_spike_record.npz") as sleep:
         ids,types=wake["neuron_ids"],wake["neuron_types"]
         for field in ("neuron_ids","neuron_types","neuron_layers"):
@@ -280,7 +304,10 @@ def main():
            "sleep_bouts":min(rows["sleep"]["episode_proxy"][k] for k in ("up_n","down_n"))>=10}
     write(a.out/"bugnon_physiology.json",
           dict(conditions=rows,physiology_pass=gates,slow_band_voltage_ratios=ratios,
-               paired_cell_rate_correlations=rate_corr))
+               paired_cell_rate_correlations=rate_corr,
+               archive_stimulus_thresholds=dict(source_sha256=digest(stimulus_path),
+                                                stimulus_window_ms=[stimulus_start,stimulus_stop],
+                                                candidate_waves=len(amplitudes),thresholds=thresholds)))
     print("Bugnon physiology gate:",gates,flush=True)
     if not all(gates.values()):
         raise SystemExit("Author-model data retained. No Sooter stage until its gate passes.")

@@ -1,12 +1,32 @@
 """Small scientific checks for the spike adapter, covariance and surrogate."""
+from pathlib import Path
+from tempfile import TemporaryDirectory
 import unittest
 import numpy as np
 
+from analyse_bugnon import archive_wave_stats
 from physiology import hmm,merge_short,periods
 from analyse_snn import components, pure_episodes, shifted
 
 
 class ScientificChecks(unittest.TestCase):
+    def test_archived_slow_waves_threshold_and_boundaries(self):
+        with TemporaryDirectory() as temp:
+            root=Path(temp)
+            (root/"df_sw.csv").write_text(
+                "subnet,startTime,endTime,maxPeak_Amp,duration,halfSlopetoFirstPeakTime,halfSlopefromLastPeakTime\n"
+                "full,100,400,1,300,170,310\n"
+                "full,410,810,2,400,510,710\n"
+                "full,850,1200,3,350,920,1100\n"
+                "local,100,400,4,300,170,310\n"
+            )
+            result=archive_wave_stats(root,100,1000,{"strict":1,"lower_threshold":0})
+        self.assertEqual(result["candidate_waves"],2)
+        strict=result["threshold_sensitivity"]["strict"]
+        self.assertEqual(strict["above_threshold"],1)
+        self.assertEqual(strict["median_down_half_slope_s"],.2)
+        self.assertEqual(result["threshold_sensitivity"]["lower_threshold"]["largest_quartile"],1)
+
     def test_detector_and_intervals(self):
         rng=np.random.default_rng(4)
         actual=np.repeat([False,True,False,True,False],100)
