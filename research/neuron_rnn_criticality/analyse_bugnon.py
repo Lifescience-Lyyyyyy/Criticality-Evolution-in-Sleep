@@ -456,7 +456,7 @@ def prepare_condition(root,receipt,authors,condition,thresholds):
         info={field:spikes[field] for field in ("neuron_ids","neuron_types","neuron_layers")}
         info["rates_hz"]=np.diff(spikes["spike_times_offsets"])/summary["receipt"]["duration_seconds"]
     counts=np.load(root/"cortical_counts_40ms.npy",mmap_mode="r",allow_pickle=False)
-    sampled=[counts[:,cols].sum(1) for _,_,cols in fixed_subsamples(info["neuron_types"])]
+    sampled=[counts[:,cols].sum(1,dtype=np.int64) for _,_,cols in fixed_subsamples(info["neuron_types"])]
     return dict(summary=summary,timescales=timescales,counts=np.stack([pop,*sampled]),**info)
 
 
@@ -486,7 +486,15 @@ def load_prepared_condition(path,condition):
     assert all(data[k].shape==(n,) for k in ("neuron_ids","neuron_types","neuron_layers","rates_hz"))
     assert data["timescales"].shape==(n,2)
     counts=data["counts"]
-    assert counts.shape==(7,1500) and np.issubdtype(counts.dtype,np.integer) and counts.min()>=0
+    if counts.shape!=(7,1500):
+        raise ValueError(f"Expected seven 1500-bin count series in {path}, got {counts.shape}")
+    # Earlier packages stacked signed full counts with unsigned subset counts.
+    if np.issubdtype(counts.dtype,np.floating):
+        if not ((counts>=0)&(counts<2**53)&(counts==np.floor(counts))).all():
+            raise ValueError(f"Floating-point counts in {path} are not exact nonnegative integers")
+        data["counts"]=counts=counts.astype(np.int64)
+    if not np.issubdtype(counts.dtype,np.integer) or counts.min()<0:
+        raise ValueError(f"Invalid spike counts in {path}: {counts.dtype}")
     assert (counts[1:]<=counts[0]).all()
     np.testing.assert_allclose(counts[0].var(),data["summary"]["decomposition"]["total"][0],atol=1e-7)
     receipt["transfer_bundle_sha256"]=checksum

@@ -74,6 +74,15 @@ class ScientificChecks(unittest.TestCase):
             out=load_prepared_condition(path,"wake")
             np.testing.assert_array_equal(out["counts"],counts)
             np.testing.assert_array_equal(out["timescales"],prepared["timescales"])
+            legacy=Path(tmp)/"legacy-wake.npz"
+            save_prepared_condition(legacy,dict(prepared,counts=counts.astype(float)))
+            converted=load_prepared_condition(legacy,"wake")["counts"]
+            np.testing.assert_array_equal(converted,counts)
+            self.assertEqual(converted.dtype,np.int64)
+            fractional=Path(tmp)/"fractional-wake.npz"
+            save_prepared_condition(fractional,dict(prepared,counts=counts+.5))
+            with self.assertRaisesRegex(ValueError,"not exact nonnegative integers"):
+                load_prepared_condition(fractional,"wake")
             with self.assertRaisesRegex(ValueError,"completed 120 s paper-linked sleep"):
                 load_prepared_condition(path,"sleep")
             path.with_suffix(".sha256").write_text("0"*64)
