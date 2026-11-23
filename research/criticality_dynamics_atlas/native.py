@@ -116,6 +116,18 @@ def calc(row,blocks,kind):
                       for step,dt in ((1,.02),(4,.08),(10,.20))])
 
 
+def verified_blocks(archive):
+    """Read the already-audited NWB count blocks with their original receipt."""
+    from io import BytesIO
+    with ZipFile(archive) as z:
+        rec=json.loads(z.read("receipt.json"))
+        for r in rec["verified"]:
+            raw=z.read(f"{r['index']}.npz")
+            assert sha256(raw).hexdigest()==r["matrix_sha256"]
+            with np.load(BytesIO(raw),allow_pickle=False) as b:
+                yield r,[b[n].astype(float) for n in b.files]
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("mode",choices=["plan","analysis"])
@@ -128,19 +140,10 @@ def main():
         return
     rows=[]
     for archive in a.archive:
-        from tempfile import TemporaryDirectory
-        with ZipFile(archive) as z, TemporaryDirectory() as resolved:
-            assert not z.testzip()
-            for n in z.namelist():
-                assert Path(n).name==n
-                (Path(resolved)/n).write_bytes(z.read(n))
-            rec=json.loads((Path(resolved)/"receipt.json").read_text())
-            for r in rec["verified"]:
-                p=Path(resolved)/f"{r['index']}.npz"
-                assert sha256(p.read_bytes()).hexdigest()==r["matrix_sha256"]
-                with np.load(p,allow_pickle=False) as b:
-                    rows.append(calc(r,[b[n].astype(float) for n in b.files],"NWB_matched"))
-            write(a.out.with_name(f"{archive.stem}-receipt.json"),rec)
+        for r,blocks in verified_blocks(archive):
+            rows.append(calc(r,blocks,"NWB_matched"))
+        with ZipFile(archive) as z:
+            write(a.out.with_name(f"{archive.stem}-receipt.json"),json.loads(z.read("receipt.json")))
     if a.brainstem:
         for row,blocks in raw_pags(a.brainstem):
             rows.append(calc(row,[x.astype(float) for x in blocks],"PAG_1ms"))
