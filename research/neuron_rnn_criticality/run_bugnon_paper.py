@@ -9,6 +9,21 @@ from bugnon_paper_smoke import COMMIT, EXAMPLE
 from run_bugnon import revision
 
 
+def session_overrides(condition):
+    phases = ["warmup", "noise"]
+    if condition != "wake":
+        phases += ["sleep_transition", "sleep"]
+    # The publication used spontaneous retinal input and 120 s stable recordings.
+    # The network check only verifies model construction and the parameter switch.
+    durations = ({phase: 1.0 for phase in phases} if condition == "network-check"
+                 else {phases[-1]: 120000.0})
+    return {
+        "simulation": {"params": {"sessions": phases}},
+        "session_models": {phase: {"params": {"simulation_time": ms}}
+                           for phase, ms in durations.items()},
+    }
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("condition", choices=("wake", "sleep", "network-check"))
@@ -30,18 +45,8 @@ def main():
 
     assert Path(denest.__file__).resolve().parent.parent == args.source.resolve()
     assert "2.20.0" in nest.version()
-    phases = ["warmup", "noise"]
-    if args.condition != "wake":
-        phases += ["sleep_transition", "sleep"]
-    # The publication used spontaneous retinal input and 120 s stable recordings.
-    # The network check only verifies model construction and the parameter switch.
-    durations = ({phase: 1.0 for phase in phases} if args.condition == "network-check"
-                 else {phases[-1]: 120000.0})
-    overrides = {
-        "simulation": {"params": {"sessions": phases}},
-        "session_models": {phase: {"params": {"simulation_time": ms}}
-                           for phase, ms in durations.items()},
-    }
+    overrides = session_overrides(args.condition)
+    phases = overrides["simulation"]["params"]["sessions"]
     example = args.source / EXAMPLE
     parameters = denest.load_trees(example / "params/tree_paths.yml", overrides)
     sim = denest.Simulation(parameters, input_dir=example / "input", output_dir=out)

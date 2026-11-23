@@ -130,6 +130,13 @@ for state in wake sleep; do
 done
 ```
 
+两态写出完成回执后，可用同一工具验收并准备现有 MATLAB 工作流的输入。
+
+```sh
+python "$A/analyse_bugnon.py" --paper --wake "$CACHE/bugnon-paper-wake-120s" \
+  --sleep "$CACHE/bugnon-paper-sleep-120s" --out "$CACHE/bugnon-paper-analysis"
+```
+
 ## 交付
 
 | 文件 | 内容 |

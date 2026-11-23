@@ -5,7 +5,9 @@ from tempfile import TemporaryDirectory
 import unittest
 import numpy as np
 
-from analyse_bugnon import archive_wave_stats, paired_timescales, parameter_evidence, phase_spike_counts
+from analyse_bugnon import (archive_wave_stats, paired_timescales, paper_physiology_gates,
+                            paper_run_evidence, parameter_evidence, phase_spike_counts)
+from run_bugnon_paper import session_overrides
 from join_fits import verify_fit_input
 from physiology import hmm,merge_short,periods
 from analyse_snn import components, pure_episodes, shifted
@@ -55,6 +57,26 @@ class ScientificChecks(unittest.TestCase):
             executed.write_text(json.dumps(tree))
             with self.assertRaises(ValueError):
                 parameter_evidence(frozen,executed)
+
+    def test_paper_fit_gate_requires_sleep_specific_physiology(self):
+        types=np.array(["PC","PC","PC","BC","BC","MC"])
+        rates=(np.array([0,0,2,10,12,2]),np.array([0,1,3,11,13,3]))
+        corr={k:{"pearson":.8} for k in ("PC","BC")}
+        episode=dict(up_n=2,down_n=2,E=dict(up_hz=2,down_hz=.2),I=dict(up_hz=10,down_hz=1))
+        rows={"wake":{"lfp_proxy":{"statistics":{"band_power":1}}},
+              "sleep":{"lfp_proxy":{"statistics":{"band_power":3}},"episode_proxy":episode,
+                       "voltage":{"Vp_L4_PC":{"up_minus_down_mv":3}}}}
+        self.assertTrue(all(paper_physiology_gates(rows,rates,types,corr).values()))
+        episode["E"]["down_hz"]=episode["E"]["up_hz"]
+        gates=paper_physiology_gates(rows,rates,types,corr)
+        self.assertFalse(gates["sleep_bouts"])
+        self.assertTrue(gates["slow_modulation"])
+        for state,stage in (("wake","noise"),("sleep","sleep")):
+            plan=session_overrides(state)
+            self.assertEqual(plan["session_models"][stage]["params"]["simulation_time"],120000)
+            self.assertNotIn("grating",plan["simulation"]["params"]["sessions"])
+        with self.assertRaises(ValueError):
+            paper_run_evidence({"condition":"network-check"},"sleep",None,None)
 
     def test_bugnon_sessions_exclude_the_transition_from_stable_counts(self):
         times=np.array([2500,2999.8,3000,4999.8,5000,5000.2,125000])

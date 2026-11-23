@@ -282,6 +282,7 @@ def bugnon_plot(physiology, fits, out):
     if not all(physiology["physiology_pass"].values()):
         raise ValueError("Bugnon physiology gate did not pass")
     conditions=physiology["conditions"]
+    paper=physiology.get("parameter_case")=="paper_mglur"
     labels={"wake":"Wake","sleep":"Sleep-like"}
     colors={"wake":"#007884","sleep":"#8C4A1C"}
     original={r["context"]:r for r in fits["records"] if r["category"]=="bugnon_original"}
@@ -293,9 +294,10 @@ def bugnon_plot(physiology, fits, out):
     for state,name in labels.items():
         q=conditions[state]
         color=colors[state]
-        groups=q["populations"]
-        rates.scatter([r["reference_mean"] for r in groups],[r["mean_rate"] for r in groups],
-                      color=color,s=26,label=name,alpha=.8)
+        if not paper:
+            groups=q["populations"]
+            rates.scatter([r["reference_mean"] for r in groups],[r["mean_rate"] for r in groups],
+                          color=color,s=26,label=name,alpha=.8)
         rows=[q["lfp_proxy"]["statistics"]] if show_lfp else [q["voltage"][key] for key in matched_labels]
         frequency=np.asarray(rows[0]["f"])
         keep=(frequency>=.25)&(frequency<=15)
@@ -304,10 +306,19 @@ def bugnon_plot(physiology, fits, out):
         acf.plot(np.arange(len(rho))*.04,rho,color=color,label=name)
         y=[original[state][order]["d2"] for order in ("fit","ar10")]
         distance.plot([0,1],y,marker="o",color=color,label=name)
+    if paper:
+        w,s=({r["label"]:r for r in conditions[k]["populations"]} for k in labels)
+        for kind,name,color,marker in (("PC","Pyramidal","#007884","o"),("BC","Basket","#8C4A1C","s"),
+                                       ("MC","Martinotti","#5C4A91","^")):
+            keys=[k for k in w if w[k]["type"]==kind]
+            rates.scatter([w[k]["mean_rate"] for k in keys],[s[k]["mean_rate"] for k in keys],
+                          color=color,marker=marker,s=28,label=name)
     bounds=max(rates.get_xlim()[1],rates.get_ylim()[1])
     rates.plot([0,bounds],[0,bounds],ls=":",c="#607580",lw=1)
-    rates.set(title="Cortical rates by recorded population",xlabel="Author archive rate (Hz/cell)",
-              ylabel="Replayed rate (Hz/cell)",xlim=(0,bounds),ylim=(0,bounds))
+    rates.set(title="Cortical rates by recorded population",
+              xlabel="Wake rate (Hz/cell)" if paper else "Author archive rate (Hz/cell)",
+              ylabel="Sleep-like rate (Hz/cell)" if paper else "Replayed rate (Hz/cell)",
+              xlim=(0,bounds),ylim=(0,bounds))
     power.axvspan(.5,2,color="#D3E7DB",alpha=.4)
     power.set(title="Pyramidal LFP proxy" if show_lfp else "Cortical membrane voltage",
               xscale="log",yscale="log",xlabel="Frequency (Hz)",
@@ -321,7 +332,8 @@ def bugnon_plot(physiology, fits, out):
     w,s=(conditions[key]["receipt"] for key in labels)
     seed=w["global_seed"]
     detail="Shaded band: 0.5–2 Hz" if show_lfp else "Voltage bands span recording groups"
-    scope(fig,f"Bugnon author conditions · {w['neuron_count_recorded']:,} matched cortical cells · NEST global seed {seed}\n"
+    model="Bugnon paper-linked mGluR" if paper else "Bugnon author archive"
+    scope(fig,f"{model} · {w['neuron_count_recorded']:,} matched cortical cells · NEST global seed {seed}\n"
           f"Stable exposure {w['duration_seconds']:g}/{s['duration_seconds']:g} s · ACF and d₂ from matched 60 s · {detail}")
     save(fig,out,5,"bugnon_author_conditions")
 

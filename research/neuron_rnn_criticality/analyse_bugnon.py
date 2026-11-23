@@ -16,6 +16,7 @@ from describe_neurons import describe_cells
 from metrics import population_metrics
 from physiology import digest, episode_stats, hmm, merge_short, write
 from run_bugnon import CASES, DENEST, NEST, REPLICATE
+from run_bugnon_paper import COMMIT as PAPER_COMMIT, session_overrides
 
 STABLE={"wake":"02_noise","sleep":"03_sleep"}
 
@@ -72,7 +73,7 @@ def lfp_statistics(ampa,gaba):
                 candidate_wave_median_s=float(np.median(durations)) if durations else None)
 
 
-def cortical_vm(root,t0,t1):
+def cortical_vm(root,t0,t1,up=None):
     # Mean Vm by recorder plus a global pyramidal-cell current proxy.
     out={}
     nbins=round((t1-t0)/10)
@@ -113,8 +114,14 @@ def cortical_vm(root,t0,t1):
         v=np.interp(np.arange(nbins),np.flatnonzero(ok),sums[ok]/counts[ok])
         f,p=welch(v,fs=100,nperseg=800)
         band=(f>=.5)&(f<=2)
+        delta_mv=None
+        if up is not None:
+            recorded_up,recorded_down=up&ok,~up&ok
+            if recorded_up.any() and recorded_down.any():
+                delta_mv=float(v[recorded_up].mean()-v[recorded_down].mean())
         out[r["label"]]=dict(band_power_mv2=float(p[band].sum()*(f[1]-f[0])),
-                             sample_fraction=float(ok.mean()),f=f.tolist(),psd=p.tolist())
+                             sample_fraction=float(ok.mean()),f=f.tolist(),psd=p.tolist(),
+                             up_minus_down_mv=delta_mv)
     lfp=dict(pyramidal_recorders=total_pc,covered_recorders=valid_pc,statistics=None)
     if total_pc and valid_pc==total_pc:
         ok=coverage>0
@@ -155,6 +162,10 @@ def parameter_evidence(author_path,runtime_path):
             tree["simulation"]["params"].pop(key,None)
     if author!=runtime:
         raise ValueError(f"Executed parameter tree differs from the author archive: {runtime_path}")
+    return tree_evidence(runtime,runtime_path)
+
+
+def tree_evidence(runtime,runtime_path):
     stages=runtime["simulation"]["params"]["sessions"]
     recorded={f"{i:02d}_{name}":runtime["session_models"][name]["params"].get("record",True)
               for i,name in enumerate(stages)}
@@ -195,30 +206,53 @@ def split_timescales(counts,types):
     return paired_timescales(a,b,types[use])
 
 
-def audit(root,authors,condition,thresholds):
-    rec=json.loads((root/"run_receipt.json").read_text())
-    assert rec["model_commit"]==REPLICATE and rec["condition"]==condition and rec["resolution_ms"]==.2
-    assert rec["denest_commit"]==DENEST and rec["nest_commit"]==NEST and rec["threads"]==5
-    author_dir=authors/"simulations"/CASES[condition]
-    param=author_dir/"parameter_tree.yml"
-    assert rec["parameter_source"]==str(param.relative_to(authors)) and digest(param)==rec["parameter_sha256"]
-    evidence=parameter_evidence(param,root/"parameter_tree.yml")
-    recording=evidence["session_recorded"]
+def paper_run_evidence(rec,condition,runtime_path,sessions):
+    if rec.get("condition")!=condition or rec.get("source_commit")!=PAPER_COMMIT:
+        raise ValueError(f"Expected a completed paper-linked {condition} simulation")
+    runtime=yaml.full_load(runtime_path.read_text())
+    want=session_overrides(condition)
+    stages=want["simulation"]["params"]["sessions"]
+    assert rec["override"]==want and runtime["simulation"]["params"]["sessions"]==stages
+    assert rec["runtime_parameter_sha256"]==digest(runtime_path)
+    assert list(rec["sessions"])==list(sessions) and all(tuple(rec["sessions"][s])==v for s,v in sessions.items())
+    assert rec["nest"]=="NEST nest-2.20.0"
+    kernel=runtime["kernel"]["nest_params"]
+    assert kernel["resolution"]==.2 and kernel["local_num_threads"]==5
+    expected=(2000.,122000.) if condition=="wake" else (8000.,128000.)
+    stable=f"{len(stages)-1:02d}_{stages[-1]}"
+    if sessions[stable]!=expected:
+        raise ValueError(f"Wrong stable interval for {condition}: {sessions[stable]}")
+    return stable,tree_evidence(runtime,runtime_path)
+
+
+def audit(root,rec,authors,condition,thresholds):
     times_path,=root.rglob("session_times.yml")
     sessions=yaml.full_load(times_path.read_text())
-    author_sessions=yaml.full_load((author_dir/"session_times.yml").read_text())
-    if sessions!=author_sessions or sessions.keys()!=recording.keys():
-        raise ValueError(f"Session boundaries differ from the {condition} author archive: {sessions}")
-    if not recording[STABLE[condition]]:
-        raise ValueError(f"The {condition} stable session was not recorded")
-    start,stop=sessions[STABLE[condition]]
-    reference=author_dir/"analysis"
-    with (reference/"df_rate_stats.csv").open() as f:
-        refs={r["metadata_filename"]:r for r in csv.DictReader(f) if r["session"]==STABLE[condition]}
-    with (reference/"df_cv_stats.csv").open() as f:
-        cv_refs={r["metadata_filename"]:r for r in csv.DictReader(f)
-                 if r["session"]==STABLE[condition] and r["min_n_spikes"]=="10"
-                 and r["duration"]=="0" and r["t_min"]=="0"}
+    runtime=root/"parameter_tree.yml"
+    refs,cv_refs={},{}
+    if authors:
+        assert rec["model_commit"]==REPLICATE and rec["condition"]==condition and rec["resolution_ms"]==.2
+        assert rec["denest_commit"]==DENEST and rec["nest_commit"]==NEST and rec["threads"]==5
+        author_dir=authors/"simulations"/CASES[condition]
+        param=author_dir/"parameter_tree.yml"
+        assert rec["parameter_source"]==str(param.relative_to(authors)) and digest(param)==rec["parameter_sha256"]
+        evidence=parameter_evidence(param,runtime)
+        stable=STABLE[condition]
+        if sessions!=yaml.full_load((author_dir/"session_times.yml").read_text()):
+            raise ValueError(f"Session boundaries differ from the {condition} author archive: {sessions}")
+        reference=author_dir/"analysis"
+        with (reference/"df_rate_stats.csv").open() as f:
+            refs={r["metadata_filename"]:r for r in csv.DictReader(f) if r["session"]==stable}
+        with (reference/"df_cv_stats.csv").open() as f:
+            cv_refs={r["metadata_filename"]:r for r in csv.DictReader(f)
+                     if r["session"]==stable and r["min_n_spikes"]=="10"
+                     and r["duration"]=="0" and r["t_min"]=="0"}
+    else:
+        stable,evidence=paper_run_evidence(rec,condition,runtime,sessions)
+    recording=evidence["session_recorded"]
+    if sessions.keys()!=recording.keys() or not recording[stable]:
+        raise ValueError(f"Wrong recording settings for stable {condition}: {recording}")
+    start,stop=sessions[stable]
     stats=[]
     corpus=[]
     for r in metadata(root,"spike_detector"):
@@ -229,15 +263,16 @@ def audit(root,authors,condition,thresholds):
         times=a[:,1]
         use=(times>=start)&(times<stop)
         by_session=phase_spike_counts(times,sessions)
-        assert by_session[STABLE[condition]]==np.count_nonzero(use)
+        assert by_session[stable]==np.count_nonzero(use)
         rates=np.bincount(which[use],minlength=len(ids))*1000/(stop-start)
-        ref=refs[r["label"]]
-        assert int(float(ref["count"]))==len(ids)
+        ref=refs[r["label"]] if authors else None
+        if ref:
+            assert int(float(ref["count"]))==len(ids)
         typ=r["population_name"].rsplit("_",1)[-1]
         stats.append(dict(label=r["label"],layer=r["layer_name"],type=typ,n=len(ids),
-            mean_rate=float(rates.mean()),reference_mean=float(ref["mean"]),
+            mean_rate=float(rates.mean()),reference_mean=float(ref["mean"]) if ref else None,
             quantiles=np.quantile(rates,[.25,.5,.75]).tolist(),
-            reference_quantiles=[float(ref[c]) for c in ("25%","50%","75%")],
+            reference_quantiles=[float(ref[c]) for c in ("25%","50%","75%")] if ref else None,
             zero_rate_fraction=float(np.mean(rates==0)),
             spike_counts_by_session={name:n if recording[name] else None for name,n in by_session.items()},
             spikes_in_unrecorded_intervals=sum(n for name,n in by_session.items() if not recording[name]),
@@ -304,18 +339,20 @@ def audit(root,authors,condition,thresholds):
     state,_=hmm(np.bincount(k10,minlength=bins))
     state=merge_short(state,5)
     phases=episode_stats(state,q,0)
-    ratios=[x["mean_rate"]/x["reference_mean"] for x in stats if x["reference_mean"]>0]
-    rec.update(**evidence,session_intervals_ms=sessions,stable_session=STABLE[condition],
+    ratios=[x["mean_rate"]/x["reference_mean"] for x in stats if x["reference_mean"]]
+    rec.update(**evidence,session_intervals_ms=sessions,stable_session=stable,
                duration_seconds=(stop-start)/1000,burn_in_seconds=start/1000,
                neuron_count_recorded=len(id_all),neuron_types=by_type,
                spike_record_sha256=digest(receipt_ref),spike_count_sha256=digest(count_path),
                neuron_dynamics_sha256=digest(dynamics_path))
-    voltage,lfp=cortical_vm(root,start,stop)
-    lfp["archive_full_network_candidates"]=archive_wave_stats(reference,start,stop,thresholds)
+    voltage,lfp=cortical_vm(root,start,stop,state)
+    if authors:
+        lfp["archive_full_network_candidates"]=archive_wave_stats(reference,start,stop,thresholds)
     return dict(receipt=rec,populations=stats,episode_proxy=phases,dynamics=slim(population_metrics([pop],BIN)),
                 decomposition=profile(u,v,t),ei_synchrony=ei,voltage=voltage,lfp_proxy=lfp,
                 split_half_timescales=split_timescales(counts,types),
-                median_absolute_log_rate_error=float(np.median(np.abs(np.log(ratios)))),rate_ratios=ratios),pop,tau
+                median_absolute_log_rate_error=float(np.median(np.abs(np.log(ratios)))) if ratios else None,
+                rate_ratios=ratios),pop,tau
 
 
 def fixed_subsamples(types):
@@ -330,30 +367,66 @@ def fixed_subsamples(types):
             yield seed,n,np.sort(cols)
 
 
+def paper_physiology_gates(rows,rates,types,rate_corr):
+    # Directional checks follow the reported regime without a numeric tolerance for Figure 4.
+    pc,bc=types=="PC",types=="BC"
+    distributions=all(np.median(a[pc])<np.median(a[bc]) and a[pc].mean()>np.median(a[pc]) for a in rates)
+    paired=all(rate_corr[k]["pearson"] is not None and rate_corr[k]["pearson"]>0 for k in ("PC","BC"))
+    wake_lfp,sleep_lfp=(rows[k]["lfp_proxy"]["statistics"] for k in ("wake","sleep"))
+    slow_waves=bool(wake_lfp and sleep_lfp and sleep_lfp["band_power"]>wake_lfp["band_power"])
+    sleep=rows["sleep"]
+    bouts=sleep["episode_proxy"]
+    vm=[z["up_minus_down_mv"] for key,z in sleep["voltage"].items()
+        if key.endswith("_PC") and z["up_minus_down_mv"] is not None]
+    alternation=min(bouts["up_n"],bouts["down_n"])>0
+    silent_down=alternation and all(bouts[k]["up_hz"]>bouts[k]["down_hz"] for k in ("E","I"))
+    return dict(layer_rate=bool(distributions and paired),slow_modulation=slow_waves,
+                sleep_bouts=bool(silent_down and vm and np.median(vm)>0))
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--wake",type=Path,required=True)
     p.add_argument("--sleep",type=Path,required=True)
-    p.add_argument("--authors",type=Path,required=True)
+    source=p.add_mutually_exclusive_group(required=True)
+    source.add_argument("--authors",type=Path,help="Archives for the legacy release")
+    source.add_argument("--paper",action="store_true",help="Completed paper-linked mGluR runs")
     p.add_argument("--out",type=Path,required=True)
     a=p.parse_args()
+    receipts={}
+    for condition,root in (("wake",a.wake),("sleep",a.sleep)):
+        path=root/"run_receipt.json"
+        if not path.is_file():
+            p.error(f"Awaiting the completed {condition} NEST receipt: {path}")
+        receipts[condition]=json.loads(path.read_text())
     a.out.mkdir(exist_ok=True,parents=True)
-    stimulus=a.authors/"simulations"/"fig0_wake_mode_stimuli"
-    stimulus_times=yaml.full_load((stimulus/"session_times.yml").read_text())
-    stimulus_start=stimulus_times["03_grating"][0]
-    stimulus_stop=max(end for _,end in stimulus_times.values())
-    stimulus_path=stimulus/"analysis"/"df_sw.csv"
-    amplitudes=archive_waves(stimulus_path,stimulus_start,stimulus_stop)[:,0]
-    if not len(amplitudes) or not np.all(np.isfinite(amplitudes)):
-        raise ValueError(f"Missing finite full-network stimulus wave amplitudes: {stimulus_path}")
-    thresholds=dict(fig4_p99=float(np.quantile(amplitudes,.99)),methods_maximum=float(amplitudes.max()))
+    bundle=a.out/"bugnon_counts.json.gz"
+    if bundle.exists():
+        raise FileExistsError(f"Use a fresh output directory to preserve the verified bundle: {bundle}")
+    thresholds=None
+    archive_info=None
+    if a.authors:
+        stimulus=a.authors/"simulations"/"fig0_wake_mode_stimuli"
+        stimulus_times=yaml.full_load((stimulus/"session_times.yml").read_text())
+        stimulus_start=stimulus_times["03_grating"][0]
+        stimulus_stop=max(end for _,end in stimulus_times.values())
+        stimulus_path=stimulus/"analysis"/"df_sw.csv"
+        amplitudes=archive_waves(stimulus_path,stimulus_start,stimulus_stop)[:,0]
+        if not len(amplitudes) or not np.all(np.isfinite(amplitudes)):
+            raise ValueError(f"Missing finite full-network stimulus wave amplitudes: {stimulus_path}")
+        thresholds=dict(fig4_p99=float(np.quantile(amplitudes,.99)),methods_maximum=float(amplitudes.max()))
+        archive_info=dict(source_sha256=digest(stimulus_path),stimulus_window_ms=[stimulus_start,stimulus_stop],
+                          candidate_waves=len(amplitudes),thresholds=thresholds)
     rows={}
     series={}
     timescales={}
     for label in ("wake","sleep"):
-        rows[label],series[label],timescales[label]=audit(getattr(a,label),a.authors,label,thresholds)
+        rows[label],series[label],timescales[label]=audit(getattr(a,label),receipts[label],a.authors,label,thresholds)
     wake_receipt,sleep_receipt=(rows[k]["receipt"] for k in ("wake","sleep"))
-    for field in ("global_seed","vp_seeds","topology_and_kernel_spec_sha256"):
+    fields=("global_seed","vp_seeds","topology_and_kernel_spec_sha256")
+    if a.paper:
+        fields+=("extension_sha256","initialization")
+    for field in fields:
         if wake_receipt[field]!=sleep_receipt[field]:
             raise ValueError(f"The two Bugnon conditions differ in {field}")
     with np.load(a.wake/"cortical_spike_record.npz") as wake, np.load(a.sleep/"cortical_spike_record.npz") as sleep:
@@ -367,22 +440,26 @@ def main():
         mask=types==kind
         w,s=wake_rates[mask],sleep_rates[mask]
         pearson=float(np.corrcoef(w,s)[0,1]) if w.std() and s.std() else None
-        rate_corr[kind]=dict(n=len(w),pearson=pearson,published_fig4a_r=reference)
+        rate_corr[kind]=dict(n=len(w),pearson=pearson,published_fig4a_r=reference,
+                             delta_vs_published=pearson-reference if pearson is not None and reference is not None else None)
     overlap=set(rows["wake"]["voltage"])&set(rows["sleep"]["voltage"])
     ratios={k:rows["sleep"]["voltage"][k]["band_power_mv2"]/rows["wake"]["voltage"][k]["band_power_mv2"]
             for k in sorted(overlap) if rows["wake"]["voltage"][k]["band_power_mv2"]>0}
-    gates={"layer_rate":all(rows[s]["median_absolute_log_rate_error"]<=np.log(1.5) and
-                          np.mean((np.asarray(rows[s]["rate_ratios"])>=.5)&
-                                  (np.asarray(rows[s]["rate_ratios"])<=2))>=.70 for s in rows),
-           "slow_modulation":bool(ratios) and np.median(list(ratios.values()))>=1.2,
-           "sleep_bouts":min(rows["sleep"]["episode_proxy"][k] for k in ("up_n","down_n"))>=10}
+    if a.paper:
+        gates=paper_physiology_gates(rows,(wake_rates,sleep_rates),types,rate_corr)
+    else:
+        gates={"layer_rate":all(rows[s]["median_absolute_log_rate_error"] is not None and
+                               rows[s]["median_absolute_log_rate_error"]<=np.log(1.5) and
+                               np.mean((np.asarray(rows[s]["rate_ratios"])>=.5)&
+                                       (np.asarray(rows[s]["rate_ratios"])<=2))>=.70 for s in rows),
+               "slow_modulation":bool(ratios and np.median(list(ratios.values()))>=1.2),
+               "sleep_bouts":min(rows["sleep"]["episode_proxy"][k] for k in ("up_n","down_n"))>=10}
+    case="paper_mglur" if a.paper else "legacy_archive"
     write(a.out/"bugnon_physiology.json",
-          dict(conditions=rows,physiology_pass=gates,slow_band_voltage_ratios=ratios,
+          dict(parameter_case=case,conditions=rows,physiology_pass=gates,slow_band_voltage_ratios=ratios,
                paired_cell_rate_correlations=rate_corr,
                paired_timescale_change_sleep_minus_wake=paired_timescales(timescales["wake"],timescales["sleep"],types),
-               archive_stimulus_thresholds=dict(source_sha256=digest(stimulus_path),
-                                                stimulus_window_ms=[stimulus_start,stimulus_stop],
-                                                candidate_waves=len(amplitudes),thresholds=thresholds)))
+               archive_stimulus_thresholds=archive_info))
     print("Bugnon physiology gate:",gates,flush=True)
     if not all(gates.values()):
         raise SystemExit("Author-model data retained. No Sooter stage until its gate passes.")
@@ -390,7 +467,7 @@ def main():
     subsets=list(fixed_subsamples(types))
     for cond,pop in series.items():
         m=rows[cond]["receipt"]
-        run=dict(model="BugnonEtAl2024",connectivity_seed=m["global_seed"],noise_seeds=m["vp_seeds"],
+        run=dict(model="BugnonEtAl2024",parameter_case=case,connectivity_seed=m["global_seed"],noise_seeds=m["vp_seeds"],
                  provenance_sha256=m["spike_record_sha256"])
         entry(cases,"bugnon_"+cond,cond,cond,"bugnon_original",[pop],
               n_units=m["neuron_count_recorded"],**run)
@@ -403,7 +480,9 @@ def main():
             entry(cases,name,cond,name,"bugnon_subsample",[counts[:,cols].sum(1)],
                   n_units=n,**selection,**run)
     raw=json.dumps(dict(physiology_pass=gates,cases=cases),separators=(",",":")).encode()
-    (a.out/"bugnon_counts.json.gz").write_bytes(gzip.compress(raw,mtime=0))
+    temp=bundle.with_suffix(".tmp")
+    temp.write_bytes(gzip.compress(raw,mtime=0))
+    temp.replace(bundle)
 
 
 if __name__=="__main__":
