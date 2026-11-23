@@ -9,6 +9,7 @@ from zipfile import ZipFile
 import numpy as np
 
 from physiology import digest, write
+from metrics import lag_cov
 
 PIN="f26c782dca3b1c9ab18cc92c6449591c44e0d507"
 
@@ -48,12 +49,28 @@ def read_artifact(path,receipt):
     assert str(fit["run_id"])==str(receipt["id"]) and fit["project_commit"]==receipt["commit"]
     assert fit["toolkit_commit"]==PIN and "R2024b" in fit["matlab"]
     assert plan["input_sha256"]==fit["input"]["sha256"]
-    assert plan["spec"]==[.04,5,10] and fit["settings"]["beta"]==2
-    assert fit["settings"]["fit_method"]=="YuleWalker"
+    settings=fit["settings"]
+    assert [settings[k] for k in ("bin_seconds","ar_order","long_ar_order")]==plan["spec"]==[.04,5,10]
+    assert settings["beta"]==2 and settings["fit_method"]=="YuleWalker"
     raw=fit["records"]
     records=raw if isinstance(raw,list) else [raw]
     assert len(records)==plan["records"]
     return records,fit,plan
+
+
+def verify_fit_input(record,blocks):
+    population=np.concatenate(blocks)
+    expected_lengths=[len(block) for block in blocks]
+    covariance=lag_cov(blocks,20,local=False)
+    acf=covariance[1:]/covariance[0] if covariance[0]>0 else np.full(20,np.nan)
+    for tag,order in (("fit",5),("long_reach",10)):
+        fit=record[tag]
+        assert fit["ar_order"]==order, (record["record"]["id"],tag)
+        np.testing.assert_array_equal(np.atleast_1d(fit["segment_bins"]),expected_lengths)
+        assert abs(fit["duration_s"]-len(population)*.04)<1e-8
+        assert np.isclose(fit["rate_hz"],population.mean()/.04,rtol=1e-10)
+        assert np.isclose(fit["count_variance"],population.var(),rtol=1e-10)
+        np.testing.assert_allclose(np.asarray(fit["observed_acf"],dtype=float),acf,atol=1e-10,rtol=1e-10)
 
 
 def paired(records):
@@ -123,16 +140,13 @@ def main():
         m=r["record"]
         z=orig.pop(m["id"])
         assert m=={k:v for k,v in z.items() if k!="counts"}
-        pop=np.concatenate(z["counts"])
-        q=r["fit"]
-        assert abs(q["duration_s"]-len(pop)*.04)<1e-8
-        assert np.isclose(q["rate_hz"],pop.mean()/.04,rtol=1e-10)
-        assert np.isclose(q["count_variance"],pop.var(),rtol=1e-10)
-        records.append(dict(**m,fit=info(q),ar10=info(r["long_reach"])))
+        verify_fit_input(r,z["counts"])
+        records.append(dict(**m,fit=info(r["fit"]),ar10=info(r["long_reach"])))
     assert not orig
     a.out.mkdir(exist_ok=True,parents=True)
     write(a.out/f"{a.prefix}_fits.json",dict(records=records,paired=paired(records)))
-    rc=dict(receipt,valid_originals=sum(r["category"]=="original" and r["fit"]["numerical_pass"] for r in records),
+    rc=dict(receipt,valid_originals=sum(r["category"] in ("original","bugnon_original")
+                                        and r["fit"]["numerical_pass"] for r in records),
             numerical_primary_pass=sum(r["fit"]["numerical_pass"] for r in records),n_cases=len(records),
             numerical_ar10_pass=sum(r["ar10"]["numerical_pass"] for r in records),
             toolkit_commit=PIN,matlab=full["matlab"],matlab_count_sha256=plan["input_sha256"],

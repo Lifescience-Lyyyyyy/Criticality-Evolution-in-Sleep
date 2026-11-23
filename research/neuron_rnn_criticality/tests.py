@@ -4,7 +4,8 @@ from tempfile import TemporaryDirectory
 import unittest
 import numpy as np
 
-from analyse_bugnon import archive_wave_stats
+from analyse_bugnon import archive_wave_stats, phase_spike_counts
+from join_fits import verify_fit_input
 from physiology import hmm,merge_short,periods
 from analyse_snn import components, pure_episodes, shifted
 
@@ -26,6 +27,26 @@ class ScientificChecks(unittest.TestCase):
         self.assertEqual(strict["above_threshold"],1)
         self.assertEqual(strict["median_down_half_slope_s"],.2)
         self.assertEqual(result["threshold_sensitivity"]["lower_threshold"]["largest_quartile"],1)
+
+    def test_bugnon_sessions_exclude_the_transition_from_stable_counts(self):
+        times=np.array([2500,2999.8,3000,4999.8,5000,5000.2,125000])
+        sessions={"wake":(1000,3000),"transition":(3000,5000),"sleep":(5000,125000)}
+        self.assertEqual(phase_spike_counts(times,sessions),{"wake":2,"transition":2,"sleep":2})
+
+    def test_fit_receipt_preserves_counts_and_segments(self):
+        rng=np.random.default_rng(7)
+        blocks=[rng.poisson(4,60).tolist(),rng.poisson(8,70).tolist()]
+        population=np.concatenate(blocks)
+        centered=[b-population.mean() for b in map(np.asarray,blocks)]
+        acf=[sum(x[:-k]@x[k:] for x in centered)/((len(population)-2*k)*population.var())
+             for k in range(1,21)]
+        fit=dict(segment_bins=[60,70],duration_s=5.2,rate_hz=population.mean()/.04,
+                 count_variance=population.var(),observed_acf=acf)
+        row={"record":{"id":"segments"},"fit":dict(fit,ar_order=5),"long_reach":dict(fit,ar_order=10)}
+        verify_fit_input(row,blocks)
+        row["long_reach"]["segment_bins"]=[130]
+        with self.assertRaises(AssertionError):
+            verify_fit_input(row,blocks)
 
     def test_detector_and_intervals(self):
         rng=np.random.default_rng(4)

@@ -13,7 +13,7 @@ import yaml
 from analyse_snn import BIN, cell_profiles, components, entry, profile, slim
 from metrics import population_metrics
 from physiology import digest, episode_stats, hmm, merge_short, write
-from run_bugnon import CASES, REPLICATE
+from run_bugnon import CASES, DENEST, NEST, REPLICATE
 
 STABLE={"wake":"02_noise","sleep":"03_sleep"}
 
@@ -145,15 +145,25 @@ def archive_wave_stats(reference,start,stop,thresholds):
                 candidate_wave_median_s=float(np.median(waves[:,1])/1000) if len(waves) else None)
 
 
+def phase_spike_counts(times,sessions):
+    return {name:int(np.count_nonzero((times>=start)&(times<stop)))
+            for name,(start,stop) in sessions.items()}
+
+
 def audit(root,authors,condition,thresholds):
     rec=json.loads((root/"run_receipt.json").read_text())
     assert rec["model_commit"]==REPLICATE and rec["condition"]==condition and rec["resolution_ms"]==.2
-    assert digest(authors/rec["parameter_source"])==rec["parameter_sha256"]
+    assert rec["denest_commit"]==DENEST and rec["nest_commit"]==NEST and rec["threads"]==5
+    author_dir=authors/"simulations"/CASES[condition]
+    param=author_dir/"parameter_tree.yml"
+    assert rec["parameter_source"]==str(param.relative_to(authors)) and digest(param)==rec["parameter_sha256"]
     times_path,=root.rglob("session_times.yml")
     sessions=yaml.full_load(times_path.read_text())
+    author_sessions=yaml.full_load((author_dir/"session_times.yml").read_text())
+    if sessions!=author_sessions:
+        raise ValueError(f"Session boundaries differ from the {condition} author archive: {sessions}")
     start,stop=sessions[STABLE[condition]]
-    assert stop-start==(60000 if condition=="wake" else 120000)
-    reference=authors/"simulations"/CASES[condition]/"analysis"
+    reference=author_dir/"analysis"
     with (reference/"df_rate_stats.csv").open() as f:
         refs={r["metadata_filename"]:r for r in csv.DictReader(f) if r["session"]==STABLE[condition]}
     with (reference/"df_cv_stats.csv").open() as f:
@@ -167,7 +177,10 @@ def audit(root,authors,condition,thresholds):
         ids=np.asarray(sorted(r["gids"]),dtype=np.int32)
         which=np.searchsorted(ids,a[:,0]).astype(np.int32)
         assert np.all(which<len(ids)) and np.array_equal(a[:,0],ids[which])
-        use=(a[:,1]>=start)&(a[:,1]<stop)
+        times=a[:,1]
+        use=(times>=start)&(times<stop)
+        by_session=phase_spike_counts(times,sessions)
+        assert by_session[STABLE[condition]]==np.count_nonzero(use)
         rates=np.bincount(which[use],minlength=len(ids))*1000/(stop-start)
         ref=refs[r["label"]]
         assert int(float(ref["count"]))==len(ids)
@@ -176,7 +189,8 @@ def audit(root,authors,condition,thresholds):
             mean_rate=float(rates.mean()),reference_mean=float(ref["mean"]),
             quantiles=np.quantile(rates,[.25,.5,.75]).tolist(),
             reference_quantiles=[float(ref[c]) for c in ("25%","50%","75%")],
-            zero_rate_fraction=float(np.mean(rates==0))))
+            zero_rate_fraction=float(np.mean(rates==0)),
+            spike_counts_by_session=by_session,spikes_outside_sessions=len(times)-sum(by_session.values())))
         corpus.append((ids,typ,r["layer_name"],a[use,1]-start,which[use]))
     assert stats and {x["type"] for x in stats}=={"PC","BC","MC"}
     id_all=np.concatenate([x[0] for x in corpus])
@@ -239,7 +253,8 @@ def audit(root,authors,condition,thresholds):
     state=merge_short(state,5)
     phases=episode_stats(state,q,0)
     ratios=[x["mean_rate"]/x["reference_mean"] for x in stats if x["reference_mean"]>0]
-    rec.update(duration_seconds=(stop-start)/1000,burn_in_seconds=start/1000,
+    rec.update(session_intervals_ms=sessions,stable_session=STABLE[condition],
+               duration_seconds=(stop-start)/1000,burn_in_seconds=start/1000,
                neuron_count_recorded=len(id_all),neuron_types=by_type,
                spike_record_sha256=digest(receipt_ref), spike_count_sha256=digest(count_path))
     voltage,lfp=cortical_vm(root,start,stop)
