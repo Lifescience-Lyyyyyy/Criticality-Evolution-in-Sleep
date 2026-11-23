@@ -485,6 +485,36 @@ def load_prepared_condition(path,condition):
     return data
 
 
+def verify_prepared_spikes(path,prepared):
+    """Rebin the transferred native timestamps independently of the Colab count matrix."""
+    receipt=prepared["summary"]["receipt"]
+    if digest(path)!=receipt["spike_record_sha256"]:
+        raise ValueError(f"Native spike archive checksum mismatch: {path}")
+    with np.load(path,allow_pickle=False) as spikes:
+        for field in ("neuron_ids","neuron_types","neuron_layers"):
+            np.testing.assert_array_equal(spikes[field],prepared[field])
+        offsets=spikes["spike_times_offsets"]
+        times=spikes["spike_times_seconds"]
+    n=len(prepared["neuron_ids"])
+    duration=receipt["duration_seconds"]
+    assert offsets.shape==(n+1,) and np.issubdtype(offsets.dtype,np.integer)
+    assert offsets[0]==0 and offsets[-1]==len(times) and (np.diff(offsets)>=0).all()
+    np.testing.assert_array_equal(np.diff(offsets)/duration,prepared["rates_hz"])
+    assert np.isfinite(times).all() and ((0<=times)&(times<duration)).all()
+    cells=np.repeat(np.arange(n),np.diff(offsets))
+    assert np.all(np.diff(times)[cells[1:]==cells[:-1]]>=0)
+    steps=np.rint(times/.0002).astype(np.int64)
+    np.testing.assert_allclose(times,steps*.0002,atol=1e-8,rtol=0)
+    use=steps<300_000
+    bins,cells=steps[use]//200,cells[use]
+    counts=[np.bincount(bins,minlength=1500)]
+    for _,_,cols in fixed_subsamples(prepared["neuron_types"]):
+        counts.append(np.bincount(bins[np.isin(cells,cols)],minlength=1500))
+    np.testing.assert_array_equal(counts,prepared["counts"])
+    return dict(sha256=receipt["spike_record_sha256"],neurons=n,stable_window_spikes=len(times),
+                compared_series=len(counts))
+
+
 def paper_physiology_gates(rows,rates,types,rate_corr):
     # Directional checks follow the reported regime without a numeric tolerance for Figure 4.
     pc,bc=types=="PC",types=="BC"

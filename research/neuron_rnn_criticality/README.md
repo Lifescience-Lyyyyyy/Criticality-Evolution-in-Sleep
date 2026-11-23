@@ -146,6 +146,8 @@ python "$A/analyse_bugnon.py" --prepared --wake "$TRANSFER/bugnon-wake-prepared.
   --sleep "$TRANSFER/bugnon-sleep-prepared.npz" --out "$CACHE/bugnon-paper-analysis"
 ```
 
+逐细胞原生尖峰另存为 `cortical_spike_record.npz`，可从执行端传回私有目录。函数 `verify_prepared_spikes` 将其与远程摘要的 SHA-256、GID、发放率和 7 条群体计数逐项复核。膜电位原文件留在执行端供重复提取。
+
 下载 Bugnon 的 MATLAB 产物后，在 `join_fits.py` 中使用 `--prefix bugnon --empirical-summary "$A/results/empirical_sensitivity.json"`。这样会将论文版 Sleep-like−Wake 与 DANDI 000041 的 NREM−Wake 方向比较写入拟合汇总。
 
 ## 交付

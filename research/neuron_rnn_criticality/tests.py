@@ -5,12 +5,13 @@ from tempfile import TemporaryDirectory
 import unittest
 import numpy as np
 
-from analyse_bugnon import (archive_wave_stats, load_prepared_condition, paired_timescales,
+from analyse_bugnon import (archive_wave_stats, fixed_subsamples, load_prepared_condition, paired_timescales,
                             paper_physiology_gates, paper_run_evidence, parameter_evidence,
-                            phase_spike_counts, save_prepared_condition, transition_crossings)
+                            phase_spike_counts, save_prepared_condition, transition_crossings,
+                            verify_prepared_spikes)
 from run_bugnon_paper import COMMIT as PAPER_COMMIT, session_overrides
 from join_fits import matching_directions, verify_fit_input
-from physiology import hmm,merge_short,periods
+from physiology import digest,hmm,merge_short,periods
 from analyse_snn import components, pure_episodes, shifted
 
 
@@ -78,6 +79,28 @@ class ScientificChecks(unittest.TestCase):
             path.with_suffix(".sha256").write_text("0"*64)
             with self.assertRaisesRegex(ValueError,"Checksum mismatch"):
                 load_prepared_condition(path,"wake")
+
+    def test_native_archive_rebins_every_transferred_series(self):
+        types=np.repeat(["PC","BC","MC"],[395,79,26])
+        ids=np.arange(len(types))
+        layers=np.repeat("L4",len(ids))
+        offsets=np.arange(len(ids)+1)
+        times=np.arange(len(ids))*.04
+        counts=np.zeros((7,1500),dtype=np.int64)
+        counts[0,ids]=1
+        for i,(_,_,cols) in enumerate(fixed_subsamples(types),1):
+            counts[i,cols]=1
+        with TemporaryDirectory() as temp:
+            path=Path(temp)/"spikes.npz"
+            np.savez_compressed(path,neuron_ids=ids,neuron_types=types,neuron_layers=layers,
+                                spike_times_offsets=offsets,spike_times_seconds=times)
+            data=dict(summary={"receipt":{"spike_record_sha256":digest(path),"duration_seconds":120}},
+                      neuron_ids=ids,neuron_types=types,neuron_layers=layers,rates_hz=np.full(len(ids),1/120),
+                      counts=counts)
+            self.assertEqual(verify_prepared_spikes(path,data)["compared_series"],7)
+            data["counts"][-1,0]+=1
+            with self.assertRaises(AssertionError):
+                verify_prepared_spikes(path,data)
 
     def test_paper_fit_gate_requires_sleep_specific_physiology(self):
         types=np.array(["PC","PC","PC","BC","BC","MC"])
