@@ -123,6 +123,31 @@ def paired(records):
     return result
 
 
+def count_directions(values):
+    present=[x for x in values if x is not None]
+    return dict(higher=sum(x>0 for x in present),lower=sum(x<0 for x in present),
+                equal=sum(x==0 for x in present),unavailable=len(values)-len(present))
+
+
+def matching_directions(pairs,empirical):
+    windows={}
+    for window in ("w1_60s","w2_60s","w3_60s"):
+        reference=empirical["N10_"+window]["animal_deltas"]
+        windows[window]={order:count_directions([delta[i] for delta in reference.values()])
+                         for i,order in enumerate(("ar5","ar10"))}
+    small=[p for p in pairs if p["n_units"]==10]
+    if {p["sample_seed"] for p in small}!={2401,2402,2403} or len(small)!=3:
+        raise ValueError("Expected the three preregistered N=10 Bugnon technical subsamples")
+    model={}
+    for order,tag in (("ar5","fit"),("ar10","ar10")):
+        changes=[p["delta_sleep_minus_wake"][tag] for p in small]
+        values=[x for x in changes if x is not None]
+        model[order]=dict(**count_directions(changes),
+                          median_bits_per_second=float(np.median(values)) if values else None)
+    return dict(n_units=10,duration_seconds=60,bin_seconds=.04,
+                model_networks=1,model_technical_subsamples=model,reference_animals=windows)
+
+
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("bundle",type=Path)
@@ -130,6 +155,7 @@ def main():
     p.add_argument("receipt",type=Path)
     p.add_argument("out",type=Path)
     p.add_argument("--prefix",default="baseline")
+    p.add_argument("--empirical-summary",type=Path,help="Existing DANDI sensitivity results for Bugnon comparison")
     a=p.parse_args()
     receipt=json.loads(a.receipt.read_text())
     runs,full,plan=read_artifact(a.zip,receipt)
@@ -144,7 +170,16 @@ def main():
         records.append(dict(**m,fit=info(r["fit"]),ar10=info(r["long_reach"])))
     assert not orig
     a.out.mkdir(exist_ok=True,parents=True)
-    write(a.out/f"{a.prefix}_fits.json",dict(records=records,paired=paired(records)))
+    pairs=paired(records)
+    if a.empirical_summary:
+        if "bugnon_sleep_minus_wake" not in pairs:
+            p.error("--empirical-summary applies to a paired Bugnon fit")
+        small=[z for z in records if z["category"]=="bugnon_subsample" and z["n_units"]==10]
+        assert all(z["duration_seconds"]==60 and z["bin_seconds"]==.04 for z in small)
+        observed=json.loads(a.empirical_summary.read_text())
+        comparisons=matching_directions(pairs["bugnon_sleep_minus_wake"],observed)
+        pairs["bugnon_vs_dandi_direction"]=dict(**comparisons,empirical_sha256=digest(a.empirical_summary))
+    write(a.out/f"{a.prefix}_fits.json",dict(records=records,paired=pairs))
     rc=dict(receipt,valid_originals=sum(r["category"] in ("original","bugnon_original")
                                         and r["fit"]["numerical_pass"] for r in records),
             numerical_primary_pass=sum(r["fit"]["numerical_pass"] for r in records),n_cases=len(records),

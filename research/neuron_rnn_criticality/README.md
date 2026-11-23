@@ -146,6 +146,8 @@ python "$A/analyse_bugnon.py" --prepared --wake "$TRANSFER/bugnon-wake-prepared.
   --sleep "$TRANSFER/bugnon-sleep-prepared.npz" --out "$CACHE/bugnon-paper-analysis"
 ```
 
+下载 Bugnon 的 MATLAB 产物后，在 `join_fits.py` 中使用 `--prefix bugnon --empirical-summary "$A/results/empirical_sensitivity.json"`。这样会将论文版 Sleep-like−Wake 与 DANDI 000041 的 NREM−Wake 方向比较写入拟合汇总。
+
 ## 交付
 
 | 文件 | 内容 |

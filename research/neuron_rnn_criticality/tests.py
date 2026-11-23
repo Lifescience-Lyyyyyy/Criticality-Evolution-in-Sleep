@@ -9,7 +9,7 @@ from analyse_bugnon import (archive_wave_stats, load_prepared_condition, paired_
                             paper_physiology_gates, paper_run_evidence, parameter_evidence,
                             phase_spike_counts, save_prepared_condition, transition_crossings)
 from run_bugnon_paper import COMMIT as PAPER_COMMIT, session_overrides
-from join_fits import verify_fit_input
+from join_fits import matching_directions, verify_fit_input
 from physiology import hmm,merge_short,periods
 from analyse_snn import components, pure_episodes, shifted
 
@@ -113,6 +113,16 @@ class ScientificChecks(unittest.TestCase):
         times=np.array([2500,2999.8,3000,4999.8,5000,5000.2,125000])
         sessions={"wake":(1000,3000),"transition":(3000,5000),"sleep":(5000,125000)}
         self.assertEqual(phase_spike_counts(times,sessions),{"wake":2,"transition":2,"sleep":2})
+
+    def test_matched_directions_keep_unavailable_fits_and_technical_replicates(self):
+        pairs=[dict(n_units=10,sample_seed=seed,delta_sleep_minus_wake={"fit":value,"ar10":None})
+               for seed,value in zip((2401,2402,2403),(.2,-.1,None),strict=True)]
+        empirical={f"N10_w{i}_60s":{"animal_deltas":{"a":[-.2,0],"b":[.1,None]}} for i in range(1,4)}
+        result=matching_directions(pairs,empirical)
+        self.assertEqual(result["model_networks"],1)
+        self.assertEqual(result["model_technical_subsamples"]["ar5"]["unavailable"],1)
+        self.assertEqual(result["model_technical_subsamples"]["ar10"]["unavailable"],3)
+        self.assertEqual(result["reference_animals"]["w1_60s"]["ar10"]["equal"],1)
 
     def test_fit_receipt_preserves_counts_and_segments(self):
         rng=np.random.default_rng(7)
