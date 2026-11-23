@@ -1,0 +1,115 @@
+{
+  "jercog": {
+    "doi": "10.7554/eLife.22425",
+    "repository": "https://github.com/djercog/JercogEtAl2017",
+    "commit": "11603e5a32e71664aee8b0d2945ef7ec40d61b37",
+    "source": "spikingModel/main.cpp",
+    "author_conditions": {
+      "figure7": {
+        "switch": 1,
+        "Ie": 7.6,
+        "Ii": 6.5,
+        "Je_adaptation": 15,
+        "exc_synaptic_rise_ms": 8,
+        "exc_synaptic_decay_ms": 23,
+        "kick_amplitude": 220
+      },
+      "figure7_supp2": {
+        "switch": 0,
+        "Ie": 13.2,
+        "Ii": 12.5,
+        "Je_adaptation": 10,
+        "exc_synaptic_rise_ms": 2,
+        "exc_synaptic_decay_ms": 3,
+        "kick_amplitude": 0
+      }
+    },
+    "shared": {
+      "counts": {
+        "E": 4000,
+        "I": 1000
+      },
+      "dt_ms": 0.05,
+      "raster_units": {
+        "E": 4000,
+        "I": 1000
+      },
+      "reset": 14,
+      "threshold": 20,
+      "tau_membrane_ms": {
+        "E": 20,
+        "I": 10
+      },
+      "sigma_membrane": {
+        "E": 2.5,
+        "I": 2.5
+      },
+      "tau_adaptation_ms": 500,
+      "inhib_synaptic_rise_and_decay_ms": [
+        1,
+        1
+      ],
+      "model_coefficients": {
+        "Jee": 0.07,
+        "Jei": 0.07,
+        "Jie": 0.125,
+        "Jii": 0.1
+      },
+      "kick_mean_interval_ms": 400,
+      "kick_duration_ms": 2,
+      "kick_target_counts": {
+        "E": 401,
+        "I": 101
+      },
+      "kick_relative_gain_during_up": 0.5,
+      "kick_relative_gain_for_I": 0.4
+    },
+    "topology": "All-to-all population coupling. Author generates 1000 E and I delay indices; the E delay sequence is repeated through the 4000 cells. Ring buffer update and delay quantization preserved.",
+    "seeds": [
+      {
+        "delays": 1729,
+        "noise": 3401
+      },
+      {
+        "delays": 2718,
+        "noise": 3402
+      },
+      {
+        "delays": 3141,
+        "noise": 3403
+      }
+    ]
+  },
+  "bugnon": {
+    "doi": "10.1111/ejn.15836",
+    "paper_version": 2024,
+    "replicate_commit": "028ce0aad1b9a9fa002341a43728c2be79bbfc48",
+    "replicate_repository": "https://github.com/TomBugnon/MC_sleep_replicate",
+    "denest_branch_commit": "d8facf6323aa95151398ee4945623147e33491a8",
+    "denest_reproduction_commit": "9bbec4c9b45c028c651429a08c140921b2d44e16",
+    "nest_release": "2.20.0",
+    "nest_commit": "37722d5e35a19bcd2103025b7a581cc76f6dd5fc",
+    "extension": "ht_neuron_minis_GABA_B1a_soft_gap_noprelimspike",
+    "kernel_base_seed": 94,
+    "author_cases": {
+      "wake": "fig0_wake_mode_spontaneous (02_noise)",
+      "sleep": "fig0_sleep_mode (03_sleep)"
+    }
+  },
+  "krishnan": {
+    "doi": "10.7554/eLife.18607",
+    "repository": "https://github.com/bazhlab-ucsd/sleep-stage-transition",
+    "scope": "Deferred three-state candidate. Reuse prior feasibility and one-second smoke audit."
+  },
+  "estimator": {
+    "commit": "f26c782dca3b1c9ab18cc92c6449591c44e0d507",
+    "matlab": "R2024b",
+    "beta": 2,
+    "bin_seconds": 0.04,
+    "method": "YuleWalker",
+    "ar": [
+      5,
+      10
+    ]
+  }
+}

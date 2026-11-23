@@ -78,8 +78,33 @@ def pulse(out, original_raw, native, exe, info, workers):
 
     with ThreadPoolExecutor(max_workers=workers) as pool:
         rows=list(pool.map(one,tasks))
-    write(out/"pulses.json",rows)
+    write(out/"pulses.json",spread(rows,original_raw,out))
     print("Pulse pairs verified",len(rows),flush=True)
+
+
+def spread(pulses, original_raw, pulse_raw):
+    """Compare how many cells change spike count after the precisely paired pulse."""
+    for z in pulses:
+        c,n=z["connectivity_seed"],z["noise_seed"]
+        name=f"{z['condition']}-c{c}-n{n}"
+        _,a=read_record(original_raw/name)
+        _,b=read_record(pulse_raw/f"pulse_{z['pre_state']}"/name)
+        start=round(z["pulse_time_s"]/DT)
+        for grp,typ,cols,total in (("target_E","E",slice(0,401),4000),
+                                   ("untargeted_E","E",slice(401,4000),4000),
+                                   ("I","I",slice(0,1000),1000)):
+            for length in (.05,.25):
+                values=[]
+                for v in (a[typ],b[typ]):
+                    ix=(v[:,0]>=start)&(v[:,0]<start+round(length/DT))
+                    values.append(np.bincount(v[ix,1],minlength=total)[cols])
+                ref,pulse=values
+                name=f"cells_{round(1000*length)}ms"
+                z["groups"][grp][name]=dict(n=len(ref),
+                    increased=int(np.count_nonzero(pulse>ref)),
+                    decreased=int(np.count_nonzero(pulse<ref)),
+                    new=int(np.count_nonzero((pulse>0)&(ref==0))))
+    return pulses
 
 
 def perturb(out, exe, info, workers):
@@ -87,7 +112,19 @@ def perturb(out, exe, info, workers):
 
     def one(case):
         label,setting,k,n=case
-        raw=simulate(exe,info,out/"raw"/label,"figure7",(k,n),100,setting=(*setting,-1,100))
+        raw=out/"raw"/label/f"figure7-c{k}-n{n}"
+        if (raw/"manifest.json").is_file():
+            manifest,_=read_record(raw)
+            assert manifest["provenance"]["simulation_argv"][5:]==list(map(str,(*setting,-1,100)))
+            assert manifest["provenance"]["build"]["source_sha256"]==info["source_sha256"]
+        else:
+            if raw.exists():
+                target=out/"interrupted"/label/raw.name
+                target.parent.mkdir(exist_ok=True,parents=True)
+                if target.exists():
+                    raise FileExistsError(target)
+                raw.rename(target)
+            raw=simulate(exe,info,raw.parent,"figure7",(k,n),100,setting=(*setting,-1,100))
         phys=compare(raw,out/"native"/label)
         a=out/"native"/label/raw.name
         m=phys["manifest"]

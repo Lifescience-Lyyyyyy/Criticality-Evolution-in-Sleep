@@ -104,7 +104,7 @@ def simulate(executable, build_info, output, condition, seeds, seconds, setting=
     started = monotonic()
     with (path / "console.log").open("wb") as log:
         subprocess.run(command, cwd=path, check=True, stdout=log, stderr=subprocess.STDOUT,
-                       timeout=max(600, 12 * seconds))
+                       timeout=max(600, 24 * seconds))
     files = {p.name: digest(p) for p in sorted(path.glob("*.bin"))}
     if len(files) != 7:
         raise ValueError(f"{path.name}: expected seven native outputs, got {list(files)}")

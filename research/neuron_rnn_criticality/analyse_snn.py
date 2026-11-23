@@ -210,6 +210,41 @@ def empirical(cases):
     return rows
 
 
+def epoch_qc(native,dst):
+    """Test how much population memory remains after centering each episode."""
+    phys=json.loads((native/"physiology.json").read_text())
+    out=[]
+    for run in phys["runs"]:
+        m=run["manifest"]
+        k=f"{m['condition']}-c{m['connectivity_seed']}-n{m['simulation_seed']}"
+        root=native/k
+        matrix=root/"neuron_dynamics_40ms.npz"
+        with np.load(matrix,allow_pickle=False) as source:
+            counts=source["counts"]
+        with np.load(root/"states.npz",allow_pickle=False) as features:
+            epochs=pure_episodes(features["up_mask"])
+        for label,val in (("up",1),("down",0)):
+            blocks=[counts[a:b] for st,a,b in epochs if st==val and b-a>=8]
+            if not blocks:
+                continue
+            lags=min(25,max(map(len,blocks))-1)
+            total=lag_cov([x.sum(1) for x in blocks],lags)
+            auto=np.zeros_like(total)
+            for i in range(0,SIZE,100):
+                auto+=lag_cov([x[:,i:i+100] for x in blocks],lags).sum(1)
+            dz=total-auto
+            assert np.allclose(auto+dz,total)
+            acf=total/total[0] if total[0]>0 else np.full_like(total,np.nan)
+            t=integrated(acf,BIN)[0] if total[0]>0 else None
+            exposure=[sum(max(0,len(x)-j) for x in blocks) for j in range(lags+1)]
+            out.append(dict(condition=m["condition"],connectivity_seed=m["connectivity_seed"],
+                episode=label,n_episodes=len(blocks),lag_seconds=(np.arange(lags+1)*BIN).tolist(),
+                valid_pairs=exposure,acf=acf.tolist(),tau_integrated_s=t,
+                covariance=profile(auto,dz,total)))
+    write(dst,out)
+    return out
+
+
 def pack_input(bundle_path,dst):
     with gzip.open(bundle_path,"rt",encoding="utf-8") as f:
         doc=json.load(f)
@@ -222,12 +257,15 @@ def pack_input(bundle_path,dst):
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument("mode",choices=("analysis","fixture"))
+    p.add_argument("mode",choices=("analysis","fixture","epochs"))
     p.add_argument("source",type=Path)
     p.add_argument("out",type=Path)
     a=p.parse_args()
     if a.mode=="fixture":
         pack_input(a.source,a.out)
+        return
+    if a.mode=="epochs":
+        epoch_qc(a.source,a.out)
         return
     phys=json.loads((a.source/"physiology.json").read_text())
     eligible=[q for q in phys["runs"] if phys["passes"][q["manifest"]["condition"]]]
