@@ -110,7 +110,20 @@ Bugnon 的公开复现资料固定了自发 Wake 和 Sleep-like 参数树、deNE
 | 全网候选波周期中位数，s | 0.330 | 0.885 |
 | 群体尖峰 HMM 的 UP／DOWN 均长，s | 0.128／0.247 | 0.325／0.720 |
 
-候选波以相邻负谷的间隔计时。HMM 用 10 ms 尖峰计数作分段，睡眠样条件有 114 个完整 UP 和 114 个完整 DOWN，E/I 发放率及 PyC 膜电位都随分段表现出预登记的状态差异。清醒条件的 HMM 指标只用于描述该计数序列。局部同步性对照覆盖中央 L4 的 72 个 PyC。56 个候选波有至少两个细胞可检测到成对转折，跨细胞时间标准差的逐波中位数为 UP→DOWN 45.8 ms、DOWN→UP 139.3 ms，同波差值中位数为 94.2 ms。附录 S1 的精确阈值仍缺少核验，这些量属于使用 10 ms 膜电位的独立复现对照。[Bugnon 等图 4、图 7 与方法 2.19–2.21](https://onlinelibrary.wiley.com/doi/10.1111/ejn.15836)
+候选波以相邻负谷的间隔计时。HMM 用 10 ms 尖峰计数作分段，睡眠样条件有 114 个完整 UP 和 114 个完整 DOWN，E/I 发放率及 PyC 膜电位都随分段表现出预登记的状态差异。清醒条件的 HMM 指标只用于描述该计数序列。局部同步性对照覆盖中央 L4 的 72 个 PyC。56 个候选波有至少两个细胞可检测到成对转折，跨细胞时间标准差的逐波中位数为 UP→DOWN 45.8 ms、DOWN→UP 139.3 ms，同波差值中位数为 94.2 ms。将选波比例改为幅度最高的 25%、50% 或 75%，同波差值的中位数为 91.4、94.2、88.3 ms，描述性方向一致。附录 S1 的精确阈值仍缺少核验，这些量属于使用 10 ms 膜电位的独立复现对照。[Bugnon 等图 4、图 7 与方法 2.19–2.21](https://onlinelibrary.wiley.com/doi/10.1111/ejn.15836)
+
+### Bugnon 的临界距离与实测对照
+
+通过生理验收后，分析使用两态各自稳定段的前 60 s。两台 Colab 从归档的 3,308,967 条 Wake 尖峰和 4,243,342 条 Sleep-like 尖峰独立重建 14 条 40 ms 群体计数，逐箱与 MATLAB 输入一致。固定的 Sooter 工具箱在 MATLAB R2024b Update 10 上对 14 条序列成功求解 AR(5) 和 AR(10)。[原生尖峰校验](results/bugnon_source_verification.json) · [拟合批次](https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep/actions/runs/45181422711) · [图 5](figures/05_bugnon_author_conditions.pdf)
+
+| 23,816 个皮层单元，d₂（bits/s） | Wake | Sleep-like | Sleep-like − Wake |
+|---|---:|---:|---:|
+| AR(5) | 4.480 | 1.398 | −3.082 |
+| AR(10) | 1.811 | 1.864 | +0.052 |
+
+全体单元的条件排序随 AR 阶数反转。Sleep-like 的 AR(5) 残差自相关和峰度均触发警告。AR(10) 仍有峰度警告，残差超额峰度分别为 4.99 和 5.25。两态的三份固定 10 单元子样本在两种阶数下均表现为 Sleep-like 较低，配对差中位数分别为 −1.30 和 −0.25 bits/s。500 单元子样本在 AR(5) 下方向一致，在 AR(10) 下方向混合。子样本均来自同一网络实例。DANDI 的四只大鼠以前 60 s 同样抽取 10 单元时，两种阶数均有 3 只动物的 NREM 较低。随后两个连续窗口的动物方向变化较大。模型和实测各自在其观测条件下支持方向比较。[拟合和 DANDI 对照](results/bugnon_fits.json) · [求解及残差记录](results/bugnon_full_matlab.json.gz)
+
+睡眠样条件的零时滞群体方差中，跨细胞协方差项占 99.83%，清醒为 78.77%。40 ms 的群体相关系数由 −0.256 转为 +0.637，群体正滞后积分时间尺度由 20.0 ms 升至 121.6 ms。两态均可估计积分时间尺度的 231 个 PyC 和 3,659 个 BaC 中，配对中位变化分别为 +25.1 和 +37.5 ms。单细胞时间结构和群体协同均随状态改变，跨细胞项主导群体方差增加。以上协方差是群体计数的线性分解，d₂ 仍由非线性估计器独立求解。该结果来自一个配对网络实例和作者的一套随机种子。[协方差和时间尺度](results/bugnon_physiology.json)
 
 Krishnan/Fink 三态分析沿用上一阶段的可行性审计，候选的正式三态比较在后续进行。[Bugnon 论文](https://doi.org/10.1111/ejn.15836) · [作者复现资料](https://github.com/TomBugnon/MC_sleep_replicate) · [三态可行性审计](../sleep_model_benchmark/reports/)
 

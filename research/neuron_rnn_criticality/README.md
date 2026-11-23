@@ -155,6 +155,11 @@ python "$A/analyse_bugnon.py" --prepared --wake "$TRANSFER/bugnon-wake-prepared.
 
 逐细胞原生尖峰另存为 `cortical_spike_record.npz`，可从执行端传回私有目录。函数 `verify_prepared_spikes` 将其与远程摘要的 SHA-256、GID、发放率和 7 条群体计数逐项复核。膜电位原文件留在执行端供重复提取。 睡眠样条件的局部 L4 膜电位与汇总突触电流每 10 ms 采样一次，写入 `local_cortical_voltage_10ms.npz`。文件同时保存单元 ID、时间和各点样本数，校验值随同步性摘要归档。
 
+两态稳定段的原生尖峰、逐细胞数组和运行回执均已上传至项目私有 Google Drive。归档内附逐文件校验值。本地归档的 SHA-256 如下。
+
+- `bugnon-wake-d8facf6-native.zip` 的 SHA-256 为 `5cab728d0c205205df0787781905eb8093dbe85f0c5c5beef9636d3149fa0349`。
+- `bugnon-sleep-d8facf6-native.zip` 的 SHA-256 为 `2edb0d48e0f0fcf4262cdabe3ad06336501f0fdb1c60c0962c5785d5b80fb514`。
+
 下载 Bugnon 的 MATLAB 产物后，在 `join_fits.py` 中使用 `--prefix bugnon --empirical-summary "$A/results/empirical_sensitivity.json"`。这样会将论文版 Sleep-like−Wake 与 DANDI 000041 的 NREM−Wake 方向比较写入拟合汇总。
 
 ## 交付
@@ -167,6 +172,7 @@ python "$A/analyse_bugnon.py" --prepared --wake "$TRANSFER/bugnon-wake-prepared.
 | [图 1 原生尖峰和 UP/DOWN](figures/01_original_rasters.pdf) · [图 2 时间尺度](figures/02_timescales.pdf) | 两种原作者条件的 E/I 活动和逐单元／群体比较 |
 | [图 3 协方差分解](figures/03_covariance_decomposition.pdf) · [图 4 窗内循环移位](figures/04_circular_shift.pdf) | 自项、跨单元项、群体 ACF 与配对 d₂ |
 | [片段内动力学](results/episode_conditioned.json) · [图 6 配对脉冲](figures/06_paired_pulse_response.pdf) | 连续状态段的 ACF 与协方差，12 个脉冲与对照的传播、峰值和恢复 |
+| [Bugnon 生理结果](results/bugnon_physiology.json) · [原生计数校验](results/bugnon_source_verification.json) · [MATLAB 结果](results/bugnon_fits.json) · [图 5](figures/05_bugnon_author_conditions.pdf) | 作者 Wake/Sleep-like 配对、慢波和神经元统计、AR 阶数及 DANDI 对照 |
 | [参数扰动](results/perturbations.json) · [参数拟合](results/perturb_fits.json) · [单元率与事件](results/rate_and_events.json) | 12 个配对参数实例的状态、估计器与事件细节 |
 | [参数脉冲](results/parameter_pulses.json) · [图 8](figures/08_parameter_sensitivity.pdf) | 24 个配对脉冲及其恢复、传播和每个网络的参数敏感性 |
 | [实测采样敏感性](results/empirical_sensitivity.json) · [图 7](figures/07_empirical_sampling.pdf) | 4 只大鼠在固定单元数、全部单元和不同连续时长的同动物对照 |

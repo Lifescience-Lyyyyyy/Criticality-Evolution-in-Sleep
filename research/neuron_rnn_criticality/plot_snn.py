@@ -318,7 +318,7 @@ def bugnon_plot(physiology, fits, out):
     rates.set(title="Cortical rates by recorded population",
               xlabel="Wake rate (Hz/cell)" if paper else "Author archive rate (Hz/cell)",
               ylabel="Sleep-like rate (Hz/cell)" if paper else "Replayed rate (Hz/cell)",
-              xlim=(0,bounds),ylim=(0,bounds))
+              xlim=(-.035*bounds,bounds),ylim=(-.035*bounds,bounds))
     power.axvspan(.5,2,color="#D3E7DB",alpha=.4)
     power.set(title="Pyramidal LFP proxy" if show_lfp else "Cortical membrane voltage",
               xscale="log",yscale="log",xlabel="Frequency (Hz)",
