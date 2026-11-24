@@ -1,5 +1,5 @@
 """Anatomical crosswalk and dataset context for the Phase 11 read-only export."""
-BASE = "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep"
+BASE = "https://github.com/Lifescience-Lyyyyyy/Criticality-in-Sleep"
 SOURCE_COMMIT = "a834a85ce765dfb2fb77f267ffd3410c64a1f339"
 PIN = "f26c782dca3b1c9ab18cc92c6449591c44e0d507"
 STATES = ("Wake", "NREM", "REM")

@@ -11,7 +11,7 @@ import {
 } from "./data";
 import "./style.css";
 
-const REPO = "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep";
+const REPO = "https://github.com/Lifescience-Lyyyyyy/Criticality-in-Sleep";
 const VIEWS: Record<View, string> = { NW: "Wake / NREM", RN: "NREM / REM", RW: "Wake / REM", all: "三态" };
 
 function RegionIndex({ regions, region, contrast, select }: {

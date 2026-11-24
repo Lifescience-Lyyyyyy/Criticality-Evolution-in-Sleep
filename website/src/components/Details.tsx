@@ -5,7 +5,7 @@ import {
   amount, average, DELTA, PAIRS, signed, SPEC, SPECIES, STATES, WARNING,
 } from "../data";
 
-const SOURCE = "https://github.com/Lifescience-Lyyyyyy/Criticality-Evolution-in-Sleep";
+const SOURCE = "https://github.com/Lifescience-Lyyyyyy/Criticality-in-Sleep";
 const AUDIT = SOURCE + "/blob/main/reports/26_targeted_validation.md";
 const STATUS: Record<string, string> = {
   CONFIRMED_IMPACT: "已确认有影响", NO_OBSERVED_IMPACT: "抽样未观察到影响",
